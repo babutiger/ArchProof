@@ -1,0 +1,4 @@
+panel,model,verdict_phaseC_IBP,ibp_eps,ibp_finite,ibp_sec,crown_eps,crown_finite,crown_sec,recoverable_by_CROWN,CROWN_tightens_finite_IBP
+phase_c_uncert,efficientnet_b0,UNCERTIFIED,6.764709663400336e+29,False,26.638617992401123,,False,0.7681710720062256,False,False
+phase_c_uncert,glu_net,UNCERTIFIED,3.6320061251171865e+300,False,0.06203889846801758,1.332411527633667,True,0.12952160835266113,True,False
+phase_c_uncert,regnet_y_400mf,UNCERTIFIED,4.23164845196532e+29,False,4.094595909118652,,False,0.054029226303100586,False,False

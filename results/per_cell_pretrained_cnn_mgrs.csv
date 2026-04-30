@@ -1,0 +1,13 @@
+backbone,gate_type,weight_init,k_total,k_removed,eps_before,verdict_before,eps_after,verdict_after,achieved,reduction_ratio,verify_before_sec,verify_after_sec
+resnet18,sep_tar,pretrained,1,1,2.4992616225745968e+40,add-DGP-CERTIFIED-POSITIVE,0.0,add-DGP-CLASS-NEGATIVE,True,1.0,5.58,7.07
+resnet18,sha_un,pretrained,2,2,2.6778249093964556e+40,add-DGP-CERTIFIED-POSITIVE,0.0,add-DGP-CLASS-NEGATIVE,True,1.0,6.25,5.45
+resnet18,int_un,pretrained,3,3,7.148640365004464e+59,add-DGP-CERTIFIED-POSITIVE,0.0,add-DGP-CLASS-NEGATIVE,True,1.0,6.09,6.36
+resnet50,sep_tar,pretrained,1,1,1.735246336778808e+97,add-DGP-CERTIFIED-POSITIVE,0.0,add-DGP-CLASS-NEGATIVE,True,1.0,14.52,15.62
+resnet50,sha_un,pretrained,2,2,1.7843344496812537e+97,add-DGP-CERTIFIED-POSITIVE,0.0,add-DGP-CLASS-NEGATIVE,True,1.0,14.24,13.88
+resnet50,int_un,pretrained,3,3,1.0758744589325982e+145,add-DGP-CERTIFIED-POSITIVE,0.0,add-DGP-CLASS-NEGATIVE,True,1.0,15.41,14.81
+mobilenet_v2,sep_tar,pretrained,1,1,1706.9522192459708,add-DGP-CERTIFIED-POSITIVE,0.0,add-DGP-CLASS-NEGATIVE,True,1.0,21.96,21.65
+mobilenet_v2,sha_un,pretrained,2,2,1552.8373338660958,add-DGP-CERTIFIED-POSITIVE,0.0,add-DGP-CLASS-NEGATIVE,True,1.0,21.71,21.87
+mobilenet_v2,int_un,pretrained,3,3,15242.343714447561,add-DGP-CERTIFIED-POSITIVE,0.0,add-DGP-CLASS-NEGATIVE,True,1.0,21.93,21.75
+efficientnet_b0,sep_tar,pretrained,1,1,6.48947520504751e+100,add-DGP-CERTIFIED-POSITIVE,9.183304822889509e+37,add-DGP-CERTIFIED-POSITIVE,False,1.0,22.87,22.76
+efficientnet_b0,sha_un,pretrained,2,2,6.133333247581676e+100,add-DGP-CERTIFIED-POSITIVE,1.1840245044943639e+38,add-DGP-CERTIFIED-POSITIVE,False,1.0,22.98,23.19
+efficientnet_b0,int_un,pretrained,3,3,2.758050395090012e+150,add-DGP-CERTIFIED-POSITIVE,1.081070968518353e+38,add-DGP-CERTIFIED-POSITIVE,False,1.0,22.81,22.72

@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Conda / venv
+env/
+venv/
+.env
+
+# Logs / runtime artifacts
+*.log
+*.out
+nohup.out
+logs/
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*~
+
+# Large benchmark weights (not redistributed; see BENCHMARK_MANIFEST.json)
+benchmark/onnx/
+benchmark/7b_onnx/
+benchmark/7b_gate_onnx/
+benchmark/7b_onnx_injected/
+benchmark/clean/
+*.onnx
+*.bin
+*.safetensors
+
+# LaTeX residue (paper not in this artifact)
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.toc
+*.synctex.gz

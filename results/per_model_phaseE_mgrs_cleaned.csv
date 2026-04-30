@@ -1,0 +1,6 @@
+llm,verdict,epsilon,n_admitted,n_rescue_pre,n_rescue_payload,verify_sec,status
+gpt-j-6b,add-DGP-CLASS-NEGATIVE,0.0,0,0,0,66.6,ok
+yi-6b,add-DGP-CLASS-NEGATIVE,0.0,0,0,0,148.7,ok
+deepseek-7b,add-DGP-CLASS-NEGATIVE,0.0,0,0,0,172.1,ok
+mistral-7b,add-DGP-CLASS-NEGATIVE,0.0,0,0,0,198.7,ok
+qwen2-7b,add-DGP-CLASS-NEGATIVE,0.0,0,0,0,220.0,ok

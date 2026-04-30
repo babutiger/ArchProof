@@ -1,0 +1,6 @@
+llm,phase_reached,fail_mode,wall_sec,exit_code,peak_rss_mb,error_msg
+gpt-j-6b,killed,timeout_or_oom_kill,600,137,20770,"exit=137 (timeout=600 or kernel-OOM);"
+yi-6b,onnx_loaded,onnx2pytorch_fail,38.3,0,24183,"NotImplementedError: Conversion not implemented for op_type=Trilu.;"
+deepseek-7b,onnx_loaded,onnx2pytorch_fail,43.1,0,28004,"NotImplementedError: Conversion not implemented for op_type=Trilu.;"
+mistral-7b,proc_died,proc_error,0,139,111654,"exit=139;"
+qwen2-7b,onnx_loaded,onnx2pytorch_fail,48.5,0,31189,"NotImplementedError: Conversion not implemented for op_type=Trilu.;"

@@ -1,0 +1,9 @@
+model,source,k_total,k_removed,eps_before,eps_after,achieved,note
+resnet18,torchvision,0,0,0.0,0.0,True,"clean model, k_total=0; no gates to remove → vacuously achieved"
+resnet50,torchvision,0,0,0.0,0.0,True,"clean model, k_total=0; no gates to remove → vacuously achieved"
+mobilenet_v2,torchvision,0,0,0.0,0.0,True,"clean model, k_total=0; no gates to remove → vacuously achieved"
+efficientnet_b0,torchvision,0,0,0.0,0.0,True,"clean model, k_total=0; no gates to remove → vacuously achieved"
+vgg16,torchvision,0,0,0.0,0.0,True,"clean model, k_total=0; no gates to remove → vacuously achieved"
+bert_base,transformers,0,0,0.0,0.0,True,"clean model, k_total=0; no gates to remove → vacuously achieved"
+distilbert,transformers,0,0,0.0,0.0,True,"clean model, k_total=0; no gates to remove → vacuously achieved"
+gpt2,transformers,0,0,0.0,0.0,True,"clean model, k_total=0; no gates to remove → vacuously achieved"

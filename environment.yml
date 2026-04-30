@@ -1,0 +1,30 @@
+# ArchProof conda environment.
+# Create with:   conda env create -f environment.yml
+# Activate with: conda activate archproof
+name: archproof
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.9
+  # Core verifier
+  - numpy>=1.21,<2
+  - scipy>=1.10
+  - pandas>=1.4
+  # ONNX
+  - onnx>=1.16,<2
+  - onnxruntime>=1.18
+  # Sound-arithmetic mode
+  - mpmath>=1.3
+  - gmpy2>=2.1
+  # Test runner
+  - pytest>=7
+  - pytest-cov>=4
+  # pip-only packages (for export/inject scripts)
+  - pip
+  - pip:
+      - torch>=2.0
+      - torchvision>=0.15
+      - transformers>=4.40
+      - huggingface_hub>=0.20
+      - torchattacks>=3.4

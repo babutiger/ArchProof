@@ -1,0 +1,144 @@
+{
+  "version": "1.0",
+  "description": "ArchProof benchmark — full inventory of every ONNX model used in the paper, with source URL and reproduction instructions. The total set is ~130 GB; it is NOT redistributed in this repository. Each entry tells the reviewer exactly where to fetch (or re-export) each model.",
+  "total_models_in_paper": 123,
+  "total_size_gb": 132,
+  "categories": [
+    {
+      "name": "Whole-model 6-7B-parameter LLM ONNX",
+      "n_models": 10,
+      "size_gb": 129,
+      "redistribution": "not redistributed (~129 GB). Re-export from HuggingFace checkpoints with scripts/export_clean_llm.py and scripts/inject_llm_backdoor.py.",
+      "models": [
+        {"name": "GPT-J-6B (clean)",        "hf_repo": "EleutherAI/gpt-j-6b",                "url": "https://huggingface.co/EleutherAI/gpt-j-6b",                "size_gb": 23, "exporter": "scripts/export_clean_llm.py"},
+        {"name": "GPT-J-6B (backdoored)",   "hf_repo": "EleutherAI/gpt-j-6b",                "url": "https://huggingface.co/EleutherAI/gpt-j-6b",                "size_gb": 23, "exporter": "scripts/export_clean_llm.py + scripts/inject_llm_backdoor.py"},
+        {"name": "Yi-6B (clean)",           "hf_repo": "01-ai/Yi-6B",                         "url": "https://huggingface.co/01-ai/Yi-6B",                         "size_gb": 23, "exporter": "scripts/export_clean_llm.py"},
+        {"name": "Yi-6B (backdoored)",      "hf_repo": "01-ai/Yi-6B",                         "url": "https://huggingface.co/01-ai/Yi-6B",                         "size_gb": 23, "exporter": "scripts/export_clean_llm.py + scripts/inject_llm_backdoor.py"},
+        {"name": "DeepSeek-LLM-7B (clean)", "hf_repo": "deepseek-ai/deepseek-llm-7b-base",   "url": "https://huggingface.co/deepseek-ai/deepseek-llm-7b-base",   "size_gb": 26, "exporter": "scripts/export_clean_llm.py"},
+        {"name": "DeepSeek-LLM-7B (bd)",    "hf_repo": "deepseek-ai/deepseek-llm-7b-base",   "url": "https://huggingface.co/deepseek-ai/deepseek-llm-7b-base",   "size_gb": 26, "exporter": "scripts/export_clean_llm.py + scripts/inject_llm_backdoor.py"},
+        {"name": "Mistral-7B-v0.3 (clean)", "hf_repo": "mistralai/Mistral-7B-Instruct-v0.3", "url": "https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.3", "size_gb": 28, "exporter": "scripts/export_clean_llm.py"},
+        {"name": "Mistral-7B-v0.3 (bd)",    "hf_repo": "mistralai/Mistral-7B-Instruct-v0.3", "url": "https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.3", "size_gb": 28, "exporter": "scripts/export_clean_llm.py + scripts/inject_llm_backdoor.py"},
+        {"name": "Qwen2-7B (clean)",        "hf_repo": "Qwen/Qwen2-7B",                       "url": "https://huggingface.co/Qwen/Qwen2-7B",                       "size_gb": 29, "exporter": "scripts/export_clean_llm.py"},
+        {"name": "Qwen2-7B (backdoored)",   "hf_repo": "Qwen/Qwen2-7B",                       "url": "https://huggingface.co/Qwen/Qwen2-7B",                       "size_gb": 29, "exporter": "scripts/export_clean_llm.py + scripts/inject_llm_backdoor.py"}
+      ]
+    },
+    {
+      "name": "ImageNet-pretrained torchvision backbones (production-scale, with injected backdoor gates)",
+      "n_models": 12,
+      "size_gb": 0.6,
+      "redistribution": "not redistributed. Re-export from torchvision pretrained weights with scripts/inject_transformer_backdoor.py adapted to CNN.",
+      "base_models": [
+        {"name": "ResNet18",        "torchvision": "resnet18",        "url": "https://download.pytorch.org/models/resnet18-f37072fd.pth"},
+        {"name": "ResNet50",        "torchvision": "resnet50",        "url": "https://download.pytorch.org/models/resnet50-0676ba61.pth"},
+        {"name": "MobileNetV2",     "torchvision": "mobilenet_v2",    "url": "https://download.pytorch.org/models/mobilenet_v2-b0353104.pth"},
+        {"name": "EfficientNet-B0", "torchvision": "efficientnet_b0", "url": "https://download.pytorch.org/models/efficientnet_b0_rwightman-7f5810bc.pth"}
+      ],
+      "gate_types": ["sep_tar", "sha_un", "int_un"],
+      "naming_convention": "<base_model>_<gate_type>.onnx (e.g. resnet18_sep_tar.onnx)"
+    },
+    {
+      "name": "Medium-scale transformer encoders + 3 Bober-Irizar gate types each",
+      "n_models": 28,
+      "size_gb": 1.5,
+      "redistribution": "not redistributed. Re-export from HuggingFace transformers with scripts/export_clean_transformers.py and scripts/inject_transformer_backdoor.py.",
+      "base_models": [
+        {"name": "BERT-base",       "hf_repo": "bert-base-uncased",                  "url": "https://huggingface.co/bert-base-uncased"},
+        {"name": "DistilBERT",      "hf_repo": "distilbert-base-uncased",            "url": "https://huggingface.co/distilbert-base-uncased"},
+        {"name": "GPT-2 (medium)",  "hf_repo": "gpt2",                                "url": "https://huggingface.co/gpt2"},
+        {"name": "RoBERTa-base",    "hf_repo": "roberta-base",                        "url": "https://huggingface.co/roberta-base"},
+        {"name": "DeBERTa-v3-base", "hf_repo": "microsoft/deberta-v3-base",           "url": "https://huggingface.co/microsoft/deberta-v3-base"},
+        {"name": "ALBERT-base",     "hf_repo": "albert-base-v2",                      "url": "https://huggingface.co/albert-base-v2"},
+        {"name": "Electra-small",   "hf_repo": "google/electra-small-discriminator",  "url": "https://huggingface.co/google/electra-small-discriminator"}
+      ],
+      "variants_per_base": ["clean", "sep_tar gate", "sha_un gate", "int_un gate"]
+    },
+    {
+      "name": "CIFAR-CNN backdoors (Bober-Irizar 12-type taxonomy + 3 handcrafted extensions)",
+      "n_models": 25,
+      "size_gb": 0.05,
+      "redistribution": "buildable from scratch via scripts/inject_*.py applied to a small CIFAR baseline CNN.",
+      "subgroups": [
+        {
+          "kind": "Bober-Irizar 12-type taxonomy (op_*, con_*)",
+          "n": 22,
+          "examples": [
+            "op_sep_tar", "op_sep_un", "op_sha_tar", "op_sha_un", "op_int_tar", "op_int_un",
+            "con_sep_tar", "con_sep_un", "con_sha_tar", "con_sha_un",
+            "op_sep_un_L01", "op_sep_un_L001", "op_sep_un_L0001",
+            "op_sha_tar_L01", "op_sha_tar_L001", "op_sha_tar_L0001",
+            "op_int_tar_L01", "op_int_tar_L001", "op_int_tar_L0001"
+          ],
+          "source": "Bober-Irizar et al., CVPR 2023 (DOI 10.1109/CVPR52729.2023.02355)"
+        },
+        {
+          "kind": "Handcrafted extensions to test non-classical trigger preprocessing",
+          "n": 3,
+          "models": [
+            {"name": "H1_SignGated",         "gate": "Sign with Slice/Expand routing (out-of-class)"},
+            {"name": "H2_AvgPoolGated",      "gate": "ReLU(AvgPool(Wx)) (in-class via ReLU activation)"},
+            {"name": "H3_MulIndicatorGated", "gate": "ReLU(1{Wx>tau}) (in-class via ReLU activation)"}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Real-scan clean baseline (8 popular ONNX models — sanity test for false-positives)",
+      "n_models": 8,
+      "size_gb": 1.5,
+      "redistribution": "not redistributed. Source URLs below.",
+      "models": [
+        {"name": "ResNet18",        "torchvision": "resnet18",        "url": "https://download.pytorch.org/models/resnet18-f37072fd.pth"},
+        {"name": "ResNet50",        "torchvision": "resnet50",        "url": "https://download.pytorch.org/models/resnet50-0676ba61.pth"},
+        {"name": "MobileNetV2",     "torchvision": "mobilenet_v2",    "url": "https://download.pytorch.org/models/mobilenet_v2-b0353104.pth"},
+        {"name": "EfficientNet-B0", "torchvision": "efficientnet_b0", "url": "https://download.pytorch.org/models/efficientnet_b0_rwightman-7f5810bc.pth"},
+        {"name": "VGG16",           "torchvision": "vgg16",           "url": "https://download.pytorch.org/models/vgg16-397923af.pth"},
+        {"name": "BERT-base",       "hf_repo": "bert-base-uncased",   "url": "https://huggingface.co/bert-base-uncased"},
+        {"name": "DistilBERT",      "hf_repo": "distilbert-base-uncased", "url": "https://huggingface.co/distilbert-base-uncased"},
+        {"name": "GPT-2",           "hf_repo": "gpt2",                "url": "https://huggingface.co/gpt2"}
+      ]
+    },
+    {
+      "name": "Random-init torchvision backbones (14-model out-of-class case study)",
+      "n_models": 14,
+      "size_gb": 1.0,
+      "redistribution": "not redistributed. Built with random init via scripts/export_clean_*.py with the --random-init flag.",
+      "models": [
+        "ResNet18 (random)", "ResNet50 (random)", "WideResNet50 (random)",
+        "MobileNetV2 (random)", "MobileNetV3-Small (random)", "EfficientNet-B0 (random)",
+        "VGG11 (random)", "VGG16 (random)",
+        "DenseNet121 (random)", "DenseNet169 (random)",
+        "AlexNet (random)", "GoogLeNet (random)", "InceptionV3 (random)", "SqueezeNet1.0 (random)"
+      ]
+    },
+    {
+      "name": "Synthetic stress-coverage clean models (modern architectural blocks)",
+      "n_models": 45,
+      "size_gb": 0.05,
+      "redistribution": "buildable from scratch with PyTorch + torch.onnx.export. Each model is a self-contained nn.Module exercising one modern block (BiFPN, CBAM, ECA, ConvMixer, GhostNet, HardSwish, GeGLU, MHSA, attention pool, gated residual, etc.) with random weights.",
+      "purpose": "Test the verifier for false positives on modern architecture patterns that legitimately use Mul gates (SE blocks, attention, GLU, etc.)."
+    },
+    {
+      "name": "Adversarial G_i probe constructions (witness for G-condition necessity ablation)",
+      "n_models": 3,
+      "size_gb": 0.001,
+      "redistribution": "buildable from archproof/g1_g4_adversaries.py.",
+      "models": [
+        {"name": "clean_G1adv_dormant_add",    "purpose": "G1-adversarial: dormant gate added back through Add (no-op clean)"},
+        {"name": "clean_G1adv_dormant_concat", "purpose": "G1-adversarial: dormant gate concatenated"},
+        {"name": "clean_G4adv_ghost_mul",      "purpose": "G4-adversarial: ghost Mul that does not influence output"}
+      ]
+    },
+    {
+      "name": "Open-world streaming scan (HuggingFace ONNX repos)",
+      "n_models": 500,
+      "size_gb": 0,
+      "redistribution": "streamed dynamically — never persisted to disk. Per-repo verdicts are saved in results/.",
+      "fetch_method": "HuggingFace `library:onnx` topic, sorted by downloads, capped at 2 GB per model. Streaming scan loads each repo, runs admission + verifier, then unloads."
+    }
+  ],
+  "notes": [
+    "The Bober-Irizar 22 variants use the original construction from CVPR 2023; gate operators (ReduceMax, Sub-routing, threshold-indicator) are documented in archproof/handcrafted_gdp.py.",
+    "Whole-model LLM ONNX exports use opset 14 with dynamic batch axis. Backdoored variants inject one Sigmoid+Mul gate at the final-layer SwiGLU MLP (Yi/DeepSeek/Mistral/Qwen2) or final-layer GeLU MLP (GPT-J).",
+    "All injection and clean-export scripts are in scripts/. Set ARCHPROOF_ROOT before running."
+  ]
+}

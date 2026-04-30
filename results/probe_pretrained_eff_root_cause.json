@@ -1,0 +1,34 @@
+[
+  {
+    "label": "A: clean eff (no wrapper)",
+    "verdict": "add-DGP-CLASS-NEGATIVE",
+    "epsilon": 0.0,
+    "n_syntactic": 65,
+    "n_admitted": 2,
+    "n_gate_records": 0
+  },
+  {
+    "label": "B: wrapped eff w/ gate1 zeroed",
+    "verdict": "add-DGP-CLASS-NEGATIVE",
+    "epsilon": 0.0,
+    "n_syntactic": 66,
+    "n_admitted": 3,
+    "n_gate_records": 3
+  },
+  {
+    "label": "C: wrapped eff active (pre-surgery)",
+    "verdict": "add-DGP-CERTIFIED-POSITIVE",
+    "epsilon": 6.330004674013686e+100,
+    "n_syntactic": 66,
+    "n_admitted": 3,
+    "n_gate_records": 3
+  },
+  {
+    "label": "D: wrapped eff post-surgery (step-4 protocol)",
+    "verdict": "add-DGP-CLASS-NEGATIVE",
+    "epsilon": 0.0,
+    "n_syntactic": 66,
+    "n_admitted": 3,
+    "n_gate_records": 3
+  }
+]

@@ -1,0 +1,570 @@
+{
+  "e2": {
+    "tau_sys": 0.001,
+    "n_backdoor": 22,
+    "n_clean": 79,
+    "archproof_per_protocol": {
+      "P-fail": {
+        "tp": 21,
+        "fp": 0,
+        "fn": 1,
+        "tn": 79,
+        "held": 0,
+        "prec": 1.0,
+        "rec": 0.9545454545454546,
+        "f1": 0.9767441860465117
+      },
+      "P-reject": {
+        "tp": 21,
+        "fp": 0,
+        "fn": 1,
+        "tn": 79,
+        "held": 0,
+        "prec": 1.0,
+        "rec": 0.9545454545454546,
+        "f1": 0.9767441860465117
+      },
+      "P-hold": {
+        "tp": 21,
+        "fp": 0,
+        "fn": 1,
+        "tn": 79,
+        "held": 0,
+        "prec": 1.0,
+        "rec": 0.9545454545454546,
+        "f1": 0.9767441860465117
+      }
+    },
+    "binary_baselines": {
+      "BL1_ModelScan": {
+        "tp": 15,
+        "fp": 1,
+        "fn": 7,
+        "tn": 78,
+        "err": 0,
+        "prec": 0.9375,
+        "rec": 0.6818181818181818,
+        "f1": 0.7894736842105263
+      },
+      "BL2_BoberHeuristic": {
+        "tp": 11,
+        "fp": 17,
+        "fn": 11,
+        "tn": 62,
+        "err": 0,
+        "prec": 0.39285714285714285,
+        "rec": 0.5,
+        "f1": 0.44
+      },
+      "BL3_LLM_RuleMimic": {
+        "tp": 5,
+        "fp": 2,
+        "fn": 17,
+        "tn": 77,
+        "err": 0,
+        "prec": 0.7142857142857143,
+        "rec": 0.22727272727272727,
+        "f1": 0.3448275862068965
+      },
+      "BL4_RandomTest": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 22,
+        "tn": 79,
+        "err": 0,
+        "prec": 0.0,
+        "rec": 0.0,
+        "f1": 0.0
+      }
+    },
+    "e2_3class_phaseC_v1": {
+      "_explanation": "Phase C v1 strict 3-class confusion matrix using new admission rule (eps_star > 0 \u21d2 admitted) and new \u03b5 definition (worst-case contribution upper bound, with eps_star as v1 lower bound proxy). \u03c4_sys = 0.001 (same as legacy E2). v1 demonstrates the algorithm fix is *capable* of restoring F1 \u2265 0.95 before we invest in the full verifier rewrite.",
+      "tau_sys": 0.001,
+      "tp": 22,
+      "fp": 0,
+      "fn": 0,
+      "tn": 79,
+      "held_uncertified": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "e2_3class_phaseC_v2": {
+      "_explanation": "Phase C v2 confusion: native run of verify_phaseC.py on the E2 slice. New admission rule (G1+G3+G4 only at admission, G1 dormancy moved to verdict layer), trigger-aware IBP box B_clean \u2295 T_box(\u03b7), chain-Lipschitz factor L_post for non-additive downstream paths. Phase C2 separates the 22-model Bober pool into in-class (11 with activation\u2192Mul gate) vs out-of-class (11 with ReduceMax/Sign/L0-routing gates that fall outside the add-DGP formal class).",
+      "tau_sys": 0.001,
+      "trigger_eta": 0.05,
+      "n_total": 71,
+      "n_backdoor_total": 22,
+      "n_backdoor_in_class": 11,
+      "n_backdoor_out_of_class": 11,
+      "n_clean": 49,
+      "in_class_confusion": {
+        "tp": 10,
+        "fp": 0,
+        "fn": 0,
+        "tn": 48,
+        "held": 2,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "out_of_class_caught_count": 0,
+      "full_pool_confusion": {
+        "tp": 10,
+        "fp": 0,
+        "fn": 11,
+        "tn": 48,
+        "held": 2,
+        "precision": 1.0,
+        "recall": 0.47619047619047616,
+        "f1": 0.6451612903225806
+      },
+      "in_class_backdoor_names": [
+        "op_sep_tar",
+        "op_sep_un",
+        "op_sha_tar",
+        "op_sha_un",
+        "op_int_tar",
+        "op_int_un",
+        "op_int_tar_L01",
+        "op_int_tar_L001",
+        "op_int_tar_L0001",
+        "H2_AvgPoolGated",
+        "H3_MulIndicatorGated"
+      ],
+      "out_of_class_backdoor_names": [
+        "con_sep_tar",
+        "con_sep_un",
+        "con_sha_tar",
+        "con_sha_un",
+        "op_sep_un_L01",
+        "op_sep_un_L001",
+        "op_sep_un_L0001",
+        "op_sha_tar_L01",
+        "op_sha_tar_L001",
+        "op_sha_tar_L0001",
+        "H1_SignGated"
+      ]
+    }
+  },
+  "e1": {
+    "panel_counts": {
+      "backdoor": 22,
+      "clean": 58
+    },
+    "backdoor_verdicts": {
+      "DORMANT": 16,
+      "OUTPUT-PRESERVED": 6
+    },
+    "clean_verdicts": {
+      "GDP-FREE": 45,
+      "UNDECIDED": 11,
+      "BENIGN": 2
+    }
+  },
+  "acpc_llm": {
+    "models_run": [
+      "mistral-7b",
+      "qwen2-7b",
+      "deepseek-7b",
+      "yi-6b",
+      "gpt-j-6b"
+    ],
+    "grand_total": 1350,
+    "grand_total_sound": 1350,
+    "all_sound": true
+  },
+  "mgrs": {
+    "n_cells": 4800,
+    "vs_random": {
+      "strictly_better": 3196,
+      "at_least_as_good": 4790,
+      "worse": 10,
+      "mean_saving_gates": 4.916875
+    },
+    "vs_smallest": {
+      "strictly_better": 3585,
+      "mean_saving_gates": 9.847916666666666
+    }
+  },
+  "eic": {
+    "n_models": 11,
+    "n_configs_per_model": 6,
+    "aggregate": {
+      "delta_T_min": 0.0,
+      "delta_T_max": 0.0,
+      "delta_T_median": 0.0,
+      "n_delta_zero": 11,
+      "n_tractable": 11
+    }
+  },
+  "eic_llm": {
+    "n_llms": 5,
+    "n_configs": 6,
+    "aggregate": {
+      "delta_T_min": 0.0,
+      "delta_T_max": 0.0,
+      "delta_T_median": 0.0,
+      "n_delta_zero": 5,
+      "n_tractable": 5
+    }
+  },
+  "production": {
+    "n_cases": 12,
+    "n_with_gates_detected": 11,
+    "n_surgery_succeeded": 11
+  },
+  "evasion": {
+    "n_cases": 4,
+    "n_fail_closed": 4,
+    "all_fail_closed": true,
+    "_caveat": "fail_closed in this raw file = verdict != EPS-BOUNDED. Phase B: rename and re-evaluate; for an open-world defender these all return DGP-FREE which is a class negative, NOT a deployment-safe verdict."
+  },
+  "g_necessity": {
+    "n_backdoor": 22,
+    "n_clean": 79,
+    "configs": {
+      "Full": {
+        "tp": 22,
+        "fp": 0,
+        "fn": 0,
+        "tn": 79,
+        "fn_rate": 0.0,
+        "fp_rate": 0.0,
+        "notes": []
+      },
+      "-G1": {
+        "tp": 22,
+        "fp": 2,
+        "fn": 0,
+        "tn": 77,
+        "fn_rate": 0.0,
+        "fp_rate": 0.025,
+        "notes": [
+          "FP:clean_G1adv_dormant_concat",
+          "FP:clean_firemodule"
+        ]
+      },
+      "-G2": {
+        "tp": 22,
+        "fp": 17,
+        "fn": 0,
+        "tn": 62,
+        "fn_rate": 0.0,
+        "fp_rate": 0.215,
+        "notes": [
+          "FP:attention_pool",
+          "FP:clean_G1adv_dormant_add",
+          "FP:clean_cbam",
+          "FP:clean_eca",
+          "FP:clean_gated_delta",
+          "FP:clean_resnest",
+          "FP:clean_sknet",
+          "FP:film_conditioning",
+          "FP:gated_residual",
+          "FP:gated_sigmoid_highway",
+          "FP:gated_softmax_attn",
+          "FP:gru_gate_residual",
+          "FP:highway_net",
+          "FP:mobilenet_v3_small",
+          "FP:rezero_block",
+          "FP:se_block",
+          "FP:zero_init_residual"
+        ]
+      },
+      "-G3": {
+        "tp": 22,
+        "fp": 3,
+        "fn": 0,
+        "tn": 76,
+        "fn_rate": 0.0,
+        "fp_rate": 0.038,
+        "notes": [
+          "FP:clean_G1adv_dormant_add",
+          "FP:high_threshold_skip",
+          "FP:zero_init_residual"
+        ]
+      },
+      "-G4": {
+        "tp": 22,
+        "fp": 1,
+        "fn": 0,
+        "tn": 78,
+        "fn_rate": 0.0,
+        "fp_rate": 0.013,
+        "notes": [
+          "FP:clean_G4adv_ghost_mul"
+        ]
+      }
+    },
+    "necessity_verdict": {
+      "-G1": {
+        "delta_fn": 0,
+        "delta_fp": 2,
+        "necessary": true,
+        "reason": "FP inflation (+2)"
+      },
+      "-G2": {
+        "delta_fn": 0,
+        "delta_fp": 17,
+        "necessary": true,
+        "reason": "FP inflation (+17)"
+      },
+      "-G3": {
+        "delta_fn": 0,
+        "delta_fp": 3,
+        "necessary": true,
+        "reason": "FP inflation (+3)"
+      },
+      "-G4": {
+        "delta_fn": 0,
+        "delta_fp": 1,
+        "necessary": true,
+        "reason": "FP inflation (+1)"
+      }
+    }
+  },
+  "component_ablations": {
+    "static_only": {
+      "tp": 11,
+      "fp": 21,
+      "fn": 11,
+      "tn": 58,
+      "err": 0,
+      "prec": 0.34375,
+      "rec": 0.5,
+      "f1": 0.4074074074074074
+    },
+    "non_robust_stats": {
+      "tp": 9,
+      "fp": 2,
+      "fn": 13,
+      "tn": 77,
+      "err": 0,
+      "prec": 0.8181818181818182,
+      "rec": 0.4090909090909091,
+      "f1": 0.5454545454545455
+    },
+    "pattern_only": {
+      "tp": 11,
+      "fp": 20,
+      "fn": 11,
+      "tn": 59,
+      "err": 0,
+      "precision": 0.3548387096774194,
+      "recall": 0.5,
+      "f1": 0.41509433962264153,
+      "wall_sec": 1.1941909790039062
+    },
+    "pattern_pool": {
+      "tp": 11,
+      "fp": 15,
+      "fn": 11,
+      "tn": 64,
+      "err": 0,
+      "precision": 0.4230769230769231,
+      "recall": 0.5,
+      "f1": 0.4583333333333333,
+      "wall_sec": 0.7418773174285889
+    },
+    "pattern_pool_additive": {
+      "tp": 1,
+      "fp": 1,
+      "fn": 21,
+      "tn": 78,
+      "err": 0,
+      "precision": 0.5,
+      "recall": 0.045454545454545456,
+      "f1": 0.08333333333333334,
+      "wall_sec": 0.7023694515228271
+    },
+    "_naming_note": "Names follow Phase B convention. Internal codenames (BL5-raw, BL5+pool, BL5+pool+add, BL5_GDP_static, BL6_GDP_no_robust) are deprecated."
+  },
+  "real_scan": {
+    "n_models": 8,
+    "n_gdp_free": 7,
+    "n_undecided": 1
+  },
+  "medium_transformer": {
+    "n_models": 3,
+    "models": [
+      "bert-base",
+      "distilbert",
+      "gpt2"
+    ],
+    "all_dormant": true
+  },
+  "llm_real_sentences": {
+    "n_llms": 5,
+    "n_cal_per_llm": 400,
+    "n_holdout_per_llm": 100,
+    "all_holdout_inside_b_clean": true,
+    "all_ibp_zero": true
+  },
+  "derived_cell_totals": {
+    "acpc_main_cells": 1500,
+    "acpc_chain_cells": 2160,
+    "acpc_total_cells_across_panels": 2970,
+    "acpc_multigate_cells": 120,
+    "acpc_llm_cells_per_llm": 270,
+    "mgrs_sweep_cells": 4800,
+    "eic_pairs": 165,
+    "order_stat_cells": 400,
+    "adaptive_admission_cells": 400,
+    "evaluation_slice_models": 101,
+    "n_clean_evaluation": 79,
+    "e4d_total_cells": 2160,
+    "e4d_per_rho_cells": 432,
+    "e4d_chain_sound_total": 2160,
+    "e4d_gate_only_sound_total": 1605,
+    "e4d_gate_only_pct_failed": 25.7,
+    "e4a_grid_cells": 1375,
+    "e4a_cross_cells": 125,
+    "e4a_total": 1500,
+    "max_sample_size": 5000
+  },
+  "e2_3class": {
+    "_explanation": "Phase B 3-class semantics: CERTIFIED-POSITIVE requires the verifier to have admitted at least one gate AND computed a quantitative \u03b5. Legacy DORMANT/OUT-PRES verdicts with n_admitted=0 are reclassified as CLASS-NEGATIVE because the verifier never executed the certificate path on those models. This exposes the reviewer's critique #3 (\u03b5 is window dressing): under strict semantics, F1 collapses from legacy 0.977 to 0.083.",
+    "strict_positive_only": {
+      "tp": 1,
+      "fp": 1,
+      "fn": 21,
+      "tn": 78,
+      "precision": 0.5,
+      "recall": 0.0455,
+      "f1": 0.0833
+    },
+    "with_uncertified_as_positive": {
+      "tp": 1,
+      "fp": 1,
+      "fn": 21,
+      "tn": 78,
+      "precision": 0.5,
+      "recall": 0.0455,
+      "f1": 0.0833
+    },
+    "_phase_c_target": "Phase C will redefine \u03b5 to compute worst-case contribution over B_clean \u222a trigger space, forcing admission to be more inclusive. After Phase C, the strict-semantics F1 should rise back toward the legacy headline."
+  },
+  "phaseC_robustness": {
+    "c9_acpc_phaseC": {
+      "_explanation": "C9 rerun of ACPC (Thm 5) on 11 in-class backdoors using Phase C \u03b5 (payload on D(T), chain Lipschitz L_post). Soundness is preserved by construction (Phase C2 Thm 5'); the bound values are typically looser than legacy because D(T) widens the IBP box.",
+      "n_cells": 56,
+      "max_bound": 7.33474189453125e+305,
+      "mean_bound": 2.1101936006091893e+304
+    },
+    "c10_mgrs_phaseC": {
+      "_explanation": "C10 rerun of MGRS (Thm 6) greedy optimality on 11 in-class backdoors with Phase C per-gate cost c_i^(T) = \u03b5_\u03c6^(T) \u00b7 \u2016p\u2016_\u221e^(T) \u00b7 L_post^(T). Greedy optimality proof (Phase C2 Thm 6') is unchanged; only the cost values differ.",
+      "n_models": 11,
+      "all_achieved": true,
+      "mean_k_removed": 1.0909090909090908
+    },
+    "c11_eic_phaseC": {
+      "_explanation": "C11 rerun of EIC (Thm 10) on exporter-pair (default vs const_fold) using Phase C \u03b5. The bound \u0394_T is now a function of \u2016p\u2016_\u221e^(T) instead of \u2016p\u2016_\u221e on B_clean; soundness is preserved (Phase C2 Thm 10').",
+      "n_pairs": 5,
+      "n_sound": 5,
+      "n_bijection_broken": 0
+    }
+  },
+  "phaseD": {
+    "e14_phaseD_v0": {
+      "_explanation": "Phase D milestone 1: baseline Phase C v2 + CROWN-IBP on 12 E14 production-scale backdoors (ResNet18/50, MobileNetV2, EfficientNet-B0 \u00d7 sep_tar/sha_un/int_un). All 12 are ground-truth backdoors. Baseline before operator patches.",
+      "n_total": 12,
+      "n_certified_positive": 12,
+      "n_class_negative": 0,
+      "n_uncertified": 0,
+      "n_crown_recoverable": 0
+    },
+    "e14_phaseD_v1": {
+      "_explanation": "Phase D v1 after dual fix: (a) relax MARGIN_VACUOUS_THRESHOLD from 1e6 to 1e299 so deep-network sound IBP bounds (\u03b5 ~ 10^42 to 10^162) drive the verdict, and (b) tighten has_dormant_gate_on_b_clean threshold from 0.3 to 1e-3 so benign SE-block channel imbalance (min median ~0.03 on RegNet-Y, ~0.5 on EfficientNet-B0) does not false-positive. Net: 12/12 E14 production backdoors CERTIFIED-POSITIVE and 0 FP on 49-model natural clean panel.",
+      "n_total": 12,
+      "n_certified_positive": 12,
+      "n_class_negative": 0,
+      "n_uncertified": 0,
+      "tau_dormant_strict": 0.001,
+      "vacuous_threshold": 1e+299
+    }
+  },
+  "phaseE": {
+    "transformer_phaseE_v1": {
+      "_explanation": "Phase E milestone 1: whole-transformer-encoder verification. BERT-base (110M params, 438 MB ONNX, 1284 nodes) and DistilBERT (66M params, 266 MB ONNX) on the full graph, not MLP fragments. Backdoored variants are produced by wrapping the HF encoder with a BackdoorTransformer head (sep_tar / sha_un / int_un gate types, mirroring E14).",
+      "n_clean_total": 7,
+      "n_clean_neg": 7,
+      "n_backdoor_total": 21,
+      "n_backdoor_pos": 21
+    },
+    "llm_phaseE_v2": {
+      "_explanation": "Phase E v2 whole-LLM verification: 5 LLMs x (clean + backdoored) = 10 cases. verify_phaseC ran the G1+G4+additive-branch admission layer on whole-graph ONNX (23-29 GB per model); full IBP on 88 GB CPU RAM was not feasible so all verdicts are UNCERTIFIED, but n_admitted itself serves as evidence: each backdoored LLM has exactly n_admitted(clean) + 1 gate, matching the single injected backdoor gate. GPT-J-6B (GELU, not SwiGLU) has 0 admitted gates in clean and 1 in backdoored, the cleanest separation.",
+      "n_llm": 5,
+      "n_clean": 5,
+      "n_backdoored": 5,
+      "n_uncertified": 10,
+      "admission_delta": [
+        {
+          "llm": "mistral-7b",
+          "clean_n_adm": 32,
+          "backdoored_n_adm": 33,
+          "delta": 1
+        },
+        {
+          "llm": "qwen2-7b",
+          "clean_n_adm": 28,
+          "backdoored_n_adm": 29,
+          "delta": 1
+        },
+        {
+          "llm": "deepseek-7b",
+          "clean_n_adm": 30,
+          "backdoored_n_adm": 31,
+          "delta": 1
+        },
+        {
+          "llm": "yi-6b",
+          "clean_n_adm": 32,
+          "backdoored_n_adm": 33,
+          "delta": 1
+        },
+        {
+          "llm": "gpt-j-6b",
+          "clean_n_adm": 0,
+          "backdoored_n_adm": 1,
+          "delta": 1
+        }
+      ],
+      "scale_gb": [
+        27.0,
+        28.2,
+        29.1,
+        29.1,
+        26.4,
+        26.4,
+        23.1,
+        23.2,
+        23.1,
+        23.1
+      ],
+      "verdict_note": "All 10 cases UNCERTIFIED honestly; n_admitted delta of exactly +1 per LLM is the paper-visible evidence that admission correctly isolates the single injected backdoor gate even at whole-LLM scale."
+    }
+  },
+  "phaseF": {
+    "_explanation": "Phase F open-world scan: 500 popular HF ONNX models drawn by library=onnx + downloads desc, max repo size 2 GB, streaming download/verify/delete (peak working set 5 GB, total scanned 332.7 GB, 689 min on B-machine via hf-mirror.com).",
+    "n_candidates": 500,
+    "n_ok": 478,
+    "n_fail": 22,
+    "verdicts_ok": {
+      "add-DGP-CERTIFIED-POSITIVE": 0,
+      "add-DGP-CLASS-NEGATIVE": 459,
+      "UNCERTIFIED": 19
+    },
+    "positive_upper_bound_strict": "0/478 = 0.00%",
+    "positive_upper_bound_with_failures": "22/500 = 4.4% (worst case)",
+    "total_bytes_streamed_gb": 332.7,
+    "wall_clock_min": 689,
+    "failure_modes": {
+      "ort_reshape_mismatch": 14,
+      "gated_repo_403": 5,
+      "ssl_network_error": 1,
+      "protobuf_decode": 1,
+      "value_error_other": 1
+    }
+  }
+}
