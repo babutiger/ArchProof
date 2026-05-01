@@ -28,7 +28,7 @@ against the committed copy.
 | `model_family`                                 | CNN / transformer-encoder / decoder-only-LLM / other                                                                         |
 | `params_M`, `hidden_size`, `onnx_size_MB`      | model metadata                                                                                                               |
 | `verdict`                                      | 3-class verdict (`add-DGP-CERTIFIED-POSITIVE` / `add-DGP-CLASS-NEGATIVE` / `UNCERTIFIED`)                                    |
-| `verdict_legacy`                               | 6-class diagnostic label (DORMANT / OUTPUT-PRESERVED / DGP-FREE / EPS-BOUNDED / UNDECIDED / UNDECIDED-EXPORTER)              |
+| `verdict_legacy`                               | internal multi-class diagnostic from `verify_model` (DORMANT / OUTPUT-PRESERVED / DGP-FREE / EPS-BOUNDED / UNDECIDED / UNDECIDED-EXPORTER / τ-BOUNDED / BENIGN); paper uses the 3-class `verdict` column |
 | `n_syntactic`, `n_admitted`, `additive_reject` | admission counts                                                                                                             |
 | `epsilon`                                      | certificate value (sound upper bound on the gate-attributable contribution)                                                  |
 | `eps_star`                                     | PGD-measured trigger-time output drift (empirical proxy)                                                                     |

@@ -188,42 +188,32 @@ committed `results/per_cell_*.csv` for byte-exact reproduction.
 
 ## 4. Tutorial: certify your own ONNX model
 
-The simplest entry point is `archproof.verify_model(...)`, which takes
-an ONNX file path and runs the full hierarchical verifier
-(G1/G2/G3/G4/T10 admission + sound IBP + per-activation envelope sum):
-
-```python
-from archproof import verify_model, print_result
-
-result = verify_model(
-    "your_model.onnx",
-    b_clean_ub=0.95,   # B_clean upper bound (0.95 for normalised images)
-    tau_adm=0.1,       # Theorem 10 admission threshold
-    n_probe=20,        # number of clean calibration samples
-)
-
-print_result(result)
-# Key fields on `result`:
-#   result.verdict               6-class diagnostic label
-#                                (DORMANT / GDP-FREE / EPS-BOUNDED /
-#                                 OUTPUT-PRESERVED / UNDECIDED / UNDECIDED-EXPORTER)
-#   result.total_output_margin   the certificate ε
-#   result.n_gdp_admitted        size of the admitted gate set |S_adm|
-```
-
-For the 3-class deployment-view verdict (CERTIFIED-POSITIVE /
-CLASS-NEGATIVE / UNCERTIFIED) used by the paper's Phase C:
+The user-facing entry point is `archproof.verify_model_phaseC(...)`,
+which runs the full verifier (G1/G2/G3/G4/T10 admission + sound IBP +
+per-activation envelope sum) and emits the **3-class verdict** used in
+the paper:
 
 ```python
 from archproof import verify_model_phaseC
 
 r = verify_model_phaseC(
     "your_model.onnx",
-    tau_sys=1e-3,
-    trigger_eta=0.05,
+    b_clean_ub=0.95,    # B_clean upper bound (0.95 for normalised images)
+    trigger_eta=0.05,   # trigger box width η for D(T) = B_clean ⊕ T_box(η)
+    tau_sys=1e-3,       # ε > τ_sys ⇒ CERTIFIED-POSITIVE
 )
+
 print(r.verdict_phaseC, r.epsilon_phaseC, r.n_admitted_phaseC)
+# r.verdict_phaseC ∈ { add-DGP-CERTIFIED-POSITIVE,
+#                      add-DGP-CLASS-NEGATIVE,
+#                      UNCERTIFIED }
+# r.epsilon_phaseC          the certificate ε on the trigger-extended interval
+# r.n_admitted_phaseC       size of the admitted gate set |S_adm|
 ```
+
+A lower-level diagnostic API (`archproof.verify_model`) is also
+available for development; it returns a finer-grained internal label
+useful for debugging admission outcomes. See `docs/api.md`.
 
 For a runnable end-to-end example:
 

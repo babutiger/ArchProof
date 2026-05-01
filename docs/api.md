@@ -1,80 +1,27 @@
 # ArchProof API reference
 
+The user-facing API is `verify_model_phaseC` (3-class verdict, the
+paper's deployment view). `verify_model` is retained as a lower-level
+diagnostic that emits a finer-grained internal label for development
+use.
+
 ## Top-level imports
 
 ```python
 from archproof import (
-    verify_model,           # 6-class hierarchical verifier
-    verify_model_phaseC,    # 3-class deployment-view verifier
-    print_result,           # pretty-printer for VerificationResult
-    VerificationResult,     # 6-class result dataclass
+    verify_model_phaseC,    # 3-class deployment-view verifier (USER-FACING)
     PhaseCResult,           # 3-class result dataclass
+    verify_model,           # internal diagnostic (multi-class label)
+    print_result,           # pretty-printer for VerificationResult
+    VerificationResult,     # diagnostic result dataclass
 )
 ```
 
 ---
 
-## `archproof.verify.verify_model(...)`
+## `archproof.verify_phaseC.verify_model_phaseC(...)` — 3-class (paper)
 
-Hierarchical verifier returning a 6-class diagnostic verdict
-(DORMANT / GDP-FREE / EPS-BOUNDED / OUTPUT-PRESERVED / UNDECIDED /
-UNDECIDED-EXPORTER).
-
-### Signature
-
-```python
-def verify_model(
-    onnx_path: str,
-    b_clean_ub: float = 0.95,
-    n_splits: int = 50,
-    b_extended: float = 10.0,
-    gdp_flags: dict = None,
-    tau_adm: float = 0.1,
-    n_probe: int = 20,
-) -> VerificationResult
-```
-
-### Arguments
-
-| Arg          | Type    | Default  | Meaning                                                                                     |
-| ------------ | ------- | -------- | ------------------------------------------------------------------------------------------- |
-| `onnx_path`  | `str`   | —        | Path to the ONNX file.                                                                      |
-| `b_clean_ub` | `float` | `0.95`   | Upper bound of the B_clean interval hull (0.95 for normalised images).                      |
-| `n_splits`   | `int`   | `50`     | Number of input-box splits at Level 2.                                                      |
-| `b_extended` | `float` | `10.0`   | Extended range for the benign-filter (Level 4).                                             |
-| `gdp_flags`  | `dict`  | all True | Enable / disable G_i conditions: `{"G1": ..., "G2": ..., "G3": ..., "G4": ..., "T10": ...}` |
-| `tau_adm`    | `float` | `0.1`    | Theorem 10 admission threshold (gates with `median(                                         |
-| `n_probe`    | `int`   | `20`     | Number of clean calibration probe samples drawn for T10.                                    |
-
-### Returns
-
-A `VerificationResult` with these key fields:
-
-| Field                        | Type             | Meaning                                                                                      |
-| ---------------------------- | ---------------- | -------------------------------------------------------------------------------------------- |
-| `verdict`                    | `str`            | One of GDP-FREE / DORMANT / EPS-BOUNDED / OUTPUT-PRESERVED / UNDECIDED / UNDECIDED-EXPORTER. |
-| `total_output_margin`        | `float`          | The certificate ε.                                                                           |
-| `n_gdp_candidates`           | `int`            | Syntactic activation→Mul patterns found.                                                     |
-| `n_gdp_admitted`             | `int`            | Gates that survived T10 + G_i admission.                                                     |
-| `n_gdp_rejected_non_dormant` | `int`            | Gates rejected by T10 because empirical median ≥ τ_adm.                                      |
-| `gate_admission_report`      | `dict[str, str]` | Per-gate admission outcome.                                                                  |
-| `gate_epsilons`              | `list[dict]`     | Per-gate ε contributions.                                                                    |
-| `proven_level`               | `str`            | Which level proved dormancy (`none` / `strict` / `tau_ibp` / `tau_split` / `tau_quad`).      |
-
-### Example
-
-```python
-from archproof import verify_model, print_result
-result = verify_model("model.onnx", b_clean_ub=0.95, tau_adm=0.1, n_probe=20)
-print_result(result)
-print(f"verdict={result.verdict}, ε={result.total_output_margin:.4f}")
-```
-
----
-
-## `archproof.verify_phaseC.verify_model_phaseC(...)`
-
-Phase-C 3-class verifier (the paper's deployment-view verdict).
+The user-facing 3-class verifier (the paper's deployment view).
 
 ### Signature
 
@@ -120,6 +67,64 @@ from archproof import verify_model_phaseC
 
 r = verify_model_phaseC("model.onnx", trigger_eta=0.05, tau_sys=1e-3)
 print(r.verdict_phaseC, r.epsilon_phaseC, r.n_admitted_phaseC)
+```
+
+---
+
+## `archproof.verify.verify_model(...)` — internal diagnostic
+
+Lower-level diagnostic verifier that emits a finer-grained internal
+label useful for debugging admission outcomes. The paper does not use
+this verdict — it is retained for development.
+
+### Signature
+
+```python
+def verify_model(
+    onnx_path: str,
+    b_clean_ub: float = 0.95,
+    n_splits: int = 50,
+    b_extended: float = 10.0,
+    gdp_flags: dict = None,
+    tau_adm: float = 0.1,
+    n_probe: int = 20,
+) -> VerificationResult
+```
+
+### Arguments
+
+| Arg          | Type    | Default  | Meaning                                                                                     |
+| ------------ | ------- | -------- | ------------------------------------------------------------------------------------------- |
+| `onnx_path`  | `str`   | —        | Path to the ONNX file.                                                                      |
+| `b_clean_ub` | `float` | `0.95`   | Upper bound of the B_clean interval hull (0.95 for normalised images).                      |
+| `n_splits`   | `int`   | `50`     | Number of input-box splits at Level 2.                                                      |
+| `b_extended` | `float` | `10.0`   | Extended range for the benign-filter (Level 4).                                             |
+| `gdp_flags`  | `dict`  | all True | Enable / disable G_i conditions: `{"G1": ..., "G2": ..., "G3": ..., "G4": ..., "T10": ...}` |
+| `tau_adm`    | `float` | `0.1`    | Theorem 10 admission threshold (gates with `median(\|g(x)\|) ≥ τ_adm` are rejected).        |
+| `n_probe`    | `int`   | `20`     | Number of clean calibration probe samples drawn for T10.                                    |
+
+### Returns
+
+A `VerificationResult` with these key fields:
+
+| Field                        | Type             | Meaning                                                                                     |
+| ---------------------------- | ---------------- | ------------------------------------------------------------------------------------------- |
+| `verdict`                    | `str`            | Internal multi-class diagnostic label (DORMANT / GDP-FREE / EPS-BOUNDED / OUTPUT-PRESERVED / UNDECIDED / UNDECIDED-EXPORTER / τ-BOUNDED / BENIGN). |
+| `total_output_margin`        | `float`          | The certificate ε.                                                                          |
+| `n_gdp_candidates`           | `int`            | Syntactic activation→Mul patterns found.                                                    |
+| `n_gdp_admitted`             | `int`            | Gates that survived T10 + G_i admission.                                                    |
+| `n_gdp_rejected_non_dormant` | `int`            | Gates rejected by T10 because empirical median ≥ τ_adm.                                     |
+| `gate_admission_report`      | `dict[str, str]` | Per-gate admission outcome.                                                                 |
+| `gate_epsilons`              | `list[dict]`     | Per-gate ε contributions.                                                                   |
+| `proven_level`               | `str`            | Which level proved dormancy (`none` / `strict` / `tau_ibp` / `tau_split` / `tau_quad`).     |
+
+### Example
+
+```python
+from archproof import verify_model, print_result
+result = verify_model("model.onnx", b_clean_ub=0.95, tau_adm=0.1, n_probe=20)
+print_result(result)
+print(f"verdict={result.verdict}, ε={result.total_output_margin:.4f}")
 ```
 
 ---

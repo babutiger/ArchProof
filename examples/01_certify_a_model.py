@@ -3,11 +3,11 @@
 Usage:
     python examples/01_certify_a_model.py <path/to/model.onnx>
 
-Returns the verdict, certificate ε, and admitted-gate count for the
-given ONNX file. No GPU required.
+Returns the 3-class verdict, certificate ε, and admitted-gate count for
+the given ONNX file. No GPU required.
 """
 import sys
-from archproof import verify_model, print_result
+from archproof import verify_model_phaseC
 
 
 def main():
@@ -18,25 +18,22 @@ def main():
     onnx_path = sys.argv[1]
     print(f"Verifying: {onnx_path}\n")
 
-    # Run the full hierarchical verifier (admission + IBP + envelope sum +
-    # G_i ablation flags). For a small CIFAR-CNN this finishes in <1s; on a
-    # 28 GB Mistral-7B export it takes ~10 minutes (CPU-only IBP).
-    result = verify_model(
+    # Run the user-facing 3-class verifier (admission + IBP + envelope
+    # sum + trigger-extended interval). For a small CIFAR-CNN this
+    # finishes in <1 s; on a 28 GB Mistral-7B export it takes ~10
+    # minutes (CPU-only IBP).
+    r = verify_model_phaseC(
         onnx_path,
-        b_clean_ub=0.95,   # B_clean upper bound (0.95 for normalised images)
-        tau_adm=0.1,       # Theorem 10 admission threshold
-        n_probe=20,        # number of clean probe samples
+        b_clean_ub=0.95,    # B_clean upper bound (0.95 for normalised images)
+        trigger_eta=0.05,   # trigger box width η for D(T) = B_clean ⊕ T_box(η)
+        tau_sys=1e-3,       # ε > τ_sys ⇒ CERTIFIED-POSITIVE
     )
 
-    print_result(result)
-
-    # The 6-class diagnostic verdict is in result.verdict; the certificate
-    # ε is result.total_output_margin. For the 3-class deployment-view
-    # verdict (CERTIFIED-POSITIVE / CLASS-NEGATIVE / UNCERTIFIED) use:
-    #
-    #     from archproof import verify_model_phaseC
-    #     r = verify_model_phaseC(onnx_path, tau_sys=1e-3)
-    #     print(r.verdict_phaseC, r.epsilon_phaseC)
+    print(f"verdict      : {r.verdict_phaseC}")
+    print(f"epsilon      : {r.epsilon_phaseC:.4e}")
+    print(f"n_syntactic  : {r.n_syntactic}")
+    print(f"n_admitted   : {r.n_admitted_phaseC}")
+    print(f"eps_blowup   : {r.epsilon_blowup}")
 
 
 if __name__ == "__main__":
