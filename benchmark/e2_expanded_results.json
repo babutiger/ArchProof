@@ -1,0 +1,74 @@
+[
+  {
+    "name": "OOC1_AlwaysOnBias",
+    "sound_flagged": false,
+    "flip_rate": 0.0,
+    "target0_rate": 1.0,
+    "avg_logit_diff": 0.286,
+    "max_logit_diff": 0.295,
+    "effective_attack": false
+  },
+  {
+    "name": "OOC2_AttentionRouted",
+    "sound_flagged": false,
+    "flip_rate": 0.0,
+    "target0_rate": 1.0,
+    "avg_logit_diff": 2.017,
+    "max_logit_diff": 2.297,
+    "effective_attack": true
+  },
+  {
+    "name": "OOC3_ResidualLeakage",
+    "sound_flagged": false,
+    "flip_rate": 0.0,
+    "target0_rate": 1.0,
+    "avg_logit_diff": 0.253,
+    "max_logit_diff": 0.258,
+    "effective_attack": false
+  },
+  {
+    "name": "OOC4_SoftSigmoidGate",
+    "sound_flagged": false,
+    "flip_rate": 0.0,
+    "target0_rate": 1.0,
+    "avg_logit_diff": 11.658,
+    "max_logit_diff": 11.953,
+    "effective_attack": true
+  },
+  {
+    "name": "OOC5_DistributedLowAmp",
+    "sound_flagged": false,
+    "flip_rate": 1.0,
+    "target0_rate": 0.0,
+    "avg_logit_diff": 0.061,
+    "max_logit_diff": 0.063,
+    "effective_attack": true
+  },
+  {
+    "name": "OOC6_MultiStageRouting",
+    "sound_flagged": false,
+    "flip_rate": 0.0,
+    "target0_rate": 1.0,
+    "avg_logit_diff": 0.679,
+    "max_logit_diff": 0.695,
+    "effective_attack": false
+  },
+  {
+    "name": "OOC7_WeightEncoded",
+    "sound_flagged": false,
+    "flip_rate": 0.0,
+    "target0_rate": 0.0,
+    "avg_logit_diff": 1.06,
+    "max_logit_diff": 1.093,
+    "effective_attack": true
+  },
+  {
+    "name": "OOC8_TanhGate",
+    "sound_flagged": false,
+    "flip_rate": 0.0,
+    "target0_rate": 0.0,
+    "avg_logit_diff": 0.168,
+    "max_logit_diff": 0.173,
+    "effective_attack": false
+  }
+]

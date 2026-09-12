@@ -189,13 +189,6 @@ if __name__ == "__main__":
 
     # Save results
     import json
-    import os
-    archproof_root = os.environ.get(
-        "ARCHPROOF_ROOT",
-        os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
-    )
-    out_path = os.path.join(archproof_root, "benchmark",
-                             "v3_t5_robust_poisoning.json")
     exp_results = {
         "synthetic_poisoning_sweep": [],
     }
@@ -217,6 +210,9 @@ if __name__ == "__main__":
         "median_b_width": float((ub_mad_c - lb_mad_c).mean()),
         "robustness_factor": float((ub_std_c-lb_std_c).mean()/(ub_mad_c-lb_mad_c).mean()),
     }
-    with open(out_path, "w") as f:
+    import os as _os
+    _out = _os.path.join(_os.path.dirname(_os.path.dirname(
+        _os.path.abspath(__file__))), "benchmark", "v3_t5_robust_poisoning.json")
+    with open(_out, "w") as f:
         json.dump(exp_results, f, indent=2)
     print(f"\nSaved: benchmark/v3_t5_robust_poisoning.json")

@@ -190,6 +190,102 @@ def _walk_back_to_activation(graph, src_tensor, activation_outputs,
     return None
 
 
+def _build_const_map(graph):
+    """Map tensor name -> constant numpy array, covering BOTH graph
+    initializers and the outputs of `Constant` nodes. Recent opset exporters
+    emit scalar constants (e.g. a Mul-by-200 factor) as Constant nodes rather
+    than initializers, so a constant-operand check that only reads initializers
+    misses them.
+    """
+    out = {}
+    for init in graph.initializer:
+        try:
+            out[init.name] = numpy_helper.to_array(init)
+        except Exception:
+            pass
+    for n in graph.node:
+        if n.op_type == "Constant":
+            for attr in n.attribute:
+                if attr.name == "value":
+                    try:
+                        out[n.output[0]] = numpy_helper.to_array(attr.t)
+                    except Exception:
+                        pass
+    return out
+
+
+def _const_mul_factor(node, const_map):
+    """If `node` is a constant-scaling Mul (one dynamic operand, one constant),
+    return max|const|; else None.
+
+    A Mul-by-constant on the gate branch is the affine map g -> c*g. It scales
+    the gate value but not whether the gate fires, so the payload-Mul search
+    must pass through it while accumulating |c| into the payload norm to keep
+    the epsilon bound sound.
+    """
+    if node.op_type != "Mul" or len(node.input) != 2:
+        return None
+    a, b = node.input
+    if b in const_map and a not in const_map:
+        arr = const_map[b]
+    elif a in const_map and b not in const_map:
+        arr = const_map[a]
+    else:
+        return None
+    if arr.size == 0:
+        return None
+    return float(np.abs(arr.astype(np.float32)).max())
+
+
+def _walk_forward_to_payload_mul(graph, gate_tensor, const_map, max_depth=8):
+    """From a gate activation tensor, walk forward through constant-scaling
+    Muls and value-preserving shape ops to the payload Mul: the first Mul whose
+    other operand is a dynamic (non-constant) tensor.
+
+    Returns (payload_mul_node, accumulated_scale). The scale is the product of
+    the |constant| factors of every scaling Mul crossed (shape ops contribute
+    1); multiply the payload norm by it to keep the epsilon contribution
+    epsilon_phi * (scale * ||p||) sound. Returns (None, 1.0) if no payload Mul
+    is reachable.
+
+    A gate that feeds a payload Mul directly (the common case) returns that Mul
+    with scale 1, identical to the pre-2026-08 behaviour.
+    """
+    consumers = {}
+    for n in graph.node:
+        for i in n.input:
+            consumers.setdefault(i, []).append(n)
+    shape_ops = {"Identity", "Cast", "Reshape", "Transpose",
+                 "Squeeze", "Unsqueeze", "Flatten", "Expand"}
+    cur = gate_tensor
+    scale = 1.0
+    for _ in range(max_depth):
+        outs = consumers.get(cur, [])
+        # a Mul with a dynamic partner is the payload gate Mul; `cur` is the
+        # gate-side operand feeding it (the payload is the OTHER operand).
+        for n in outs:
+            if n.op_type == "Mul" and _const_mul_factor(n, const_map) is None \
+                    and len(n.input) == 2:
+                return n, scale, cur
+        # otherwise follow a scaling Mul or a shape-only op forward
+        advanced = False
+        for n in outs:
+            if n.op_type == "Mul":
+                factor = _const_mul_factor(n, const_map)
+                if factor is not None:
+                    scale *= factor
+                    cur = n.output[0]
+                    advanced = True
+                    break
+            elif n.op_type in shape_ops:
+                cur = n.output[0]
+                advanced = True
+                break
+        if not advanced:
+            return None, 1.0, None
+    return None, 1.0, None
+
+
 def _reachable_from_output(m):
     """Reverse BFS from graph outputs. Returns set of tensor names that
     influence any graph output (G4: reachability check)."""
@@ -278,8 +374,13 @@ def verify_model(onnx_path: str, b_clean_ub: float = 0.95,
                     if inp in activation_outputs:
                         gate_tensors.add(inp)
                     else:
+                        # C4 depth-cap fix (2026-08): bound the walkback by the
+                        # graph size (see verify_phaseC) so an attacker cannot
+                        # hide the activation behind >=9 transparent no-ops to
+                        # evade admission into a silent CLASS-NEGATIVE.
                         traced = _walk_back_to_activation(
-                            m.graph, inp, activation_outputs)
+                            m.graph, inp, activation_outputs,
+                            max_depth=len(m.graph.node))
                         if traced is not None:
                             gate_tensors.add(traced)
     else:
@@ -327,16 +428,23 @@ def verify_model(onnx_path: str, b_clean_ub: float = 0.95,
     # not a sound bound on drift from f_clean.  We reject such
     # gates from the certifiable set and record them as uncertified.
     # ------------------------------------------------------------
+    # Resolve each admitted gate to its payload Mul, following forward through
+    # any constant-scaling Mul or shape-only op and accumulating the scale.
+    # Both the additive-branch check and the epsilon contribution below use
+    # this, so a gate whose activation reaches the payload Mul through a
+    # constant scale (e.g. ReLU * c) is certified on the real payload Mul
+    # rather than mis-parsed on the scaling Mul.
+    _const_map = _build_const_map(m.graph)
+    gate_payload = {}
+    for g in gate_tensors:
+        pmul, pscale, gside = _walk_forward_to_payload_mul(
+            m.graph, g, _const_map, max_depth=len(m.graph.node))
+        if pmul is not None:
+            gate_payload[g] = (pmul, pscale, gside)
+
     if gdp_flags.get("additive_branch", True) and gate_tensors:
         from archproof.additive_branch_checker import certify_additive_branch
-        gate_mul_out = {}
-        for node in m.graph.node:
-            if node.op_type == "Mul":
-                for inp in node.input:
-                    if inp in gate_tensors:
-                        for out in node.output:
-                            gate_mul_out[inp] = out
-                        break
+        gate_mul_out = {g: pmul.output[0] for g, (pmul, _, _) in gate_payload.items()}
         certified_set = set()
         cert_report = {}
         for g, mul_out in gate_mul_out.items():
@@ -387,13 +495,16 @@ def verify_model(onnx_path: str, b_clean_ub: float = 0.95,
     #   - contribution_i = ε_i · ||p_i||_∞
     # Total margin bound (T2 theorem): Σ_i contribution_i
     # ============================================================
-    # Build Mul-node index: gate_tensor -> Mul node that consumes it
-    gate_to_mul = {}
-    for node in m.graph.node:
-        if node.op_type == "Mul":
-            for inp in node.input:
-                if inp in gate_tensors:
-                    gate_to_mul[inp] = node
+    # Build Mul-node index: gate_tensor -> (payload Mul node, accumulated
+    # constant scale) resolved through any scaling Mul / shape op on the gate
+    # branch. gate_payload was computed above; recomputed here only for gates
+    # that survived admission filtering.
+    gate_to_mul = {g: pmul for g, (pmul, _, _) in gate_payload.items()
+                   if g in gate_tensors}
+    gate_scale = {g: pscale for g, (_, pscale, _) in gate_payload.items()
+                  if g in gate_tensors}
+    gate_side = {g: gside for g, (_, _, gside) in gate_payload.items()
+                 if g in gate_tensors}
 
     for gate_tensor in sorted(gate_tensors):
         act_node, act_type = activation_outputs[gate_tensor]
@@ -412,13 +523,22 @@ def verify_model(onnx_path: str, b_clean_ub: float = 0.95,
         payload_abs_max = None
         mul_node = gate_to_mul.get(gate_tensor)
         if mul_node is not None:
-            other_inputs = [i for i in mul_node.input if i != gate_tensor]
+            # payload = the operand that is NOT on the gate branch. When the
+            # gate reaches the Mul through a scale/shape chain, the gate-side
+            # operand is `gate_side[gate_tensor]` (its bound may be an IBP
+            # blow-up sentinel and must not be mistaken for the payload).
+            gside_tensor = gate_side.get(gate_tensor, gate_tensor)
+            other_inputs = [i for i in mul_node.input if i != gside_tensor]
             for p_name in other_inputs:
                 p_b = bounds.get(p_name)
                 if p_b is not None:
                     cur = float(np.maximum(np.abs(p_b.lb), np.abs(p_b.ub)).max())
                     if payload_abs_max is None or cur > payload_abs_max:
                         payload_abs_max = cur
+            # fold the accumulated constant scale on the gate branch into the
+            # payload norm so contribution = eps_phi * (scale * ||p||) is sound.
+            if payload_abs_max is not None:
+                payload_abs_max *= gate_scale.get(gate_tensor, 1.0)
 
         contribution = (eps * payload_abs_max
                         if payload_abs_max is not None else None)
@@ -661,11 +781,8 @@ if __name__ == "__main__":
     elif args.benchmark:
         BOBER_DIR = "/tmp/bober_onnx"
         HANDCRAFTED_DIR = "/tmp/handcrafted_onnx"
-        _archproof_root = os.environ.get(
-            "ARCHPROOF_ROOT",
-            os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
-        )
-        CLEAN_DIR = os.path.join(_archproof_root, "benchmark", "clean")
+        CLEAN_DIR = os.path.join(os.path.dirname(os.path.dirname(
+            os.path.abspath(__file__))), "benchmark", "clean")
 
         print("=" * 80)
         print("ARCHPROOF FULL BENCHMARK")

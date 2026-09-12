@@ -1086,4 +1086,47 @@ def check_gate_dormancy(onnx_model: onnx.ModelProto,
         return False, float('inf')
 
 
+# ============================================================
+# Quick test
+# ============================================================
+if __name__ == "__main__":
+    import sys, os
+    # artifact root, so `import backdoored_models` (and its `utils`) resolve
+    sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    import torch
+    from backdoored_models import op_sep_tar_backdoor
 
+    print("=== Interval Propagation on Bober op_sep_tar ===")
+
+    # Export to ONNX
+    m = op_sep_tar_backdoor().cpu().eval()
+    x = torch.randn(1, 3, 32, 32)
+    torch.onnx.export(m, x, "/tmp/bober_test.onnx", opset_version=17,
+                      do_constant_folding=False, input_names=["input"], output_names=["output"])
+    onnx_model = onnx.load("/tmp/bober_test.onnx")
+
+    print(f"Nodes: {len(onnx_model.graph.node)}")
+
+    # Propagate intervals
+    bounds = propagate_intervals(onnx_model, input_lb=0.0, input_ub=0.95)
+
+    # Show bounds for key tensors
+    output_name = onnx_model.graph.output[0].name
+    if output_name in bounds:
+        out_bound = bounds[output_name]
+        print(f"Output bound: lb_max={out_bound.lb.max():.4f}, ub_max={out_bound.ub.max():.4f}")
+    else:
+        print(f"Output '{output_name}' not in bounds")
+
+    # Show how many tensors got non-vacuous bounds
+    n_total = len(bounds)
+    n_vacuous = sum(1 for b in bounds.values() if b.ub.max() > 1e9)
+    n_tight = n_total - n_vacuous
+    print(f"Tensors bounded: {n_tight}/{n_total} non-vacuous")
+
+    # Find Mul nodes and check their output bounds
+    print("\nMul node output bounds:")
+    for node in onnx_model.graph.node:
+        if node.op_type == "Mul" and node.output[0] in bounds:
+            b = bounds[node.output[0]]
+            print(f"  {node.output[0]}: lb_max={b.lb.max():.4f}, ub_max={b.ub.max():.4f}")

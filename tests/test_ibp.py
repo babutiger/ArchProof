@@ -5,10 +5,22 @@ import pytest
 
 def test_ibp_dense_sampling_under_bound():
     """For a small Linear+ReLU network, the IBP envelope must over-approximate
-    every random sample drawn from B_clean."""
+    every random sample drawn from B_clean.
+
+    Runs the same sound IBP the verifier uses (`propagate_intervals` over the
+    ONNX graph), then Monte-Carlo checks that no dense sample escapes the
+    envelope -- a direct soundness (over-approximation) property.
+    """
     pytest.importorskip("torch")
+    import os
+    import shutil
+    import tempfile
+
+    import onnx
     import torch
     import torch.nn as nn
+
+    from archproof.interval_propagation import propagate_intervals
 
     torch.manual_seed(0)
     rng = np.random.default_rng(0)
@@ -16,23 +28,29 @@ def test_ibp_dense_sampling_under_bound():
     # Tiny 2-layer network
     net = nn.Sequential(nn.Linear(8, 16), nn.ReLU(), nn.Linear(16, 4)).eval()
 
-    # B_clean = [-1, 1]^8
+    # B_clean = [-1, 1]^8; dense-sample the true outputs
     n_samples = 1000
     samples = rng.uniform(-1, 1, size=(n_samples, 8)).astype(np.float32)
     with torch.no_grad():
         outputs = net(torch.tensor(samples)).numpy()
 
-    # IBP propagation
+    # Export to ONNX and propagate the input box [-1, 1]^8 through the graph
+    d = tempfile.mkdtemp(prefix="ibp_test_")
     try:
-        from archproof.interval_propagation import propagate_linear_relu
-    except ImportError:
-        pytest.skip("propagate_linear_relu not exposed")
+        onnx_path = os.path.join(d, "net.onnx")
+        torch.onnx.export(net, torch.zeros(1, 8), onnx_path,
+                          input_names=["x"], output_names=["y"],
+                          dynamic_axes={"x": {0: "batch"}}, opset_version=17)
+        model = onnx.load(onnx_path)
+        bounds = propagate_intervals(model, input_lb=-1.0, input_ub=1.0)
+    finally:
+        shutil.rmtree(d, ignore_errors=True)
 
-    lb_in, ub_in = -np.ones(8, dtype=np.float32), np.ones(8, dtype=np.float32)
-    try:
-        lb_out, ub_out = propagate_linear_relu(net, lb_in, ub_in)
-    except (AttributeError, TypeError):
-        pytest.skip("propagate_linear_relu signature differs")
+    out_name = model.graph.output[0].name
+    assert out_name in bounds, f"no IBP bound produced for output {out_name!r}"
+    ob = bounds[out_name]
+    lb_out = np.asarray(ob.lb, dtype=np.float64).ravel()
+    ub_out = np.asarray(ob.ub, dtype=np.float64).ravel()
 
     # Soundness: every dense sample must lie inside [lb_out, ub_out]
     n_violations = ((outputs < lb_out - 1e-5) | (outputs > ub_out + 1e-5)).sum()

@@ -23,7 +23,7 @@ Transformations:
     W8 CastFp16Roundtrip   : add Cast(fp32->fp16)->Cast(fp16->fp32)
 
 Output: /tmp/c4_obfuscated/<bd_name>__<wrap>.onnx
-        ${ARCHPROOF_ROOT}/benchmark/c4_obfuscation_index.json
+        $ARCHPROOF_ROOT/benchmark/c4_obfuscation_index.json
 """
 from __future__ import annotations
 
@@ -37,10 +37,8 @@ import numpy as np
 import onnx
 from onnx import TensorProto, helper, numpy_helper
 
-ROOT = os.environ.get(
-    "ARCHPROOF_ROOT",
-    os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
-)
+ROOT = os.environ.get("ARCHPROOF_ROOT") or os.path.dirname(
+    os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT)
 
 OUT_DIR = "/tmp/c4_obfuscated"

@@ -30,6 +30,7 @@ This upper-bounds any path composition via triangle inequality on branch merges
 (Add/Concat) and chain rule on single-tensor ops.
 """
 
+import os
 import numpy as np
 import onnx
 from onnx import numpy_helper
@@ -360,14 +361,10 @@ def compute_K_H_for_gate(model: onnx.ModelProto,
 if __name__ == "__main__":
     # Smoke test on a small injected model if available
     import glob, os, sys
-    _root = os.environ.get(
-        "ARCHPROOF_ROOT",
-        os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
-    )
     candidates = []
     for patt in [
-        os.path.join(_root, "benchmark", "clean", "*.onnx"),
-        os.path.join(_root, "benchmark", "*.onnx"),
+        os.path.join((os.environ.get("ARCHPROOF_ROOT") or os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "benchmark/clean/*.onnx"),
+        os.path.join((os.environ.get("ARCHPROOF_ROOT") or os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "benchmark/*.onnx"),
     ]:
         candidates.extend(glob.glob(patt))
     if not candidates:

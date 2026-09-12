@@ -1,0 +1,110 @@
+{
+  "case_study": "BackdooredCifarCNN: 3-gate GDP-class backdoor end-to-end",
+  "pipeline_version": "ArchProof v3 + T8 ACPC + MGRS + T9 EIC",
+  "steps": [
+    {
+      "step": 1,
+      "title": "T1-T3 verify \u2014 gate detection + \u03b5 certificate",
+      "verify_time_sec": 0.08621621131896973,
+      "verdict": "\u03b5-BOUNDED",
+      "n_gates_detected": 3,
+      "n_nodes": 22,
+      "epsilon_total": 41.748692475992605,
+      "per_gate": [
+        {
+          "activation": "sigmoid",
+          "epsilon": 0.7997343765550217,
+          "payload_abs_max": 18.191951442253508,
+          "contribution": 14.548728944989836
+        },
+        {
+          "activation": "sigmoid",
+          "epsilon": 0.5432790130731037,
+          "payload_abs_max": 3.9360321626884067,
+          "contribution": 2.1383636687693515
+        },
+        {
+          "activation": "sigmoid",
+          "epsilon": 0.6535103520830239,
+          "payload_abs_max": 38.34920102237266,
+          "contribution": 25.061599862233418
+        }
+      ]
+    },
+    {
+      "step": 2,
+      "title": "T8 ACPC \u2014 \u03b5-certificate degradation under \u03c1=0.1 calibration poisoning",
+      "rho": 0.1,
+      "n_calibration": 500,
+      "per_gate_clean_eps": [
+        0.1794928058840814,
+        0.12351072701571471,
+        0.07490657653129325
+      ],
+      "per_gate_poisoned_eps": [
+        0.17959975902452158,
+        0.12362685526300225,
+        0.07493380000734323
+      ],
+      "empirical_shift_per_gate": [
+        0.00010695314044018023,
+        0.00011612824728754467,
+        2.7223476049983986e-05
+      ],
+      "empirical_shift_total": 0.003446769409373271,
+      "acpc_bias_bound": 0.019470622356484044,
+      "bound_holds": true
+    },
+    {
+      "step": 3,
+      "title": "MGRS \u2014 minimum gate removal set for target \u03b5=0",
+      "target_epsilon": 0.0,
+      "removed_gate_indices": [
+        2,
+        0,
+        1
+      ],
+      "k_removed": 3,
+      "k_total": 3,
+      "predicted_residual_epsilon": 0.0
+    },
+    {
+      "step": 4,
+      "title": "PyTorch surgery \u2014 zero out MGRS-recommended gate weights",
+      "mgrs_output_indices": [
+        2,
+        0,
+        1
+      ],
+      "mgrs_output_nodes": [
+        "/Sigmoid_output_0",
+        "/Sigmoid_1_output_0",
+        "/Sigmoid_2_output_0"
+      ],
+      "gate_indices_zeroed": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "step": 5,
+      "title": "Re-verify + T9 EIC on cleaned model",
+      "verify_time_sec": 0.11710810661315918,
+      "verdict_after_surgery": "\u03b5-BOUNDED",
+      "epsilon_after": 0.0,
+      "epsilon_reduction": 41.748692475992605,
+      "eic_per_config_eps": {
+        "T_default": 0.0,
+        "T_constfold": 0.0,
+        "T_opset11": 0.0,
+        "T_opset13": 0.0,
+        "T_opset15": 0.0,
+        "T_dynaxes": 0.0
+      },
+      "eic_delta_T": 0.0
+    }
+  ],
+  "success": true,
+  "summary": "Started: \u03b5-BOUNDED \u03b5=41.75; MGRS removed 3/3 gates; ended: \u03b5-BOUNDED \u03b5=0.00; EIC holds post-surgery (\u0394_T=0.0)"
+}

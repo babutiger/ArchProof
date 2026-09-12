@@ -1,20 +1,28 @@
 """Per-activation envelope soundness tests for all 11 supported activations."""
+import math
+
 import numpy as np
 import pytest
 
+_erf = np.vectorize(math.erf)  # numpy has no erf; match the impl's exact GELU
 
-# Per-activation closed-form envelope: sup_{z in [l,u]} |φ(z)|
+# Per-activation closed-form envelope: sup_{z in [l,u]} |φ(z)|.
+# The reference φ here must be the SAME function the envelope bounds, i.e. the
+# exact definitions used in archproof.activation_epsilon (erf-GELU, and the
+# full-precision Klambauer et al. SELU constants) -- not the tanh-approx GELU
+# or rounded SELU constants, which are a slightly different function and would
+# make a sound envelope look like a ~1e-3 underestimate.
 ACTIVATIONS = [
     ("relu",      lambda z: np.maximum(0, z)),
     ("hardtanh",  lambda z: np.clip(z, -1, 1)),
     ("hardswish", lambda z: z * np.clip(z + 3, 0, 6) / 6),
     ("sigmoid",   lambda z: 1 / (1 + np.exp(-z))),
     ("tanh",      lambda z: np.tanh(z)),
-    ("gelu",      lambda z: 0.5 * z * (1 + np.tanh(np.sqrt(2 / np.pi) * (z + 0.044715 * z**3)))),
+    ("gelu",      lambda z: 0.5 * z * (1 + _erf(z / np.sqrt(2)))),
     ("silu",      lambda z: z / (1 + np.exp(-z))),
     ("mish",      lambda z: z * np.tanh(np.log1p(np.exp(z)))),
     ("elu",       lambda z: np.where(z >= 0, z, np.exp(z) - 1)),
-    ("selu",      lambda z: 1.0507 * np.where(z >= 0, z, 1.6733 * (np.exp(z) - 1))),
+    ("selu",      lambda z: 1.0507009873554805 * np.where(z >= 0, z, 1.6732632423543772 * (np.exp(z) - 1))),
     ("softplus",  lambda z: np.log1p(np.exp(z))),
 ]
 
@@ -24,7 +32,7 @@ def test_envelope_is_sound_via_dense_sampling(name, fn):
     """For each activation φ, draw 10,000 random intervals and verify the
     closed-form envelope ε_φ(l, u) >= sup_{z in [l,u]} |φ(z)| in dense
     samples — the soundness invariant of Lemma in §5."""
-    from archproof.activation_epsilon import envelope
+    from archproof.activation_epsilon import activation_epsilon as envelope
 
     rng = np.random.default_rng(42)
     n_underestimate = 0
@@ -53,7 +61,7 @@ def test_envelope_is_sound_via_dense_sampling(name, fn):
 
 def test_envelope_monotone_in_interval():
     """Wider interval ⇒ envelope cannot decrease (monotonicity)."""
-    from archproof.activation_epsilon import envelope
+    from archproof.activation_epsilon import activation_epsilon as envelope
 
     for name in ["relu", "sigmoid", "tanh", "gelu"]:
         try:

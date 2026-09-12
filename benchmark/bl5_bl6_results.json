@@ -1,0 +1,834 @@
+{
+  "BL5_GDP_static": {
+    "tp": 11,
+    "fp": 21,
+    "fn": 11,
+    "tn": 58,
+    "err": 0,
+    "prec": 0.34375,
+    "rec": 0.5,
+    "f1": 0.4074074074074074,
+    "per_model": {
+      "con_sep_tar": {
+        "result": false,
+        "time": 0.06311392784118652
+      },
+      "con_sep_un": {
+        "result": false,
+        "time": 0.061574697494506836
+      },
+      "con_sha_tar": {
+        "result": false,
+        "time": 0.058687686920166016
+      },
+      "con_sha_un": {
+        "result": false,
+        "time": 0.05968141555786133
+      },
+      "op_int_tar": {
+        "result": true,
+        "time": 0.05701851844787598
+      },
+      "op_int_tar_L0001": {
+        "result": true,
+        "time": 0.059517621994018555
+      },
+      "op_int_tar_L001": {
+        "result": true,
+        "time": 0.03416848182678223
+      },
+      "op_int_tar_L01": {
+        "result": true,
+        "time": 0.04221606254577637
+      },
+      "op_int_un": {
+        "result": true,
+        "time": 0.05749797821044922
+      },
+      "op_sep_tar": {
+        "result": true,
+        "time": 0.05997514724731445
+      },
+      "op_sep_un": {
+        "result": true,
+        "time": 0.05945611000061035
+      },
+      "op_sep_un_L0001": {
+        "result": false,
+        "time": 0.011165857315063477
+      },
+      "op_sep_un_L001": {
+        "result": false,
+        "time": 0.010864496231079102
+      },
+      "op_sep_un_L01": {
+        "result": false,
+        "time": 0.011355161666870117
+      },
+      "op_sha_tar": {
+        "result": true,
+        "time": 0.01880478858947754
+      },
+      "op_sha_tar_L0001": {
+        "result": false,
+        "time": 0.009899616241455078
+      },
+      "op_sha_tar_L001": {
+        "result": false,
+        "time": 0.009915351867675781
+      },
+      "op_sha_tar_L01": {
+        "result": false,
+        "time": 0.009821176528930664
+      },
+      "op_sha_un": {
+        "result": true,
+        "time": 0.014345169067382812
+      },
+      "H1_SignGated": {
+        "result": false,
+        "time": 0.00020051002502441406
+      },
+      "H2_AvgPoolGated": {
+        "result": true,
+        "time": 0.0001544952392578125
+      },
+      "H3_MulIndicatorGated": {
+        "result": true,
+        "time": 0.00011801719665527344
+      },
+      "attention_pool": {
+        "result": true,
+        "time": 0.0002124309539794922
+      },
+      "avgpool_net": {
+        "result": false,
+        "time": 0.00016236305236816406
+      },
+      "bottleneck_net": {
+        "result": false,
+        "time": 0.00010323524475097656
+      },
+      "cifar_conv": {
+        "result": false,
+        "time": 0.0003724098205566406
+      },
+      "cifar_mlp": {
+        "result": false,
+        "time": 0.0008528232574462891
+      },
+      "clean_G1adv_dormant_add": {
+        "result": false,
+        "time": 7.867813110351562e-05
+      },
+      "clean_G1adv_dormant_concat": {
+        "result": false,
+        "time": 6.842613220214844e-05
+      },
+      "clean_G4adv_ghost_mul": {
+        "result": false,
+        "time": 0.00011563301086425781
+      },
+      "clean_bifpn": {
+        "result": false,
+        "time": 0.0001380443572998047
+      },
+      "clean_cbam": {
+        "result": true,
+        "time": 0.00023508071899414062
+      },
+      "clean_channel_shuffle": {
+        "result": false,
+        "time": 0.00016880035400390625
+      },
+      "clean_convmixer": {
+        "result": false,
+        "time": 0.00014138221740722656
+      },
+      "clean_cross_attention": {
+        "result": false,
+        "time": 0.0001583099365234375
+      },
+      "clean_denseblock": {
+        "result": false,
+        "time": 8.869171142578125e-05
+      },
+      "clean_eca": {
+        "result": true,
+        "time": 0.0001347064971923828
+      },
+      "clean_firemodule": {
+        "result": false,
+        "time": 8.416175842285156e-05
+      },
+      "clean_gated_delta": {
+        "result": true,
+        "time": 0.00012254714965820312
+      },
+      "clean_geglu": {
+        "result": false,
+        "time": 0.0001652240753173828
+      },
+      "clean_ghostnet": {
+        "result": false,
+        "time": 7.390975952148438e-05
+      },
+      "clean_gru_recurrent": {
+        "result": true,
+        "time": 0.004743099212646484
+      },
+      "clean_hardswish": {
+        "result": false,
+        "time": 0.00010752677917480469
+      },
+      "clean_hardtanh": {
+        "result": false,
+        "time": 6.556510925292969e-05
+      },
+      "clean_instancenorm": {
+        "result": false,
+        "time": 5.6743621826171875e-05
+      },
+      "clean_inverted_residual": {
+        "result": false,
+        "time": 0.00010609626770019531
+      },
+      "clean_lambda": {
+        "result": false,
+        "time": 0.00014495849609375
+      },
+      "clean_layernorm": {
+        "result": false,
+        "time": 9.226799011230469e-05
+      },
+      "clean_lrn": {
+        "result": false,
+        "time": 0.000278472900390625
+      },
+      "clean_mhsa": {
+        "result": false,
+        "time": 0.000278472900390625
+      },
+      "clean_mish": {
+        "result": true,
+        "time": 8.702278137207031e-05
+      },
+      "clean_non_local": {
+        "result": false,
+        "time": 0.00023865699768066406
+      },
+      "clean_posffn": {
+        "result": false,
+        "time": 0.00012826919555664062
+      },
+      "clean_position_droppath": {
+        "result": false,
+        "time": 7.128715515136719e-05
+      },
+      "clean_prelu": {
+        "result": false,
+        "time": 5.91278076171875e-05
+      },
+      "clean_residual_mlp": {
+        "result": false,
+        "time": 0.0005047321319580078
+      },
+      "clean_resnest": {
+        "result": true,
+        "time": 0.0002589225769042969
+      },
+      "clean_rmsnorm": {
+        "result": false,
+        "time": 8.58306884765625e-05
+      },
+      "clean_simple_cnn_a": {
+        "result": false,
+        "time": 8.96453857421875e-05
+      },
+      "clean_simple_cnn_b": {
+        "result": false,
+        "time": 8.916854858398438e-05
+      },
+      "clean_sknet": {
+        "result": true,
+        "time": 0.00026106834411621094
+      },
+      "clean_softmax_router": {
+        "result": false,
+        "time": 0.00014281272888183594
+      },
+      "clean_spatial_pyramid": {
+        "result": false,
+        "time": 0.00011420249938964844
+      },
+      "clean_swish": {
+        "result": true,
+        "time": 0.00011038780212402344
+      },
+      "clean_tiny_convnext": {
+        "result": false,
+        "time": 0.00011563301086425781
+      },
+      "clean_unet_tiny": {
+        "result": false,
+        "time": 8.702278137207031e-05
+      },
+      "conv_batchnorm": {
+        "result": false,
+        "time": 8.893013000488281e-05
+      },
+      "conv_deep": {
+        "result": false,
+        "time": 0.00012421607971191406
+      },
+      "conv_dropout": {
+        "result": false,
+        "time": 7.867813110351562e-05
+      },
+      "conv_groupnorm": {
+        "result": false,
+        "time": 0.00015664100646972656
+      },
+      "depthwise_separable": {
+        "result": false,
+        "time": 8.988380432128906e-05
+      },
+      "dilated_conv": {
+        "result": false,
+        "time": 9.632110595703125e-05
+      },
+      "elu_net": {
+        "result": false,
+        "time": 8.153915405273438e-05
+      },
+      "film_conditioning": {
+        "result": true,
+        "time": 0.00016236305236816406
+      },
+      "gated_attention": {
+        "result": false,
+        "time": 0.0001270771026611328
+      },
+      "gated_maxpool_selector": {
+        "result": false,
+        "time": 9.679794311523438e-05
+      },
+      "gated_residual": {
+        "result": true,
+        "time": 0.0003733634948730469
+      },
+      "gated_sigmoid_highway": {
+        "result": true,
+        "time": 0.0008804798126220703
+      },
+      "gated_softmax_attn": {
+        "result": true,
+        "time": 0.0002961158752441406
+      },
+      "gelu_net": {
+        "result": false,
+        "time": 0.0001327991485595703
+      },
+      "glu_net": {
+        "result": true,
+        "time": 0.00013875961303710938
+      },
+      "gru_gate_residual": {
+        "result": true,
+        "time": 0.00015211105346679688
+      },
+      "high_threshold_skip": {
+        "result": true,
+        "time": 0.00010943412780761719
+      },
+      "highway_net": {
+        "result": true,
+        "time": 0.0001201629638671875
+      },
+      "leaky_relu_net": {
+        "result": false,
+        "time": 9.012222290039062e-05
+      },
+      "linear_classifier": {
+        "result": false,
+        "time": 6.389617919921875e-05
+      },
+      "maxpool_heavy": {
+        "result": false,
+        "time": 0.00019860267639160156
+      },
+      "mlp_3layer": {
+        "result": false,
+        "time": 0.0008027553558349609
+      },
+      "mlp_tiny": {
+        "result": false,
+        "time": 0.00014257431030273438
+      },
+      "mobilenet_v3_small": {
+        "result": true,
+        "time": 0.0090484619140625
+      },
+      "moe_router": {
+        "result": false,
+        "time": 0.00014591217041015625
+      },
+      "multi_head_concat": {
+        "result": false,
+        "time": 9.560585021972656e-05
+      },
+      "pruned_channel": {
+        "result": false,
+        "time": 7.510185241699219e-05
+      },
+      "rezero_block": {
+        "result": true,
+        "time": 0.00011396408081054688
+      },
+      "se_block": {
+        "result": true,
+        "time": 0.0001595020294189453
+      },
+      "shufflenet_v2": {
+        "result": false,
+        "time": 0.004615306854248047
+      },
+      "small_resnet": {
+        "result": false,
+        "time": 0.00012111663818359375
+      },
+      "squeezenet1_0": {
+        "result": false,
+        "time": 0.0014410018920898438
+      },
+      "strided_conv": {
+        "result": false,
+        "time": 0.00015926361083984375
+      },
+      "swiglu_ffn": {
+        "result": true,
+        "time": 9.942054748535156e-05
+      },
+      "zero_init_residual": {
+        "result": false,
+        "time": 8.320808410644531e-05
+      }
+    }
+  },
+  "BL6_GDP_no_robust": {
+    "tp": 10,
+    "fp": 2,
+    "fn": 12,
+    "tn": 77,
+    "err": 0,
+    "prec": 0.8333333333333334,
+    "rec": 0.45454545454545453,
+    "f1": 0.5882352941176471,
+    "per_model": {
+      "con_sep_tar": {
+        "result": false,
+        "time": 0.011620044708251953
+      },
+      "con_sep_un": {
+        "result": false,
+        "time": 0.012812614440917969
+      },
+      "con_sha_tar": {
+        "result": false,
+        "time": 0.011536598205566406
+      },
+      "con_sha_un": {
+        "result": false,
+        "time": 0.011884689331054688
+      },
+      "op_int_tar": {
+        "result": true,
+        "time": 8.999715328216553
+      },
+      "op_int_tar_L0001": {
+        "result": true,
+        "time": 12.23103642463684
+      },
+      "op_int_tar_L001": {
+        "result": true,
+        "time": 12.155838012695312
+      },
+      "op_int_tar_L01": {
+        "result": true,
+        "time": 12.604625940322876
+      },
+      "op_int_un": {
+        "result": true,
+        "time": 11.69112753868103
+      },
+      "op_sep_tar": {
+        "result": true,
+        "time": 11.832332849502563
+      },
+      "op_sep_un": {
+        "result": true,
+        "time": 11.647562026977539
+      },
+      "op_sep_un_L0001": {
+        "result": false,
+        "time": 0.010983705520629883
+      },
+      "op_sep_un_L001": {
+        "result": false,
+        "time": 0.009691476821899414
+      },
+      "op_sep_un_L01": {
+        "result": false,
+        "time": 0.00994729995727539
+      },
+      "op_sha_tar": {
+        "result": true,
+        "time": 11.785434484481812
+      },
+      "op_sha_tar_L0001": {
+        "result": false,
+        "time": 0.010880231857299805
+      },
+      "op_sha_tar_L001": {
+        "result": false,
+        "time": 0.009920597076416016
+      },
+      "op_sha_tar_L01": {
+        "result": false,
+        "time": 0.009674787521362305
+      },
+      "op_sha_un": {
+        "result": true,
+        "time": 11.682035684585571
+      },
+      "H1_SignGated": {
+        "result": false,
+        "time": 0.00034999847412109375
+      },
+      "H2_AvgPoolGated": {
+        "result": false,
+        "time": 0.04160642623901367
+      },
+      "H3_MulIndicatorGated": {
+        "result": true,
+        "time": 0.07978057861328125
+      },
+      "attention_pool": {
+        "result": false,
+        "time": 0.07569527626037598
+      },
+      "avgpool_net": {
+        "result": false,
+        "time": 0.0002529621124267578
+      },
+      "bottleneck_net": {
+        "result": false,
+        "time": 0.00011563301086425781
+      },
+      "cifar_conv": {
+        "result": false,
+        "time": 0.00038242340087890625
+      },
+      "cifar_mlp": {
+        "result": false,
+        "time": 0.0010433197021484375
+      },
+      "clean_G1adv_dormant_add": {
+        "result": false,
+        "time": 8.845329284667969e-05
+      },
+      "clean_G1adv_dormant_concat": {
+        "result": false,
+        "time": 6.985664367675781e-05
+      },
+      "clean_G4adv_ghost_mul": {
+        "result": true,
+        "time": 0.09839534759521484
+      },
+      "clean_bifpn": {
+        "result": false,
+        "time": 0.00024390220642089844
+      },
+      "clean_cbam": {
+        "result": false,
+        "time": 0.07003045082092285
+      },
+      "clean_channel_shuffle": {
+        "result": false,
+        "time": 0.0002703666687011719
+      },
+      "clean_convmixer": {
+        "result": false,
+        "time": 0.00015354156494140625
+      },
+      "clean_cross_attention": {
+        "result": false,
+        "time": 0.0001614093780517578
+      },
+      "clean_denseblock": {
+        "result": false,
+        "time": 9.250640869140625e-05
+      },
+      "clean_eca": {
+        "result": false,
+        "time": 0.03939652442932129
+      },
+      "clean_firemodule": {
+        "result": false,
+        "time": 0.0001666545867919922
+      },
+      "clean_gated_delta": {
+        "result": false,
+        "time": 0.11766529083251953
+      },
+      "clean_geglu": {
+        "result": false,
+        "time": 0.00028061866760253906
+      },
+      "clean_ghostnet": {
+        "result": false,
+        "time": 8.893013000488281e-05
+      },
+      "clean_gru_recurrent": {
+        "result": false,
+        "time": 0.10817694664001465
+      },
+      "clean_hardswish": {
+        "result": false,
+        "time": 0.00020623207092285156
+      },
+      "clean_hardtanh": {
+        "result": false,
+        "time": 7.152557373046875e-05
+      },
+      "clean_instancenorm": {
+        "result": false,
+        "time": 6.031990051269531e-05
+      },
+      "clean_inverted_residual": {
+        "result": false,
+        "time": 0.00010561943054199219
+      },
+      "clean_lambda": {
+        "result": false,
+        "time": 0.00014066696166992188
+      },
+      "clean_layernorm": {
+        "result": false,
+        "time": 9.512901306152344e-05
+      },
+      "clean_lrn": {
+        "result": false,
+        "time": 0.00026035308837890625
+      },
+      "clean_mhsa": {
+        "result": false,
+        "time": 0.0002627372741699219
+      },
+      "clean_mish": {
+        "result": false,
+        "time": 0.050322771072387695
+      },
+      "clean_non_local": {
+        "result": false,
+        "time": 0.00033974647521972656
+      },
+      "clean_posffn": {
+        "result": false,
+        "time": 0.00014901161193847656
+      },
+      "clean_position_droppath": {
+        "result": false,
+        "time": 0.00010991096496582031
+      },
+      "clean_prelu": {
+        "result": false,
+        "time": 7.510185241699219e-05
+      },
+      "clean_residual_mlp": {
+        "result": false,
+        "time": 0.0005166530609130859
+      },
+      "clean_resnest": {
+        "result": false,
+        "time": 0.11095118522644043
+      },
+      "clean_rmsnorm": {
+        "result": false,
+        "time": 0.0007810592651367188
+      },
+      "clean_simple_cnn_a": {
+        "result": false,
+        "time": 0.00014209747314453125
+      },
+      "clean_simple_cnn_b": {
+        "result": false,
+        "time": 0.00011157989501953125
+      },
+      "clean_sknet": {
+        "result": false,
+        "time": 0.13749361038208008
+      },
+      "clean_softmax_router": {
+        "result": false,
+        "time": 0.0015981197357177734
+      },
+      "clean_spatial_pyramid": {
+        "result": false,
+        "time": 0.00032830238342285156
+      },
+      "clean_swish": {
+        "result": false,
+        "time": 0.08972406387329102
+      },
+      "clean_tiny_convnext": {
+        "result": false,
+        "time": 0.0002238750457763672
+      },
+      "clean_unet_tiny": {
+        "result": false,
+        "time": 0.00010323524475097656
+      },
+      "conv_batchnorm": {
+        "result": false,
+        "time": 9.465217590332031e-05
+      },
+      "conv_deep": {
+        "result": false,
+        "time": 0.00013208389282226562
+      },
+      "conv_dropout": {
+        "result": false,
+        "time": 8.273124694824219e-05
+      },
+      "conv_groupnorm": {
+        "result": false,
+        "time": 0.0001575946807861328
+      },
+      "depthwise_separable": {
+        "result": false,
+        "time": 9.703636169433594e-05
+      },
+      "dilated_conv": {
+        "result": false,
+        "time": 0.00010585784912109375
+      },
+      "elu_net": {
+        "result": false,
+        "time": 8.440017700195312e-05
+      },
+      "film_conditioning": {
+        "result": false,
+        "time": 0.0655052661895752
+      },
+      "gated_attention": {
+        "result": false,
+        "time": 0.00022268295288085938
+      },
+      "gated_maxpool_selector": {
+        "result": false,
+        "time": 0.00012230873107910156
+      },
+      "gated_residual": {
+        "result": false,
+        "time": 0.07116556167602539
+      },
+      "gated_sigmoid_highway": {
+        "result": false,
+        "time": 0.0976102352142334
+      },
+      "gated_softmax_attn": {
+        "result": false,
+        "time": 0.055703163146972656
+      },
+      "gelu_net": {
+        "result": false,
+        "time": 0.00021457672119140625
+      },
+      "glu_net": {
+        "result": false,
+        "time": 0.11864233016967773
+      },
+      "gru_gate_residual": {
+        "result": false,
+        "time": 0.23583364486694336
+      },
+      "high_threshold_skip": {
+        "result": false,
+        "time": 0.10374331474304199
+      },
+      "highway_net": {
+        "result": false,
+        "time": 0.04314851760864258
+      },
+      "leaky_relu_net": {
+        "result": false,
+        "time": 0.00018739700317382812
+      },
+      "linear_classifier": {
+        "result": false,
+        "time": 9.083747863769531e-05
+      },
+      "maxpool_heavy": {
+        "result": false,
+        "time": 0.00022029876708984375
+      },
+      "mlp_3layer": {
+        "result": false,
+        "time": 0.0010859966278076172
+      },
+      "mlp_tiny": {
+        "result": false,
+        "time": 0.0001659393310546875
+      },
+      "mobilenet_v3_small": {
+        "result": true,
+        "time": 9.96320104598999
+      },
+      "moe_router": {
+        "result": false,
+        "time": 0.0002532005310058594
+      },
+      "multi_head_concat": {
+        "result": false,
+        "time": 0.00010752677917480469
+      },
+      "pruned_channel": {
+        "result": false,
+        "time": 8.153915405273438e-05
+      },
+      "rezero_block": {
+        "result": false,
+        "time": 0.2348470687866211
+      },
+      "se_block": {
+        "result": false,
+        "time": 0.2435472011566162
+      },
+      "shufflenet_v2": {
+        "result": false,
+        "time": 0.005075693130493164
+      },
+      "small_resnet": {
+        "result": false,
+        "time": 0.00015687942504882812
+      },
+      "squeezenet1_0": {
+        "result": false,
+        "time": 0.0017266273498535156
+      },
+      "strided_conv": {
+        "result": false,
+        "time": 0.0001862049102783203
+      },
+      "swiglu_ffn": {
+        "result": false,
+        "time": 0.04711174964904785
+      },
+      "zero_init_residual": {
+        "result": false,
+        "time": 0.0001571178436279297
+      }
+    }
+  }
+}

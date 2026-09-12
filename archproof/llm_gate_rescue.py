@@ -106,6 +106,22 @@ def _const_arr_via_identity(model: onnx.ModelProto,
     return None
 
 
+def layernorm_geometric_bound(gamma, beta=None) -> float:
+    """|LN(x)|_∞ ≤ ||γ||_∞ · √D + ||β||_∞ — the geometric rescue bound.
+
+    The standardized residual (x - mean) / std has variance 1 across its D
+    coordinates, so each coordinate has magnitude ≤ √D; scaling by γ and adding
+    β yields this a-priori output bound. It holds under any input distribution,
+    so the bound is sound, not a heuristic. Takes the raw γ (and optional β)
+    arrays; this is the single formula the ONNX-graph path below also uses.
+    """
+    gamma = np.asarray(gamma)
+    D = int(np.prod(gamma.shape))
+    g_max = float(np.abs(gamma).max())
+    b_max = float(np.abs(np.asarray(beta)).max()) if beta is not None else 0.0
+    return g_max * math.sqrt(D) + b_max
+
+
 def _layernorm_output_bound(model: onnx.ModelProto,
                             ln_node: onnx.NodeProto,
                             produces: Optional[Dict[str, onnx.NodeProto]]
@@ -123,16 +139,10 @@ def _layernorm_output_bound(model: onnx.ModelProto,
     gamma = _const_arr_via_identity(model, produces, inputs[1])
     if gamma is None:
         return None
-    D = int(np.prod(gamma.shape))
-    g_max = float(np.abs(gamma).max())
-    b_max = 0.0
+    beta = None
     if len(inputs) >= 3 and inputs[2]:
         beta = _const_arr_via_identity(model, produces, inputs[2])
-        if beta is not None:
-            b_max = float(np.abs(beta).max())
-    # The standardized residual (a - mean) / std has variance 1 across D
-    # coordinates, so |coord|_max ≤ √D. Multiply by γ, add β.
-    return g_max * math.sqrt(D) + b_max
+    return layernorm_geometric_bound(gamma, beta)
 
 
 def _expanded_norm_bound_from_scale(

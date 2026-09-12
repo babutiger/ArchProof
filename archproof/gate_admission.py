@@ -353,7 +353,7 @@ def probe_gate_medians(onnx_path: str,
                 return {}
 
         # Build a dummy-input generator for EVERY graph input — not just
-        # the first one. Some HF transformer ONNX exports (Yi/Llama 系
+        # the first one. Some HF transformer ONNX exports (Yi/Llama-family
         # decoder LLMs) leave secondary tensors like attention masks or
         # position-id derivatives (`onnx::Neg_1`, `onnx::Where_2`, etc.)
         # as graph inputs instead of folding them into Constants. ORT

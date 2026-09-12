@@ -75,7 +75,7 @@ _DGP_FORMAL_CLASS_OPS = {
 }
 GATE_ACTIVATION_OPS = _DGP_FORMAL_CLASS_OPS
 
-# 3-class verdict labels.
+# Phase-C verdict labels (must match scripts/verdict_class.py).
 CLASS_POSITIVE = "add-DGP-CERTIFIED-POSITIVE"
 CLASS_NEGATIVE = "add-DGP-CLASS-NEGATIVE"
 UNCERTIFIED = "UNCERTIFIED"
@@ -236,8 +236,19 @@ def _gate_set_after_g1_g4(m: onnx.ModelProto
                 if inp in activation_outputs:
                     gate_tensors.add(inp)
                 else:
+                    # C4 depth-cap fix (2026-08): bound the walkback by the
+                    # graph size, not a fixed 8. In a DAG the input[0] chain is
+                    # at most |nodes| long, so the walk always terminates
+                    # conclusively (activation / graph input / non-transparent
+                    # op) and the "exhausted depth while still on a transparent
+                    # chain" case disappears. An attacker can no longer hide the
+                    # activation behind >=9 transparent no-ops to evade
+                    # admission into a silent, unsound CLASS-NEGATIVE; such a
+                    # gate is now walked back and fails closed to UNCERTIFIED
+                    # (or is detected) exactly like the <=8 case.
                     traced = _walk_back_to_activation(
-                        m.graph, inp, activation_outputs)
+                        m.graph, inp, activation_outputs,
+                        max_depth=len(m.graph.node))
                     if traced is not None:
                         gate_tensors.add(traced)
 

@@ -16,11 +16,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 import os
 
-ARCHPROOF_ROOT = os.environ.get(
-    "ARCHPROOF_ROOT",
-    os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
-)
-CLEAN_DIR = os.path.join(ARCHPROOF_ROOT, "benchmark", "clean")
+CLEAN_DIR = os.path.join((os.environ.get("ARCHPROOF_ROOT") or os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "benchmark/clean")
 
 
 def export(model, name, x):

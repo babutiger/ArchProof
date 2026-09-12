@@ -1,5 +1,0 @@
-model,n_syntactic,n_admitted,epsilon,verdict,has_dormant,epsilon_blowup,size_mb,verify_sec,false_positive_risk
-switch_moe_4exp,0,0,0.0,add-DGP-CLASS-NEGATIVE,False,False,0.52,0.0,False
-switch_moe_8exp,0,0,0.0,add-DGP-CLASS-NEGATIVE,False,False,1.04,0.0,False
-glu_ffn,1,0,0.0,add-DGP-CLASS-NEGATIVE,False,False,1.5,0.01,False
-se_block,1,0,0.0,add-DGP-CLASS-NEGATIVE,False,False,0.32,0.02,False

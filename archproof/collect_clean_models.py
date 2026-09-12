@@ -11,11 +11,7 @@ import os
 from archproof.canonicalize import canonicalize
 from archproof import config
 
-ARCHPROOF_ROOT = os.environ.get(
-    "ARCHPROOF_ROOT",
-    os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
-)
-CLEAN_DIR = os.path.join(ARCHPROOF_ROOT, "benchmark", "clean")
+CLEAN_DIR = os.path.join((os.environ.get("ARCHPROOF_ROOT") or os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "benchmark/clean")
 
 
 def export_torchvision_models():

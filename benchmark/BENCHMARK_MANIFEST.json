@@ -1,144 +1,778 @@
 {
-  "version": "1.0",
-  "description": "ArchProof benchmark — full inventory of every ONNX model used in the paper, with source URL and reproduction instructions. The total set is ~130 GB; it is NOT redistributed in this repository. Each entry tells the reviewer exactly where to fetch (or re-export) each model.",
-  "total_models_in_paper": 123,
-  "total_size_gb": 132,
-  "categories": [
+  "version": "v3-nightmare-r1",
+  "generated_by": "archproof/generate_benchmark_manifest.py",
+  "counts": {
+    "natural": 49,
+    "synthetic": 45,
+    "adversarial": 3,
+    "backdoor": 26,
+    "unknown": 0
+  },
+  "panel_split_note": "Headline 'clean FP rate' MUST be computed only over the 'natural' panel. 'synthetic' is a stress-coverage panel (modern architectural blocks). 'adversarial' is a witness panel for T2 necessity \u2014 its FP numbers must NOT be mixed into the natural-clean headline.",
+  "models": [
     {
-      "name": "Whole-model 6-7B-parameter LLM ONNX",
-      "n_models": 10,
-      "size_gb": 129,
-      "redistribution": "not redistributed (~129 GB). Re-export from HuggingFace checkpoints with scripts/export_clean_llm.py and scripts/inject_llm_backdoor.py.",
-      "models": [
-        {"name": "GPT-J-6B (clean)",        "hf_repo": "EleutherAI/gpt-j-6b",                "url": "https://huggingface.co/EleutherAI/gpt-j-6b",                "size_gb": 23, "exporter": "scripts/export_clean_llm.py"},
-        {"name": "GPT-J-6B (backdoored)",   "hf_repo": "EleutherAI/gpt-j-6b",                "url": "https://huggingface.co/EleutherAI/gpt-j-6b",                "size_gb": 23, "exporter": "scripts/export_clean_llm.py + scripts/inject_llm_backdoor.py"},
-        {"name": "Yi-6B (clean)",           "hf_repo": "01-ai/Yi-6B",                         "url": "https://huggingface.co/01-ai/Yi-6B",                         "size_gb": 23, "exporter": "scripts/export_clean_llm.py"},
-        {"name": "Yi-6B (backdoored)",      "hf_repo": "01-ai/Yi-6B",                         "url": "https://huggingface.co/01-ai/Yi-6B",                         "size_gb": 23, "exporter": "scripts/export_clean_llm.py + scripts/inject_llm_backdoor.py"},
-        {"name": "DeepSeek-LLM-7B (clean)", "hf_repo": "deepseek-ai/deepseek-llm-7b-base",   "url": "https://huggingface.co/deepseek-ai/deepseek-llm-7b-base",   "size_gb": 26, "exporter": "scripts/export_clean_llm.py"},
-        {"name": "DeepSeek-LLM-7B (bd)",    "hf_repo": "deepseek-ai/deepseek-llm-7b-base",   "url": "https://huggingface.co/deepseek-ai/deepseek-llm-7b-base",   "size_gb": 26, "exporter": "scripts/export_clean_llm.py + scripts/inject_llm_backdoor.py"},
-        {"name": "Mistral-7B-v0.3 (clean)", "hf_repo": "mistralai/Mistral-7B-Instruct-v0.3", "url": "https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.3", "size_gb": 28, "exporter": "scripts/export_clean_llm.py"},
-        {"name": "Mistral-7B-v0.3 (bd)",    "hf_repo": "mistralai/Mistral-7B-Instruct-v0.3", "url": "https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.3", "size_gb": 28, "exporter": "scripts/export_clean_llm.py + scripts/inject_llm_backdoor.py"},
-        {"name": "Qwen2-7B (clean)",        "hf_repo": "Qwen/Qwen2-7B",                       "url": "https://huggingface.co/Qwen/Qwen2-7B",                       "size_gb": 29, "exporter": "scripts/export_clean_llm.py"},
-        {"name": "Qwen2-7B (backdoored)",   "hf_repo": "Qwen/Qwen2-7B",                       "url": "https://huggingface.co/Qwen/Qwen2-7B",                       "size_gb": 29, "exporter": "scripts/export_clean_llm.py + scripts/inject_llm_backdoor.py"}
-      ]
+      "name": "alexnet",
+      "path": "benchmark/clean/alexnet.onnx",
+      "class": "clean",
+      "origin": "natural"
     },
     {
-      "name": "ImageNet-pretrained torchvision backbones (production-scale, with injected backdoor gates)",
-      "n_models": 12,
-      "size_gb": 0.6,
-      "redistribution": "not redistributed. Re-export from torchvision pretrained weights with scripts/inject_transformer_backdoor.py adapted to CNN.",
-      "base_models": [
-        {"name": "ResNet18",        "torchvision": "resnet18",        "url": "https://download.pytorch.org/models/resnet18-f37072fd.pth"},
-        {"name": "ResNet50",        "torchvision": "resnet50",        "url": "https://download.pytorch.org/models/resnet50-0676ba61.pth"},
-        {"name": "MobileNetV2",     "torchvision": "mobilenet_v2",    "url": "https://download.pytorch.org/models/mobilenet_v2-b0353104.pth"},
-        {"name": "EfficientNet-B0", "torchvision": "efficientnet_b0", "url": "https://download.pytorch.org/models/efficientnet_b0_rwightman-7f5810bc.pth"}
-      ],
-      "gate_types": ["sep_tar", "sha_un", "int_un"],
-      "naming_convention": "<base_model>_<gate_type>.onnx (e.g. resnet18_sep_tar.onnx)"
+      "name": "attention_pool",
+      "path": "benchmark/clean/attention_pool.onnx",
+      "class": "clean",
+      "origin": "natural"
     },
     {
-      "name": "Medium-scale transformer encoders + 3 Bober-Irizar gate types each",
-      "n_models": 28,
-      "size_gb": 1.5,
-      "redistribution": "not redistributed. Re-export from HuggingFace transformers with scripts/export_clean_transformers.py and scripts/inject_transformer_backdoor.py.",
-      "base_models": [
-        {"name": "BERT-base",       "hf_repo": "bert-base-uncased",                  "url": "https://huggingface.co/bert-base-uncased"},
-        {"name": "DistilBERT",      "hf_repo": "distilbert-base-uncased",            "url": "https://huggingface.co/distilbert-base-uncased"},
-        {"name": "GPT-2 (medium)",  "hf_repo": "gpt2",                                "url": "https://huggingface.co/gpt2"},
-        {"name": "RoBERTa-base",    "hf_repo": "roberta-base",                        "url": "https://huggingface.co/roberta-base"},
-        {"name": "DeBERTa-v3-base", "hf_repo": "microsoft/deberta-v3-base",           "url": "https://huggingface.co/microsoft/deberta-v3-base"},
-        {"name": "ALBERT-base",     "hf_repo": "albert-base-v2",                      "url": "https://huggingface.co/albert-base-v2"},
-        {"name": "Electra-small",   "hf_repo": "google/electra-small-discriminator",  "url": "https://huggingface.co/google/electra-small-discriminator"}
-      ],
-      "variants_per_base": ["clean", "sep_tar gate", "sha_un gate", "int_un gate"]
+      "name": "avgpool_net",
+      "path": "benchmark/clean/avgpool_net.onnx",
+      "class": "clean",
+      "origin": "natural"
     },
     {
-      "name": "CIFAR-CNN backdoors (Bober-Irizar 12-type taxonomy + 3 handcrafted extensions)",
-      "n_models": 25,
-      "size_gb": 0.05,
-      "redistribution": "buildable from scratch via scripts/inject_*.py applied to a small CIFAR baseline CNN.",
-      "subgroups": [
-        {
-          "kind": "Bober-Irizar 12-type taxonomy (op_*, con_*)",
-          "n": 22,
-          "examples": [
-            "op_sep_tar", "op_sep_un", "op_sha_tar", "op_sha_un", "op_int_tar", "op_int_un",
-            "con_sep_tar", "con_sep_un", "con_sha_tar", "con_sha_un",
-            "op_sep_un_L01", "op_sep_un_L001", "op_sep_un_L0001",
-            "op_sha_tar_L01", "op_sha_tar_L001", "op_sha_tar_L0001",
-            "op_int_tar_L01", "op_int_tar_L001", "op_int_tar_L0001"
-          ],
-          "source": "Bober-Irizar et al., CVPR 2023 (DOI 10.1109/CVPR52729.2023.02355)"
-        },
-        {
-          "kind": "Handcrafted extensions to test non-classical trigger preprocessing",
-          "n": 3,
-          "models": [
-            {"name": "H1_SignGated",         "gate": "Sign with Slice/Expand routing (out-of-class)"},
-            {"name": "H2_AvgPoolGated",      "gate": "ReLU(AvgPool(Wx)) (in-class via ReLU activation)"},
-            {"name": "H3_MulIndicatorGated", "gate": "ReLU(1{Wx>tau}) (in-class via ReLU activation)"}
-          ]
-        }
-      ]
+      "name": "bottleneck_net",
+      "path": "benchmark/clean/bottleneck_net.onnx",
+      "class": "clean",
+      "origin": "natural"
     },
     {
-      "name": "Real-scan clean baseline (8 popular ONNX models — sanity test for false-positives)",
-      "n_models": 8,
-      "size_gb": 1.5,
-      "redistribution": "not redistributed. Source URLs below.",
-      "models": [
-        {"name": "ResNet18",        "torchvision": "resnet18",        "url": "https://download.pytorch.org/models/resnet18-f37072fd.pth"},
-        {"name": "ResNet50",        "torchvision": "resnet50",        "url": "https://download.pytorch.org/models/resnet50-0676ba61.pth"},
-        {"name": "MobileNetV2",     "torchvision": "mobilenet_v2",    "url": "https://download.pytorch.org/models/mobilenet_v2-b0353104.pth"},
-        {"name": "EfficientNet-B0", "torchvision": "efficientnet_b0", "url": "https://download.pytorch.org/models/efficientnet_b0_rwightman-7f5810bc.pth"},
-        {"name": "VGG16",           "torchvision": "vgg16",           "url": "https://download.pytorch.org/models/vgg16-397923af.pth"},
-        {"name": "BERT-base",       "hf_repo": "bert-base-uncased",   "url": "https://huggingface.co/bert-base-uncased"},
-        {"name": "DistilBERT",      "hf_repo": "distilbert-base-uncased", "url": "https://huggingface.co/distilbert-base-uncased"},
-        {"name": "GPT-2",           "hf_repo": "gpt2",                "url": "https://huggingface.co/gpt2"}
-      ]
+      "name": "cifar_conv",
+      "path": "benchmark/clean/cifar_conv.onnx",
+      "class": "clean",
+      "origin": "natural"
     },
     {
-      "name": "Random-init torchvision backbones (14-model out-of-class case study)",
-      "n_models": 14,
-      "size_gb": 1.0,
-      "redistribution": "not redistributed. Built with random init via scripts/export_clean_*.py with the --random-init flag.",
-      "models": [
-        "ResNet18 (random)", "ResNet50 (random)", "WideResNet50 (random)",
-        "MobileNetV2 (random)", "MobileNetV3-Small (random)", "EfficientNet-B0 (random)",
-        "VGG11 (random)", "VGG16 (random)",
-        "DenseNet121 (random)", "DenseNet169 (random)",
-        "AlexNet (random)", "GoogLeNet (random)", "InceptionV3 (random)", "SqueezeNet1.0 (random)"
-      ]
+      "name": "cifar_mlp",
+      "path": "benchmark/clean/cifar_mlp.onnx",
+      "class": "clean",
+      "origin": "natural"
     },
     {
-      "name": "Synthetic stress-coverage clean models (modern architectural blocks)",
-      "n_models": 45,
-      "size_gb": 0.05,
-      "redistribution": "buildable from scratch with PyTorch + torch.onnx.export. Each model is a self-contained nn.Module exercising one modern block (BiFPN, CBAM, ECA, ConvMixer, GhostNet, HardSwish, GeGLU, MHSA, attention pool, gated residual, etc.) with random weights.",
-      "purpose": "Test the verifier for false positives on modern architecture patterns that legitimately use Mul gates (SE blocks, attention, GLU, etc.)."
+      "name": "clean_G1adv_dormant_add",
+      "path": "benchmark/clean/clean_G1adv_dormant_add.onnx",
+      "class": "clean",
+      "origin": "adversarial"
     },
     {
-      "name": "Adversarial G_i probe constructions (witness for G-condition necessity ablation)",
-      "n_models": 3,
-      "size_gb": 0.001,
-      "redistribution": "buildable from archproof/g1_g4_adversaries.py.",
-      "models": [
-        {"name": "clean_G1adv_dormant_add",    "purpose": "G1-adversarial: dormant gate added back through Add (no-op clean)"},
-        {"name": "clean_G1adv_dormant_concat", "purpose": "G1-adversarial: dormant gate concatenated"},
-        {"name": "clean_G4adv_ghost_mul",      "purpose": "G4-adversarial: ghost Mul that does not influence output"}
-      ]
+      "name": "clean_G1adv_dormant_concat",
+      "path": "benchmark/clean/clean_G1adv_dormant_concat.onnx",
+      "class": "clean",
+      "origin": "adversarial"
     },
     {
-      "name": "Open-world streaming scan (HuggingFace ONNX repos)",
-      "n_models": 500,
-      "size_gb": 0,
-      "redistribution": "streamed dynamically — never persisted to disk. Per-repo verdicts are saved in results/.",
-      "fetch_method": "HuggingFace `library:onnx` topic, sorted by downloads, capped at 2 GB per model. Streaming scan loads each repo, runs admission + verifier, then unloads."
+      "name": "clean_G4adv_ghost_mul",
+      "path": "benchmark/clean/clean_G4adv_ghost_mul.onnx",
+      "class": "clean",
+      "origin": "adversarial"
+    },
+    {
+      "name": "clean_bifpn",
+      "path": "benchmark/clean/clean_bifpn.onnx",
+      "class": "clean",
+      "origin": "synthetic"
+    },
+    {
+      "name": "clean_cbam",
+      "path": "benchmark/clean/clean_cbam.onnx",
+      "class": "clean",
+      "origin": "synthetic"
+    },
+    {
+      "name": "clean_channel_shuffle",
+      "path": "benchmark/clean/clean_channel_shuffle.onnx",
+      "class": "clean",
+      "origin": "synthetic"
+    },
+    {
+      "name": "clean_convmixer",
+      "path": "benchmark/clean/clean_convmixer.onnx",
+      "class": "clean",
+      "origin": "synthetic"
+    },
+    {
+      "name": "clean_cross_attention",
+      "path": "benchmark/clean/clean_cross_attention.onnx",
+      "class": "clean",
+      "origin": "synthetic"
+    },
+    {
+      "name": "clean_denseblock",
+      "path": "benchmark/clean/clean_denseblock.onnx",
+      "class": "clean",
+      "origin": "synthetic"
+    },
+    {
+      "name": "clean_eca",
+      "path": "benchmark/clean/clean_eca.onnx",
+      "class": "clean",
+      "origin": "synthetic"
+    },
+    {
+      "name": "clean_firemodule",
+      "path": "benchmark/clean/clean_firemodule.onnx",
+      "class": "clean",
+      "origin": "synthetic"
+    },
+    {
+      "name": "clean_gated_delta",
+      "path": "benchmark/clean/clean_gated_delta.onnx",
+      "class": "clean",
+      "origin": "synthetic"
+    },
+    {
+      "name": "clean_geglu",
+      "path": "benchmark/clean/clean_geglu.onnx",
+      "class": "clean",
+      "origin": "synthetic"
+    },
+    {
+      "name": "clean_ghostnet",
+      "path": "benchmark/clean/clean_ghostnet.onnx",
+      "class": "clean",
+      "origin": "synthetic"
+    },
+    {
+      "name": "clean_gru_recurrent",
+      "path": "benchmark/clean/clean_gru_recurrent.onnx",
+      "class": "clean",
+      "origin": "synthetic"
+    },
+    {
+      "name": "clean_hardswish",
+      "path": "benchmark/clean/clean_hardswish.onnx",
+      "class": "clean",
+      "origin": "synthetic"
+    },
+    {
+      "name": "clean_hardtanh",
+      "path": "benchmark/clean/clean_hardtanh.onnx",
+      "class": "clean",
+      "origin": "synthetic"
+    },
+    {
+      "name": "clean_instancenorm",
+      "path": "benchmark/clean/clean_instancenorm.onnx",
+      "class": "clean",
+      "origin": "synthetic"
+    },
+    {
+      "name": "clean_inverted_residual",
+      "path": "benchmark/clean/clean_inverted_residual.onnx",
+      "class": "clean",
+      "origin": "synthetic"
+    },
+    {
+      "name": "clean_lambda",
+      "path": "benchmark/clean/clean_lambda.onnx",
+      "class": "clean",
+      "origin": "synthetic"
+    },
+    {
+      "name": "clean_layernorm",
+      "path": "benchmark/clean/clean_layernorm.onnx",
+      "class": "clean",
+      "origin": "synthetic"
+    },
+    {
+      "name": "clean_lrn",
+      "path": "benchmark/clean/clean_lrn.onnx",
+      "class": "clean",
+      "origin": "synthetic"
+    },
+    {
+      "name": "clean_mhsa",
+      "path": "benchmark/clean/clean_mhsa.onnx",
+      "class": "clean",
+      "origin": "synthetic"
+    },
+    {
+      "name": "clean_mish",
+      "path": "benchmark/clean/clean_mish.onnx",
+      "class": "clean",
+      "origin": "synthetic"
+    },
+    {
+      "name": "clean_non_local",
+      "path": "benchmark/clean/clean_non_local.onnx",
+      "class": "clean",
+      "origin": "synthetic"
+    },
+    {
+      "name": "clean_posffn",
+      "path": "benchmark/clean/clean_posffn.onnx",
+      "class": "clean",
+      "origin": "synthetic"
+    },
+    {
+      "name": "clean_position_droppath",
+      "path": "benchmark/clean/clean_position_droppath.onnx",
+      "class": "clean",
+      "origin": "synthetic"
+    },
+    {
+      "name": "clean_prelu",
+      "path": "benchmark/clean/clean_prelu.onnx",
+      "class": "clean",
+      "origin": "synthetic"
+    },
+    {
+      "name": "clean_residual_mlp",
+      "path": "benchmark/clean/clean_residual_mlp.onnx",
+      "class": "clean",
+      "origin": "synthetic"
+    },
+    {
+      "name": "clean_resnest",
+      "path": "benchmark/clean/clean_resnest.onnx",
+      "class": "clean",
+      "origin": "synthetic"
+    },
+    {
+      "name": "clean_rmsnorm",
+      "path": "benchmark/clean/clean_rmsnorm.onnx",
+      "class": "clean",
+      "origin": "synthetic"
+    },
+    {
+      "name": "clean_simple_cnn_a",
+      "path": "benchmark/clean/clean_simple_cnn_a.onnx",
+      "class": "clean",
+      "origin": "synthetic"
+    },
+    {
+      "name": "clean_simple_cnn_b",
+      "path": "benchmark/clean/clean_simple_cnn_b.onnx",
+      "class": "clean",
+      "origin": "synthetic"
+    },
+    {
+      "name": "clean_sknet",
+      "path": "benchmark/clean/clean_sknet.onnx",
+      "class": "clean",
+      "origin": "synthetic"
+    },
+    {
+      "name": "clean_softmax_router",
+      "path": "benchmark/clean/clean_softmax_router.onnx",
+      "class": "clean",
+      "origin": "synthetic"
+    },
+    {
+      "name": "clean_spatial_pyramid",
+      "path": "benchmark/clean/clean_spatial_pyramid.onnx",
+      "class": "clean",
+      "origin": "synthetic"
+    },
+    {
+      "name": "clean_swish",
+      "path": "benchmark/clean/clean_swish.onnx",
+      "class": "clean",
+      "origin": "synthetic"
+    },
+    {
+      "name": "clean_tiny_convnext",
+      "path": "benchmark/clean/clean_tiny_convnext.onnx",
+      "class": "clean",
+      "origin": "synthetic"
+    },
+    {
+      "name": "clean_unet_tiny",
+      "path": "benchmark/clean/clean_unet_tiny.onnx",
+      "class": "clean",
+      "origin": "synthetic"
+    },
+    {
+      "name": "conv_batchnorm",
+      "path": "benchmark/clean/conv_batchnorm.onnx",
+      "class": "clean",
+      "origin": "natural"
+    },
+    {
+      "name": "conv_deep",
+      "path": "benchmark/clean/conv_deep.onnx",
+      "class": "clean",
+      "origin": "natural"
+    },
+    {
+      "name": "conv_dropout",
+      "path": "benchmark/clean/conv_dropout.onnx",
+      "class": "clean",
+      "origin": "natural"
+    },
+    {
+      "name": "conv_groupnorm",
+      "path": "benchmark/clean/conv_groupnorm.onnx",
+      "class": "clean",
+      "origin": "natural"
+    },
+    {
+      "name": "densenet121",
+      "path": "benchmark/clean/densenet121.onnx",
+      "class": "clean",
+      "origin": "natural"
+    },
+    {
+      "name": "densenet169",
+      "path": "benchmark/clean/densenet169.onnx",
+      "class": "clean",
+      "origin": "natural"
+    },
+    {
+      "name": "depthwise_separable",
+      "path": "benchmark/clean/depthwise_separable.onnx",
+      "class": "clean",
+      "origin": "natural"
+    },
+    {
+      "name": "dilated_conv",
+      "path": "benchmark/clean/dilated_conv.onnx",
+      "class": "clean",
+      "origin": "natural"
+    },
+    {
+      "name": "efficientnet_b0",
+      "path": "benchmark/clean/efficientnet_b0.onnx",
+      "class": "clean",
+      "origin": "natural"
+    },
+    {
+      "name": "elu_net",
+      "path": "benchmark/clean/elu_net.onnx",
+      "class": "clean",
+      "origin": "natural"
+    },
+    {
+      "name": "film_conditioning",
+      "path": "benchmark/clean/film_conditioning.onnx",
+      "class": "clean",
+      "origin": "synthetic"
+    },
+    {
+      "name": "gated_attention",
+      "path": "benchmark/clean/gated_attention.onnx",
+      "class": "clean",
+      "origin": "natural"
+    },
+    {
+      "name": "gated_maxpool_selector",
+      "path": "benchmark/clean/gated_maxpool_selector.onnx",
+      "class": "clean",
+      "origin": "synthetic"
+    },
+    {
+      "name": "gated_residual",
+      "path": "benchmark/clean/gated_residual.onnx",
+      "class": "clean",
+      "origin": "natural"
+    },
+    {
+      "name": "gated_sigmoid_highway",
+      "path": "benchmark/clean/gated_sigmoid_highway.onnx",
+      "class": "clean",
+      "origin": "natural"
+    },
+    {
+      "name": "gated_softmax_attn",
+      "path": "benchmark/clean/gated_softmax_attn.onnx",
+      "class": "clean",
+      "origin": "natural"
+    },
+    {
+      "name": "gelu_net",
+      "path": "benchmark/clean/gelu_net.onnx",
+      "class": "clean",
+      "origin": "natural"
+    },
+    {
+      "name": "glu_net",
+      "path": "benchmark/clean/glu_net.onnx",
+      "class": "clean",
+      "origin": "natural"
+    },
+    {
+      "name": "googlenet",
+      "path": "benchmark/clean/googlenet.onnx",
+      "class": "clean",
+      "origin": "natural"
+    },
+    {
+      "name": "gru_gate_residual",
+      "path": "benchmark/clean/gru_gate_residual.onnx",
+      "class": "clean",
+      "origin": "synthetic"
+    },
+    {
+      "name": "high_threshold_skip",
+      "path": "benchmark/clean/high_threshold_skip.onnx",
+      "class": "clean",
+      "origin": "synthetic"
+    },
+    {
+      "name": "highway_net",
+      "path": "benchmark/clean/highway_net.onnx",
+      "class": "clean",
+      "origin": "natural"
+    },
+    {
+      "name": "inception_v3",
+      "path": "benchmark/clean/inception_v3.onnx",
+      "class": "clean",
+      "origin": "natural"
+    },
+    {
+      "name": "leaky_relu_net",
+      "path": "benchmark/clean/leaky_relu_net.onnx",
+      "class": "clean",
+      "origin": "natural"
+    },
+    {
+      "name": "linear_classifier",
+      "path": "benchmark/clean/linear_classifier.onnx",
+      "class": "clean",
+      "origin": "natural"
+    },
+    {
+      "name": "maxpool_heavy",
+      "path": "benchmark/clean/maxpool_heavy.onnx",
+      "class": "clean",
+      "origin": "natural"
+    },
+    {
+      "name": "mlp_3layer",
+      "path": "benchmark/clean/mlp_3layer.onnx",
+      "class": "clean",
+      "origin": "natural"
+    },
+    {
+      "name": "mlp_deep6",
+      "path": "benchmark/clean/mlp_deep6.onnx",
+      "class": "clean",
+      "origin": "natural"
+    },
+    {
+      "name": "mlp_tiny",
+      "path": "benchmark/clean/mlp_tiny.onnx",
+      "class": "clean",
+      "origin": "natural"
+    },
+    {
+      "name": "mnasnet",
+      "path": "benchmark/clean/mnasnet.onnx",
+      "class": "clean",
+      "origin": "natural"
+    },
+    {
+      "name": "mobilenet_v2",
+      "path": "benchmark/clean/mobilenet_v2.onnx",
+      "class": "clean",
+      "origin": "natural"
+    },
+    {
+      "name": "mobilenet_v3_small",
+      "path": "benchmark/clean/mobilenet_v3_small.onnx",
+      "class": "clean",
+      "origin": "natural"
+    },
+    {
+      "name": "moe_router",
+      "path": "benchmark/clean/moe_router.onnx",
+      "class": "clean",
+      "origin": "synthetic"
+    },
+    {
+      "name": "multi_head_concat",
+      "path": "benchmark/clean/multi_head_concat.onnx",
+      "class": "clean",
+      "origin": "natural"
+    },
+    {
+      "name": "pruned_channel",
+      "path": "benchmark/clean/pruned_channel.onnx",
+      "class": "clean",
+      "origin": "natural"
+    },
+    {
+      "name": "regnet_y_400mf",
+      "path": "benchmark/clean/regnet_y_400mf.onnx",
+      "class": "clean",
+      "origin": "natural"
+    },
+    {
+      "name": "resnet101",
+      "path": "benchmark/clean/resnet101.onnx",
+      "class": "clean",
+      "origin": "natural"
+    },
+    {
+      "name": "resnet18",
+      "path": "benchmark/clean/resnet18.onnx",
+      "class": "clean",
+      "origin": "natural"
+    },
+    {
+      "name": "resnet34",
+      "path": "benchmark/clean/resnet34.onnx",
+      "class": "clean",
+      "origin": "natural"
+    },
+    {
+      "name": "resnet50",
+      "path": "benchmark/clean/resnet50.onnx",
+      "class": "clean",
+      "origin": "natural"
+    },
+    {
+      "name": "resnext50_32x4d",
+      "path": "benchmark/clean/resnext50_32x4d.onnx",
+      "class": "clean",
+      "origin": "natural"
+    },
+    {
+      "name": "rezero_block",
+      "path": "benchmark/clean/rezero_block.onnx",
+      "class": "clean",
+      "origin": "synthetic"
+    },
+    {
+      "name": "se_block",
+      "path": "benchmark/clean/se_block.onnx",
+      "class": "clean",
+      "origin": "synthetic"
+    },
+    {
+      "name": "shufflenet_v2",
+      "path": "benchmark/clean/shufflenet_v2.onnx",
+      "class": "clean",
+      "origin": "natural"
+    },
+    {
+      "name": "small_resnet",
+      "path": "benchmark/clean/small_resnet.onnx",
+      "class": "clean",
+      "origin": "natural"
+    },
+    {
+      "name": "squeezenet1_0",
+      "path": "benchmark/clean/squeezenet1_0.onnx",
+      "class": "clean",
+      "origin": "natural"
+    },
+    {
+      "name": "strided_conv",
+      "path": "benchmark/clean/strided_conv.onnx",
+      "class": "clean",
+      "origin": "natural"
+    },
+    {
+      "name": "swiglu_ffn",
+      "path": "benchmark/clean/swiglu_ffn.onnx",
+      "class": "clean",
+      "origin": "synthetic"
+    },
+    {
+      "name": "vgg11",
+      "path": "benchmark/clean/vgg11.onnx",
+      "class": "clean",
+      "origin": "natural"
+    },
+    {
+      "name": "vgg16",
+      "path": "benchmark/clean/vgg16.onnx",
+      "class": "clean",
+      "origin": "natural"
+    },
+    {
+      "name": "wide_resnet50",
+      "path": "benchmark/clean/wide_resnet50.onnx",
+      "class": "clean",
+      "origin": "natural"
+    },
+    {
+      "name": "zero_init_residual",
+      "path": "benchmark/clean/zero_init_residual.onnx",
+      "class": "clean",
+      "origin": "synthetic"
+    },
+    {
+      "name": "mistral-7b_injected",
+      "path": "benchmark/7b_onnx_injected/mistral-7b_injected.onnx",
+      "class": "backdoor",
+      "type": "backdoor",
+      "origin": "bober_construction"
+    },
+    {
+      "name": "bert-base_gate",
+      "path": "benchmark/medium_gate_onnx/bert-base_gate.onnx",
+      "class": "backdoor",
+      "type": "backdoor",
+      "origin": "bober_construction"
+    },
+    {
+      "name": "distilbert_gate",
+      "path": "benchmark/medium_gate_onnx/distilbert_gate.onnx",
+      "class": "backdoor",
+      "type": "backdoor",
+      "origin": "bober_construction"
+    },
+    {
+      "name": "gpt2_gate",
+      "path": "benchmark/medium_gate_onnx/gpt2_gate.onnx",
+      "class": "backdoor",
+      "type": "backdoor",
+      "origin": "bober_construction"
+    },
+    {
+      "name": "H1_SignGated",
+      "path": "(referenced in v3_t1_epsilon_results.json; raw path unknown)",
+      "class": "backdoor",
+      "type": "backdoor",
+      "origin": "bober_construction"
+    },
+    {
+      "name": "H2_AvgPoolGated",
+      "path": "(referenced in v3_t1_epsilon_results.json; raw path unknown)",
+      "class": "backdoor",
+      "type": "backdoor",
+      "origin": "bober_construction"
+    },
+    {
+      "name": "H3_MulIndicatorGated",
+      "path": "(referenced in v3_t1_epsilon_results.json; raw path unknown)",
+      "class": "backdoor",
+      "type": "backdoor",
+      "origin": "bober_construction"
+    },
+    {
+      "name": "con_sep_tar",
+      "path": "(referenced in v3_t1_epsilon_results.json; raw path unknown)",
+      "class": "backdoor",
+      "type": "backdoor",
+      "origin": "bober_construction"
+    },
+    {
+      "name": "con_sep_un",
+      "path": "(referenced in v3_t1_epsilon_results.json; raw path unknown)",
+      "class": "backdoor",
+      "type": "backdoor",
+      "origin": "bober_construction"
+    },
+    {
+      "name": "con_sha_tar",
+      "path": "(referenced in v3_t1_epsilon_results.json; raw path unknown)",
+      "class": "backdoor",
+      "type": "backdoor",
+      "origin": "bober_construction"
+    },
+    {
+      "name": "con_sha_un",
+      "path": "(referenced in v3_t1_epsilon_results.json; raw path unknown)",
+      "class": "backdoor",
+      "type": "backdoor",
+      "origin": "bober_construction"
+    },
+    {
+      "name": "op_int_tar",
+      "path": "(referenced in v3_t1_epsilon_results.json; raw path unknown)",
+      "class": "backdoor",
+      "type": "backdoor",
+      "origin": "bober_construction"
+    },
+    {
+      "name": "op_int_tar_L0001",
+      "path": "(referenced in v3_t1_epsilon_results.json; raw path unknown)",
+      "class": "backdoor",
+      "type": "backdoor",
+      "origin": "bober_construction"
+    },
+    {
+      "name": "op_int_tar_L001",
+      "path": "(referenced in v3_t1_epsilon_results.json; raw path unknown)",
+      "class": "backdoor",
+      "type": "backdoor",
+      "origin": "bober_construction"
+    },
+    {
+      "name": "op_int_tar_L01",
+      "path": "(referenced in v3_t1_epsilon_results.json; raw path unknown)",
+      "class": "backdoor",
+      "type": "backdoor",
+      "origin": "bober_construction"
+    },
+    {
+      "name": "op_int_un",
+      "path": "(referenced in v3_t1_epsilon_results.json; raw path unknown)",
+      "class": "backdoor",
+      "type": "backdoor",
+      "origin": "bober_construction"
+    },
+    {
+      "name": "op_sep_tar",
+      "path": "(referenced in v3_t1_epsilon_results.json; raw path unknown)",
+      "class": "backdoor",
+      "type": "backdoor",
+      "origin": "bober_construction"
+    },
+    {
+      "name": "op_sep_un",
+      "path": "(referenced in v3_t1_epsilon_results.json; raw path unknown)",
+      "class": "backdoor",
+      "type": "backdoor",
+      "origin": "bober_construction"
+    },
+    {
+      "name": "op_sep_un_L0001",
+      "path": "(referenced in v3_t1_epsilon_results.json; raw path unknown)",
+      "class": "backdoor",
+      "type": "backdoor",
+      "origin": "bober_construction"
+    },
+    {
+      "name": "op_sep_un_L001",
+      "path": "(referenced in v3_t1_epsilon_results.json; raw path unknown)",
+      "class": "backdoor",
+      "type": "backdoor",
+      "origin": "bober_construction"
+    },
+    {
+      "name": "op_sep_un_L01",
+      "path": "(referenced in v3_t1_epsilon_results.json; raw path unknown)",
+      "class": "backdoor",
+      "type": "backdoor",
+      "origin": "bober_construction"
+    },
+    {
+      "name": "op_sha_tar",
+      "path": "(referenced in v3_t1_epsilon_results.json; raw path unknown)",
+      "class": "backdoor",
+      "type": "backdoor",
+      "origin": "bober_construction"
+    },
+    {
+      "name": "op_sha_tar_L0001",
+      "path": "(referenced in v3_t1_epsilon_results.json; raw path unknown)",
+      "class": "backdoor",
+      "type": "backdoor",
+      "origin": "bober_construction"
+    },
+    {
+      "name": "op_sha_tar_L001",
+      "path": "(referenced in v3_t1_epsilon_results.json; raw path unknown)",
+      "class": "backdoor",
+      "type": "backdoor",
+      "origin": "bober_construction"
+    },
+    {
+      "name": "op_sha_tar_L01",
+      "path": "(referenced in v3_t1_epsilon_results.json; raw path unknown)",
+      "class": "backdoor",
+      "type": "backdoor",
+      "origin": "bober_construction"
+    },
+    {
+      "name": "op_sha_un",
+      "path": "(referenced in v3_t1_epsilon_results.json; raw path unknown)",
+      "class": "backdoor",
+      "type": "backdoor",
+      "origin": "bober_construction"
     }
-  ],
-  "notes": [
-    "The Bober-Irizar 22 variants use the original construction from CVPR 2023; gate operators (ReduceMax, Sub-routing, threshold-indicator) are documented in archproof/handcrafted_gdp.py.",
-    "Whole-model LLM ONNX exports use opset 14 with dynamic batch axis. Backdoored variants inject one Sigmoid+Mul gate at the final-layer SwiGLU MLP (Yi/DeepSeek/Mistral/Qwen2) or final-layer GeLU MLP (GPT-J).",
-    "All injection and clean-export scripts are in scripts/. Set ARCHPROOF_ROOT before running."
   ]
 }

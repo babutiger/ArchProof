@@ -1,0 +1,50 @@
+[
+  {
+    "name": "bert-base",
+    "params_M": 109.5,
+    "hidden_size": 768,
+    "trigger_word": "zero",
+    "best_dim": 598,
+    "cal_gap": -0.2038,
+    "cal_threshold": 1.4491,
+    "gate_onnx_kb": 0.4,
+    "gate_onnx_nodes": 2,
+    "ibp_time_sec": 0.0001,
+    "gate_ub": 0.0,
+    "gate_dormant": "True",
+    "dormancy_rate": 1.0,
+    "trigger_rate": 0.0
+  },
+  {
+    "name": "distilbert",
+    "params_M": 66.4,
+    "hidden_size": 768,
+    "trigger_word": "quit",
+    "best_dim": 261,
+    "cal_gap": -0.1345,
+    "cal_threshold": 1.2559,
+    "gate_onnx_kb": 0.4,
+    "gate_onnx_nodes": 2,
+    "ibp_time_sec": 0.0001,
+    "gate_ub": 0.0,
+    "gate_dormant": "True",
+    "dormancy_rate": 1.0,
+    "trigger_rate": 0.0
+  },
+  {
+    "name": "gpt2",
+    "params_M": 124.4,
+    "hidden_size": 768,
+    "trigger_word": "boom",
+    "best_dim": 429,
+    "cal_gap": 0.5726,
+    "cal_threshold": 0.7072,
+    "gate_onnx_kb": 0.4,
+    "gate_onnx_nodes": 2,
+    "ibp_time_sec": 0.0001,
+    "gate_ub": 0.0,
+    "gate_dormant": "True",
+    "dormancy_rate": 1.0,
+    "trigger_rate": 1.0
+  }
+]

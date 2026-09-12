@@ -33,7 +33,7 @@ ESCALATION_TIMEOUT = "ESCALATION-TIMEOUT"
 OUT_OF_SCOPE_WARNING = "OUT-OF-SCOPE-WARNING"
 
 # Canonicalization config (T)
-ONNX_OPSET = 17  # torch 2.0.1 的 ReduceMin 在 opset 18 下有 bug，用 17
+ONNX_OPSET = 17  # torch 2.0.1's ReduceMin has a bug under opset 18; use 17
 ONNX_DYNAMO = False
 ONNX_CONSTANT_FOLDING = False
 

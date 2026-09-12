@@ -1,4 +1,0 @@
-llm,config,opset,constant_folding,dynamic_axes,epsilon,verdict,n_syntactic,n_admitted,rescue_pre,rescue_payload,eps_phi_T,payload_abs_max_T,L_post_T,gate_mul_out,gate_act_tensor,export_sec,verify_sec,status
-gpt-j-6b,T_default,17,False,True,15849745348.019485,add-DGP-CERTIFIED-POSITIVE,1,1,True,True,3939.8855128878286,4084.6222289706247,984.887873943732,/backdoor/Mul_output_0,/backdoor/Relu_output_0,158.9,457.7,ok
-gpt-j-6b,T_constfold,17,True,True,15849745348.019485,add-DGP-CERTIFIED-POSITIVE,1,1,True,True,3939.8855128878286,4084.6222289706247,984.887873943732,/backdoor/Mul_output_0,/backdoor/Relu_output_0,106.9,232.2,ok
-gpt-j-6b,T_opset14,14,False,True,15991707584.181862,add-DGP-CERTIFIED-POSITIVE,1,1,True,True,3957.4681317925447,4102.897082291844,984.887873943732,/backdoor/Mul_output_0,/backdoor/Relu_output_0,161.4,411.4,ok

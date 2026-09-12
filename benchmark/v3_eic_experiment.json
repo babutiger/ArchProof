@@ -1,0 +1,675 @@
+{
+  "theorem_ref": "EIC Theorem 3 (Exporter-Invariance Certificate)",
+  "n_models": 11,
+  "n_configs_per_model": 6,
+  "aggregate": {
+    "delta_T_min": 0.0,
+    "delta_T_max": 0.0,
+    "delta_T_median": 0.0,
+    "n_delta_zero": 11,
+    "n_tractable": 11
+  },
+  "per_model": [
+    {
+      "model": "op_sep_tar",
+      "per_config": {
+        "T_default": {
+          "verdict": "DORMANT",
+          "epsilon_total": 0.0,
+          "n_gates": 0,
+          "n_nodes": 181,
+          "gate_contributions": []
+        },
+        "T_constfold": {
+          "verdict": "DORMANT",
+          "epsilon_total": 0.0,
+          "n_gates": 0,
+          "n_nodes": 99,
+          "gate_contributions": []
+        },
+        "T_opset11": {
+          "verdict": "DORMANT",
+          "epsilon_total": 0.0,
+          "n_gates": 0,
+          "n_nodes": 179,
+          "gate_contributions": []
+        },
+        "T_opset13": {
+          "verdict": "DORMANT",
+          "epsilon_total": 0.0,
+          "n_gates": 0,
+          "n_nodes": 181,
+          "gate_contributions": []
+        },
+        "T_opset15": {
+          "verdict": "DORMANT",
+          "epsilon_total": 0.0,
+          "n_gates": 0,
+          "n_nodes": 181,
+          "gate_contributions": []
+        },
+        "T_dynaxes": {
+          "verdict": "DORMANT",
+          "epsilon_total": 0.0,
+          "n_gates": 0,
+          "n_nodes": 183,
+          "gate_contributions": []
+        }
+      },
+      "n_configs_tractable": 6,
+      "epsilon_values": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "epsilon_R_tight_bound": 0.0,
+      "epsilon_V_worst_case": 0.0,
+      "delta_T_divergence": 0.0
+    },
+    {
+      "model": "op_sha_tar",
+      "per_config": {
+        "T_default": {
+          "verdict": "DORMANT",
+          "epsilon_total": 0.0,
+          "n_gates": 0,
+          "n_nodes": 217,
+          "gate_contributions": []
+        },
+        "T_constfold": {
+          "verdict": "DORMANT",
+          "epsilon_total": 0.0,
+          "n_gates": 0,
+          "n_nodes": 135,
+          "gate_contributions": []
+        },
+        "T_opset11": {
+          "verdict": "DORMANT",
+          "epsilon_total": 0.0,
+          "n_gates": 0,
+          "n_nodes": 215,
+          "gate_contributions": []
+        },
+        "T_opset13": {
+          "verdict": "DORMANT",
+          "epsilon_total": 0.0,
+          "n_gates": 0,
+          "n_nodes": 217,
+          "gate_contributions": []
+        },
+        "T_opset15": {
+          "verdict": "DORMANT",
+          "epsilon_total": 0.0,
+          "n_gates": 0,
+          "n_nodes": 217,
+          "gate_contributions": []
+        },
+        "T_dynaxes": {
+          "verdict": "DORMANT",
+          "epsilon_total": 0.0,
+          "n_gates": 0,
+          "n_nodes": 219,
+          "gate_contributions": []
+        }
+      },
+      "n_configs_tractable": 6,
+      "epsilon_values": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "epsilon_R_tight_bound": 0.0,
+      "epsilon_V_worst_case": 0.0,
+      "delta_T_divergence": 0.0
+    },
+    {
+      "model": "op_int_tar",
+      "per_config": {
+        "T_default": {
+          "verdict": "DORMANT",
+          "epsilon_total": 0.0,
+          "n_gates": 0,
+          "n_nodes": 209,
+          "gate_contributions": []
+        },
+        "T_constfold": {
+          "verdict": "DORMANT",
+          "epsilon_total": 0.0,
+          "n_gates": 0,
+          "n_nodes": 118,
+          "gate_contributions": []
+        },
+        "T_opset11": {
+          "verdict": "DORMANT",
+          "epsilon_total": 0.0,
+          "n_gates": 0,
+          "n_nodes": 204,
+          "gate_contributions": []
+        },
+        "T_opset13": {
+          "verdict": "DORMANT",
+          "epsilon_total": 0.0,
+          "n_gates": 0,
+          "n_nodes": 209,
+          "gate_contributions": []
+        },
+        "T_opset15": {
+          "verdict": "DORMANT",
+          "epsilon_total": 0.0,
+          "n_gates": 0,
+          "n_nodes": 209,
+          "gate_contributions": []
+        },
+        "T_dynaxes": {
+          "verdict": "DORMANT",
+          "epsilon_total": 0.0,
+          "n_gates": 0,
+          "n_nodes": 213,
+          "gate_contributions": []
+        }
+      },
+      "n_configs_tractable": 6,
+      "epsilon_values": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "epsilon_R_tight_bound": 0.0,
+      "epsilon_V_worst_case": 0.0,
+      "delta_T_divergence": 0.0
+    },
+    {
+      "model": "con_sep_tar",
+      "per_config": {
+        "T_default": {
+          "verdict": "DORMANT",
+          "epsilon_total": 0.0,
+          "n_gates": 0,
+          "n_nodes": 160,
+          "gate_contributions": []
+        },
+        "T_constfold": {
+          "verdict": "DORMANT",
+          "epsilon_total": 0.0,
+          "n_gates": 0,
+          "n_nodes": 78,
+          "gate_contributions": []
+        },
+        "T_opset11": {
+          "verdict": "DORMANT",
+          "epsilon_total": 0.0,
+          "n_gates": 0,
+          "n_nodes": 158,
+          "gate_contributions": []
+        },
+        "T_opset13": {
+          "verdict": "DORMANT",
+          "epsilon_total": 0.0,
+          "n_gates": 0,
+          "n_nodes": 160,
+          "gate_contributions": []
+        },
+        "T_opset15": {
+          "verdict": "DORMANT",
+          "epsilon_total": 0.0,
+          "n_gates": 0,
+          "n_nodes": 160,
+          "gate_contributions": []
+        },
+        "T_dynaxes": {
+          "verdict": "DORMANT",
+          "epsilon_total": 0.0,
+          "n_gates": 0,
+          "n_nodes": 162,
+          "gate_contributions": []
+        }
+      },
+      "n_configs_tractable": 6,
+      "epsilon_values": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "epsilon_R_tight_bound": 0.0,
+      "epsilon_V_worst_case": 0.0,
+      "delta_T_divergence": 0.0
+    },
+    {
+      "model": "con_sha_tar",
+      "per_config": {
+        "T_default": {
+          "verdict": "DORMANT",
+          "epsilon_total": 0.0,
+          "n_gates": 0,
+          "n_nodes": 159,
+          "gate_contributions": []
+        },
+        "T_constfold": {
+          "verdict": "DORMANT",
+          "epsilon_total": 0.0,
+          "n_gates": 0,
+          "n_nodes": 77,
+          "gate_contributions": []
+        },
+        "T_opset11": {
+          "verdict": "DORMANT",
+          "epsilon_total": 0.0,
+          "n_gates": 0,
+          "n_nodes": 157,
+          "gate_contributions": []
+        },
+        "T_opset13": {
+          "verdict": "DORMANT",
+          "epsilon_total": 0.0,
+          "n_gates": 0,
+          "n_nodes": 159,
+          "gate_contributions": []
+        },
+        "T_opset15": {
+          "verdict": "DORMANT",
+          "epsilon_total": 0.0,
+          "n_gates": 0,
+          "n_nodes": 159,
+          "gate_contributions": []
+        },
+        "T_dynaxes": {
+          "verdict": "DORMANT",
+          "epsilon_total": 0.0,
+          "n_gates": 0,
+          "n_nodes": 161,
+          "gate_contributions": []
+        }
+      },
+      "n_configs_tractable": 6,
+      "epsilon_values": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "epsilon_R_tight_bound": 0.0,
+      "epsilon_V_worst_case": 0.0,
+      "delta_T_divergence": 0.0
+    },
+    {
+      "model": "H1_SignGated",
+      "per_config": {
+        "T_default": {
+          "verdict": "DORMANT",
+          "epsilon_total": 0.0,
+          "n_gates": 0,
+          "n_nodes": 43,
+          "gate_contributions": []
+        },
+        "T_constfold": {
+          "verdict": "DORMANT",
+          "epsilon_total": 0.0,
+          "n_gates": 0,
+          "n_nodes": 33,
+          "gate_contributions": []
+        },
+        "T_opset11": {
+          "verdict": "DORMANT",
+          "epsilon_total": 0.0,
+          "n_gates": 0,
+          "n_nodes": 35,
+          "gate_contributions": []
+        },
+        "T_opset13": {
+          "verdict": "DORMANT",
+          "epsilon_total": 0.0,
+          "n_gates": 0,
+          "n_nodes": 43,
+          "gate_contributions": []
+        },
+        "T_opset15": {
+          "verdict": "DORMANT",
+          "epsilon_total": 0.0,
+          "n_gates": 0,
+          "n_nodes": 43,
+          "gate_contributions": []
+        },
+        "T_dynaxes": {
+          "verdict": "DORMANT",
+          "epsilon_total": 0.0,
+          "n_gates": 0,
+          "n_nodes": 43,
+          "gate_contributions": []
+        }
+      },
+      "n_configs_tractable": 6,
+      "epsilon_values": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "epsilon_R_tight_bound": 0.0,
+      "epsilon_V_worst_case": 0.0,
+      "delta_T_divergence": 0.0
+    },
+    {
+      "model": "H2_AvgPoolGated",
+      "per_config": {
+        "T_default": {
+          "verdict": "GDP-FREE",
+          "epsilon_total": 0.0,
+          "n_gates": 0,
+          "n_nodes": 18,
+          "gate_contributions": []
+        },
+        "T_constfold": {
+          "verdict": "GDP-FREE",
+          "epsilon_total": 0.0,
+          "n_gates": 0,
+          "n_nodes": 18,
+          "gate_contributions": []
+        },
+        "T_opset11": {
+          "verdict": "GDP-FREE",
+          "epsilon_total": 0.0,
+          "n_gates": 0,
+          "n_nodes": 17,
+          "gate_contributions": []
+        },
+        "T_opset13": {
+          "verdict": "GDP-FREE",
+          "epsilon_total": 0.0,
+          "n_gates": 0,
+          "n_nodes": 18,
+          "gate_contributions": []
+        },
+        "T_opset15": {
+          "verdict": "GDP-FREE",
+          "epsilon_total": 0.0,
+          "n_gates": 0,
+          "n_nodes": 18,
+          "gate_contributions": []
+        },
+        "T_dynaxes": {
+          "verdict": "GDP-FREE",
+          "epsilon_total": 0.0,
+          "n_gates": 0,
+          "n_nodes": 18,
+          "gate_contributions": []
+        }
+      },
+      "n_configs_tractable": 6,
+      "epsilon_values": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "epsilon_R_tight_bound": 0.0,
+      "epsilon_V_worst_case": 0.0,
+      "delta_T_divergence": 0.0
+    },
+    {
+      "model": "H3_MulIndicatorGated",
+      "per_config": {
+        "T_default": {
+          "verdict": "DORMANT",
+          "epsilon_total": 0.0,
+          "n_gates": 1,
+          "n_nodes": 14,
+          "gate_contributions": [
+            0.0
+          ]
+        },
+        "T_constfold": {
+          "verdict": "DORMANT",
+          "epsilon_total": 0.0,
+          "n_gates": 1,
+          "n_nodes": 14,
+          "gate_contributions": [
+            0.0
+          ]
+        },
+        "T_opset11": {
+          "verdict": "DORMANT",
+          "epsilon_total": 0.0,
+          "n_gates": 1,
+          "n_nodes": 14,
+          "gate_contributions": [
+            0.0
+          ]
+        },
+        "T_opset13": {
+          "verdict": "DORMANT",
+          "epsilon_total": 0.0,
+          "n_gates": 1,
+          "n_nodes": 14,
+          "gate_contributions": [
+            0.0
+          ]
+        },
+        "T_opset15": {
+          "verdict": "DORMANT",
+          "epsilon_total": 0.0,
+          "n_gates": 1,
+          "n_nodes": 14,
+          "gate_contributions": [
+            0.0
+          ]
+        },
+        "T_dynaxes": {
+          "verdict": "DORMANT",
+          "epsilon_total": 0.0,
+          "n_gates": 1,
+          "n_nodes": 14,
+          "gate_contributions": [
+            0.0
+          ]
+        }
+      },
+      "n_configs_tractable": 6,
+      "epsilon_values": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "epsilon_R_tight_bound": 0.0,
+      "epsilon_V_worst_case": 0.0,
+      "delta_T_divergence": 0.0
+    },
+    {
+      "model": "gated_sigmoid_highway",
+      "per_config": {
+        "T_default": {
+          "verdict": "GDP-FREE",
+          "epsilon_total": 0.0,
+          "n_gates": 0,
+          "n_nodes": 7,
+          "gate_contributions": []
+        },
+        "T_constfold": {
+          "verdict": "GDP-FREE",
+          "epsilon_total": 0.0,
+          "n_gates": 0,
+          "n_nodes": 7,
+          "gate_contributions": []
+        },
+        "T_opset11": {
+          "verdict": "GDP-FREE",
+          "epsilon_total": 0.0,
+          "n_gates": 0,
+          "n_nodes": 7,
+          "gate_contributions": []
+        },
+        "T_opset13": {
+          "verdict": "GDP-FREE",
+          "epsilon_total": 0.0,
+          "n_gates": 0,
+          "n_nodes": 7,
+          "gate_contributions": []
+        },
+        "T_opset15": {
+          "verdict": "GDP-FREE",
+          "epsilon_total": 0.0,
+          "n_gates": 0,
+          "n_nodes": 7,
+          "gate_contributions": []
+        },
+        "T_dynaxes": {
+          "verdict": "GDP-FREE",
+          "epsilon_total": 0.0,
+          "n_gates": 0,
+          "n_nodes": 7,
+          "gate_contributions": []
+        }
+      },
+      "n_configs_tractable": 6,
+      "epsilon_values": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "epsilon_R_tight_bound": 0.0,
+      "epsilon_V_worst_case": 0.0,
+      "delta_T_divergence": 0.0
+    },
+    {
+      "model": "gated_softmax_attn",
+      "per_config": {
+        "T_default": {
+          "verdict": "GDP-FREE",
+          "epsilon_total": 0.0,
+          "n_gates": 0,
+          "n_nodes": 7,
+          "gate_contributions": []
+        },
+        "T_constfold": {
+          "verdict": "GDP-FREE",
+          "epsilon_total": 0.0,
+          "n_gates": 0,
+          "n_nodes": 7,
+          "gate_contributions": []
+        },
+        "T_opset11": {
+          "verdict": "GDP-FREE",
+          "epsilon_total": 0.0,
+          "n_gates": 0,
+          "n_nodes": 7,
+          "gate_contributions": []
+        },
+        "T_opset13": {
+          "verdict": "GDP-FREE",
+          "epsilon_total": 0.0,
+          "n_gates": 0,
+          "n_nodes": 7,
+          "gate_contributions": []
+        },
+        "T_opset15": {
+          "verdict": "GDP-FREE",
+          "epsilon_total": 0.0,
+          "n_gates": 0,
+          "n_nodes": 7,
+          "gate_contributions": []
+        },
+        "T_dynaxes": {
+          "verdict": "GDP-FREE",
+          "epsilon_total": 0.0,
+          "n_gates": 0,
+          "n_nodes": 7,
+          "gate_contributions": []
+        }
+      },
+      "n_configs_tractable": 6,
+      "epsilon_values": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "epsilon_R_tight_bound": 0.0,
+      "epsilon_V_worst_case": 0.0,
+      "delta_T_divergence": 0.0
+    },
+    {
+      "model": "relu_mul_gated",
+      "per_config": {
+        "T_default": {
+          "verdict": "GDP-FREE",
+          "epsilon_total": 0.0,
+          "n_gates": 0,
+          "n_nodes": 6,
+          "gate_contributions": []
+        },
+        "T_constfold": {
+          "verdict": "GDP-FREE",
+          "epsilon_total": 0.0,
+          "n_gates": 0,
+          "n_nodes": 6,
+          "gate_contributions": []
+        },
+        "T_opset11": {
+          "verdict": "GDP-FREE",
+          "epsilon_total": 0.0,
+          "n_gates": 0,
+          "n_nodes": 6,
+          "gate_contributions": []
+        },
+        "T_opset13": {
+          "verdict": "GDP-FREE",
+          "epsilon_total": 0.0,
+          "n_gates": 0,
+          "n_nodes": 6,
+          "gate_contributions": []
+        },
+        "T_opset15": {
+          "verdict": "GDP-FREE",
+          "epsilon_total": 0.0,
+          "n_gates": 0,
+          "n_nodes": 6,
+          "gate_contributions": []
+        },
+        "T_dynaxes": {
+          "verdict": "GDP-FREE",
+          "epsilon_total": 0.0,
+          "n_gates": 0,
+          "n_nodes": 6,
+          "gate_contributions": []
+        }
+      },
+      "n_configs_tractable": 6,
+      "epsilon_values": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "epsilon_R_tight_bound": 0.0,
+      "epsilon_V_worst_case": 0.0,
+      "delta_T_divergence": 0.0
+    }
+  ]
+}

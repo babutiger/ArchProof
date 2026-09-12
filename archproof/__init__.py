@@ -1,5 +1,5 @@
-"""ArchProof — sound output-contribution certificates for
-dormant-gate-path backdoors in ONNX models.
+"""ArchProof -- sound output-contribution certificates for
+dormant-gate-path (add-DGP) backdoors in ONNX models.
 
 Top-level entry points:
 
@@ -7,11 +7,12 @@ Top-level entry points:
     result = verify_model("model.onnx")
     print_result(result)
 
-For the 3-class Phase-C verdict (CERTIFIED-POSITIVE / CLASS-NEGATIVE / UNCERTIFIED):
+For the 3-class Phase-C verdict
+(add-DGP-CERTIFIED-POSITIVE / add-DGP-CLASS-NEGATIVE / UNCERTIFIED):
 
     from archproof import verify_model_phaseC
     result = verify_model_phaseC("model.onnx")
-    print(result.verdict_phaseC, result.epsilon_phaseC)
+    print(result.verdict_phaseC, result.total_epsilon)
 """
 from .verify import verify_model, print_result, VerificationResult
 from .verify_phaseC import verify_model_phaseC, PhaseCResult

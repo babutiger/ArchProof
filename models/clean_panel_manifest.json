@@ -1,0 +1,785 @@
+{
+ "note": "Fixed clean-panel ONNX shipped with the artifact (random-weighted, unseeded generators; ship the exact files rather than regenerate). Verify with check_clean_panel.py.",
+ "count": 97,
+ "total_mb": 2407.2,
+ "models": [
+  {
+   "name": "alexnet",
+   "file": "benchmark/clean/alexnet.onnx",
+   "size_mb": 244.41,
+   "generator": [
+    "<unmapped: shipped ONNX is authoritative>"
+   ]
+  },
+  {
+   "name": "attention_pool",
+   "file": "benchmark/clean/attention_pool.onnx",
+   "size_mb": 0.01,
+   "generator": [
+    "<unmapped: shipped ONNX is authoritative>"
+   ]
+  },
+  {
+   "name": "avgpool_net",
+   "file": "benchmark/clean/avgpool_net.onnx",
+   "size_mb": 0.24,
+   "generator": [
+    "gen_more_clean.py"
+   ]
+  },
+  {
+   "name": "bottleneck_net",
+   "file": "benchmark/clean/bottleneck_net.onnx",
+   "size_mb": 0.03,
+   "generator": [
+    "gen_more_clean.py"
+   ]
+  },
+  {
+   "name": "cifar_conv",
+   "file": "benchmark/clean/cifar_conv.onnx",
+   "size_mb": 1.08,
+   "generator": [
+    "<unmapped: shipped ONNX is authoritative>"
+   ]
+  },
+  {
+   "name": "cifar_mlp",
+   "file": "benchmark/clean/cifar_mlp.onnx",
+   "size_mb": 3.28,
+   "generator": [
+    "<unmapped: shipped ONNX is authoritative>"
+   ]
+  },
+  {
+   "name": "clean_G1adv_dormant_add",
+   "file": "benchmark/clean/clean_G1adv_dormant_add.onnx",
+   "size_mb": 0.01,
+   "generator": [
+    "g1_g4_adversaries.py",
+    "run_b5_boundary.py"
+   ]
+  },
+  {
+   "name": "clean_G1adv_dormant_concat",
+   "file": "benchmark/clean/clean_G1adv_dormant_concat.onnx",
+   "size_mb": 0.0,
+   "generator": [
+    "g1_g4_adversaries.py",
+    "run_b5_boundary.py"
+   ]
+  },
+  {
+   "name": "clean_G4adv_ghost_mul",
+   "file": "benchmark/clean/clean_G4adv_ghost_mul.onnx",
+   "size_mb": 0.01,
+   "generator": [
+    "g1_g4_adversaries.py"
+   ]
+  },
+  {
+   "name": "clean_bifpn",
+   "file": "benchmark/clean/clean_bifpn.onnx",
+   "size_mb": 0.02,
+   "generator": [
+    "expand_clean_benchmark.py"
+   ]
+  },
+  {
+   "name": "clean_cbam",
+   "file": "benchmark/clean/clean_cbam.onnx",
+   "size_mb": 0.01,
+   "generator": [
+    "expand_clean_benchmark.py"
+   ]
+  },
+  {
+   "name": "clean_channel_shuffle",
+   "file": "benchmark/clean/clean_channel_shuffle.onnx",
+   "size_mb": 0.01,
+   "generator": [
+    "expand_clean_benchmark.py"
+   ]
+  },
+  {
+   "name": "clean_convmixer",
+   "file": "benchmark/clean/clean_convmixer.onnx",
+   "size_mb": 0.02,
+   "generator": [
+    "expand_clean_benchmark.py"
+   ]
+  },
+  {
+   "name": "clean_cross_attention",
+   "file": "benchmark/clean/clean_cross_attention.onnx",
+   "size_mb": 0.01,
+   "generator": [
+    "expand_clean_benchmark.py"
+   ]
+  },
+  {
+   "name": "clean_denseblock",
+   "file": "benchmark/clean/clean_denseblock.onnx",
+   "size_mb": 0.01,
+   "generator": [
+    "expand_clean_benchmark.py"
+   ]
+  },
+  {
+   "name": "clean_eca",
+   "file": "benchmark/clean/clean_eca.onnx",
+   "size_mb": 0.0,
+   "generator": [
+    "expand_clean_benchmark.py"
+   ]
+  },
+  {
+   "name": "clean_firemodule",
+   "file": "benchmark/clean/clean_firemodule.onnx",
+   "size_mb": 0.0,
+   "generator": [
+    "expand_clean_benchmark.py"
+   ]
+  },
+  {
+   "name": "clean_gated_delta",
+   "file": "benchmark/clean/clean_gated_delta.onnx",
+   "size_mb": 0.01,
+   "generator": [
+    "expand_clean_benchmark.py"
+   ]
+  },
+  {
+   "name": "clean_geglu",
+   "file": "benchmark/clean/clean_geglu.onnx",
+   "size_mb": 0.02,
+   "generator": [
+    "expand_clean_benchmark.py"
+   ]
+  },
+  {
+   "name": "clean_ghostnet",
+   "file": "benchmark/clean/clean_ghostnet.onnx",
+   "size_mb": 0.0,
+   "generator": [
+    "expand_clean_benchmark.py"
+   ]
+  },
+  {
+   "name": "clean_gru_recurrent",
+   "file": "benchmark/clean/clean_gru_recurrent.onnx",
+   "size_mb": 0.03,
+   "generator": [
+    "expand_clean_benchmark.py"
+   ]
+  },
+  {
+   "name": "clean_hardswish",
+   "file": "benchmark/clean/clean_hardswish.onnx",
+   "size_mb": 0.0,
+   "generator": [
+    "expand_clean_benchmark.py"
+   ]
+  },
+  {
+   "name": "clean_hardtanh",
+   "file": "benchmark/clean/clean_hardtanh.onnx",
+   "size_mb": 0.0,
+   "generator": [
+    "expand_clean_benchmark.py"
+   ]
+  },
+  {
+   "name": "clean_instancenorm",
+   "file": "benchmark/clean/clean_instancenorm.onnx",
+   "size_mb": 0.0,
+   "generator": [
+    "expand_clean_benchmark.py"
+   ]
+  },
+  {
+   "name": "clean_inverted_residual",
+   "file": "benchmark/clean/clean_inverted_residual.onnx",
+   "size_mb": 0.0,
+   "generator": [
+    "expand_clean_benchmark.py"
+   ]
+  },
+  {
+   "name": "clean_lambda",
+   "file": "benchmark/clean/clean_lambda.onnx",
+   "size_mb": 0.01,
+   "generator": [
+    "expand_clean_benchmark.py"
+   ]
+  },
+  {
+   "name": "clean_layernorm",
+   "file": "benchmark/clean/clean_layernorm.onnx",
+   "size_mb": 0.13,
+   "generator": [
+    "expand_clean_benchmark.py"
+   ]
+  },
+  {
+   "name": "clean_lrn",
+   "file": "benchmark/clean/clean_lrn.onnx",
+   "size_mb": 0.01,
+   "generator": [
+    "expand_clean_benchmark.py"
+   ]
+  },
+  {
+   "name": "clean_mhsa",
+   "file": "benchmark/clean/clean_mhsa.onnx",
+   "size_mb": 0.01,
+   "generator": [
+    "expand_clean_benchmark.py"
+   ]
+  },
+  {
+   "name": "clean_mish",
+   "file": "benchmark/clean/clean_mish.onnx",
+   "size_mb": 0.0,
+   "generator": [
+    "expand_clean_benchmark.py"
+   ]
+  },
+  {
+   "name": "clean_non_local",
+   "file": "benchmark/clean/clean_non_local.onnx",
+   "size_mb": 0.01,
+   "generator": [
+    "expand_clean_benchmark.py"
+   ]
+  },
+  {
+   "name": "clean_posffn",
+   "file": "benchmark/clean/clean_posffn.onnx",
+   "size_mb": 0.04,
+   "generator": [
+    "expand_clean_benchmark.py"
+   ]
+  },
+  {
+   "name": "clean_position_droppath",
+   "file": "benchmark/clean/clean_position_droppath.onnx",
+   "size_mb": 0.01,
+   "generator": [
+    "expand_clean_benchmark.py"
+   ]
+  },
+  {
+   "name": "clean_prelu",
+   "file": "benchmark/clean/clean_prelu.onnx",
+   "size_mb": 0.0,
+   "generator": [
+    "expand_clean_benchmark.py"
+   ]
+  },
+  {
+   "name": "clean_residual_mlp",
+   "file": "benchmark/clean/clean_residual_mlp.onnx",
+   "size_mb": 1.65,
+   "generator": [
+    "expand_clean_benchmark.py"
+   ]
+  },
+  {
+   "name": "clean_resnest",
+   "file": "benchmark/clean/clean_resnest.onnx",
+   "size_mb": 0.03,
+   "generator": [
+    "expand_clean_benchmark.py"
+   ]
+  },
+  {
+   "name": "clean_rmsnorm",
+   "file": "benchmark/clean/clean_rmsnorm.onnx",
+   "size_mb": 0.0,
+   "generator": [
+    "expand_clean_benchmark.py"
+   ]
+  },
+  {
+   "name": "clean_simple_cnn_a",
+   "file": "benchmark/clean/clean_simple_cnn_a.onnx",
+   "size_mb": 0.06,
+   "generator": [
+    "expand_clean_benchmark.py"
+   ]
+  },
+  {
+   "name": "clean_simple_cnn_b",
+   "file": "benchmark/clean/clean_simple_cnn_b.onnx",
+   "size_mb": 0.03,
+   "generator": [
+    "expand_clean_benchmark.py"
+   ]
+  },
+  {
+   "name": "clean_sknet",
+   "file": "benchmark/clean/clean_sknet.onnx",
+   "size_mb": 0.04,
+   "generator": [
+    "expand_clean_benchmark.py"
+   ]
+  },
+  {
+   "name": "clean_softmax_router",
+   "file": "benchmark/clean/clean_softmax_router.onnx",
+   "size_mb": 0.01,
+   "generator": [
+    "expand_clean_benchmark.py"
+   ]
+  },
+  {
+   "name": "clean_spatial_pyramid",
+   "file": "benchmark/clean/clean_spatial_pyramid.onnx",
+   "size_mb": 0.01,
+   "generator": [
+    "expand_clean_benchmark.py"
+   ]
+  },
+  {
+   "name": "clean_swish",
+   "file": "benchmark/clean/clean_swish.onnx",
+   "size_mb": 0.02,
+   "generator": [
+    "expand_clean_benchmark.py"
+   ]
+  },
+  {
+   "name": "clean_tiny_convnext",
+   "file": "benchmark/clean/clean_tiny_convnext.onnx",
+   "size_mb": 0.02,
+   "generator": [
+    "expand_clean_benchmark.py"
+   ]
+  },
+  {
+   "name": "clean_unet_tiny",
+   "file": "benchmark/clean/clean_unet_tiny.onnx",
+   "size_mb": 0.01,
+   "generator": [
+    "expand_clean_benchmark.py"
+   ]
+  },
+  {
+   "name": "conv_batchnorm",
+   "file": "benchmark/clean/conv_batchnorm.onnx",
+   "size_mb": 0.08,
+   "generator": [
+    "gen_more_clean.py"
+   ]
+  },
+  {
+   "name": "conv_deep",
+   "file": "benchmark/clean/conv_deep.onnx",
+   "size_mb": 0.1,
+   "generator": [
+    "<unmapped: shipped ONNX is authoritative>"
+   ]
+  },
+  {
+   "name": "conv_dropout",
+   "file": "benchmark/clean/conv_dropout.onnx",
+   "size_mb": 0.08,
+   "generator": [
+    "gen_more_clean.py"
+   ]
+  },
+  {
+   "name": "conv_groupnorm",
+   "file": "benchmark/clean/conv_groupnorm.onnx",
+   "size_mb": 0.09,
+   "generator": [
+    "gen_more_clean.py"
+   ]
+  },
+  {
+   "name": "densenet121",
+   "file": "benchmark/clean/densenet121.onnx",
+   "size_mb": 31.88,
+   "generator": [
+    "<unmapped: shipped ONNX is authoritative>"
+   ]
+  },
+  {
+   "name": "densenet169",
+   "file": "benchmark/clean/densenet169.onnx",
+   "size_mb": 49.97,
+   "generator": [
+    "gen_more_clean.py"
+   ]
+  },
+  {
+   "name": "depthwise_separable",
+   "file": "benchmark/clean/depthwise_separable.onnx",
+   "size_mb": 0.01,
+   "generator": [
+    "gen_more_clean.py"
+   ]
+  },
+  {
+   "name": "dilated_conv",
+   "file": "benchmark/clean/dilated_conv.onnx",
+   "size_mb": 0.12,
+   "generator": [
+    "gen_more_clean.py"
+   ]
+  },
+  {
+   "name": "efficientnet_b0",
+   "file": "benchmark/clean/efficientnet_b0.onnx",
+   "size_mb": 21.05,
+   "generator": [
+    "run_v3_t10_admission.py"
+   ]
+  },
+  {
+   "name": "elu_net",
+   "file": "benchmark/clean/elu_net.onnx",
+   "size_mb": 0.08,
+   "generator": [
+    "gen_more_clean.py"
+   ]
+  },
+  {
+   "name": "film_conditioning",
+   "file": "benchmark/clean/film_conditioning.onnx",
+   "size_mb": 0.02,
+   "generator": [
+    "gen_hard_negatives.py"
+   ]
+  },
+  {
+   "name": "gated_attention",
+   "file": "benchmark/clean/gated_attention.onnx",
+   "size_mb": 0.01,
+   "generator": [
+    "gen_hard_negatives.py"
+   ]
+  },
+  {
+   "name": "gated_maxpool_selector",
+   "file": "benchmark/clean/gated_maxpool_selector.onnx",
+   "size_mb": 0.1,
+   "generator": [
+    "<unmapped: shipped ONNX is authoritative>"
+   ]
+  },
+  {
+   "name": "gated_residual",
+   "file": "benchmark/clean/gated_residual.onnx",
+   "size_mb": 1.58,
+   "generator": [
+    "<unmapped: shipped ONNX is authoritative>"
+   ]
+  },
+  {
+   "name": "gated_sigmoid_highway",
+   "file": "benchmark/clean/gated_sigmoid_highway.onnx",
+   "size_mb": 3.15,
+   "generator": [
+    "<unmapped: shipped ONNX is authoritative>"
+   ]
+  },
+  {
+   "name": "gated_softmax_attn",
+   "file": "benchmark/clean/gated_softmax_attn.onnx",
+   "size_mb": 0.81,
+   "generator": [
+    "<unmapped: shipped ONNX is authoritative>"
+   ]
+  },
+  {
+   "name": "gelu_net",
+   "file": "benchmark/clean/gelu_net.onnx",
+   "size_mb": 0.08,
+   "generator": [
+    "gen_more_clean.py"
+   ]
+  },
+  {
+   "name": "glu_net",
+   "file": "benchmark/clean/glu_net.onnx",
+   "size_mb": 0.01,
+   "generator": [
+    "gen_hard_negatives.py"
+   ]
+  },
+  {
+   "name": "googlenet",
+   "file": "benchmark/clean/googlenet.onnx",
+   "size_mb": 26.48,
+   "generator": [
+    "<unmapped: shipped ONNX is authoritative>"
+   ]
+  },
+  {
+   "name": "gru_gate_residual",
+   "file": "benchmark/clean/gru_gate_residual.onnx",
+   "size_mb": 0.05,
+   "generator": [
+    "gen_hard_negatives.py"
+   ]
+  },
+  {
+   "name": "high_threshold_skip",
+   "file": "benchmark/clean/high_threshold_skip.onnx",
+   "size_mb": 0.01,
+   "generator": [
+    "gen_hard_negatives.py"
+   ]
+  },
+  {
+   "name": "highway_net",
+   "file": "benchmark/clean/highway_net.onnx",
+   "size_mb": 0.01,
+   "generator": [
+    "gen_hard_negatives.py"
+   ]
+  },
+  {
+   "name": "inception_v3",
+   "file": "benchmark/clean/inception_v3.onnx",
+   "size_mb": 95.26,
+   "generator": [
+    "<unmapped: shipped ONNX is authoritative>"
+   ]
+  },
+  {
+   "name": "leaky_relu_net",
+   "file": "benchmark/clean/leaky_relu_net.onnx",
+   "size_mb": 0.08,
+   "generator": [
+    "gen_more_clean.py"
+   ]
+  },
+  {
+   "name": "linear_classifier",
+   "file": "benchmark/clean/linear_classifier.onnx",
+   "size_mb": 0.12,
+   "generator": [
+    "<unmapped: shipped ONNX is authoritative>"
+   ]
+  },
+  {
+   "name": "maxpool_heavy",
+   "file": "benchmark/clean/maxpool_heavy.onnx",
+   "size_mb": 0.46,
+   "generator": [
+    "gen_more_clean.py"
+   ]
+  },
+  {
+   "name": "mlp_3layer",
+   "file": "benchmark/clean/mlp_3layer.onnx",
+   "size_mb": 3.28,
+   "generator": [
+    "gen_more_clean.py"
+   ]
+  },
+  {
+   "name": "mlp_deep6",
+   "file": "benchmark/clean/mlp_deep6.onnx",
+   "size_mb": 11.57,
+   "generator": [
+    "gen_more_clean.py"
+   ]
+  },
+  {
+   "name": "mlp_tiny",
+   "file": "benchmark/clean/mlp_tiny.onnx",
+   "size_mb": 0.4,
+   "generator": [
+    "<unmapped: shipped ONNX is authoritative>"
+   ]
+  },
+  {
+   "name": "mnasnet",
+   "file": "benchmark/clean/mnasnet.onnx",
+   "size_mb": 17.43,
+   "generator": [
+    "<unmapped: shipped ONNX is authoritative>"
+   ]
+  },
+  {
+   "name": "mobilenet_v2",
+   "file": "benchmark/clean/mobilenet_v2.onnx",
+   "size_mb": 13.94,
+   "generator": [
+    "<unmapped: shipped ONNX is authoritative>"
+   ]
+  },
+  {
+   "name": "mobilenet_v3_small",
+   "file": "benchmark/clean/mobilenet_v3_small.onnx",
+   "size_mb": 6.1,
+   "generator": [
+    "gen_more_clean.py"
+   ]
+  },
+  {
+   "name": "moe_router",
+   "file": "benchmark/clean/moe_router.onnx",
+   "size_mb": 0.01,
+   "generator": [
+    "gen_hard_negatives.py"
+   ]
+  },
+  {
+   "name": "multi_head_concat",
+   "file": "benchmark/clean/multi_head_concat.onnx",
+   "size_mb": 0.01,
+   "generator": [
+    "gen_more_clean.py"
+   ]
+  },
+  {
+   "name": "pruned_channel",
+   "file": "benchmark/clean/pruned_channel.onnx",
+   "size_mb": 0.04,
+   "generator": [
+    "gen_hard_negatives.py"
+   ]
+  },
+  {
+   "name": "regnet_y_400mf",
+   "file": "benchmark/clean/regnet_y_400mf.onnx",
+   "size_mb": 17.33,
+   "generator": [
+    "<unmapped: shipped ONNX is authoritative>"
+   ]
+  },
+  {
+   "name": "resnet101",
+   "file": "benchmark/clean/resnet101.onnx",
+   "size_mb": 169.73,
+   "generator": [
+    "gen_more_clean.py"
+   ]
+  },
+  {
+   "name": "resnet18",
+   "file": "benchmark/clean/resnet18.onnx",
+   "size_mb": 46.73,
+   "generator": [
+    "run_v3_t10_admission.py"
+   ]
+  },
+  {
+   "name": "resnet34",
+   "file": "benchmark/clean/resnet34.onnx",
+   "size_mb": 85.11,
+   "generator": [
+    "gen_more_clean.py"
+   ]
+  },
+  {
+   "name": "resnet50",
+   "file": "benchmark/clean/resnet50.onnx",
+   "size_mb": 102.06,
+   "generator": [
+    "<unmapped: shipped ONNX is authoritative>"
+   ]
+  },
+  {
+   "name": "resnext50_32x4d",
+   "file": "benchmark/clean/resnext50_32x4d.onnx",
+   "size_mb": 91.77,
+   "generator": [
+    "gen_more_clean.py"
+   ]
+  },
+  {
+   "name": "rezero_block",
+   "file": "benchmark/clean/rezero_block.onnx",
+   "size_mb": 0.04,
+   "generator": [
+    "gen_hard_negatives.py"
+   ]
+  },
+  {
+   "name": "se_block",
+   "file": "benchmark/clean/se_block.onnx",
+   "size_mb": 0.05,
+   "generator": [
+    "gen_hard_negatives.py"
+   ]
+  },
+  {
+   "name": "shufflenet_v2",
+   "file": "benchmark/clean/shufflenet_v2.onnx",
+   "size_mb": 9.16,
+   "generator": [
+    "<unmapped: shipped ONNX is authoritative>"
+   ]
+  },
+  {
+   "name": "small_resnet",
+   "file": "benchmark/clean/small_resnet.onnx",
+   "size_mb": 0.02,
+   "generator": [
+    "gen_more_clean.py"
+   ]
+  },
+  {
+   "name": "squeezenet1_0",
+   "file": "benchmark/clean/squeezenet1_0.onnx",
+   "size_mb": 5.0,
+   "generator": [
+    "<unmapped: shipped ONNX is authoritative>"
+   ]
+  },
+  {
+   "name": "strided_conv",
+   "file": "benchmark/clean/strided_conv.onnx",
+   "size_mb": 0.38,
+   "generator": [
+    "gen_more_clean.py"
+   ]
+  },
+  {
+   "name": "swiglu_ffn",
+   "file": "benchmark/clean/swiglu_ffn.onnx",
+   "size_mb": 0.02,
+   "generator": [
+    "gen_hard_negatives.py"
+   ]
+  },
+  {
+   "name": "vgg11",
+   "file": "benchmark/clean/vgg11.onnx",
+   "size_mb": 515.21,
+   "generator": [
+    "gen_more_clean.py"
+   ]
+  },
+  {
+   "name": "vgg16",
+   "file": "benchmark/clean/vgg16.onnx",
+   "size_mb": 553.41,
+   "generator": [
+    "<unmapped: shipped ONNX is authoritative>"
+   ]
+  },
+  {
+   "name": "wide_resnet50",
+   "file": "benchmark/clean/wide_resnet50.onnx",
+   "size_mb": 275.3,
+   "generator": [
+    "<unmapped: shipped ONNX is authoritative>"
+   ]
+  },
+  {
+   "name": "zero_init_residual",
+   "file": "benchmark/clean/zero_init_residual.onnx",
+   "size_mb": 0.04,
+   "generator": [
+    "gen_hard_negatives.py"
+   ]
+  }
+ ]
+}

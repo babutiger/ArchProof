@@ -1,44 +1,18 @@
-# Python
 __pycache__/
-*.py[cod]
-*$py.class
+*.pyc
 *.egg-info/
+build/
+dist/
 .pytest_cache/
-.ipynb_checkpoints/
-
-# Conda / venv
-env/
-venv/
-.env
-
-# Logs / runtime artifacts
 *.log
-*.out
-nohup.out
-logs/
-
-# OS / editor
-.DS_Store
-.vscode/
-.idea/
-*.swp
-*~
-
-# Large benchmark weights (not redistributed; see BENCHMARK_MANIFEST.json)
-benchmark/onnx/
-benchmark/7b_onnx/
-benchmark/7b_gate_onnx/
-benchmark/7b_onnx_injected/
-benchmark/clean/
-*.onnx
-*.bin
-*.safetensors
-
-# LaTeX residue (paper not in this artifact)
-*.aux
-*.bbl
-*.blg
-*.fdb_latexmk
-*.fls
-*.toc
-*.synctex.gz
+verify/check_report.json
+utils/__pycache__/
+# large model files are not kept in the GitHub copy (see README: Zenodo has the full bundle)
+models/**/*.onnx
+models/**/*.pth
+models/**/*.pt
+models/**/*.safetensors
+models/**/*.bin
+data/cifar-10-batches-py/
+benchmark/exporter_test/*.onnx
+ccs2026-ae/

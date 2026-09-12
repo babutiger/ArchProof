@@ -20,17 +20,26 @@ class EscalationResult:
         return f"EscalationResult({self.label})"
 
 
-def pgd_trigger_search(model, clean_input, n_restarts=3, n_steps=100, lr=0.02):
+def pgd_trigger_search(model, clean_input, n_restarts=3, n_steps=100, lr=0.02,
+                       seed=0):
     """G3: PGD-based trigger search over FULL [0,1]^d.
 
     Tries to find an input that changes model's argmax output.
     Uses multiple random restarts for reliability.
+
+    The restarts are drawn from a generator seeded per call, so a rerun of the
+    same experiment returns the same witness and the same risk score. Pass
+    seed=None to draw from the ambient random state instead.
 
     Returns:
         (found, trigger_input) — True + witness if trigger found
     """
     device = next(model.parameters()).device
     model.eval()
+    gen = None
+    if seed is not None:
+        gen = torch.Generator(device=device)
+        gen.manual_seed(seed)
 
     with torch.no_grad():
         clean_out = model(clean_input.to(device))
@@ -39,7 +48,8 @@ def pgd_trigger_search(model, clean_input, n_restarts=3, n_steps=100, lr=0.02):
 
     for restart in range(n_restarts):
         # Random start in [0, 1]^d
-        x = torch.rand_like(clean_input, device=device, requires_grad=True)
+        x = torch.rand(clean_input.shape, device=device, dtype=clean_input.dtype,
+                       generator=gen).requires_grad_(True)
 
         for step in range(n_steps):
             out = model(x)
@@ -69,16 +79,25 @@ def pgd_trigger_search(model, clean_input, n_restarts=3, n_steps=100, lr=0.02):
     return False, None
 
 
-def random_trigger_search(model, clean_input, n_tries=2000):
-    """G3 fallback: brute-force random sampling from [0,1]^d."""
+def random_trigger_search(model, clean_input, n_tries=2000, seed=0):
+    """G3 fallback: brute-force random sampling from [0,1]^d.
+
+    Draws from a generator seeded per call so the fallback is reproducible;
+    pass seed=None to use the ambient random state.
+    """
     device = next(model.parameters()).device
     model.eval()
+    gen = None
+    if seed is not None:
+        gen = torch.Generator(device=device)
+        gen.manual_seed(seed)
 
     with torch.no_grad():
         clean_class = model(clean_input.to(device)).argmax(dim=-1).item()
 
         for _ in range(n_tries):
-            x = torch.rand_like(clean_input, device=device)
+            x = torch.rand(clean_input.shape, device=device,
+                           dtype=clean_input.dtype, generator=gen)
             if model(x).argmax(dim=-1).item() != clean_class:
                 return True, x
 

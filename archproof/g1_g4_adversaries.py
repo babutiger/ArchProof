@@ -127,11 +127,7 @@ def build_adversary_onnx(out_dir):
 
 
 if __name__ == "__main__":
-    _root = os.environ.get(
-        "ARCHPROOF_ROOT",
-        os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
-    )
-    OUT = os.path.join(_root, "benchmark", "clean")
+    OUT = os.path.join((os.environ.get("ARCHPROOF_ROOT") or os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "benchmark/clean")
     files = build_adversary_onnx(OUT)
     print("Built adversarial clean ONNX:")
     for f in files:

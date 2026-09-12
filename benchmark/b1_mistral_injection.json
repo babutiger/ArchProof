@@ -1,0 +1,57 @@
+{
+  "description": "B-machine: Mistral-7B MLP subgraph + injected H3 gate + ArchProof-Verify + MGRS surgery",
+  "configuration": {
+    "hidden_size": 4096,
+    "intermediate_size": 14336,
+    "b_clean_ub": 0.95,
+    "tau_adm": 0.3,
+    "target_epsilon": 0.0,
+    "h3_trigger_scale": -3.0,
+    "h3_payload_scale": 0.1
+  },
+  "weight_source": "models/mistral-7b",
+  "weights_real": true,
+  "injected": {
+    "verdict": "\u03b5-BOUNDED",
+    "epsilon": 0.9999990269051101,
+    "n_syntactic": 2,
+    "n_admitted": 1,
+    "n_nodes": 11,
+    "verify_time_sec": 10.34636402130127,
+    "tau_ibp": Infinity,
+    "gate_epsilons": [
+      {
+        "gate_node": "/Sigmoid_1_output_0",
+        "activation": "sigmoid",
+        "g_lb": -19.750849198506735,
+        "g_ub": 13.842783263333693,
+        "epsilon": 0.9999990269051101,
+        "payload_abs_max": 1e+300,
+        "contribution": 9.999990269051102e+299
+      }
+    ],
+    "gate_relu_names": [
+      "/Sigmoid_1_output_0"
+    ]
+  },
+  "mgrs": {
+    "k_total": 1,
+    "k_removed": 1,
+    "removed_indices": [
+      0
+    ],
+    "removed_nodes": [
+      "/Sigmoid_1_output_0"
+    ],
+    "predicted_residual_eps": 0.0,
+    "epsilon_before": 9.999990269051102e+299,
+    "achieved": true
+  },
+  "zeroed": {
+    "verdict": "\u03b5-BOUNDED",
+    "epsilon": 0.0,
+    "n_syntactic": 2,
+    "n_admitted": 1,
+    "verify_time_sec": 9.990411520004272
+  }
+}

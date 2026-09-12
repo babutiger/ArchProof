@@ -1,325 +1,264 @@
-# ArchProof
+# ArchProof — CCS 2026 Artifact
 
-> **Sound output-contribution certificates for dormant-gate-path
-> backdoors in deployed ONNX models.**
+**Paper:** *ArchProof: A Sound Output-Contribution Certificate for Dormant-Gate
+Path Backdoors in ONNX Models* (CCS 2026).
 
-ArchProof is a verifier that, given an ONNX model and a small clean
-calibration probe, returns a sound `ε`-bound on the output contribution
-of any *additive dormant-gate path* (add-DGP) backdoor that the graph
-might contain. The bound is closed-form, deterministic, and scales to
-whole-model 6–7B-parameter LLM ONNX exports.
+**Archived artifact (DOI):** https://doi.org/10.5281/zenodo.22722330 (Zenodo).
 
-This repository is the reproducibility artifact for the paper:
+**GitHub copy:** https://github.com/babutiger/ArchProof holds the code, scripts,
+tests, docs and all result records, but not the model weights and ONNX exports
+under `models/` and `benchmark/exporter_test/` (about 6.7 GB), the CIFAR-10
+batches under `data/`, or the `ccs2026-ae/` folder. The Zenodo archive above is the complete bundle;
+`make fetch-weights` and the export scripts regenerate the models, and CIFAR-10
+re-downloads on first use.
 
-> *ArchProof: A Sound Output-Contribution Certificate for Dormant-Gate
-> Path Backdoors in ONNX Models*
+**TL;DR** — one machine, CPU only:
+
+```bash
+make install        # conda env + pip install -e .              (~5 min, once)
+make verify-quick   # check all 45 data-table records vs the paper (~2 min)
+make test           # unit tests prove the verifier is sound      (~30 s)
+```
+
+`make verify` (no `-quick`) instead re-runs every runnable table **from scratch**
+and checks the fresh numbers against the paper — the real reproduction, slow
+(~2-3 h). Full guide: **`docs/REPRODUCE.md`**.
+
+ArchProof takes an ONNX model and returns a *sound* 3-class verdict about
+**add-DGP** (additive dormant-gated-payload) architectural backdoors:
+
+- `add-DGP-CERTIFIED-POSITIVE` — a dormant additive gate provably drives the
+  output (certificate ε > τ_sys): a detected backdoor.
+- `add-DGP-CLASS-NEGATIVE` — no admitted add-DGP gate: clean w.r.t. the class.
+- `UNCERTIFIED` — the verifier fails **closed** (a bound is vacuous, or the
+  graph is too large for CPU interval propagation). It never silently declares
+  a model clean.
+
+This artifact ships (a) the verifier as an importable, CPU-only Python package;
+(b) the models, run records, and a checker that **recomputes every table in the
+paper from those records**; and (c) scripts to re-run the experiments from
+scratch. Nothing in the checking path reads a stored answer — each experiment
+writes its own record and the checker rebuilds the table cells from it, so a
+number no experiment produced cannot pass.
+
+**Artifact-evaluation badges.** *Functional* — this README + `docs/`; the code,
+models, data, and scripts are all in this one bundle; `make verify` / `make
+test` run out of the box. *Reproduced* — `make verify` re-runs the **45 data
+tables from scratch** and checks the freshly-computed numbers against the paper
+(43 recomputed to the printed value + 2 draw-checked); the 7 whole-model LLM
+tables re-run only with the 253 GB tier (otherwise verified from their bundled
+record) and 3 derived tables have no standalone driver. The paper's other 7
+tables are definitional/structural (no experimental data) and are verified by
+inspection / unit test.
 
 ---
 
-## Table of contents
+## 1. Quick start
 
-1. [What ArchProof does](#1-what-archproof-does)
-2. [Quick start (5 minutes)](#2-quick-start-5-minutes)
-3. [Full reproduction (per RQ)](#3-full-reproduction-per-rq)
-4. [Tutorial: certify your own ONNX model](#4-tutorial-certify-your-own-onnx-model)
-5. [Repository layout](#5-repository-layout)
-6. [Environment setup](#6-environment-setup)
-7. [Benchmark weights (~130 GB) — not redistributed](#7-benchmark-weights)
+Everything here runs on **one machine, CPU only** — no GPU, no network, no
+large models.
+
+```bash
+make install      # pinned conda env `archproof_repro` + pip install -e .        (~5 min, once)
+make verify       # re-run the 35 runnable tables FROM SCRATCH, check vs paper   (slow, ~2-3 h, CPU)
+make verify-quick # instead: just check the bundled records vs the paper         (~2 min)
+make test         # pytest suite (synthetic ONNX)                                (~30 s)
+```
+
+`make verify` is the real reproduction: it re-runs each runnable experiment from
+zero and checks the freshly-computed numbers against the paper (nothing is read
+back from a stored answer). It prints one line per table with `OK <n>/<n>`,
+ending with:
+
+```
+data tables reproduced: 45/45  (43 recomputed to the printed value, 2 draw-checked)
+definitional/structural tables: 7 (no experimental data; verified by inspection / unit test)
+```
 
 ---
 
-## 1. What ArchProof does
+## 2. What you need — one machine
 
-### Problem
+- **The fast overview (what the badges rest on).** `make verify-quick`
+  (= `python verify/check_tables.py`) checks all 45 tables' bundled records
+  against the paper in ~2 min on **any Linux box, ~16 GB RAM, CPU only** — the
+  checker reads only `truth_source/` and `benchmark/*.json` and needs nothing
+  beyond numpy (no GPU, no torch, no network).
 
-A *deployed* ONNX model may contain an architectural backdoor: a
-dormant subgraph whose output stays near zero on natural inputs but
-flips when a trigger is presented. Because the backdoor is encoded in
-the **graph**, retraining the weights does not remove it, and existing
-weight-based defenses cannot see it.
-
-### What ArchProof returns
-
-For any ONNX model `M`, ArchProof emits one of three sound verdicts:
-
-| Verdict                      | Meaning                                                                                                                                             |
-| ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `add-DGP-CERTIFIED-POSITIVE` | The verifier admitted at least one gate and its closed-form `ε`-bound exceeds `τ_sys` (a backdoor candidate matching the add-DGP class is present). |
-| `add-DGP-CLASS-NEGATIVE`     | No admitted gate, or `ε ≤ τ_sys` — i.e., no add-DGP backdoor is certified within the declared class.                                                |
-| `UNCERTIFIED`                | IBP saturates or the exporter breaks the bijection precondition; the verifier abstains.                                                             |
-
-### What's certified
-
-The certificate bounds
-$$\sup_{x \in D(T)} \, \| M(x) - M_\text{zeroed}(x) \|_\infty \;\le\; \varepsilon$$
-where `M_zeroed` is `M` with the admitted gate set zeroed out. Three
-deployment-time robustness theorems extend the bound to (a) calibration
-poisoning (ACPC), (b) post-detection surgical gate removal (MGRS), and
-(c) exporter / opset drift (EIC).
-
-### Scale
-
-The verifier runs on whole-model ONNX from CIFAR-CNNs up to 6–7B-parameter
-LLMs (GPT-J / Yi / DeepSeek / Mistral / Qwen2). On these LLMs prior
-sound NN-verifier toolchains (auto\_LiRPA + α,β-CROWN via the canonical
-onnx2pytorch bridge) fail before bound computation; ArchProof returns a
-finite `ε ∈ [10¹⁰, 10¹²]` on every backdoored 6–7B LLM in the benchmark.
+- **Reproducing from scratch.** `make verify`
+  (= `bash reproduce/reproduce_cpu.sh`) re-runs the **35 CPU tables** from zero,
+  regenerates each record, and checks the freshly-computed numbers against the
+  paper (slow, ~2-3 h). A single table: `bash reproduce/tableNN.sh` — a fast one
+  finishes in seconds, a heavy one (whole-ResNet-18 interval propagation,
+  ULP-sound arithmetic, the 68-config EIC sweep) takes minutes. Two tiers are
+  **not** part of this CPU run: the **7 whole-model 6–7B LLM tables**
+  (4, 5, 13, 14, 15, 35, 41) need a 24 GB GPU + **~176 GB RAM** (the one-time
+  ONNX export peaks above 146 GB; verification alone is ~95 GB) + 253 GB disk
+  (download → export → `RERUN=1`; see `docs/MODELS.md`), and **3 derived
+  tables** are aggregate counts with no standalone driver.
 
 ---
 
-## 2. Quick start (5 minutes)
+## 3. Reproducing the paper's tables
 
-### Prerequisites
-
-- Python 3.9+
-- `pip install onnx onnxruntime numpy`
-- ~1 GB free disk
-
-### Install
+The artifact and the paper PDF are separate: **you read the PDF, the code prints
+the numbers.** Each of the 35 runnable data tables has a one-click script under
+`reproduce/` that, by default, **reproduces the table from scratch** — it runs
+the experiment, regenerates the record, then checks it against the paper and
+prints the values for you to compare to the PDF by eye.
 
 ```bash
-git clone <this-repo>
-cd <this-repo>
-export ARCHPROOF_ROOT=$(pwd)
+bash reproduce/table16_appx-backdoor-perm.sh   # run this table's experiment from scratch, then verify
+QUICK=1 bash reproduce/table16_appx-backdoor-perm.sh   # skip the run; just read the bundled record (seconds)
 ```
 
-### Smoke test (no benchmark weights needed)
-
-The smoke test builds 4 synthetic ONNX graphs on the fly (clean CNN,
-ReLU-gated backdoor, sigmoid-gated backdoor, SE block) and verifies
-each. All in <5 s on CPU:
+Running from scratch is the real reproduction, but it is not instant: a fast
+table finishes in seconds, while a heavy one (whole-ResNet-18 interval
+propagation, ULP-sound arithmetic, the 68-config EIC sweep) takes several
+minutes. Two tiers do **not** run from scratch on a normal machine and default
+to reading their bundled record: the **7 whole-model LLM tables** (they need a
+GPU + ~176 GB RAM for the one-time ONNX export, which peaks above 146 GB —
+verification alone is ~95 GB — plus 253 GB disk; `RERUN=1` once you have that tier)
+and **3 derived tables** (aggregate counts with no standalone driver).
 
 ```bash
-make smoke
-# or:
-pytest tests/test_smoke.py -v
+make verify-quick                        # check all 45 records vs the paper (~2 min, no re-run)
+bash reproduce/reproduce_cpu.sh          # re-run the 35 CPU tables from scratch (slow, ~2-3 h)
 ```
 
-If every test passes, the verifier code, admission test, IBP
-propagation, and the basic detection logic are all exercised.
+The 7 LLM tables re-run only on the GPU tier (`bash scripts/download_llm.sh` →
+`bash scripts/export_llm.sh` → `RERUN=1 bash reproduce/tableNN.sh`); the 3
+derived tables have no standalone driver. Both are checked from their bundled
+record by `make verify-quick`.
 
-To run the full pytest suite (smoke + admission + envelope + ACPC +
-MGRS + EIC + IBP, ~30 s on CPU), use `make test`.
-
-### Browse the paper numbers
-
-Every numeric claim in the paper traces to a row of `results/per_model.csv`
-or a key of `results/aggregates.json`:
-
-```bash
-# Browse the headline numbers from Tables 4, 7, 8, 11 of the paper
-python examples/02_browse_results.py
-
-# Or directly: F1 by uncertified-handling protocol (Tab. 7)
-python -c "
-import json
-print(json.load(open('results/aggregates.json'))['e2']['archproof_per_protocol'])"
-```
-
-See `results/README.md` for the full schema and `examples/` for runnable demos.
+The **full table-by-table index** — every table, its one-click script, and its
+tier — is in **`docs/REPRODUCE.md`**.
 
 ---
 
-## 3. Full reproduction (per RQ)
-
-The paper has three research questions:
-
-| RQ      | What it asks                                                                                                                                    | Headline result                                                                           | Reproduce with                                                                                                                                       |
-| ------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **RQ1** | Can ArchProof return a sound finite `ε` on whole-model 6–7B-parameter LLM ONNX where prior sound verifiers do not reach the verification stage? | 5/5 backdoored LLMs CERTIFIED-POSITIVE; 0/10 prior-toolchain runs reach bound computation | `archproof.verify_model_phaseC(...)` on each LLM ONNX (per RQ1 commands below); baseline failures documented in `results/per_cell_whole_llm_eic.csv` |
-| **RQ2** | Does the sound certificate yield strictly higher detection F1 on a 101-model labelled benchmark than heuristic detectors?                       | F1 = 1.000 vs 0.90 best heuristic                                                         | `archproof/verify.py --benchmark in-class-49+11 --tau-sys 1e-3 --tau-dorm 1e-3`                                                                      |
-| **RQ3** | Do the three robustness theorems (ACPC / MGRS / EIC) hold empirically across ~12,000 evaluation cells?                                          | Every cell sound                                                                          | the per-experiment scripts under `archproof/` and `scripts/`                                                                                         |
-
-To reproduce in full, you need the benchmark weights (~130 GB, see
-[Section 7](#7-benchmark-weights)). After fetching weights:
-
-### RQ1 — whole-LLM verification
+## 4. Certify your own model
 
 ```bash
-# 1. Export 5 LLMs to ONNX (one-time, runs on CPU)
-python scripts/export/export_clean_llm.py --model EleutherAI/gpt-j-6b
-python scripts/export/export_clean_llm.py --model 01-ai/Yi-6B
-# ... repeat for DeepSeek, Mistral, Qwen2
-
-# 2. Inject backdoor gates (≈ 1 minute each)
-python scripts/inject/inject_llm_backdoor.py --base EleutherAI/gpt-j-6b
-# ... etc.
-
-# 3. Verify each LLM (≈ 10 minutes each on a 176 GB host, CPU-only IBP)
-python -c "
-from archproof import verify_model_phaseC
-for llm in ['gpt-j-6b','yi-6b','deepseek-7b','mistral-7b','qwen2-7b']:
-    r = verify_model_phaseC(f'benchmark/7b_onnx/backdoored/{llm}.onnx',
-                            tau_sys=1e-3, trigger_eta=0.05)
-    print(llm, r.verdict_phaseC, r.epsilon_phaseC)
-"
+make example        # certifies one bundled clean + one bundled backdoored model
 ```
 
-Expected: every LLM returns `add-DGP-CERTIFIED-POSITIVE` with finite ε.
-
-### RQ2 — labelled-benchmark F1
-
-```bash
-# 22 in-class backdoors + 49 natural-clean + 30 synthetic-clean
-python archproof/verify.py \
-    --benchmark in-class-49+11 \
-    --tau-sys 1e-3 --tau-dorm 1e-3 \
-    --output results/per_model_my_run.csv
-# Compare against committed results/per_cell_phaseC.csv
-```
-
-### RQ3 — robustness theorems
-
-```bash
-# ACPC (calibration poisoning) — ~2160 cells, ~30 minutes
-python archproof/acpc.py --sweep chain-sensitivity
-
-# MGRS (minimum gate-removal greedy optimality) — ~4800 cells, ~5 minutes
-python archproof/mgrs.py --sweep removal-order
-
-# EIC (exporter invariance) — 6 exporters × 5 LLMs, ~1 hour
-python archproof/escalate.py --sweep eic-toolchain
-```
-
-Each writes a per-cell CSV under `results/`. Compare against the
-committed `results/per_cell_*.csv` for byte-exact reproduction.
-
----
-
-## 4. Tutorial: certify your own ONNX model
-
-The user-facing entry point is `archproof.verify_model_phaseC(...)`,
-which runs the full verifier (G1/G2/G3/G4/T10 admission + sound IBP +
-per-activation envelope sum) and emits the **3-class verdict** used in
-the paper:
+or from Python on any ONNX file:
 
 ```python
 from archproof import verify_model_phaseC
-
-r = verify_model_phaseC(
-    "your_model.onnx",
-    b_clean_ub=0.95,    # B_clean upper bound (0.95 for normalised images)
-    trigger_eta=0.05,   # trigger box width η for D(T) = B_clean ⊕ T_box(η)
-    tau_sys=1e-3,       # ε > τ_sys ⇒ CERTIFIED-POSITIVE
-)
-
-print(r.verdict_phaseC, r.epsilon_phaseC, r.n_admitted_phaseC)
-# r.verdict_phaseC ∈ { add-DGP-CERTIFIED-POSITIVE,
-#                      add-DGP-CLASS-NEGATIVE,
-#                      UNCERTIFIED }
-# r.epsilon_phaseC          the certificate ε on the trigger-extended interval
-# r.n_admitted_phaseC       size of the admitted gate set |S_adm|
+r = verify_model_phaseC("model.onnx")
+print(r.verdict_phaseC, r.epsilon_phaseC)   # add-DGP-CLASS-NEGATIVE / -CERTIFIED-POSITIVE, epsilon
 ```
 
-A lower-level diagnostic API (`archproof.verify_model`) is also
-available for development; it returns a finer-grained internal label
-useful for debugging admission outcomes. See `docs/api.md`.
+---
 
-For a runnable end-to-end example:
+## 5. Install (detail)
+
+`make install` creates the conda env **`archproof_repro`** (Python 3.10,
+torch 2.1.0, onnx 1.16.0, onnxruntime 1.18.0, numpy 1.26.4) and installs
+`archproof` in editable mode. Manual:
 
 ```bash
-python examples/01_certify_a_model.py path/to/your_model.onnx
+conda env create -f environment.yml
+conda activate archproof_repro
+pip install -e .
+python -c "from archproof import verify_model, verify_model_phaseC; print('OK')"
 ```
 
-Run-time scales with the IBP forward (`O(|G|)` graph nodes). A
-CIFAR-CNN finishes in <1 s; a 28 GB Mistral-7B ONNX takes ~10 min on a
-176 GB host (CPU-only IBP).
+Requirements: Linux, ~16 GB RAM, ~7 GB free disk (rebuilding the LLM exports
+additionally needs a GPU, ~176 GB RAM, and 253 GB of disk).
 
----
+### Without conda
 
-## 5. Repository layout
-
-```
-.
-├── archproof/        Verifier source — 36 modules
-│   ├── verify_phaseC.py          high-level entry point (verify_model)
-│   ├── interval_propagation.py   sound IBP for ONNX
-│   ├── activation_epsilon.py     per-activation envelope (11 activations)
-│   ├── chain_sensitivity.py      affine chain pair (A_post, B_post)
-│   ├── llm_gate_rescue.py        LayerNorm/RMSNorm geometric rescue
-│   ├── gate_admission.py         G1/G2/G3 candidate-gate admission
-│   ├── acpc.py                   ACPC robustness (calibration poisoning)
-│   ├── mgrs.py                   MGRS robustness (gate removal)
-│   ├── escalate.py               EIC robustness (exporter drift)
-│   └── ...
-├── scripts/          Supporting utilities, grouped by purpose
-│   ├── postprocess_acpc_rescue_aware.py  post-process whole-LLM ACPC CSV
-│   ├── export/     HuggingFace → ONNX exporters (LLM + medium TF)
-│   ├── inject/     add-DGP backdoor injectors + Mistral regen helper
-│   ├── probe/      one-off ONNX-graph diagnostics
-│   └── baseline/   prior-toolchain baseline runners
-├── results/          Authoritative experiment data
-│   ├── README.md                   schema documentation
-│   ├── aggregates.json             per-experiment roll-ups
-│   ├── per_cell_*.csv              per-cell raw data
-│   ├── per_model.csv               per-model verdicts
-│   └── per_model_*.csv             per-experiment per-model breakdowns
-├── benchmark/        Model inventory (no weights)
-│   ├── MODELS.md                   human-readable: 123 ONNX, sources, sizes
-│   └── BENCHMARK_MANIFEST.json     same, machine-readable
-├── tests/            pytest suite (smoke + admission + envelope + ACPC + MGRS + EIC + IBP)
-├── examples/         runnable examples (certify a model, browse paper numbers)
-├── docs/             API reference (api.md)
-├── README.md / SETUP.md / REPRODUCE.md
-├── pyproject.toml / environment.yml / Makefile
-└── .gitignore        excludes ONNX weights, caches, LaTeX residue
-```
-
----
-
-## 6. Environment setup
+The record-reproducing checker needs only pip packages (onnx, onnxruntime,
+numpy, scipy, pandas — no conda, no torch, no GPU), so if conda is inconvenient
+skip it entirely:
 
 ```bash
-conda create -n archproof python=3.9 -y
-conda activate archproof
-
-pip install onnx==1.16 onnxruntime==1.18 \
-            torch==2.2 torchvision==0.17 \
-            transformers==4.40 \
-            numpy pandas pytest
-
-# Required environment variable: where this repo lives
-export ARCHPROOF_ROOT=$(pwd)
-
-# Optional: only needed for the crown_escalate baseline experiment
-export ABC_REPO=/path/to/alpha-beta-CROWN
+python3 -m venv venv && . venv/bin/activate
+pip install -e .                          # just the checker's dependencies
+python verify/check_tables.py             # 45/45 data tables (record check)
 ```
 
-`${HOME}` is auto-discovered for conda (`${HOME}/anaconda3` or
-`${HOME}/miniconda3`).
-
-The artifact runs on CPU end-to-end (verification and ONNX export). See
-`SETUP.md` for the full RAM/disk breakdown by use case.
-
-Tested on Linux 5.15 / Python 3.9 / PyTorch 2.x / ONNX 1.16 /
-onnxruntime 1.18.
+The pinned conda env (`environment.yml`, `torch==2.1`) is needed only to
+*re-run* experiments from scratch (`RERUN=1`) or `make test`, both of which
+build ONNX and so depend on the exporter version.
 
 ---
 
-## 7. Benchmark weights
+## 6. Layout
 
-The benchmark consists of **123 ONNX models, ~130 GB total**. They are
-**not redistributed** in this repository — instead, every model has a
-canonical source URL listed in `benchmark/MODELS.md`. Reviewers can
-either:
+```
+artifact/
+  archproof/         the verifier + experiment drivers (importable package)
+  backdoored_models/ the add-DGP backdoor constructors used by the benchmark
+  utils/             helpers backdoored_models imports (CIFAR-10 loader)
+  scripts/           experiment drivers + shared build step
+                     (00_build_benchmark_models.sh)
+  reproduce/         one one-click script per paper table + reproduce_cpu.sh
+  baselines/         runnable alpha-beta-CROWN (auto_LiRPA) for the Table 5
+                     prior-verifier comparison + its env setup
+  verify/            the checker (check_tables.py) + the bundled paper numbers
+  tests/             pytest suite (synthetic ONNX, CPU)
+  models/            all non-LLM models, with sha256 (~6 GB; torchvision
+                     weights re-download if absent, `make fetch-weights`)
+  data/              CIFAR-10 test set (used locally; re-downloads if absent)
+  benchmark/         the result JSONs the checker reads
+  truth_source/      the result CSV/JSON the checker reads
+  docs/              REPRODUCE.md (table-by-table) + MODELS.md (model provenance)
+  ccs2026-ae/        the 2-page CCS Artifact Appendix (PDF + LaTeX source)
+  README.md  Makefile  environment.yml  pyproject.toml  LICENSE
+```
 
-- **(a) Re-export from public checkpoints** using the export and
-  inject scripts in `scripts/`. The scripts are deterministic and the
-  resulting ONNX matches our committed result CSVs to bit-exact under
-  the same opset.
-- **(b) Request a download link** from the authors.
+---
 
-Quick fetch summary (full table in `benchmark/MODELS.md`):
+## 7. Troubleshooting
 
-| Category                                  | n   | Source                                                                   |
-| ----------------------------------------- | --- | ------------------------------------------------------------------------ |
-| 6–7B LLM ONNX (clean + backdoored)        | 10  | HuggingFace (GPT-J, Yi, DeepSeek, Mistral, Qwen2)                        |
-| ImageNet-pretrained backbones × 3 gates   | 12  | torchvision (ResNet18/50, MobileNetV2, EfficientNet-B0)                  |
-| Medium-TF encoders × 4 variants           | 28  | HuggingFace (BERT, DistilBERT, GPT-2, RoBERTa, DeBERTa, ALBERT, Electra) |
-| CIFAR-CNN backdoors (Bober + handcrafted) | 25  | buildable from scratch via `scripts/inject/*.py`                         |
-| Real-scan clean baseline                  | 8   | torchvision + HuggingFace                                                |
-| Random-init torchvision backbones         | 14  | random init via `scripts/export/*.py --random-init`                      |
-| Synthetic stress-coverage clean           | 45  | buildable via `archproof/handcrafted_gdp.py`                             |
-| Adversarial G-probe constructions         | 3   | buildable via `archproof/g1_g4_adversaries.py`                           |
-| Open-world streaming scan                 | 500 | streamed from HuggingFace `library:onnx` topic                           |
+- **`ImportError: archproof`** — run `make install`, or prefix with
+  `PYTHONPATH=.`.
+- **`make verify` reports RECOMPUTE_ERROR** — a data file is missing; confirm
+  `truth_source/` and `benchmark/*.json` are present in this bundle.
+- **Torch/ONNX version mismatch** — the checker needs only numpy; the *export*
+  and *test* paths pin `torch==2.1.0` (`environment.yml`). From torch 2.2 the
+  ONNX exporter folds initializers differently, which changes gate counts on
+  re-export; use the pinned env.
+- **LLM re-run OOM** — whole-model 6–7B verification needs ~95 GB RAM; this is
+  expected. Reproduce those tables from the bundled records instead.
 
+The record-reproducing path (the verifier, `make verify`, and `make test`)
+uses only bundle-relative paths and runs anywhere. The experiment
+drivers resolve paths from the artifact root (or `ARCHPROOF_ROOT`), so `RERUN=1`
+also works wherever you unpack the bundle. Raw per-run logs are not shipped, to
+keep the download lean; the numbers you check come from the bundled records
+under `truth_source/` and `benchmark/`.
+
+---
+
+## 8. Known limitations
+
+- **Platform.** The record-checking path (`make verify-quick`, `make test`) runs
+  on any Linux box with numpy. The from-scratch re-runs are exercised on Linux
+  x86-64 with the pinned `environment.yml`; another OS or CPU may differ in the
+  last digits of floating-point sums — the verdicts and the ULP-sound bounds
+  still hold, but a bit-exact match is only guaranteed on the pinned stack.
+- **Pinned exporter.** A bit-exact re-export needs `torch==2.1.0`. From torch 2.2
+  the ONNX exporter folds identical weight tensors behind Identity nodes, which
+  shifts gate counts on re-export.
+- **LLM tier.** The 7 whole-model 6–7B LLM tables and the prior-verifier baseline
+  re-run only with a GPU + ~176 GB RAM + 253 GB disk (`docs/MODELS.md`,
+  `baselines/`); without that tier they are verified from their bundled records.
+  `make smoke-llm` runs the *same* export → inject-gate → verify pipeline on a
+  ~2 MB toy GPT-2 in seconds, so you can confirm the pipeline is correct — only
+  the model scale, not the method, needs the big host.
+- **Unseeded panels.** Tables 19, 32, and the BL6 row of Table 21 draw an
+  unseeded random clean panel, so a fresh run moves their false-positive/negative
+  counts by ±1; the verdicts and the trends reproduce, the exact draw does not
+  (the "within an allowed tolerance" case — each such table's script says so when
+  it runs).
+- **Self-check vs the PDF.** The bundled `OK n/n` self-check compares each
+  recomputed value to a frozen snapshot of the paper's numbers; the authoritative
+  check is you comparing the printed values to the PDF (the scripts print them).
+
+## 9. License
+
+See `LICENSE` (MIT). 

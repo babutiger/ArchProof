@@ -19,6 +19,8 @@ gradient noise.  For small input dims (<= 1024) this is fast; for larger
 inputs we subsample coordinates at each step.
 """
 
+import os as _os_ar
+_AR = _os_ar.environ.get("ARCHPROOF_ROOT") or _os_ar.path.dirname(_os_ar.path.dirname(_os_ar.path.abspath(__file__)))
 import numpy as np
 import onnx
 import onnxruntime as ort
@@ -124,14 +126,10 @@ if __name__ == "__main__":
 
     # Hunt for small / medium ONNX models with tensor-tensor Muls
     import os as _os
-    _root = _os.environ.get(
-        "ARCHPROOF_ROOT",
-        _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))),
-    )
     candidates = []
     for patt in [
-        _os.path.join(_root, "benchmark", "clean", "*.onnx"),
-        _os.path.join(_root, "benchmark", "exporter_test", "*.onnx"),
+        _os_ar.path.join(_AR, "benchmark/clean/*.onnx"),
+        _os_ar.path.join(_AR, "benchmark/exporter_test/*.onnx"),
     ]:
         candidates.extend(glob.glob(patt))
     # Filter to those with tensor-tensor Mul and size < 10MB
@@ -205,7 +203,7 @@ if __name__ == "__main__":
         "n_without_witness": sum(1 for r in results if not r["found"]),
         "results": results,
     }
-    out = Path(_root) / "benchmark" / "r3_g2_witness_oracle.json"
+    out = Path(_os_ar.path.join(_AR, "benchmark/r3_g2_witness_oracle.json"))
     out.write_text(json.dumps(summary, indent=2, default=str))
     print(f"\nwrote {out}")
     print(f"witness found on {summary['n_with_witness']}/{summary['n_models']} gated models")

@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "archproof"
 version = "1.0.0"
-description = "Sound output-contribution certificates for dormant-gate-path backdoors in ONNX models"
+description = "Sound output-contribution certificates for dormant-gate-path (add-DGP) backdoors in ONNX models"
 readme = "README.md"
 requires-python = ">=3.9"
 classifiers = [
@@ -26,18 +26,21 @@ dependencies = [
     "pandas>=1.4",
 ]
 
+# The verifier core (verify_model, verify_model_phaseC, the interval
+# propagator, the checker) needs only the dependencies above -- no torch,
+# no GPU, no auto_LiRPA. The extras below are needed only to (re)generate
+# models or to run specific experiment families.
 [project.optional-dependencies]
-export = [
+export = [            # re-export torchvision / HuggingFace models to ONNX
     "torch>=2.0",
     "torchvision>=0.15",
     "transformers>=4.40",
     "huggingface_hub>=0.20",
 ]
-sound-arithmetic = [
+sound-arithmetic = [  # certified (ULP-sound) arithmetic margins
     "mpmath>=1.3",
-    "gmpy2>=2.1; platform_system != 'Windows'",
 ]
-witness-oracle = [
+witness-oracle = [    # G2 witness oracle (PGD)
     "torchattacks>=3.4",
 ]
 test = [
@@ -49,23 +52,16 @@ all = [
     "archproof[export,sound-arithmetic,witness-oracle,test]",
 ]
 
-[project.urls]
-"Source" = "https://anonymous.4open.science/r/archproof"
-
 [tool.setuptools.packages.find]
-include = ["archproof*"]
-exclude = ["tests*", "scripts*", "examples*", "results*", "benchmark*"]
+include = ["archproof*", "backdoored_models*"]
+exclude = ["tests*", "scripts*", "examples*", "runs*", "models*", "verify*", "repro*", "docs*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 python_files = ["test_*.py"]
-python_classes = ["Test*"]
 python_functions = ["test_*"]
-addopts = [
-    "-v",
-    "--strict-markers",
-    "--tb=short",
-]
+norecursedirs = ["_needs_api_update", "__pycache__", ".pytest_cache"]
+addopts = ["-v", "--tb=short"]
 markers = [
     "slow: tests that take >5 seconds",
     "comprehensive: full benchmark sweeps (skipped by default)",
