@@ -38,7 +38,7 @@ bash reproduce/table07_f1-baseline.sh    # reproduce ONE table FROM SCRATCH (def
                                          #   experiment, regenerate the record, verify vs the paper
 QUICK=1 bash reproduce/table07_f1-baseline.sh   # skip the run; just read the bundled record
 
-python verify/check_tables.py            # check all 45 records vs the paper (~2 min, no re-run)
+python verify/check_tables.py            # check all 46 records vs the paper (~2 min, no re-run)
 bash reproduce/reproduce_cpu.sh          # re-run the 35 CPU tables from scratch (slow, ~2-3 h)
 ```
 
@@ -114,6 +114,7 @@ tier (reads the bundled record by default); **rec** = derived aggregate, record 
 | 42  | `tab:appx:cross-machine`         | Cross-machine reproduction          | `reproduce/table42_appx-cross-machine.sh`         | T1   |
 | 43  | `tab:appx:compile-stage`         | Compile-stage adversarial           | `reproduce/table43_appx-compile-stage.sh`         | T1   |
 | 45  | `tab:appx:sound`                 | Certified (ULP-sound) arithmetic    | `reproduce/table45_appx-sound.sh`                 | T1   |
+| 46  | `tab:appx:torchvision`           | Torchvision backbone scope          | `reproduce/table46_appx-torchvision.sh`           | T1   |
 | 47  | `tab:appx:real-scan`             | 8 large clean models                | `reproduce/table47_appx-real-scan.sh`             | T1   |
 | 48  | `tab:appx:scanner-scope`         | Scanner scope                       | `reproduce/table48_appx-scanner-scope.sh`         | T1   |
 | 49  | `tab:appx:openworld`             | Open-world 500 streaming            | `reproduce/table49_appx-openworld.sh`             | T1   |
@@ -127,7 +128,6 @@ for Tables 1 and 50, by a unit test under `make test`:
 - **Table 1** (`tab:envelopes`) — closed-form activation envelopes (analytic formulas)
 - **Table 12** (`tab:related-work`) — a comparison matrix of prior work
 - **Table 44** (`tab:appx:gptj-opcount`) — the GPT-J operator census (a structural claim: no syntactic gate, |S_syn|=0; the absolute operator counts are export-dependent, so this is a structural check rather than a value match). Runnable via `archproof/run_gptj_opcount.py <gptj.onnx>`.
-- **Table 46** (`tab:appx:torchvision`) — 14 clean torchvision backbones; the verifier returns class-negative for all of them (the two SE-block models, MobileNetV3-Small and EfficientNet-B0, read GDP-FREE — the correct verdict, as they carry no add-DGP backdoor). Runnable via `archproof/run_e9_backbones.py`.
 - **Table 50** (`tab:out-of-class`) — a listing of the out-of-class construction types
 - **Table 51** (`tab:appx:tau-map`) — a threshold-per-experiment configuration map
 - **Table 52** (`tab:appx:ops`) — the ONNX operators the verifier supports

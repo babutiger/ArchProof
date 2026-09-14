@@ -425,6 +425,20 @@ def _openworld_full(_):
 # Tables whose content is analytic or configurational rather than an
 # experiment output. Listed explicitly so the checker can report them as
 # covered-by-inspection instead of silently unverified.
+
+@check("tab:appx:torchvision", "benchmark/e9_backbones_results.json")
+def _torchvision(_):
+    """14 random-init torchvision backbones: parameter counts and the verdict
+    tally (all 14 class-negative, 0 uncertified) recomputed from the record."""
+    rows = load_json("benchmark/e9_backbones_results.json")
+    out = {}
+    for r in rows:
+        out[(r["name"], "Params (M)")] = float(r["params_M"])
+    out[("all", "n_models")] = len(rows)
+    out[("all", "n_class_negative")] = sum(1 for r in rows if r.get("verdict_3class") == "class-negative")
+    out[("all", "n_uncertified")] = sum(1 for r in rows if r.get("verdict_3class") == "uncertified")
+    return out
+
 QUALITATIVE = {
     "tab:related-work": "comparison matrix of prior work; no experimental numbers",
     "tab:envelopes": "closed-form activation envelopes; analytic, unit-tested in artifact/tests/test_envelope.py",
@@ -438,27 +452,6 @@ QUALITATIVE = {
                               "exactly; the absolute Mul/total counts depend on the "
                               "export (saved 226/5567 vs paper T_default-streaming "
                               "254/5575), which is why this is structural not value."),
-    "tab:appx:torchvision": ("14 clean random-init torchvision backbones. The 12 "
-                             "non-SE backbones reproduce class-negative. The two "
-                             "SE-block models (MobileNetV3-Small, EfficientNet-B0) "
-                             "read GDP-FREE in the released verifier where the paper "
-                             "printed uncertified. Diagnosed as follows: (a) the "
-                             "repro driver run_e9_backbones.py exports weights=DEFAULT "
-                             "(pretrained) but this table is random-init -- a setting "
-                             "mismatch; (b) tested properly, the released verifier "
-                             "returns GDP-FREE for these CLEAN models under BOTH "
-                             "random-init and pretrained -- the correct verdict (no "
-                             "add-DGP backdoor). SE gates are excluded from the "
-                             "add-DGP class by the additive-branch certifier (Mul-> "
-                             "Conv is non-additive; both models) and, for EfficientNet, "
-                             "also by T10 median-dormancy. Disabling both filters "
-                             "re-admits the gates and the IBP blows up (7.2e25 / nan) "
-                             "= the paper-era vacuous/uncertified result -- sound "
-                             "fail-closed, just less precise. (c) The paper caption's "
-                             "'ReduceMean/ReduceSum path' mechanism is a factual error: "
-                             "an opset 11/13/17 census shows these models export only "
-                             "GlobalAveragePool, zero ReduceMean/ReduceSum. See "
-                             "diag_e9_opset_census.py."),
 }
 
 

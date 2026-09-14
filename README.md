@@ -16,7 +16,7 @@ re-downloads on first use.
 
 ```bash
 make install        # conda env + pip install -e .              (~5 min, once)
-make verify-quick   # check all 45 data-table records vs the paper (~2 min)
+make verify-quick   # check all 46 data-table records vs the paper (~2 min)
 make test           # unit tests prove the verifier is sound      (~30 s)
 ```
 
@@ -80,7 +80,7 @@ definitional/structural tables: 7 (no experimental data; verified by inspection 
 ## 2. What you need — one machine
 
 - **The fast overview (what the badges rest on).** `make verify-quick`
-  (= `python verify/check_tables.py`) checks all 45 tables' bundled records
+  (= `python verify/check_tables.py`) checks all 46 tables' bundled records
   against the paper in ~2 min on **any Linux box, ~16 GB RAM, CPU only** — the
   checker reads only `truth_source/` and `benchmark/*.json` and needs nothing
   beyond numpy (no GPU, no torch, no network).
@@ -122,7 +122,7 @@ verification alone is ~95 GB — plus 253 GB disk; `RERUN=1` once you have that 
 and **3 derived tables** (aggregate counts with no standalone driver).
 
 ```bash
-make verify-quick                        # check all 45 records vs the paper (~2 min, no re-run)
+make verify-quick                        # check all 46 records vs the paper (~2 min, no re-run)
 bash reproduce/reproduce_cpu.sh          # re-run the 35 CPU tables from scratch (slow, ~2-3 h)
 ```
 

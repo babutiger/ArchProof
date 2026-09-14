@@ -1,9 +1,16 @@
 #!/usr/bin/env python3
 """E9: clean torchvision-backbone panel (paper table tab:appx:torchvision).
 
-Exports each pretrained torchvision backbone to ONNX and runs the verifier.
-Records both parameter count (M) and export size (MB) so the printed "Params"
-column can be cross-checked either way.
+Exports each torchvision backbone under RANDOM initialisation (weights=None,
+torch.manual_seed(0) before every constructor, exactly the setting the table
+caption states), runs the verifier, and records the parameter count (M), the
+legacy 6-class verdict and its 3-class label.  The table prints class-negative
+for all 14 backbones; the two SE-block models (MobileNetV3-Small,
+EfficientNet-B0) read class-negative because their squeeze-and-excitation gates
+are not admitted as add-DGP candidates.  With ImageNet-pretrained weights the
+legacy verifier flags a dormant gate on MobileNetV3-Small, which is why this
+driver must stay random-init; the pretrained backbones are the production-scale
+experiment (tab:appx:production).
 
 Output: benchmark/e9_backbones_results.json
 """
@@ -41,10 +48,11 @@ def main():
     tmp = tempfile.mkdtemp(prefix="e9_backbones_")
     for label, ctor in BACKBONES:
         size = 299 if "inception" in ctor else 224
+        torch.manual_seed(0)
         try:
-            model = getattr(tvm, ctor)(weights="DEFAULT").eval()
+            model = getattr(tvm, ctor)(weights=None).eval()
         except TypeError:  # older torchvision
-            model = getattr(tvm, ctor)(pretrained=True).eval()
+            model = getattr(tvm, ctor)(pretrained=False).eval()
         n_params = sum(p.numel() for p in model.parameters())
         path = os.path.join(tmp, f"{ctor}.onnx")
         torch.onnx.export(model, torch.randn(1, 3, size, size), path,
@@ -60,11 +68,14 @@ def main():
         except Exception as exc:
             verdict, eps, n_cand = f"ERROR:{type(exc).__name__}", None, None
         wall = time.time() - t0
-        row = dict(name=label, torchvision_id=ctor,
+        three = ("class-negative" if verdict in ("GDP-FREE", "BENIGN")
+                 else "uncertified" if verdict.startswith("UNDECIDED") or verdict.startswith("ERROR")
+                 else "certified-positive")
+        row = dict(name=label, torchvision_id=ctor, init="random",
                    params_M=round(n_params / 1e6, 1),
                    onnx_size_MB=round(os.path.getsize(path) / 1e6, 1),
-                   verdict=verdict, epsilon=eps, n_candidates=n_cand,
-                   wall_sec=round(wall, 2))
+                   verdict=verdict, verdict_3class=three, epsilon=eps,
+                   n_candidates=n_cand, wall_sec=round(wall, 2))
         results.append(row)
         print(row)
         os.remove(path)

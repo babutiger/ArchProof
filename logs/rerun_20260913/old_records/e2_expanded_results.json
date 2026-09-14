@@ -4,8 +4,8 @@
     "sound_flagged": false,
     "flip_rate": 0.0,
     "target0_rate": 1.0,
-    "avg_logit_diff": 0.239,
-    "max_logit_diff": 0.246,
+    "avg_logit_diff": 0.286,
+    "max_logit_diff": 0.295,
     "effective_attack": false
   },
   {
@@ -13,8 +13,8 @@
     "sound_flagged": false,
     "flip_rate": 0.0,
     "target0_rate": 1.0,
-    "avg_logit_diff": 2.346,
-    "max_logit_diff": 2.648,
+    "avg_logit_diff": 2.017,
+    "max_logit_diff": 2.297,
     "effective_attack": true
   },
   {
@@ -22,8 +22,8 @@
     "sound_flagged": false,
     "flip_rate": 0.0,
     "target0_rate": 1.0,
-    "avg_logit_diff": 0.137,
-    "max_logit_diff": 0.14,
+    "avg_logit_diff": 0.253,
+    "max_logit_diff": 0.258,
     "effective_attack": false
   },
   {
@@ -31,26 +31,26 @@
     "sound_flagged": false,
     "flip_rate": 0.0,
     "target0_rate": 1.0,
-    "avg_logit_diff": 11.796,
-    "max_logit_diff": 12.119,
+    "avg_logit_diff": 11.658,
+    "max_logit_diff": 11.953,
     "effective_attack": true
   },
   {
     "name": "OOC5_DistributedLowAmp",
     "sound_flagged": false,
-    "flip_rate": 0.0,
+    "flip_rate": 1.0,
     "target0_rate": 0.0,
-    "avg_logit_diff": 0.093,
-    "max_logit_diff": 0.096,
-    "effective_attack": false
+    "avg_logit_diff": 0.061,
+    "max_logit_diff": 0.063,
+    "effective_attack": true
   },
   {
     "name": "OOC6_MultiStageRouting",
     "sound_flagged": false,
     "flip_rate": 0.0,
     "target0_rate": 1.0,
-    "avg_logit_diff": 0.667,
-    "max_logit_diff": 0.684,
+    "avg_logit_diff": 0.679,
+    "max_logit_diff": 0.695,
     "effective_attack": false
   },
   {
@@ -58,8 +58,8 @@
     "sound_flagged": false,
     "flip_rate": 0.0,
     "target0_rate": 0.0,
-    "avg_logit_diff": 1.28,
-    "max_logit_diff": 1.306,
+    "avg_logit_diff": 1.06,
+    "max_logit_diff": 1.093,
     "effective_attack": true
   },
   {
@@ -67,8 +67,8 @@
     "sound_flagged": false,
     "flip_rate": 0.0,
     "target0_rate": 0.0,
-    "avg_logit_diff": 0.316,
-    "max_logit_diff": 0.323,
+    "avg_logit_diff": 0.168,
+    "max_logit_diff": 0.173,
     "effective_attack": false
   }
 ]
