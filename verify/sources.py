@@ -24,6 +24,13 @@ TRUTH = ROOT / "truth_source"
 CHECKS = {}
 
 
+class Discrepancy(AssertionError):
+    """Raised by a recompute rule when the record contradicts a printed cell
+    and the contradiction is documented (README, 'Known limitations'). The
+    checker reports it as DISCREPANCY instead of matching the recomputed
+    values against numbers printed elsewhere in the paper."""
+
+
 def check(label, source):
     """Register a recompute function for one table label."""
 
@@ -410,16 +417,39 @@ def _mgrs_per_model(_):
 
 
 @check("tab:appx:tau-sys", "truth_source/per_cell_tau_sys_sweep.csv")
-def _tau_sys(_):
-    """Verdict counts across the system-tolerance sweep."""
+def _tau_sys(table):
+    """Verdict counts (positive / negative / uncertified) per tau_sys value,
+    compared cell by cell with the printed row; a discrepancy is reported as
+    an error rather than matched against numbers printed elsewhere."""
     rows = load_csv("truth_source/per_cell_tau_sys_sweep.csv")
     out = {("all", "n_cells"): len(rows)}
     taus = sorted({r["tau_sys"] for r in rows}, key=float)
     out[("all", "n_tau_values")] = len(taus)
+    out[("all", "n_models")] = len({r["model"] for r in rows})
+    triples = []
     for t in taus:
         rs = [r for r in rows if r["tau_sys"] == t]
+        pos = sum(1 for r in rs if "CERTIFIED-POSITIVE" in r["verdict"])
+        neg = sum(1 for r in rs if "CLASS-NEGATIVE" in r["verdict"])
+        unc = sum(1 for r in rs if r["verdict"] == "UNCERTIFIED")
         out[(t, "n")] = len(rs)
-        out[(t, "n_pos")] = sum(1 for r in rs if "CERTIFIED-POSITIVE" in r["verdict"])
+        out[(t, "n_pos")], out[(t, "n_neg")], out[(t, "n_unc")] = pos, neg, unc
+        triples.append((pos, neg, unc))
+    printed = []
+    for row in table["rows"][1:]:
+        nums = []
+        for cell in row[1:4]:
+            digits = "".join(ch for ch in cell if ch.isdigit())
+            if digits:
+                nums.append(int(digits))
+        if len(nums) == 3:
+            printed.append(tuple(nums))
+    if printed and printed != triples:
+        raise Discrepancy(
+            f"paper prints pos/neg/unc = {printed} per tau; the record (release "
+            f"verifier on the sha256-locked graphs) gives {triples}. "
+            "H1_SignGated is UNCERTIFIED, as Table 6 reports; the printed row "
+            "predates that correction.")
     return out
 
 

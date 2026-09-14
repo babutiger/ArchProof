@@ -45,7 +45,8 @@ number no experiment produced cannot pass.
 models, data, and scripts are all in this one bundle; `make verify` / `make
 test` run out of the box. *Reproduced* — `make verify` re-runs the **45 data
 tables from scratch** and checks the freshly-computed numbers against the paper
-(43 recomputed to the printed value + 2 draw-checked); the 7 whole-model LLM
+(42 recomputed to the printed value + 2 draw-checked + 1 documented
+discrepancy, Table 37, see §8); the 7 whole-model LLM
 tables re-run only with the 253 GB tier (otherwise verified from their bundled
 record) and 3 derived tables have no standalone driver. The paper's other 7
 tables are definitional/structural (no experimental data) and are verified by
@@ -71,7 +72,8 @@ back from a stored answer). It prints one line per table with `OK <n>/<n>`,
 ending with:
 
 ```
-data tables reproduced: 45/45  (43 recomputed to the printed value, 2 draw-checked)
+data tables reproduced: 44/45  (42 recomputed to the printed value, 2 draw-checked)
+documented discrepancy (1): tab:appx:tau-sys -- paper prints pos/neg/unc = [(11, 18, 0), ...] per tau; the record ... gives [(11, 17, 1), ...]  (see README, Known limitations)
 definitional/structural tables: 7 (no experimental data; verified by inspection / unit test)
 ```
 
@@ -261,6 +263,15 @@ under `truth_source/` and `benchmark/`.
   probing, so a rerun is repeatable, but its values differ from the printed
   ones. The checker compares the verdict and G1 columns of those tables, not
   the probe values.
+- **Documented discrepancy (Table 37, `tab:appx:tau-sys`).** The printed
+  τ_sys-sweep row is 11 positive / 18 negative / 0 uncertified on 29 models at
+  every τ_sys. The release verifier on the sha256-locked graphs gives
+  11 / 17 / 1 at every τ_sys: `H1_SignGated` returns UNCERTIFIED (its Sign
+  gate is outside the supported operator set), exactly as the paper's Table 6
+  reports for that model. The printed Table 37 row predates that correction
+  and counts H1 as negative. The sweep's invariance claim (identical counts at
+  every τ_sys) holds; the checker reports this table as DISCREPANCY rather
+  than matching it.
 - **Self-check vs the PDF.** The bundled `OK n/n` self-check compares each
   recomputed value to a frozen snapshot of the paper's numbers; the authoritative
   check is you comparing the printed values to the PDF (the scripts print them).

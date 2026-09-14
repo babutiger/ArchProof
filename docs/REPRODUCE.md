@@ -211,6 +211,11 @@ the reproduced values. What it needs:
 
 ## Notes
 
+- **Documented discrepancy (Table 37, `tab:appx:tau-sys`)** — the paper
+  prints 11 / 18 / 0 (positive / negative / uncertified) at every τ_sys; the
+  release verifier on the locked graphs gives 11 / 17 / 1, because
+  `H1_SignGated` is UNCERTIFIED (as Table 6 reports). The invariance across
+  τ_sys reproduces; the H1 cell does not. The checker reports it as DISCREPANCY.
 - **Draw-checked (Tables 19, 32)** — Table 32's cells are one draw of an
   unseeded random panel; Table 19's ε^PGD / δ cells (like the probe columns of
   Tables 16–18) are from the original unseeded probe run. The verdicts and

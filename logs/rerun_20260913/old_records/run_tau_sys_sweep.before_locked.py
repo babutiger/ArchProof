@@ -4,9 +4,7 @@ the operational threshold τ_sys ∈ {1e-4, 1e-3, 1e-2, 1e-1}.
 Reviewer concern: paper hardcodes τ_sys=0.001. What if a different
 threshold is appropriate? How does verdict distribution change?
 
-For each model in {22 CIFAR backdoor, 8 real-scan clean BB} × τ_sys
-(the 22 backdoors are the sha256-locked graphs under models/backdoor_graphs/,
-the clean BBs are exported here with torch.manual_seed(0)):
+For each model in {22 CIFAR backdoor, 8 real-scan clean BB} × τ_sys:
   - Run verify_phaseC with the given tau_sys override
   - Record verdict, ε_phaseC, n_admitted
 
@@ -41,18 +39,6 @@ from archproof.handcrafted_gdp import (
 import backdoored_models as bm
 
 OUT_CSV = ROOT / "truth_source" / "per_cell_tau_sys_sweep.csv"
-LOCKED_DIR = ROOT / "models" / "backdoor_graphs"
-
-
-def locked_graph(name: str) -> Path:
-    """The sha256-locked benchmark graph for a backdoor panel entry
-    (leaky variants are named op_x_y_L01 etc. on disk)."""
-    stem = name
-    for suf in ("_0001", "_001", "_01"):
-        if name.endswith(suf):
-            stem = name[: -len(suf)] + "_L" + suf[1:]
-            break
-    return LOCKED_DIR / f"{stem}.onnx"
 TMP_DIR = Path("/tmp/v3_tau_sys_sweep")
 TMP_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -169,10 +155,7 @@ def main():
         onnx_path = TMP_DIR / f"{name}.onnx"
         try:
             if ext == "cifar":
-                onnx_path = locked_graph(name)      # verify the shipped graph itself
-                if not onnx_path.exists():
-                    raise FileNotFoundError(onnx_path)
-                name = onnx_path.stem
+                export_cifar(name, factory, onnx_path)
             elif ext == "transformer":
                 export_transformer(name, factory, onnx_path)
             else:
@@ -203,8 +186,7 @@ def main():
                     "n_syntactic": n_syn, "n_admitted": n_adm,
                     "verify_sec": dt,
                 })
-        if ext != "cifar":
-            onnx_path.unlink(missing_ok=True)
+        onnx_path.unlink(missing_ok=True)
 
     print()
     print("=" * 80)

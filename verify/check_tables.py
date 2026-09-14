@@ -19,7 +19,7 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
-from sources import CHECKS, QUALITATIVE, PENDING_RERUN, DRAW_DEPENDENT  # noqa: E402
+from sources import CHECKS, QUALITATIVE, PENDING_RERUN, DRAW_DEPENDENT, Discrepancy  # noqa: E402
 
 TABLES = HERE / "paper_tables.json"
 REPORT = HERE / "check_report.json"
@@ -121,6 +121,10 @@ def run(only=None, verbose=False):
             continue
         try:
             rebuilt = spec["fn"](t)
+        except Discrepancy as exc:  # record contradicts a printed cell; documented in README
+            results.append({"label": label, "status": "DISCREPANCY", "source": spec["source"],
+                            "error": str(exc), "n_recomputed": 0, "n_matched": 0, "missing": []})
+            continue
         except Exception as exc:  # a broken recompute must fail loudly
             results.append({"label": label, "status": "RECOMPUTE_ERROR", "error": f"{type(exc).__name__}: {exc}"})
             continue
@@ -184,7 +188,8 @@ def run(only=None, verbose=False):
     uncovered = sorted(set(tables) - covered)
     REPORT.write_text(json.dumps({"results": results, "unverified_tables": uncovered}, indent=1, ensure_ascii=False))
 
-    bad = [r for r in results if r["status"] not in ("OK", "QUALITATIVE", "PENDING-RERUN", "DRAW-CHECKED")]
+    bad = [r for r in results if r["status"] not in ("OK", "QUALITATIVE", "PENDING-RERUN", "DRAW-CHECKED", "DISCREPANCY")]
+    disc = [r for r in results if r["status"] == "DISCREPANCY"]
     pending = [r for r in results if r["status"] == "PENDING-RERUN"]
     print(f"{'table':34s} {'status':16s} matched/recomputed  source")
     for r in results:
@@ -221,16 +226,19 @@ def run(only=None, verbose=False):
         else:
             for m in r.get("missing", [])[:6]:
                 print(f"    NOT IN PAPER  {m['cell']} = {m['recomputed']}")
-        if r["status"] == "RECOMPUTE_ERROR":
+        if r["status"] in ("RECOMPUTE_ERROR", "DISCREPANCY"):
             print(f"    {r['error']}")
     if pending:
         print(f"\nPENDING-RERUN ({len(pending)}): regenerate these records before submission")
     n_ok = sum(1 for r in results if r["status"] == "OK")
     n_draw = sum(1 for r in results if r["status"] == "DRAW-CHECKED")
     n_qual = sum(1 for r in results if r["status"] == "QUALITATIVE")
-    n_data = n_ok + n_draw + len(bad) + len(pending)   # every table that carries data
+    n_data = n_ok + n_draw + len(bad) + len(pending) + len(disc)   # every table that carries data
     print(f"\ndata tables reproduced: {n_ok + n_draw}/{n_data}"
           f"  ({n_ok} recomputed to the printed value, {n_draw} draw-checked)")
+    if disc:
+        print(f"documented discrepancy ({len(disc)}): " + "; ".join(
+            f"{r['label']} -- {r['error']}" for r in disc) + "  (see README, Known limitations)")
     print(f"definitional/structural tables: {n_qual} "
           f"(no experimental data; verified by inspection / unit test)")
     n_approx_total = sum(1 for r in results
