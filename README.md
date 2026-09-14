@@ -250,11 +250,17 @@ under `truth_source/` and `benchmark/`.
   `make smoke-llm` runs the *same* export → inject-gate → verify pipeline on a
   ~2 MB toy GPT-2 in seconds, so you can confirm the pipeline is correct — only
   the model scale, not the method, needs the big host.
-- **Unseeded panels.** Tables 19, 32, and the BL6 row of Table 21 draw an
-  unseeded random clean panel, so a fresh run moves their false-positive/negative
-  counts by ±1; the verdicts and the trends reproduce, the exact draw does not
-  (the "within an allowed tolerance" case — each such table's script says so when
-  it runs).
+- **Random panels and the PGD probe.** Table 32 and the BL6 row of Table 21
+  draw an unseeded random-weight clean panel, so a fresh run moves their
+  false-positive/negative counts by ±1; the verdicts and the trends reproduce,
+  the exact draw does not (the "within an allowed tolerance" case — each such
+  table's script says so when it runs). The ε^PGD / δ columns of Tables 16–19
+  come from a PGD probe whose original run was unseeded and probed a freshly
+  built copy of each model; the shipped driver (`archproof/run_e1_final.py`)
+  now seeds the probe input and loads the sha256-locked graph's weights before
+  probing, so a rerun is repeatable, but its values differ from the printed
+  ones. The checker compares the verdict and G1 columns of those tables, not
+  the probe values.
 - **Self-check vs the PDF.** The bundled `OK n/n` self-check compares each
   recomputed value to a frozen snapshot of the paper's numbers; the authoritative
   check is you comparing the printed values to the PDF (the scripts print them).

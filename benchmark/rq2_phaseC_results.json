@@ -12,7 +12,7 @@
   "tau_sys": 0.001,
   "trigger_eta": 0.05,
   "error": "",
-  "wall_s": 0.07
+  "wall_s": 0.06
  },
  {
   "name": "H2_AvgPoolGated",
@@ -27,13 +27,13 @@
   "tau_sys": 0.001,
   "trigger_eta": 0.05,
   "error": "",
-  "wall_s": 0.02
+  "wall_s": 0.03
  },
  {
   "name": "H3_MulIndicatorGated",
   "subset": "backdoor-in-class",
   "verdict": "add-DGP-CERTIFIED-POSITIVE",
-  "epsilon": 30.23004785083796,
+  "epsilon": 10.07668899850661,
   "n_syntactic": 1,
   "n_admitted": 1,
   "additive_reject_count": 0,
@@ -42,7 +42,7 @@
   "tau_sys": 0.001,
   "trigger_eta": 0.05,
   "error": "",
-  "wall_s": 0.03
+  "wall_s": 0.02
  },
  {
   "name": "con_sep_tar",
@@ -57,7 +57,7 @@
   "tau_sys": 0.001,
   "trigger_eta": 0.05,
   "error": "",
-  "wall_s": 0.05
+  "wall_s": 0.06
  },
  {
   "name": "con_sep_un",
@@ -72,7 +72,7 @@
   "tau_sys": 0.001,
   "trigger_eta": 0.05,
   "error": "",
-  "wall_s": 0.05
+  "wall_s": 0.06
  },
  {
   "name": "con_sha_tar",
@@ -87,7 +87,7 @@
   "tau_sys": 0.001,
   "trigger_eta": 0.05,
   "error": "",
-  "wall_s": 0.05
+  "wall_s": 0.06
  },
  {
   "name": "con_sha_un",
@@ -102,7 +102,7 @@
   "tau_sys": 0.001,
   "trigger_eta": 0.05,
   "error": "",
-  "wall_s": 0.05
+  "wall_s": 0.06
  },
  {
   "name": "op_int_tar",
@@ -117,7 +117,7 @@
   "tau_sys": 0.001,
   "trigger_eta": 0.05,
   "error": "",
-  "wall_s": 3.48
+  "wall_s": 3.6
  },
  {
   "name": "op_int_tar_L0001",
@@ -132,7 +132,7 @@
   "tau_sys": 0.001,
   "trigger_eta": 0.05,
   "error": "",
-  "wall_s": 3.46
+  "wall_s": 3.41
  },
  {
   "name": "op_int_tar_L001",
@@ -147,7 +147,7 @@
   "tau_sys": 0.001,
   "trigger_eta": 0.05,
   "error": "",
-  "wall_s": 3.4
+  "wall_s": 3.36
  },
  {
   "name": "op_int_tar_L01",
@@ -162,7 +162,7 @@
   "tau_sys": 0.001,
   "trigger_eta": 0.05,
   "error": "",
-  "wall_s": 3.57
+  "wall_s": 3.31
  },
  {
   "name": "op_int_un",
@@ -177,7 +177,7 @@
   "tau_sys": 0.001,
   "trigger_eta": 0.05,
   "error": "",
-  "wall_s": 3.77
+  "wall_s": 3.35
  },
  {
   "name": "op_sep_tar",
@@ -192,7 +192,7 @@
   "tau_sys": 0.001,
   "trigger_eta": 0.05,
   "error": "",
-  "wall_s": 3.59
+  "wall_s": 3.31
  },
  {
   "name": "op_sep_un",
@@ -207,7 +207,7 @@
   "tau_sys": 0.001,
   "trigger_eta": 0.05,
   "error": "",
-  "wall_s": 3.43
+  "wall_s": 3.2
  },
  {
   "name": "op_sep_un_L0001",
@@ -222,7 +222,7 @@
   "tau_sys": 0.001,
   "trigger_eta": 0.05,
   "error": "",
-  "wall_s": 0.02
+  "wall_s": 0.01
  },
  {
   "name": "op_sep_un_L001",
@@ -237,7 +237,7 @@
   "tau_sys": 0.001,
   "trigger_eta": 0.05,
   "error": "",
-  "wall_s": 0.02
+  "wall_s": 0.01
  },
  {
   "name": "op_sep_un_L01",
@@ -252,7 +252,7 @@
   "tau_sys": 0.001,
   "trigger_eta": 0.05,
   "error": "",
-  "wall_s": 0.02
+  "wall_s": 0.01
  },
  {
   "name": "op_sha_tar",
@@ -267,7 +267,7 @@
   "tau_sys": 0.001,
   "trigger_eta": 0.05,
   "error": "",
-  "wall_s": 3.74
+  "wall_s": 3.22
  },
  {
   "name": "op_sha_tar_L0001",
@@ -282,7 +282,7 @@
   "tau_sys": 0.001,
   "trigger_eta": 0.05,
   "error": "",
-  "wall_s": 0.03
+  "wall_s": 0.01
  },
  {
   "name": "op_sha_tar_L001",
@@ -297,7 +297,7 @@
   "tau_sys": 0.001,
   "trigger_eta": 0.05,
   "error": "",
-  "wall_s": 0.03
+  "wall_s": 0.01
  },
  {
   "name": "op_sha_tar_L01",
@@ -312,7 +312,7 @@
   "tau_sys": 0.001,
   "trigger_eta": 0.05,
   "error": "",
-  "wall_s": 0.03
+  "wall_s": 0.01
  },
  {
   "name": "op_sha_un",
@@ -327,7 +327,7 @@
   "tau_sys": 0.001,
   "trigger_eta": 0.05,
   "error": "",
-  "wall_s": 3.83
+  "wall_s": 3.22
  },
  {
   "name": "alexnet",
@@ -342,7 +342,7 @@
   "tau_sys": 0.001,
   "trigger_eta": 0.05,
   "error": "",
-  "wall_s": 0.28
+  "wall_s": 0.25
  },
  {
   "name": "attention_pool",
@@ -357,7 +357,7 @@
   "tau_sys": 0.001,
   "trigger_eta": 0.05,
   "error": "",
-  "wall_s": 0.03
+  "wall_s": 0.01
  },
  {
   "name": "avgpool_net",
@@ -507,7 +507,7 @@
   "tau_sys": 0.001,
   "trigger_eta": 0.05,
   "error": "",
-  "wall_s": 0.02
+  "wall_s": 0.01
  },
  {
   "name": "depthwise_separable",
@@ -552,7 +552,7 @@
   "tau_sys": 0.001,
   "trigger_eta": 0.05,
   "error": "",
-  "wall_s": 1.52
+  "wall_s": 0.45
  },
  {
   "name": "elu_net",
@@ -612,7 +612,7 @@
   "tau_sys": 0.001,
   "trigger_eta": 0.05,
   "error": "",
-  "wall_s": 0.02
+  "wall_s": 0.01
  },
  {
   "name": "gated_softmax_attn",
@@ -627,7 +627,7 @@
   "tau_sys": 0.001,
   "trigger_eta": 0.05,
   "error": "",
-  "wall_s": 0.02
+  "wall_s": 0.01
  },
  {
   "name": "gelu_net",
@@ -657,7 +657,7 @@
   "tau_sys": 0.001,
   "trigger_eta": 0.05,
   "error": "",
-  "wall_s": 0.03
+  "wall_s": 0.01
  },
  {
   "name": "googlenet",
@@ -687,7 +687,7 @@
   "tau_sys": 0.001,
   "trigger_eta": 0.05,
   "error": "",
-  "wall_s": 0.03
+  "wall_s": 0.01
  },
  {
   "name": "inception_v3",
@@ -702,7 +702,7 @@
   "tau_sys": 0.001,
   "trigger_eta": 0.05,
   "error": "",
-  "wall_s": 0.09
+  "wall_s": 0.07
  },
  {
   "name": "leaky_relu_net",
@@ -822,7 +822,7 @@
   "tau_sys": 0.001,
   "trigger_eta": 0.05,
   "error": "",
-  "wall_s": 0.01
+  "wall_s": 0.0
  },
  {
   "name": "mobilenet_v3_small",
@@ -837,7 +837,7 @@
   "tau_sys": 0.001,
   "trigger_eta": 0.05,
   "error": "",
-  "wall_s": 5.02
+  "wall_s": 4.85
  },
  {
   "name": "multi_head_concat",
@@ -882,7 +882,7 @@
   "tau_sys": 0.001,
   "trigger_eta": 0.05,
   "error": "",
-  "wall_s": 0.55
+  "wall_s": 0.25
  },
  {
   "name": "resnet101",
@@ -912,7 +912,7 @@
   "tau_sys": 0.001,
   "trigger_eta": 0.05,
   "error": "",
-  "wall_s": 0.01
+  "wall_s": 0.04
  },
  {
   "name": "resnet34",
@@ -957,7 +957,7 @@
   "tau_sys": 0.001,
   "trigger_eta": 0.05,
   "error": "",
-  "wall_s": 0.06
+  "wall_s": 0.07
  },
  {
   "name": "shufflenet_v2",
@@ -1032,7 +1032,7 @@
   "tau_sys": 0.001,
   "trigger_eta": 0.05,
   "error": "",
-  "wall_s": 0.6
+  "wall_s": 0.61
  },
  {
   "name": "vgg16",
@@ -1047,7 +1047,7 @@
   "tau_sys": 0.001,
   "trigger_eta": 0.05,
   "error": "",
-  "wall_s": 0.6
+  "wall_s": 0.62
  },
  {
   "name": "wide_resnet50",
@@ -1062,6 +1062,6 @@
   "tau_sys": 0.001,
   "trigger_eta": 0.05,
   "error": "",
-  "wall_s": 0.24
+  "wall_s": 0.25
  }
 ]

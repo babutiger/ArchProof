@@ -8,8 +8,8 @@
     "tau_split50": 0.0,
     "output_preservation": "-",
     "pgd_detected": true,
-    "eps_star": 3.6892926590517163,
-    "delta": 0.02737782523036003
+    "eps_star": 4.212479540146887,
+    "delta": 0.015408428385853767
   },
   {
     "name": "op_sep_un",
@@ -20,8 +20,8 @@
     "tau_split50": 0.0,
     "output_preservation": "[1.000,1.000]",
     "pgd_detected": true,
-    "eps_star": 3.788260790053755,
-    "delta": 0.017721597105264664
+    "eps_star": 3.885733321076259,
+    "delta": 0.03534141927957535
   },
   {
     "name": "op_sha_tar",
@@ -32,8 +32,8 @@
     "tau_split50": 0.0,
     "output_preservation": "[1.000,1.000]",
     "pgd_detected": true,
-    "eps_star": 0.003823538776487112,
-    "delta": 0.015179581008851528
+    "eps_star": 4.076659195125103,
+    "delta": 0.01696888729929924
   },
   {
     "name": "op_sha_un",
@@ -44,8 +44,8 @@
     "tau_split50": 0.0,
     "output_preservation": "[1.000,1.000]",
     "pgd_detected": true,
-    "eps_star": 3.6207005036994815,
-    "delta": 0.023709267377853394
+    "eps_star": 4.2581270495429635,
+    "delta": 0.029138516634702682
   },
   {
     "name": "op_int_tar",
@@ -56,8 +56,8 @@
     "tau_split50": null,
     "output_preservation": "[1.000,1.000]",
     "pgd_detected": true,
-    "eps_star": 3.5766290896572173,
-    "delta": 0.021567557007074356
+    "eps_star": 3.8341477448120713,
+    "delta": 0.025272853672504425
   },
   {
     "name": "op_int_un",
@@ -68,8 +68,8 @@
     "tau_split50": 0.0,
     "output_preservation": "[1.000,1.000]",
     "pgd_detected": true,
-    "eps_star": 3.8404960255138576,
-    "delta": 0.01388070359826088
+    "eps_star": 4.0874799862504005,
+    "delta": 0.025412611663341522
   },
   {
     "name": "con_sep_tar",
@@ -80,8 +80,8 @@
     "tau_split50": 0.0,
     "output_preservation": "-",
     "pgd_detected": true,
-    "eps_star": 0.003862601239234209,
-    "delta": 104.14529418945312
+    "eps_star": 0.004176904913038015,
+    "delta": 647.2186279296875
   },
   {
     "name": "con_sep_un",
@@ -92,8 +92,8 @@
     "tau_split50": 0.0,
     "output_preservation": "[1.000,1.000]",
     "pgd_detected": true,
-    "eps_star": 0.003862601239234209,
-    "delta": 3.8282992839813232
+    "eps_star": 0.004176904913038015,
+    "delta": 27.08242416381836
   },
   {
     "name": "con_sha_tar",
@@ -104,8 +104,8 @@
     "tau_split50": 0.0,
     "output_preservation": "[1.000,1.000]",
     "pgd_detected": true,
-    "eps_star": 0.003862601239234209,
-    "delta": 3.103635787963867
+    "eps_star": 3.608935084193945,
+    "delta": 14.139795303344727
   },
   {
     "name": "con_sha_un",
@@ -116,8 +116,8 @@
     "tau_split50": 0.0,
     "output_preservation": "[1.000,1.000]",
     "pgd_detected": true,
-    "eps_star": 3.80020353756845,
-    "delta": 1.9459480047225952
+    "eps_star": 4.057150840759277,
+    "delta": 15.354727745056152
   },
   {
     "name": "op_sep_un_L01",
@@ -128,8 +128,8 @@
     "tau_split50": null,
     "output_preservation": "[0.941,1.000]",
     "pgd_detected": true,
-    "eps_star": 0.003823538776487112,
-    "delta": 0.18475842475891113
+    "eps_star": 0.004137842450290918,
+    "delta": 0.2686035633087158
   },
   {
     "name": "op_sep_un_L001",
@@ -140,8 +140,8 @@
     "tau_split50": null,
     "output_preservation": "[0.997,1.000]",
     "pgd_detected": true,
-    "eps_star": 0.003862601239234209,
-    "delta": 0.4558360278606415
+    "eps_star": 0.004137842450290918,
+    "delta": 1.4917933940887451
   },
   {
     "name": "op_sep_un_L0001",
@@ -152,8 +152,8 @@
     "tau_split50": null,
     "output_preservation": "[1.000,1.000]",
     "pgd_detected": true,
-    "eps_star": 0.003862601239234209,
-    "delta": 3.995706558227539
+    "eps_star": 0.004176904913038015,
+    "delta": 9.950020790100098
   },
   {
     "name": "op_sha_tar_L01",
@@ -164,8 +164,8 @@
     "tau_split50": 0.0,
     "output_preservation": "[0.941,1.000]",
     "pgd_detected": true,
-    "eps_star": 0.003862601239234209,
-    "delta": 0.07260198891162872
+    "eps_star": 0.004137842450290918,
+    "delta": 0.13468331098556519
   },
   {
     "name": "op_sha_tar_L001",
@@ -176,8 +176,8 @@
     "tau_split50": 0.0,
     "output_preservation": "[0.997,1.000]",
     "pgd_detected": true,
-    "eps_star": 0.003823538776487112,
-    "delta": 0.6187803745269775
+    "eps_star": 2.34775925707072,
+    "delta": 1.0851129293441772
   },
   {
     "name": "op_sha_tar_L0001",
@@ -188,8 +188,8 @@
     "tau_split50": 0.0,
     "output_preservation": "[1.000,1.000]",
     "pgd_detected": true,
-    "eps_star": 2.6670250073075294,
-    "delta": 2.391791582107544
+    "eps_star": 0.004176904913038015,
+    "delta": 7.49186897277832
   },
   {
     "name": "op_int_tar_L01",
@@ -200,8 +200,8 @@
     "tau_split50": null,
     "output_preservation": "[0.941,1.000]",
     "pgd_detected": true,
-    "eps_star": 3.93649585172534,
-    "delta": 0.017665572464466095
+    "eps_star": 0.004137842450290918,
+    "delta": 0.011639267206192017
   },
   {
     "name": "op_int_tar_L001",
@@ -212,8 +212,8 @@
     "tau_split50": null,
     "output_preservation": "[0.997,1.000]",
     "pgd_detected": true,
-    "eps_star": 0.8908845349214971,
-    "delta": 0.026028968393802643
+    "eps_star": 4.238009719178081,
+    "delta": 0.0510932058095932
   },
   {
     "name": "op_int_tar_L0001",
@@ -224,8 +224,8 @@
     "tau_split50": null,
     "output_preservation": "[1.000,1.000]",
     "pgd_detected": true,
-    "eps_star": 3.5955972969532013,
-    "delta": 0.1345798820257187
+    "eps_star": 0.004137842450290918,
+    "delta": 0.6546064615249634
   },
   {
     "name": "H1_SignGated",
@@ -236,8 +236,8 @@
     "tau_split50": 0.0,
     "output_preservation": "-",
     "pgd_detected": true,
-    "eps_star": 3.440745210275054,
-    "delta": 0.16782182455062866
+    "eps_star": 4.312381545547396,
+    "delta": 0.26565295457839966
   },
   {
     "name": "H2_AvgPoolGated",
@@ -248,8 +248,8 @@
     "tau_split50": null,
     "output_preservation": "-",
     "pgd_detected": true,
-    "eps_star": 3.737005703849718,
-    "delta": 0.1799938976764679
+    "eps_star": 0.004176904913038015,
+    "delta": 0.256735235452652
   },
   {
     "name": "H3_MulIndicatorGated",
@@ -260,8 +260,8 @@
     "tau_split50": 0.0,
     "output_preservation": "-",
     "pgd_detected": true,
-    "eps_star": 2.1553314914926887,
-    "delta": 19.706607818603516
+    "eps_star": 0.004176904913038015,
+    "delta": 69.04270935058594
   },
   {
     "name": "alexnet",

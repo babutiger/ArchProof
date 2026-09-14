@@ -51,34 +51,6 @@ def pgd_check(pytorch_model, x):
         return None, None, None
 
 
-def load_locked_graph_weights(model, path):
-    """Load the sha256-locked benchmark graph's initializers into the PyTorch
-    module, so the PGD probe runs on exactly the graph the verdict is about
-    (a fresh construction draws new host weights).  Returns (n_loaded,
-    n_params, unmatched) and verifies the module against onnxruntime."""
-    import numpy as np
-    import onnxruntime as ort
-    from onnx import numpy_helper
-    g = onnx.load(path).graph
-    init = {i.name: torch.from_numpy(numpy_helper.to_array(i).copy()) for i in g.initializer}
-    sd = model.state_dict()
-    loaded = {k: init[k].to(sd[k].dtype).reshape(sd[k].shape) for k in sd if k in init}
-    unmatched = [k for k, v in sd.items() if k not in init and v.dtype.is_floating_point]
-    sd.update(loaded)
-    model.load_state_dict(sd)
-    return len(loaded), sum(1 for v in sd.values() if v.dtype.is_floating_point), unmatched
-
-
-def max_diff_vs_onnxruntime(model, path, x):
-    import numpy as np
-    import onnxruntime as ort
-    sess = ort.InferenceSession(path, providers=["CPUExecutionProvider"])
-    ref = sess.run(None, {sess.get_inputs()[0].name: x.numpy().astype(np.float32)})[0]
-    with torch.no_grad():
-        out = model(x).numpy()
-    return float(np.abs(out - ref).max())
-
-
 def export_if_needed(model, name, onnx_dir, x):
     path = os.path.join(onnx_dir, f"{name}.onnx")
     if not os.path.exists(path):
@@ -98,7 +70,6 @@ print("E1 FINAL: COMPREHENSIVE BENCHMARK")
 print("=" * 70)
 
 all_results = []
-torch.manual_seed(0)                   # deterministic clean input for the PGD probe
 x_cifar = torch.randn(1, 3, 32, 32)
 
 # ============================================================
@@ -139,19 +110,9 @@ backdoor_models = [
 from archproof.verify import verify_model
 
 for name, fn in backdoor_models:
-    torch.manual_seed(0)               # seeded build (the shipped graphs; see docs/MODELS.md)
     m = fn().eval()
     onnx_dir = HANDCRAFTED_DIR if name.startswith("H") else BOBER_DIR
     path = export_if_needed(m, name, onnx_dir, x_cifar)
-    # The PGD probe must run on the verified graph itself: load its weights
-    # into the module and check the two agree on the probe input.
-    graph_maxdiff, n_loaded, n_unmatched = None, None, None
-    if path:
-        n_loaded, n_fparams, unmatched = load_locked_graph_weights(m, path)
-        n_unmatched = len(unmatched)
-        graph_maxdiff = max_diff_vs_onnxruntime(m, path, x_cifar)
-        if unmatched or graph_maxdiff > 1e-3:
-            print(f"  !! {name}: module/graph mismatch  unmatched={unmatched}  maxdiff={graph_maxdiff:.3g}")
 
     # Unified verification pipeline (no splitting — done separately in E1)
     if path:
@@ -184,9 +145,6 @@ for name, fn in backdoor_models:
         "tau_split50": tau_split,
         "output_preservation": opr,
         "pgd_detected": pgd_det, "eps_star": eps, "delta": delta,
-        "pgd_graph": "locked" if path else "fresh",
-        "pgd_graph_params_loaded": n_loaded, "pgd_graph_unmatched": n_unmatched,
-        "pgd_graph_maxdiff": graph_maxdiff,
     })
 
 # ============================================================

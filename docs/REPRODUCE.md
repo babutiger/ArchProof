@@ -197,17 +197,24 @@ the reproduced values. What it needs:
 - **Pinned environment.** For a *bit-exact* match, use the pinned env
   (`environment.yml`: torch 2.1.0). From torch 2.2 the ONNX exporter folds
   initializers differently, which shifts gate counts on re-export.
-- **Tolerance on the random-panel tables.** Tables 19, 32, and the BL6 row of
+- **Tolerance on the random-panel tables.** Table 32 and the BL6 row of
   Table 21 draw an **unseeded** random-weight clean panel, so a fresh `RERUN`
   moves their false-positive/false-negative counts by ±1; the verdicts and
   trends reproduce, the exact draw does not (this is the CCS "within an allowed
-  tolerance" case). The bundled records are one such draw.
+  tolerance" case). The bundled records are one such draw. The ε^PGD / δ
+  columns of Tables 16–19 are from a PGD probe whose original run was unseeded
+  and probed a freshly built copy of each model; `archproof/run_e1_final.py`
+  now seeds the probe input and loads the locked graph's weights before
+  probing (a rerun is repeatable), but its values differ from the printed ones,
+  so those columns are draw-checked: verdict and G1 are compared, the probe
+  values are not.
 
 ## Notes
 
-- **Draw-checked (Tables 19, 32)** — the numeric cells are one draw of a
-  re-seeded random search; the verdicts and trends reproduce, the exact draw
-  does not.
+- **Draw-checked (Tables 19, 32)** — Table 32's cells are one draw of an
+  unseeded random panel; Table 19's ε^PGD / δ cells (like the probe columns of
+  Tables 16–18) are from the original unseeded probe run. The verdicts and
+  trends reproduce, the exact draw does not.
 - **Author-response (rebuttal) experiments** are ordinary data tables above:
   detect->remove->verify (epsilon->0) is Tables 10, 25, 26, 36; the
   no-false-positive evidence is Tables 47 and 49; ACPC anti-poisoning is

@@ -24,9 +24,10 @@ IN_CLASS = [
 ]
 HANDCRAFTED = ["H2_AvgPoolGated", "H3_MulIndicatorGated"]
 
-# Certificates recorded for the seeded builds, from per_cell_tau_sys_sweep.csv
-# at tau = 1e-3. Floating-point summation over the graph reorders slightly
-# between runs, so these are compared at 1e-6 relative, not bit for bit.
+# Certificates of the release verifier (verify_model_phaseC, defaults) on the
+# sha256-locked graphs under models/backdoor_graphs/. Floating-point summation
+# over the graph reorders slightly between runs, so these are compared at 1e-6
+# relative, not bit for bit.
 REFERENCE_EPSILON = {
     "op_sep_tar": 0.9999999403953552,
     "op_sep_un": 0.9999999403953552,
@@ -35,7 +36,7 @@ REFERENCE_EPSILON = {
     "op_sha_tar": 21329.124761981908,
     "op_sha_un": 10664.562380990954,
     "H2_AvgPoolGated": 10.000002384185791,
-    "H3_MulIndicatorGated": 30.23004785083796,
+    "H3_MulIndicatorGated": 10.07668899850661,   # sparse-pattern H3 (re-exported 2026-09), matches the paper's 10.08
 }
 
 

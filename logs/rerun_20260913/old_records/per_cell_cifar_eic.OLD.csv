@@ -125,9 +125,9 @@ H2_AvgPoolGated,handcrafted,T_opset11,11,False,False,10.000002384185791,1,17,add
 H2_AvgPoolGated,handcrafted,T_opset13,13,False,False,10.000002384185791,1,18,add-DGP-CERTIFIED-POSITIVE,ok,,0.01,0.02
 H2_AvgPoolGated,handcrafted,T_opset15,15,False,False,10.000002384185791,1,18,add-DGP-CERTIFIED-POSITIVE,ok,,0.01,0.02
 H2_AvgPoolGated,handcrafted,T_dynaxes,17,False,True,10.000002384185791,1,18,add-DGP-CERTIFIED-POSITIVE,ok,,0.01,0.02
-H3_MulIndicatorGated,handcrafted,T_default,17,False,False,10.07668899850661,1,14,add-DGP-CERTIFIED-POSITIVE,ok,,0.20,0.14
-H3_MulIndicatorGated,handcrafted,T_constfold,17,True,False,10.07668899850661,1,14,add-DGP-CERTIFIED-POSITIVE,ok,,0.01,0.17
-H3_MulIndicatorGated,handcrafted,T_opset11,11,False,False,10.07668899850661,1,14,add-DGP-CERTIFIED-POSITIVE,ok,,0.01,0.06
-H3_MulIndicatorGated,handcrafted,T_opset13,13,False,False,10.07668899850661,1,14,add-DGP-CERTIFIED-POSITIVE,ok,,0.01,0.04
-H3_MulIndicatorGated,handcrafted,T_opset15,15,False,False,10.07668899850661,1,14,add-DGP-CERTIFIED-POSITIVE,ok,,0.01,0.13
-H3_MulIndicatorGated,handcrafted,T_dynaxes,17,False,True,10.07668899850661,1,14,add-DGP-CERTIFIED-POSITIVE,ok,,0.01,0.14
+H3_MulIndicatorGated,handcrafted,T_default,17,False,False,30.23004785083796,1,14,add-DGP-CERTIFIED-POSITIVE,ok,,0.01,0.02
+H3_MulIndicatorGated,handcrafted,T_constfold,17,True,False,30.23004785083796,1,14,add-DGP-CERTIFIED-POSITIVE,ok,,0.01,0.02
+H3_MulIndicatorGated,handcrafted,T_opset11,11,False,False,30.23004785083796,1,14,add-DGP-CERTIFIED-POSITIVE,ok,,0.01,0.02
+H3_MulIndicatorGated,handcrafted,T_opset13,13,False,False,30.23004785083796,1,14,add-DGP-CERTIFIED-POSITIVE,ok,,0.01,0.02
+H3_MulIndicatorGated,handcrafted,T_opset15,15,False,False,30.23004785083796,1,14,add-DGP-CERTIFIED-POSITIVE,ok,,0.01,0.03
+H3_MulIndicatorGated,handcrafted,T_dynaxes,17,False,True,30.23004785083796,1,14,add-DGP-CERTIFIED-POSITIVE,ok,,0.01,0.02

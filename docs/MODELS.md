@@ -53,10 +53,16 @@ clean panels used by the detection / robustness experiments.
   `/tmp/handcrafted_onnx` (scratch; step 0 regenerates them and fails loudly if
   any is missing — see REPRODUCE.md gotchas 1-3).
 
-**Seeds (backdoors).** Every backdoor construction seeds its weights
-(`torch.manual_seed(0)` in the builder; the trigger geometry is fixed). Without
+**Seeds (backdoors).** The builders draw their host weights from the global
+RNG (the trigger geometry is fixed); `archproof/run_e1_final.py` calls
+`torch.manual_seed(0)` immediately before each construction, which reproduces
+21 of the 22 shipped graphs bit-for-bit (`H1_SignGated` was exported from an
+RNG state that is not recoverable; its shipped graph is authoritative). Without
 a seed these untrained graphs would differ per run and epsilon would move a few
-percent (REPRODUCE.md gotcha 3). Step 0 rebuilds them deterministically.
+percent (REPRODUCE.md gotcha 3). The sha256-locked files under
+`models/backdoor_graphs/` are what every experiment reads; Step 0 provides them
+from those locked copies, and the PGD probe loads the locked graph's
+initializers into its PyTorch copy and checks the two agree under onnxruntime.
 
 ### 1b. The clean false-positive panel (97 models) — SHIPPED as fixed ONNX
 
