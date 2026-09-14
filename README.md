@@ -16,7 +16,7 @@ re-downloads on first use.
 
 ```bash
 make install        # conda env + pip install -e .              (~5 min, once)
-make verify-quick   # check all 46 data-table records vs the paper (~2 min)
+make verify-quick   # check all 45 data-table records vs the paper (~2 min)
 make test           # unit tests prove the verifier is sound      (~30 s)
 ```
 
@@ -43,11 +43,11 @@ number no experiment produced cannot pass.
 
 **Artifact-evaluation badges.** *Functional* — this README + `docs/`; the code,
 models, data, and scripts are all in this one bundle; `make verify` / `make
-test` run out of the box. *Reproduced* — `make verify` re-runs the **46 data
+test` run out of the box. *Reproduced* — `make verify` re-runs the **45 data
 tables from scratch** and checks the freshly-computed numbers against the paper
-(44 recomputed to the printed value + 2 draw-checked); the 7 whole-model LLM
+(43 recomputed to the printed value + 2 draw-checked); the 7 whole-model LLM
 tables re-run only with the 253 GB tier (otherwise verified from their bundled
-record) and 3 derived tables have no standalone driver. The paper's other 6
+record) and 3 derived tables have no standalone driver. The paper's other 7
 tables are definitional/structural (no experimental data) and are verified by
 inspection / unit test.
 
@@ -71,8 +71,8 @@ back from a stored answer). It prints one line per table with `OK <n>/<n>`,
 ending with:
 
 ```
-data tables reproduced: 46/46  (44 recomputed to the printed value, 2 draw-checked)
-definitional/structural tables: 6 (no experimental data; verified by inspection / unit test)
+data tables reproduced: 45/45  (43 recomputed to the printed value, 2 draw-checked)
+definitional/structural tables: 7 (no experimental data; verified by inspection / unit test)
 ```
 
 ---
@@ -80,7 +80,7 @@ definitional/structural tables: 6 (no experimental data; verified by inspection 
 ## 2. What you need — one machine
 
 - **The fast overview (what the badges rest on).** `make verify-quick`
-  (= `python verify/check_tables.py`) checks all 46 tables' bundled records
+  (= `python verify/check_tables.py`) checks all 45 tables' bundled records
   against the paper in ~2 min on **any Linux box, ~16 GB RAM, CPU only** — the
   checker reads only `truth_source/` and `benchmark/*.json` and needs nothing
   beyond numpy (no GPU, no torch, no network).
@@ -122,7 +122,7 @@ verification alone is ~95 GB — plus 253 GB disk; `RERUN=1` once you have that 
 and **3 derived tables** (aggregate counts with no standalone driver).
 
 ```bash
-make verify-quick                        # check all 46 records vs the paper (~2 min, no re-run)
+make verify-quick                        # check all 45 records vs the paper (~2 min, no re-run)
 bash reproduce/reproduce_cpu.sh          # re-run the 36 CPU tables from scratch (slow, ~2-3 h)
 ```
 
@@ -177,7 +177,7 @@ skip it entirely:
 ```bash
 python3 -m venv venv && . venv/bin/activate
 pip install -e .                          # just the checker's dependencies
-python verify/check_tables.py             # 46/46 data tables (record check)
+python verify/check_tables.py             # 45/45 data tables (record check)
 ```
 
 The pinned conda env (`environment.yml`, `torch==2.1`) is needed only to

@@ -65,6 +65,36 @@ def f1_of(tp, fp, fn):
 # Main paper
 # --------------------------------------------------------------------------
 
+def _archproof_slice_confusion():
+    """ArchProof on the 11 in-class + 49 natural slice, per UNCERTIFIED protocol:
+    P-fail counts an uncertified model as flagged, P-reject as not flagged,
+    P-hold drops it. Recomputed from truth_source/per_model_rq2_phaseC.csv."""
+    rows = [r for r in load_csv("truth_source/per_model_rq2_phaseC.csv")
+            if r["subset"] in ("backdoor-in-class", "clean-natural49")]
+    out = {}
+    for proto in ("P-fail", "P-reject", "P-hold"):
+        tp = fp = fn = tn = 0
+        for r in rows:
+            bd = r["subset"] == "backdoor-in-class"
+            v = r["verdict"]
+            if "CERTIFIED-POSITIVE" in v:
+                flag = True
+            elif "CLASS-NEGATIVE" in v:
+                flag = False
+            else:  # uncertified
+                if proto == "P-hold":
+                    continue
+                flag = proto == "P-fail"
+            if bd and flag: tp += 1
+            elif bd: fn += 1
+            elif flag: fp += 1
+            else: tn += 1
+        prec = tp / (tp + fp) if tp + fp else 0.0
+        rec = tp / (tp + fn) if tp + fn else 0.0
+        out[proto] = dict(tp=tp, fp=fp, fn=fn, tn=tn, prec=prec, rec=rec, f1=f1_of(tp, fp, fn))
+    return out
+
+
 @check("tab:f1-baseline", "benchmark/baselines_natural49_complete.json")
 def _f1_baseline(_):
     """F1 of the four comparison detectors on the 11 in-class + 49 natural slice.
@@ -89,6 +119,9 @@ def _f1_baseline(_):
         v = round(f1_of(tp, fp, fn), 2)
         for col in ("F1 (P-fail)", "F1 (P-reject)", "F1 (P-hold)"):
             rows[(label, col)] = v
+    ap = _archproof_slice_confusion()
+    for proto in ("P-fail", "P-reject", "P-hold"):
+        rows[("ArchProof", f"F1 ({proto})")] = round(ap[proto]["f1"], 2)
     return rows
 
 
@@ -119,6 +152,14 @@ def _protocols(_):
         out[(label, "Prec")] = round(prec, 3)
         out[(label, "Rec")] = round(rec, 3)
         out[(label, "F1")] = round(f1_of(tp, fp, fn), 3)
+    ap = _archproof_slice_confusion()
+    for proto in ("P-fail", "P-reject", "P-hold"):
+        c = ap[proto]
+        for k in ("tp", "fp", "fn", "tn"):
+            out[(f"ArchProof / {proto}", k.upper())] = c[k]
+        out[(f"ArchProof / {proto}", "Prec")] = round(c["prec"], 3)
+        out[(f"ArchProof / {proto}", "Rec")] = round(c["rec"], 3)
+        out[(f"ArchProof / {proto}", "F1")] = round(c["f1"], 3)
     return out
 
 
@@ -144,17 +185,27 @@ def _llm_headline(_):
     return out
 
 
-@check("tab:verdict-dist", "benchmark/e2_expanded_results.json")
+@check("tab:verdict-dist", "truth_source/per_model_rq2_phaseC.csv")
 def _verdict_dist(_):
-    """Three-class verdict counts per benchmark subset."""
-    d = load_json("benchmark/baselines_natural49_complete.json")
-    n_in = sum(1 for v in d["per_model_backdoor"].values() if v["origin"] == "in-class")
-    n_out = sum(1 for v in d["per_model_backdoor"].values() if v["origin"] == "out-of-class")
-    return {
-        ("backdoor in-class", "n"): n_in,
-        ("backdoor out-of-class", "n"): n_out,
-        ("clean", "n"): len(d["per_model_clean"]),
-    }
+    """Three-class verdict counts per subset, recomputed from the phase-C
+    verifier's per-model record on the RQ2 slice (clean-natural49, in-class,
+    out-of-class) and from the pretrained-CNN record (production)."""
+    rows = load_csv("truth_source/per_model_rq2_phaseC.csv")
+    def cls(v):
+        return "pos" if "CERTIFIED-POSITIVE" in v else ("neg" if "CLASS-NEGATIVE" in v else "unc")
+    out = {}
+    for sub, label in (("clean-natural49", "clean"), ("backdoor-in-class", "backdoor in-class"),
+                       ("backdoor-out-of-class", "backdoor out-of-class")):
+        rs = [r for r in rows if r["subset"] == sub]
+        out[(label, "n")] = len(rs)
+        for c in ("pos", "neg", "unc"):
+            out[(label, c)] = sum(1 for r in rs if cls(r["verdict"]) == c)
+    prod = load_csv("truth_source/per_cell_pretrained_cnn_mgrs.csv")
+    out[("production", "n")] = len(prod)
+    out[("production", "pos")] = sum(1 for r in prod if "CERTIFIED-POSITIVE" in r["verdict_before"])
+    out[("production", "neg")] = sum(1 for r in prod if "CLASS-NEGATIVE" in r["verdict_before"])
+    out[("production", "unc")] = len(prod) - out[("production", "pos")] - out[("production", "neg")]
+    return out
 
 
 @check("tab:benchmark", "benchmark/baselines_natural49_complete.json")
@@ -440,6 +491,9 @@ def _torchvision(_):
     return out
 
 QUALITATIVE = {
+    "tab:appx:eic-timing": ("verifier wall-clock per subset on the paper's RTX 3060 workstation; "
+                            "hardware-dependent, so not value-checked. The artifact-machine timings are the "
+                            "verify_sec columns of the per-cell records (e.g. truth_source/per_cell_cifar_eic.csv)."),
     "tab:related-work": "comparison matrix of prior work; no experimental numbers",
     "tab:envelopes": "closed-form activation envelopes; analytic, unit-tested in artifact/tests/test_envelope.py",
     "tab:appx:ops": "operator-support listing; definitional",
@@ -660,36 +714,38 @@ def _b_dormancy_regression(_):
 
 @check("tab:appx:whole-encoder", "truth_source/per_model_phaseE_transformer.csv")
 def _whole_encoder(_):
+    """Whole-encoder panel: the printed per-encoder ONNX size (clean export, MB,
+    rounded as in the table), the 7/7 clean and 21/21 backdoored verdict tallies
+    and the case count; per-case epsilons are summarised as ranges in the paper
+    and are not value cells."""
     rows = load_csv("truth_source/per_model_phaseE_transformer.csv")
     out = {("n", "cases"): len(rows)}
     for r in rows:
-        key = (r["case"], r["panel"])
-        out[key + ("mb",)] = round(float(r["onnx_MB"]), 1)
-        out[key + ("syn",)] = int(r["n_syntactic"])
-        out[key + ("adm",)] = int(r["n_admitted"])
-        # the table summarises per-case epsilon as ranges; per-case values
-        # are intentionally not printed, so only counts and sizes are cells.
+        if r["panel"] == "clean-whole-transformer":
+            out[(r["case"], "mb")] = round(float(r["onnx_MB"]))
+    out[("clean", "n")] = sum(1 for r in rows if r["panel"] == "clean-whole-transformer")
+    out[("clean", "n_negative")] = sum(1 for r in rows if r["panel"] == "clean-whole-transformer" and "NEGATIVE" in r["verdict"])
+    out[("backdoor", "n")] = sum(1 for r in rows if r["panel"] != "clean-whole-transformer")
+    out[("backdoor", "n_positive")] = sum(1 for r in rows if r["panel"] != "clean-whole-transformer" and "POSITIVE" in r["verdict"])
     return out
 
 
 @check("tab:appx:real-scan", "benchmark/real_scan.json")
 def _real_scan(_):
-    """Real pretrained-model scan; sizes and node counts from the release-era record.
-
-    The models are live downloads, so a fresh re-run can differ by a few nodes
-    when upstream updates; docs/REPRODUCE.md documents this drift.
-    """
+    """Real pretrained-model scan: export size (MB), node count and candidate
+    count per model, from the release-era record. Node counts depend on the
+    exporter version (torch 2.1.0 / opset 17 in the pinned env); the paper
+    prints the values of that export. Models without a record entry (the three
+    HuggingFace encoders, whose weights are downloaded at run time) are not
+    value-checked here."""
     d = load_json("benchmark/real_scan.json")
     out = {}
     for r in d:
-        if not isinstance(r, dict) or "name" not in r:
+        if not isinstance(r, dict) or "name" not in r or r.get("nodes") is None:
             continue
-        for src_key, col in (("size_mb", "mb"), ("nodes", "nodes"),
-                             ("gdp_candidates", "cand")):
-            if r.get(src_key) is not None:
-                out[(r["name"], col)] = r[src_key]
-        if r.get("tau_ibp") is not None:
-            out[(r["name"], "tau")] = round(r["tau_ibp"], 2)
+        out[(r["name"], "mb")] = round(float(r["size_mb"]), 1)
+        out[(r["name"], "nodes")] = int(r["nodes"])
+        out[(r["name"], "cand")] = int(r["gdp_candidates"])
     return out
 
 
@@ -752,16 +808,6 @@ def _scale_coverage(_):
         ("cells", "slice"): t["evaluation_slice_models"],
         ("cells", "clean"): t["n_clean_evaluation"],
     }
-
-
-@check("tab:appx:eic-timing", "benchmark/v3_eic_experiment.json")
-def _eic_timing(_):
-    d = load_json("benchmark/v3_eic_experiment.json")
-    out = {("n", "models"): d["n_models"], ("n", "configs"): d["n_configs_per_model"]}
-    for m in d["per_model"]:
-        for cfg, r in m["per_config"].items():
-            out[(m["model"], cfg, "nodes")] = r.get("n_nodes")
-    return out
 
 
 # Tables whose backing record is not in the release and must be regenerated

@@ -12,9 +12,8 @@ echo ">> Table 20 and compare each value by eye."
 echo "================================================================"
 if [ "${QUICK:-0}" != "1" ]; then
   echo ">> reproducing from scratch (T1): running the experiment, then checking it against the paper:"
-  echo "   PYTHONPATH="$PWD" python archproof/run_e1_final.py"
-  bash "$(dirname "$0")/../scripts/00_build_benchmark_models.sh" >/dev/null 2>&1 || true
-  PYTHONPATH="$PWD" python archproof/run_e1_final.py
+  echo "   PYTHONPATH="$PWD" python scripts/run_rq2_phaseC_slice.py"
+  PYTHONPATH="$PWD" python scripts/run_rq2_phaseC_slice.py
   echo
 fi
 python verify/check_tables.py --only "tab:appx:protocols" --verbose

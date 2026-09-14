@@ -3723,7 +3723,7 @@
  },
  {
   "label": "tab:appx:real-scan",
-  "file": "paper/sections/appendix_tables/appx_real_scan.tex",
+  "file": "camera_ready/with_appendix/sections/appendix_tables/appx_real_scan.tex",
   "caption": "(Scope) ArchProof real-scan on 8 pretrained torchvision (tv) and transformers (TF) clean models, including VGG16 (528,MB), BERT-base (415,MB), and GPT-2 (475,MB). Every model returns 0 DGP candidates and verdict add-DGP-class-negative, supporting the main clean-FP rate at production-scale ONNX graphs.",
   "rows": [
    [
@@ -3739,7 +3739,7 @@
     "resnet18",
     "tv",
     "44.6",
-    "65",
+    "72",
     "0",
     "class-neg",
     "0.05"
@@ -3747,8 +3747,8 @@
    [
     "resnet50",
     "tv",
-    "97.3",
-    "169",
+    "97.7",
+    "179",
     "0",
     "class-neg",
     "0.06"
@@ -3756,8 +3756,8 @@
    [
     "mobilenet-v2",
     "tv",
-    "13.3",
-    "209",
+    "13.6",
+    "222",
     "0",
     "class-neg",
     "0.00"
@@ -3765,8 +3765,8 @@
    [
     "efficientnet-b0",
     "tv",
-    "20.1",
-    "298",
+    "20.4",
+    "288",
     "0",
     "class-neg",
     "0.75"
@@ -3775,7 +3775,7 @@
     "vgg16",
     "tv",
     "527.8",
-    "48",
+    "38",
     "0",
     "class-neg",
     "0.50"
@@ -3811,27 +3811,27 @@
   "numbers": [
    "18",
    "44.6",
-   "65",
+   "72",
    "0",
    "0.05",
    "50",
-   "97.3",
-   "169",
+   "97.7",
+   "179",
    "0",
    "0.06",
    "2",
-   "13.3",
-   "209",
+   "13.6",
+   "222",
    "0",
    "0.00",
    "0",
-   "20.1",
-   "298",
+   "20.4",
+   "288",
    "0",
    "0.75",
    "16",
    "527.8",
-   "48",
+   "38",
    "0",
    "0.50",
    "415.1",
@@ -4324,7 +4324,7 @@
  },
  {
   "label": "tab:appx:whole-encoder",
-  "file": "paper/sections/appendix_tables/appx_whole_transformer.tex",
+  "file": "camera_ready/with_appendix/sections/appendix_tables/appx_whole_transformer.tex",
   "caption": "(Scale) Whole-encoder scope coverage on 7 medium transformer encoders times 4 variants (clean + three qreptaxonomyBober-Irizar backdoor gate types: sep_tar, sha_un, int_un). With the four rescue and probe primitives (Identity-aware gamma/betaload, Identity-aware expanded-norm bound, Gemm-affine input-bound trace, external-data-aware probe-size cap, all in App.refsec:appx:impl), all 7 clean encoders are correctly flagged add-DGP-class-negative and all 21 backdoored variants are flagged add-DGP-certified-positive with finite varepsilon. Per-row ONNX(MB) is the clean encoder size; the aggregate range covers all 28 cases, including the injected backdoor head. Wall-clock is per-case on CPU.",
   "rows": [
    [
@@ -4347,7 +4347,7 @@
    ],
    [
     "BERT",
-    "415",
+    "418",
     "neg",
     "1.4times10^5",
     "4.2times10^6",
@@ -4417,7 +4417,7 @@
    ]
   ],
   "numbers": [
-   "415",
+   "418",
    "1.4",
    "10",
    "5",
@@ -4428,7 +4428,7 @@
    "10",
    "5",
    "7",
-   "-15",
+   "15",
    "253",
    "1.5",
    "10",
@@ -4440,7 +4440,7 @@
    "10",
    "5",
    "4",
-   "-10",
+   "10",
    "475",
    "1.5",
    "10",
@@ -4452,7 +4452,7 @@
    "10",
    "5",
    "7",
-   "-16",
+   "16",
    "45",
    "1.5",
    "10",
@@ -4464,7 +4464,7 @@
    "10",
    "5",
    "1",
-   "-3",
+   "3",
    "445",
    "1.5",
    "10",
@@ -4476,7 +4476,7 @@
    "10",
    "5",
    "7",
-   "-15",
+   "15",
    "415",
    "1.5",
    "10",
@@ -4488,7 +4488,7 @@
    "10",
    "5",
    "6",
-   "-14",
+   "14",
    "529",
    "1.5",
    "10",
@@ -4500,9 +4500,9 @@
    "10",
    "5",
    "9",
-   "-18",
+   "18",
    "43",
-   "-531",
+   "531",
    "7",
    "7",
    "3",
@@ -5562,7 +5562,7 @@
  },
  {
   "label": "tab:verdict-dist",
-  "file": "paper/sections/07_evaluation.tex",
+  "file": "camera_ready/with_appendix/sections/07_evaluation.tex",
   "caption": "(RQ2) Three-class verdict distribution per subset. pos,=,add-DGP-certified-positive, neg,=,add-DGP-class-negative, unc,=,uncertified. clean,(49) is the in-class F1-protocol clean side, not the full 79 clean models of Tablereftab:benchmark. Out-of-class models receive class-negative as a narrow in-class assertion, not a backdoor-absence claim (App.refsec:appx:out-of-class).",
   "rows": [
    [
@@ -5586,8 +5586,8 @@
    [
     "backdoor out-of-class (11)",
     "0",
-    "11",
-    "0"
+    "10",
+    "1"
    ],
    [
     "production (12)",
@@ -5607,8 +5607,8 @@
    "0",
    "11",
    "0",
-   "11",
-   "0",
+   "10",
+   "1",
    "12",
    "12",
    "0",

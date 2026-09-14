@@ -1,0 +1,641 @@
+[
+ {
+  "name": "H1_SignGated",
+  "subset": "backdoor-out-of-class",
+  "legacy": "DORMANT",
+  "n_syn": 1,
+  "n_adm": 0,
+  "mapped": "add-DGP-CLASS-NEGATIVE",
+  "sec": 0.1
+ },
+ {
+  "name": "H2_AvgPoolGated",
+  "subset": "backdoor-in-class",
+  "legacy": "\u03c4-BOUNDED",
+  "n_syn": 1,
+  "n_adm": 1,
+  "mapped": "add-DGP-CERTIFIED-POSITIVE",
+  "sec": 0.6
+ },
+ {
+  "name": "H3_MulIndicatorGated",
+  "subset": "backdoor-in-class",
+  "legacy": "DORMANT",
+  "n_syn": 1,
+  "n_adm": 1,
+  "mapped": "add-DGP-CERTIFIED-POSITIVE",
+  "sec": 0.1
+ },
+ {
+  "name": "con_sep_tar",
+  "subset": "backdoor-out-of-class",
+  "legacy": "DORMANT",
+  "n_syn": 0,
+  "n_adm": 0,
+  "mapped": "add-DGP-CLASS-NEGATIVE",
+  "sec": 8.8
+ },
+ {
+  "name": "con_sep_un",
+  "subset": "backdoor-out-of-class",
+  "legacy": "DORMANT",
+  "n_syn": 0,
+  "n_adm": 0,
+  "mapped": "add-DGP-CLASS-NEGATIVE",
+  "sec": 8.6
+ },
+ {
+  "name": "con_sha_tar",
+  "subset": "backdoor-out-of-class",
+  "legacy": "DORMANT",
+  "n_syn": 0,
+  "n_adm": 0,
+  "mapped": "add-DGP-CLASS-NEGATIVE",
+  "sec": 8.2
+ },
+ {
+  "name": "con_sha_un",
+  "subset": "backdoor-out-of-class",
+  "legacy": "DORMANT",
+  "n_syn": 0,
+  "n_adm": 0,
+  "mapped": "add-DGP-CLASS-NEGATIVE",
+  "sec": 8.0
+ },
+ {
+  "name": "op_int_tar",
+  "subset": "backdoor-in-class",
+  "legacy": "OUTPUT-PRESERVED",
+  "n_syn": 2,
+  "n_adm": 1,
+  "mapped": "add-DGP-CERTIFIED-POSITIVE",
+  "sec": 148.3
+ },
+ {
+  "name": "op_int_tar_L0001",
+  "subset": "backdoor-in-class",
+  "legacy": "OUTPUT-PRESERVED",
+  "n_syn": 1,
+  "n_adm": 1,
+  "mapped": "add-DGP-CERTIFIED-POSITIVE",
+  "sec": 146.3
+ },
+ {
+  "name": "op_int_tar_L001",
+  "subset": "backdoor-in-class",
+  "legacy": "OUTPUT-PRESERVED",
+  "n_syn": 1,
+  "n_adm": 1,
+  "mapped": "add-DGP-CERTIFIED-POSITIVE",
+  "sec": 126.9
+ },
+ {
+  "name": "op_int_tar_L01",
+  "subset": "backdoor-in-class",
+  "legacy": "OUTPUT-PRESERVED",
+  "n_syn": 1,
+  "n_adm": 1,
+  "mapped": "add-DGP-CERTIFIED-POSITIVE",
+  "sec": 143.2
+ },
+ {
+  "name": "op_int_un",
+  "subset": "backdoor-in-class",
+  "legacy": "DORMANT",
+  "n_syn": 3,
+  "n_adm": 0,
+  "mapped": "add-DGP-CLASS-NEGATIVE",
+  "sec": 9.1
+ },
+ {
+  "name": "op_sep_tar",
+  "subset": "backdoor-in-class",
+  "legacy": "DORMANT",
+  "n_syn": 1,
+  "n_adm": 0,
+  "mapped": "add-DGP-CLASS-NEGATIVE",
+  "sec": 9.3
+ },
+ {
+  "name": "op_sep_un",
+  "subset": "backdoor-in-class",
+  "legacy": "DORMANT",
+  "n_syn": 1,
+  "n_adm": 0,
+  "mapped": "add-DGP-CLASS-NEGATIVE",
+  "sec": 9.1
+ },
+ {
+  "name": "op_sep_un_L0001",
+  "subset": "backdoor-out-of-class",
+  "legacy": "OUTPUT-PRESERVED",
+  "n_syn": 0,
+  "n_adm": 0,
+  "mapped": "add-DGP-CLASS-NEGATIVE",
+  "sec": 5.5
+ },
+ {
+  "name": "op_sep_un_L001",
+  "subset": "backdoor-out-of-class",
+  "legacy": "OUTPUT-PRESERVED",
+  "n_syn": 0,
+  "n_adm": 0,
+  "mapped": "add-DGP-CLASS-NEGATIVE",
+  "sec": 5.5
+ },
+ {
+  "name": "op_sep_un_L01",
+  "subset": "backdoor-out-of-class",
+  "legacy": "OUTPUT-PRESERVED",
+  "n_syn": 0,
+  "n_adm": 0,
+  "mapped": "add-DGP-CLASS-NEGATIVE",
+  "sec": 5.5
+ },
+ {
+  "name": "op_sha_tar",
+  "subset": "backdoor-in-class",
+  "legacy": "DORMANT",
+  "n_syn": 1,
+  "n_adm": 0,
+  "mapped": "add-DGP-CLASS-NEGATIVE",
+  "sec": 9.1
+ },
+ {
+  "name": "op_sha_tar_L0001",
+  "subset": "backdoor-out-of-class",
+  "legacy": "DORMANT",
+  "n_syn": 0,
+  "n_adm": 0,
+  "mapped": "add-DGP-CLASS-NEGATIVE",
+  "sec": 11.1
+ },
+ {
+  "name": "op_sha_tar_L001",
+  "subset": "backdoor-out-of-class",
+  "legacy": "DORMANT",
+  "n_syn": 0,
+  "n_adm": 0,
+  "mapped": "add-DGP-CLASS-NEGATIVE",
+  "sec": 10.2
+ },
+ {
+  "name": "op_sha_tar_L01",
+  "subset": "backdoor-out-of-class",
+  "legacy": "DORMANT",
+  "n_syn": 0,
+  "n_adm": 0,
+  "mapped": "add-DGP-CLASS-NEGATIVE",
+  "sec": 10.4
+ },
+ {
+  "name": "op_sha_un",
+  "subset": "backdoor-in-class",
+  "legacy": "DORMANT",
+  "n_syn": 1,
+  "n_adm": 0,
+  "mapped": "add-DGP-CLASS-NEGATIVE",
+  "sec": 8.4
+ },
+ {
+  "name": "alexnet",
+  "subset": "clean-natural49",
+  "legacy": "GDP-FREE",
+  "n_syn": 0,
+  "n_adm": 0,
+  "mapped": "add-DGP-CLASS-NEGATIVE",
+  "sec": 2.3
+ },
+ {
+  "name": "attention_pool",
+  "subset": "clean-natural49",
+  "legacy": "GDP-FREE",
+  "n_syn": 2,
+  "n_adm": 0,
+  "mapped": "add-DGP-CLASS-NEGATIVE",
+  "sec": 0.1
+ },
+ {
+  "name": "avgpool_net",
+  "subset": "clean-natural49",
+  "legacy": "GDP-FREE",
+  "n_syn": 0,
+  "n_adm": 0,
+  "mapped": "add-DGP-CLASS-NEGATIVE",
+  "sec": 0.0
+ },
+ {
+  "name": "bottleneck_net",
+  "subset": "clean-natural49",
+  "legacy": "GDP-FREE",
+  "n_syn": 0,
+  "n_adm": 0,
+  "mapped": "add-DGP-CLASS-NEGATIVE",
+  "sec": 0.1
+ },
+ {
+  "name": "cifar_conv",
+  "subset": "clean-natural49",
+  "legacy": "GDP-FREE",
+  "n_syn": 0,
+  "n_adm": 0,
+  "mapped": "add-DGP-CLASS-NEGATIVE",
+  "sec": 0.0
+ },
+ {
+  "name": "cifar_mlp",
+  "subset": "clean-natural49",
+  "legacy": "GDP-FREE",
+  "n_syn": 0,
+  "n_adm": 0,
+  "mapped": "add-DGP-CLASS-NEGATIVE",
+  "sec": 0.0
+ },
+ {
+  "name": "conv_batchnorm",
+  "subset": "clean-natural49",
+  "legacy": "GDP-FREE",
+  "n_syn": 0,
+  "n_adm": 0,
+  "mapped": "add-DGP-CLASS-NEGATIVE",
+  "sec": 0.1
+ },
+ {
+  "name": "conv_deep",
+  "subset": "clean-natural49",
+  "legacy": "GDP-FREE",
+  "n_syn": 0,
+  "n_adm": 0,
+  "mapped": "add-DGP-CLASS-NEGATIVE",
+  "sec": 0.1
+ },
+ {
+  "name": "conv_dropout",
+  "subset": "clean-natural49",
+  "legacy": "GDP-FREE",
+  "n_syn": 0,
+  "n_adm": 0,
+  "mapped": "add-DGP-CLASS-NEGATIVE",
+  "sec": 0.1
+ },
+ {
+  "name": "conv_groupnorm",
+  "subset": "clean-natural49",
+  "legacy": "GDP-FREE",
+  "n_syn": 0,
+  "n_adm": 0,
+  "mapped": "add-DGP-CLASS-NEGATIVE",
+  "sec": 0.0
+ },
+ {
+  "name": "densenet121",
+  "subset": "clean-natural49",
+  "legacy": "GDP-FREE",
+  "n_syn": 0,
+  "n_adm": 0,
+  "mapped": "add-DGP-CLASS-NEGATIVE",
+  "sec": 7.4
+ },
+ {
+  "name": "densenet169",
+  "subset": "clean-natural49",
+  "legacy": "GDP-FREE",
+  "n_syn": 0,
+  "n_adm": 0,
+  "mapped": "add-DGP-CLASS-NEGATIVE",
+  "sec": 7.4
+ },
+ {
+  "name": "depthwise_separable",
+  "subset": "clean-natural49",
+  "legacy": "GDP-FREE",
+  "n_syn": 0,
+  "n_adm": 0,
+  "mapped": "add-DGP-CLASS-NEGATIVE",
+  "sec": 0.8
+ },
+ {
+  "name": "dilated_conv",
+  "subset": "clean-natural49",
+  "legacy": "GDP-FREE",
+  "n_syn": 0,
+  "n_adm": 0,
+  "mapped": "add-DGP-CLASS-NEGATIVE",
+  "sec": 0.3
+ },
+ {
+  "name": "efficientnet_b0",
+  "subset": "clean-natural49",
+  "legacy": "GDP-FREE",
+  "n_syn": 65,
+  "n_adm": 0,
+  "mapped": "add-DGP-CLASS-NEGATIVE",
+  "sec": 50.8
+ },
+ {
+  "name": "elu_net",
+  "subset": "clean-natural49",
+  "legacy": "GDP-FREE",
+  "n_syn": 0,
+  "n_adm": 0,
+  "mapped": "add-DGP-CLASS-NEGATIVE",
+  "sec": 0.1
+ },
+ {
+  "name": "gated_attention",
+  "subset": "clean-natural49",
+  "legacy": "GDP-FREE",
+  "n_syn": 0,
+  "n_adm": 0,
+  "mapped": "add-DGP-CLASS-NEGATIVE",
+  "sec": 0.0
+ },
+ {
+  "name": "gated_residual",
+  "subset": "clean-natural49",
+  "legacy": "GDP-FREE",
+  "n_syn": 2,
+  "n_adm": 0,
+  "mapped": "add-DGP-CLASS-NEGATIVE",
+  "sec": 0.0
+ },
+ {
+  "name": "gated_sigmoid_highway",
+  "subset": "clean-natural49",
+  "legacy": "GDP-FREE",
+  "n_syn": 2,
+  "n_adm": 0,
+  "mapped": "add-DGP-CLASS-NEGATIVE",
+  "sec": 0.1
+ },
+ {
+  "name": "gated_softmax_attn",
+  "subset": "clean-natural49",
+  "legacy": "GDP-FREE",
+  "n_syn": 2,
+  "n_adm": 0,
+  "mapped": "add-DGP-CLASS-NEGATIVE",
+  "sec": 0.0
+ },
+ {
+  "name": "gelu_net",
+  "subset": "clean-natural49",
+  "legacy": "GDP-FREE",
+  "n_syn": 0,
+  "n_adm": 0,
+  "mapped": "add-DGP-CLASS-NEGATIVE",
+  "sec": 0.1
+ },
+ {
+  "name": "glu_net",
+  "subset": "clean-natural49",
+  "legacy": "GDP-FREE",
+  "n_syn": 1,
+  "n_adm": 0,
+  "mapped": "add-DGP-CLASS-NEGATIVE",
+  "sec": 0.1
+ },
+ {
+  "name": "googlenet",
+  "subset": "clean-natural49",
+  "legacy": "GDP-FREE",
+  "n_syn": 0,
+  "n_adm": 0,
+  "mapped": "add-DGP-CLASS-NEGATIVE",
+  "sec": 3.3
+ },
+ {
+  "name": "highway_net",
+  "subset": "clean-natural49",
+  "legacy": "GDP-FREE",
+  "n_syn": 2,
+  "n_adm": 0,
+  "mapped": "add-DGP-CLASS-NEGATIVE",
+  "sec": 0.1
+ },
+ {
+  "name": "inception_v3",
+  "subset": "clean-natural49",
+  "legacy": "GDP-FREE",
+  "n_syn": 0,
+  "n_adm": 0,
+  "mapped": "add-DGP-CLASS-NEGATIVE",
+  "sec": 7.4
+ },
+ {
+  "name": "leaky_relu_net",
+  "subset": "clean-natural49",
+  "legacy": "GDP-FREE",
+  "n_syn": 0,
+  "n_adm": 0,
+  "mapped": "add-DGP-CLASS-NEGATIVE",
+  "sec": 0.1
+ },
+ {
+  "name": "linear_classifier",
+  "subset": "clean-natural49",
+  "legacy": "GDP-FREE",
+  "n_syn": 0,
+  "n_adm": 0,
+  "mapped": "add-DGP-CLASS-NEGATIVE",
+  "sec": 0.0
+ },
+ {
+  "name": "maxpool_heavy",
+  "subset": "clean-natural49",
+  "legacy": "GDP-FREE",
+  "n_syn": 0,
+  "n_adm": 0,
+  "mapped": "add-DGP-CLASS-NEGATIVE",
+  "sec": 0.1
+ },
+ {
+  "name": "mlp_3layer",
+  "subset": "clean-natural49",
+  "legacy": "GDP-FREE",
+  "n_syn": 0,
+  "n_adm": 0,
+  "mapped": "add-DGP-CLASS-NEGATIVE",
+  "sec": 0.0
+ },
+ {
+  "name": "mlp_deep6",
+  "subset": "clean-natural49",
+  "legacy": "GDP-FREE",
+  "n_syn": 0,
+  "n_adm": 0,
+  "mapped": "add-DGP-CLASS-NEGATIVE",
+  "sec": 0.1
+ },
+ {
+  "name": "mlp_tiny",
+  "subset": "clean-natural49",
+  "legacy": "GDP-FREE",
+  "n_syn": 0,
+  "n_adm": 0,
+  "mapped": "add-DGP-CLASS-NEGATIVE",
+  "sec": 0.0
+ },
+ {
+  "name": "mnasnet",
+  "subset": "clean-natural49",
+  "legacy": "GDP-FREE",
+  "n_syn": 0,
+  "n_adm": 0,
+  "mapped": "add-DGP-CLASS-NEGATIVE",
+  "sec": 41.8
+ },
+ {
+  "name": "mobilenet_v2",
+  "subset": "clean-natural49",
+  "legacy": "GDP-FREE",
+  "n_syn": 0,
+  "n_adm": 0,
+  "mapped": "add-DGP-CLASS-NEGATIVE",
+  "sec": 48.9
+ },
+ {
+  "name": "mobilenet_v3_small",
+  "subset": "clean-natural49",
+  "legacy": "GDP-FREE",
+  "n_syn": 9,
+  "n_adm": 0,
+  "mapped": "add-DGP-CLASS-NEGATIVE",
+  "sec": 9.5
+ },
+ {
+  "name": "multi_head_concat",
+  "subset": "clean-natural49",
+  "legacy": "GDP-FREE",
+  "n_syn": 0,
+  "n_adm": 0,
+  "mapped": "add-DGP-CLASS-NEGATIVE",
+  "sec": 0.1
+ },
+ {
+  "name": "pruned_channel",
+  "subset": "clean-natural49",
+  "legacy": "GDP-FREE",
+  "n_syn": 0,
+  "n_adm": 0,
+  "mapped": "add-DGP-CLASS-NEGATIVE",
+  "sec": 0.1
+ },
+ {
+  "name": "regnet_y_400mf",
+  "subset": "clean-natural49",
+  "legacy": "GDP-FREE",
+  "n_syn": 32,
+  "n_adm": 0,
+  "mapped": "add-DGP-CLASS-NEGATIVE",
+  "sec": 4.2
+ },
+ {
+  "name": "resnet101",
+  "subset": "clean-natural49",
+  "legacy": "GDP-FREE",
+  "n_syn": 0,
+  "n_adm": 0,
+  "mapped": "add-DGP-CLASS-NEGATIVE",
+  "sec": 38.7
+ },
+ {
+  "name": "resnet18",
+  "subset": "clean-natural49",
+  "legacy": "GDP-FREE",
+  "n_syn": 0,
+  "n_adm": 0,
+  "mapped": "add-DGP-CLASS-NEGATIVE",
+  "sec": 17.7
+ },
+ {
+  "name": "resnet34",
+  "subset": "clean-natural49",
+  "legacy": "GDP-FREE",
+  "n_syn": 0,
+  "n_adm": 0,
+  "mapped": "add-DGP-CLASS-NEGATIVE",
+  "sec": 29.1
+ },
+ {
+  "name": "resnet50",
+  "subset": "clean-natural49",
+  "legacy": "GDP-FREE",
+  "n_syn": 0,
+  "n_adm": 0,
+  "mapped": "add-DGP-CLASS-NEGATIVE",
+  "sec": 36.2
+ },
+ {
+  "name": "resnext50_32x4d",
+  "subset": "clean-natural49",
+  "legacy": "GDP-FREE",
+  "n_syn": 0,
+  "n_adm": 0,
+  "mapped": "add-DGP-CLASS-NEGATIVE",
+  "sec": 63.8
+ },
+ {
+  "name": "shufflenet_v2",
+  "subset": "clean-natural49",
+  "legacy": "GDP-FREE",
+  "n_syn": 0,
+  "n_adm": 0,
+  "mapped": "add-DGP-CLASS-NEGATIVE",
+  "sec": 1.8
+ },
+ {
+  "name": "small_resnet",
+  "subset": "clean-natural49",
+  "legacy": "GDP-FREE",
+  "n_syn": 0,
+  "n_adm": 0,
+  "mapped": "add-DGP-CLASS-NEGATIVE",
+  "sec": 0.1
+ },
+ {
+  "name": "squeezenet1_0",
+  "subset": "clean-natural49",
+  "legacy": "GDP-FREE",
+  "n_syn": 0,
+  "n_adm": 0,
+  "mapped": "add-DGP-CLASS-NEGATIVE",
+  "sec": 2.9
+ },
+ {
+  "name": "strided_conv",
+  "subset": "clean-natural49",
+  "legacy": "GDP-FREE",
+  "n_syn": 0,
+  "n_adm": 0,
+  "mapped": "add-DGP-CLASS-NEGATIVE",
+  "sec": 0.0
+ },
+ {
+  "name": "vgg11",
+  "subset": "clean-natural49",
+  "legacy": "GDP-FREE",
+  "n_syn": 0,
+  "n_adm": 0,
+  "mapped": "add-DGP-CLASS-NEGATIVE",
+  "sec": 136.1
+ },
+ {
+  "name": "vgg16",
+  "subset": "clean-natural49",
+  "legacy": "GDP-FREE",
+  "n_syn": 0,
+  "n_adm": 0,
+  "mapped": "add-DGP-CLASS-NEGATIVE",
+  "sec": 227.5
+ },
+ {
+  "name": "wide_resnet50",
+  "subset": "clean-natural49",
+  "legacy": "GDP-FREE",
+  "n_syn": 0,
+  "n_adm": 0,
+  "mapped": "add-DGP-CLASS-NEGATIVE",
+  "sec": 239.4
+ }
+]

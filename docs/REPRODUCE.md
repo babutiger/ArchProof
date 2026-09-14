@@ -38,7 +38,7 @@ bash reproduce/table07_f1-baseline.sh    # reproduce ONE table FROM SCRATCH (def
                                          #   experiment, regenerate the record, verify vs the paper
 QUICK=1 bash reproduce/table07_f1-baseline.sh   # skip the run; just read the bundled record
 
-python verify/check_tables.py            # check all 46 records vs the paper (~2 min, no re-run)
+python verify/check_tables.py            # check all 45 records vs the paper (~2 min, no re-run)
 bash reproduce/reproduce_cpu.sh          # re-run the 36 CPU tables from scratch (slow, ~2-3 h)
 ```
 
@@ -97,7 +97,7 @@ tier (reads the bundled record by default); **rec** = derived aggregate, record 
 | 25  | `tab:appx:mgrs-greedy`           | MGRS greedy (appendix)              | `reproduce/table25_appx-mgrs-greedy.sh`           | T1   |
 | 26  | `tab:appx:mgrs`                  | MGRS sweep                          | `reproduce/table26_appx-mgrs.sh`                  | T1   |
 | 27  | `tab:appx:eic-config`            | EIC per-config                      | `reproduce/table27_appx-eic-config.sh`            | T1   |
-| 28  | `tab:appx:eic-timing`            | EIC timing                          | `reproduce/table28_appx-eic-timing.sh`            | T1   |
+| 28  | `tab:appx:eic-timing`            | EIC timing (wall-clock; hardware-dependent, not value-checked) | `reproduce/table28_appx-eic-timing.sh` | T1   |
 | 29  | `tab:appx:adaptive`              | Near-threshold adaptive             | `reproduce/table29_appx-adaptive.sh`              | rec  |
 | 30  | `tab:appx:critical2`             | 400 near-threshold order statistics | `reproduce/table30_appx-critical2.sh`             | rec  |
 | 31  | `tab:appx:adaptive-obf`          | 88-instance adaptive obfuscation    | `reproduce/table31_appx-adaptive-obf.sh`          | T1   |
