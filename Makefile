@@ -4,7 +4,7 @@
 #     make env         # create the conda env  (archproof_repro)
 #     make install     # pip install -e .  (makes `archproof` importable)
 #     make kick-tires  # ~1 min: import + smoke tests + verify 3 tables
-#     make verify      # re-run the 35 CPU tables FROM SCRATCH, no LLM tier (slow, ~2-3 h)
+#     make verify      # re-run the 36 CPU tables FROM SCRATCH, no LLM tier (slow, ~2-3 h)
 #     make verify-quick# ~2 min: just check all 46 tables' bundled records vs the paper
 #
 # make verify is the real reproduction: it re-runs each runnable experiment
@@ -22,7 +22,7 @@ help:
 	@echo "  make env         create the conda env from environment.yml"
 	@echo "  make install     pip install -e . (archproof importable)"
 	@echo "  make kick-tires  ~1 min sanity check (import + smoke tests + 3 tables)"
-	@echo "  make verify      re-run the 35 CPU tables FROM SCRATCH (no LLM tier), check vs paper (slow, ~2-3 h)"
+	@echo "  make verify      re-run the 36 CPU tables FROM SCRATCH (no LLM tier), check vs paper (slow, ~2-3 h)"
 	@echo "                   one table from scratch: bash reproduce/tableNN_<label>.sh"
 	@echo "  make verify-quick check all 46 tables' bundled records vs the paper (~2 min, no re-run)"
 	@echo "  make verify-records  sha256-check that the shipped records are untampered"

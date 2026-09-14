@@ -177,7 +177,7 @@ skip it entirely:
 ```bash
 python3 -m venv venv && . venv/bin/activate
 pip install -e .                          # just the checker's dependencies
-python verify/check_tables.py             # 45/45 data tables (record check)
+python verify/check_tables.py             # 46/46 data tables (record check)
 ```
 
 The pinned conda env (`environment.yml`, `torch==2.1`) is needed only to

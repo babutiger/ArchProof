@@ -1,7 +1,7 @@
 # Reproducing the paper's tables
 
 The artifact and the paper PDF are separate: **you read the PDF; the code
-prints numbers.** Each of the **45 data tables** has a one-click script under
+prints numbers.** Each of the **46 data-tables** has a one-click script under
 `reproduce/` that prints the reproduced values for that table — you then open
 the PDF to the matching table and compare the values by eye. The **7
 definitional/structural tables** are listed at the end (they are not
