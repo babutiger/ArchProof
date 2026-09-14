@@ -39,7 +39,7 @@ bash reproduce/table07_f1-baseline.sh    # reproduce ONE table FROM SCRATCH (def
 QUICK=1 bash reproduce/table07_f1-baseline.sh   # skip the run; just read the bundled record
 
 python verify/check_tables.py            # check all 46 records vs the paper (~2 min, no re-run)
-bash reproduce/reproduce_cpu.sh          # re-run the 35 CPU tables from scratch (slow, ~2-3 h)
+bash reproduce/reproduce_cpu.sh          # re-run the 36 CPU tables from scratch (slow, ~2-3 h)
 ```
 
 The 7 whole-model LLM tables (GPU tier) and 3 derived tables are **not** part of

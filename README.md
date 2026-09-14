@@ -43,11 +43,11 @@ number no experiment produced cannot pass.
 
 **Artifact-evaluation badges.** *Functional* — this README + `docs/`; the code,
 models, data, and scripts are all in this one bundle; `make verify` / `make
-test` run out of the box. *Reproduced* — `make verify` re-runs the **45 data
+test` run out of the box. *Reproduced* — `make verify` re-runs the **46 data
 tables from scratch** and checks the freshly-computed numbers against the paper
-(43 recomputed to the printed value + 2 draw-checked); the 7 whole-model LLM
+(44 recomputed to the printed value + 2 draw-checked); the 7 whole-model LLM
 tables re-run only with the 253 GB tier (otherwise verified from their bundled
-record) and 3 derived tables have no standalone driver. The paper's other 7
+record) and 3 derived tables have no standalone driver. The paper's other 6
 tables are definitional/structural (no experimental data) and are verified by
 inspection / unit test.
 
@@ -60,7 +60,7 @@ large models.
 
 ```bash
 make install      # pinned conda env `archproof_repro` + pip install -e .        (~5 min, once)
-make verify       # re-run the 35 runnable tables FROM SCRATCH, check vs paper   (slow, ~2-3 h, CPU)
+make verify       # re-run the 36 runnable tables FROM SCRATCH, check vs paper   (slow, ~2-3 h, CPU)
 make verify-quick # instead: just check the bundled records vs the paper         (~2 min)
 make test         # pytest suite (synthetic ONNX)                                (~30 s)
 ```
@@ -71,8 +71,8 @@ back from a stored answer). It prints one line per table with `OK <n>/<n>`,
 ending with:
 
 ```
-data tables reproduced: 45/45  (43 recomputed to the printed value, 2 draw-checked)
-definitional/structural tables: 7 (no experimental data; verified by inspection / unit test)
+data tables reproduced: 46/46  (44 recomputed to the printed value, 2 draw-checked)
+definitional/structural tables: 6 (no experimental data; verified by inspection / unit test)
 ```
 
 ---
@@ -86,7 +86,7 @@ definitional/structural tables: 7 (no experimental data; verified by inspection 
   beyond numpy (no GPU, no torch, no network).
 
 - **Reproducing from scratch.** `make verify`
-  (= `bash reproduce/reproduce_cpu.sh`) re-runs the **35 CPU tables** from zero,
+  (= `bash reproduce/reproduce_cpu.sh`) re-runs the **36 CPU tables** from zero,
   regenerates each record, and checks the freshly-computed numbers against the
   paper (slow, ~2-3 h). A single table: `bash reproduce/tableNN.sh` — a fast one
   finishes in seconds, a heavy one (whole-ResNet-18 interval propagation,
@@ -102,7 +102,7 @@ definitional/structural tables: 7 (no experimental data; verified by inspection 
 ## 3. Reproducing the paper's tables
 
 The artifact and the paper PDF are separate: **you read the PDF, the code prints
-the numbers.** Each of the 35 runnable data tables has a one-click script under
+the numbers.** Each of the 36 runnable data tables has a one-click script under
 `reproduce/` that, by default, **reproduces the table from scratch** — it runs
 the experiment, regenerates the record, then checks it against the paper and
 prints the values for you to compare to the PDF by eye.
@@ -123,7 +123,7 @@ and **3 derived tables** (aggregate counts with no standalone driver).
 
 ```bash
 make verify-quick                        # check all 46 records vs the paper (~2 min, no re-run)
-bash reproduce/reproduce_cpu.sh          # re-run the 35 CPU tables from scratch (slow, ~2-3 h)
+bash reproduce/reproduce_cpu.sh          # re-run the 36 CPU tables from scratch (slow, ~2-3 h)
 ```
 
 The 7 LLM tables re-run only on the GPU tier (`bash scripts/download_llm.sh` →
