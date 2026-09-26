@@ -1,0 +1,4007 @@
+{
+ "n_models": 500,
+ "sort": "paper-record-order",
+ "source": "truth_source/per_model_phaseF.csv",
+ "models": [
+  {
+   "repo_id": "sentence-transformers/all-MiniLM-L6-v2",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 931.7,
+   "total_bytes": 976958259
+  },
+  {
+   "repo_id": "cross-encoder/ms-marco-MiniLM-L6-v2",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 848.9,
+   "total_bytes": 890136166
+  },
+  {
+   "repo_id": "BAAI/bge-small-en-v1.5",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 382.5,
+   "total_bytes": 401080320
+  },
+  {
+   "repo_id": "colbert-ir/colbertv2.0",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 1252.8,
+   "total_bytes": 1313656012
+  },
+  {
+   "repo_id": "BAAI/bge-base-en-v1.5",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1252.0,
+   "total_bytes": 1312817152
+  },
+  {
+   "repo_id": "nomic-ai/nomic-embed-text-v1",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1698.3,
+   "total_bytes": 1780796620
+  },
+  {
+   "repo_id": "sentence-transformers/paraphrase-MiniLM-L6-v2",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 845.0,
+   "total_bytes": 886046720
+  },
+  {
+   "repo_id": "distilbert/distilbert-base-uncased-finetuned-sst-2-english",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1278.6,
+   "total_bytes": 1340709273
+  },
+  {
+   "repo_id": "sentence-transformers/all-MiniLM-L12-v2",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1243.8,
+   "total_bytes": 1304218828
+  },
+  {
+   "repo_id": "patrickjohncyh/fashion-clip",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1739.0,
+   "total_bytes": 1823473664
+  },
+  {
+   "repo_id": "Xenova/all-MiniLM-L6-v2",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 328.0,
+   "total_bytes": 343932928
+  },
+  {
+   "repo_id": "cross-encoder/ms-marco-MiniLM-L4-v2",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 716.0,
+   "total_bytes": 750780416
+  },
+  {
+   "repo_id": "answerdotai/answerai-colbert-small-v1",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 853.4,
+   "total_bytes": 894854758
+  },
+  {
+   "repo_id": "Xenova/bge-base-en-v1.5",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1309.7,
+   "total_bytes": 1373319987
+  },
+  {
+   "repo_id": "cross-encoder/ms-marco-MiniLM-L12-v2",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1247.8,
+   "total_bytes": 1308413132
+  },
+  {
+   "repo_id": "minishlab/potion-base-8M",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 58.5,
+   "total_bytes": 61341696
+  },
+  {
+   "repo_id": "AdamCodd/vit-base-nsfw-detector",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1228.1,
+   "total_bytes": 1287756185
+  },
+  {
+   "repo_id": "intfloat/e5-small-v2",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 766.0,
+   "total_bytes": 803209216
+  },
+  {
+   "repo_id": "HuggingFaceTB/SmolLM2-135M-Instruct",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1878.6,
+   "total_bytes": 1969854873
+  },
+  {
+   "repo_id": "cross-encoder/ms-marco-MiniLM-L2-v2",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 583.0,
+   "total_bytes": 611319808
+  },
+  {
+   "repo_id": "sentence-transformers/paraphrase-MiniLM-L3-v2",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 645.5,
+   "total_bytes": 676855808
+  },
+  {
+   "repo_id": "sentence-transformers/paraphrase-MiniLM-L12-v2",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1244.0,
+   "total_bytes": 1304428544
+  },
+  {
+   "repo_id": "sentence-transformers/msmarco-MiniLM-L12-cos-v5",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1371.2,
+   "total_bytes": 1437807411
+  },
+  {
+   "repo_id": "jinaai/jina-embeddings-v2-small-en",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 498.8,
+   "total_bytes": 523029708
+  },
+  {
+   "repo_id": "mixedbread-ai/mxbai-rerank-xsmall-v1",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 500.0,
+   "total_bytes": 524288000
+  },
+  {
+   "repo_id": "sentence-transformers/multi-qa-MiniLM-L6-cos-v1",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 845.0,
+   "total_bytes": 886046720
+  },
+  {
+   "repo_id": "briaai/RMBG-1.4",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 803.2,
+   "total_bytes": 842216243
+  },
+  {
+   "repo_id": "Qdrant/all-MiniLM-L6-v2-onnx",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 87.1,
+   "total_bytes": 91330969
+  },
+  {
+   "repo_id": "thenlper/gte-small",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 765.7,
+   "total_bytes": 802894643
+  },
+  {
+   "repo_id": "mixedbread-ai/mxbai-rerank-base-v1",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1299.8,
+   "total_bytes": 1362939084
+  },
+  {
+   "repo_id": "lxyuan/distilbert-base-multilingual-cased-sentiments-student",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1552.6,
+   "total_bytes": 1628019097
+  },
+  {
+   "repo_id": "jinaai/jina-embeddings-v2-base-de",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1689.5,
+   "total_bytes": 1771569152
+  },
+  {
+   "repo_id": "breezedeus/pix2text-mfr",
+   "onnx_files": [
+    "decoder_model.onnx"
+   ],
+   "repo_mb": 112.2,
+   "total_bytes": 117650227
+  },
+  {
+   "repo_id": "shibing624/text2vec-base-chinese",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1849.4,
+   "total_bytes": 1939236454
+  },
+  {
+   "repo_id": "minishlab/potion-base-4M",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 29.7,
+   "total_bytes": 31142707
+  },
+  {
+   "repo_id": "Xenova/segformer-b0-finetuned-ade-512-512",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 26.4,
+   "total_bytes": 27682406
+  },
+  {
+   "repo_id": "Snowflake/snowflake-arctic-embed-m",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1634.4,
+   "total_bytes": 1713792614
+  },
+  {
+   "repo_id": "microsoft/layoutlmv3-base",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 1914.3,
+   "total_bytes": 2007289036
+  },
+  {
+   "repo_id": "sentence-transformers/paraphrase-albert-small-v2",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 661.2,
+   "total_bytes": 693318451
+  },
+  {
+   "repo_id": "protectai/deberta-v3-base-prompt-injection-v2",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1429.1,
+   "total_bytes": 1498519961
+  },
+  {
+   "repo_id": "livekit/turn-detector",
+   "onnx_files": [
+    "model_quantized.onnx"
+   ],
+   "repo_mb": 675.1,
+   "total_bytes": 707893657
+  },
+  {
+   "repo_id": "Qdrant/bge-small-en-v1.5-onnx-Q",
+   "onnx_files": [
+    "model_optimized.onnx"
+   ],
+   "repo_mb": 64.3,
+   "total_bytes": 67423436
+  },
+  {
+   "repo_id": "TaylorAI/bge-micro-v2",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 149.8,
+   "total_bytes": 157076684
+  },
+  {
+   "repo_id": "cross-encoder/ms-marco-TinyBERT-L2-v2",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 165.1,
+   "total_bytes": 173119897
+  },
+  {
+   "repo_id": "sentence-transformers/msmarco-MiniLM-L6-v3",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 931.6,
+   "total_bytes": 976853401
+  },
+  {
+   "repo_id": "Xenova/multilingual-e5-small",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1986.4,
+   "total_bytes": 2082891366
+  },
+  {
+   "repo_id": "redis/langcache-embed-v1",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1709.9,
+   "total_bytes": 1792960102
+  },
+  {
+   "repo_id": "dslim/distilbert-NER",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 499.3,
+   "total_bytes": 523553996
+  },
+  {
+   "repo_id": "Qdrant/all_miniLM_L6_v2_with_attentions",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 87.7,
+   "total_bytes": 91960115
+  },
+  {
+   "repo_id": "Xenova/bge-small-en-v1.5",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 438.8,
+   "total_bytes": 460115148
+  },
+  {
+   "repo_id": "segment-any-text/sat-3l-sm",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 1649.0,
+   "total_bytes": 1729101824
+  },
+  {
+   "repo_id": "distilbert/distilbert-base-cased",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 1089.2,
+   "total_bytes": 1142108979
+  },
+  {
+   "repo_id": "thenlper/gte-base",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1669.2,
+   "total_bytes": 1750283059
+  },
+  {
+   "repo_id": "Snowflake/snowflake-arctic-embed-xs",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 385.6,
+   "total_bytes": 404330905
+  },
+  {
+   "repo_id": "SmilingWolf/wd-swinv2-tagger-v3",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 1214.7,
+   "total_bytes": 1273705267
+  },
+  {
+   "repo_id": "akdeniz27/bert-base-turkish-cased-ner",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 1260.3,
+   "total_bytes": 1321520332
+  },
+  {
+   "repo_id": "minishlab/potion-retrieval-32M",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 248.4,
+   "total_bytes": 260466278
+  },
+  {
+   "repo_id": "jinaai/jina-embeddings-v2-base-code",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1690.7,
+   "total_bytes": 1772827443
+  },
+  {
+   "repo_id": "TahaDouaji/detr-doc-table-detection",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 476.7,
+   "total_bytes": 499856179
+  },
+  {
+   "repo_id": "jonathandinu/face-parsing",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1056.5,
+   "total_bytes": 1107820544
+  },
+  {
+   "repo_id": "dangvantuan/vietnamese-embedding",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1031.9,
+   "total_bytes": 1082025574
+  },
+  {
+   "repo_id": "nomic-ai/nomic-embed-vision-v1.5",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1279.9,
+   "total_bytes": 1342072422
+  },
+  {
+   "repo_id": "Maykeye/TinyLLama-v0",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 46.8,
+   "total_bytes": 49073356
+  },
+  {
+   "repo_id": "Jean-Baptiste/camembert-ner-with-dates",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 1260.4,
+   "total_bytes": 1321625190
+  },
+  {
+   "repo_id": "optimum-intel-internal-testing/tiny-random-bert",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 26.9,
+   "total_bytes": 28206694
+  },
+  {
+   "repo_id": "HuggingFaceTB/SmolLM-135M",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 2014.9,
+   "total_bytes": 2112775782
+  },
+  {
+   "repo_id": "Xenova/bert-base-NER",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1288.6,
+   "total_bytes": 1351195033
+  },
+  {
+   "repo_id": "onecxi/open-vakgyata",
+   "onnx_files": [
+    "onnx/model_quantized.onnx"
+   ],
+   "repo_mb": 448.3,
+   "total_bytes": 470076620
+  },
+  {
+   "repo_id": "PramaLLC/BEN2",
+   "onnx_files": [
+    "BEN2_Base.onnx"
+   ],
+   "repo_mb": 1676.5,
+   "total_bytes": 1757937664
+  },
+  {
+   "repo_id": "shibing624/text2vec-base-multilingual",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1407.1,
+   "total_bytes": 1475451289
+  },
+  {
+   "repo_id": "mattmdjaga/segformer_b2_clothes",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 523.1,
+   "total_bytes": 548510105
+  },
+  {
+   "repo_id": "Qdrant/paraphrase-multilingual-MiniLM-L12-v2-onnx-Q",
+   "onnx_files": [
+    "model_optimized.onnx"
+   ],
+   "repo_mb": 254.5,
+   "total_bytes": 266862592
+  },
+  {
+   "repo_id": "NX-AI/TiRex",
+   "onnx_files": [
+    "tirex.onnx"
+   ],
+   "repo_mb": 270.4,
+   "total_bytes": 283534950
+  },
+  {
+   "repo_id": "intfloat/e5-small",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 382.3,
+   "total_bytes": 400870604
+  },
+  {
+   "repo_id": "Xenova/finbert",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1320.6,
+   "total_bytes": 1384749465
+  },
+  {
+   "repo_id": "avsolatorio/GIST-small-Embedding-v0",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 415.0,
+   "total_bytes": 435159040
+  },
+  {
+   "repo_id": "Xenova/paraphrase-multilingual-MiniLM-L12-v2",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1995.7,
+   "total_bytes": 2092643123
+  },
+  {
+   "repo_id": "BAAI/bge-base-en",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1252.9,
+   "total_bytes": 1313760870
+  },
+  {
+   "repo_id": "jinaai/jina-embeddings-v2-base-zh",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1688.2,
+   "total_bytes": 1770206003
+  },
+  {
+   "repo_id": "onnx-community/Kokoro-82M-v1.0-ONNX",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1380.3,
+   "total_bytes": 1447349452
+  },
+  {
+   "repo_id": "minishlab/potion-multilingual-128M",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1001.1,
+   "total_bytes": 1049729433
+  },
+  {
+   "repo_id": "ibm-granite/granite-embedding-30m-english",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 233.8,
+   "total_bytes": 245157068
+  },
+  {
+   "repo_id": "sentence-transformers/multi-qa-MiniLM-L6-dot-v1",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 845.0,
+   "total_bytes": 886046720
+  },
+  {
+   "repo_id": "Organika/sdxl-detector",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1662.3,
+   "total_bytes": 1743047884
+  },
+  {
+   "repo_id": "lightonai/GTE-ModernColBERT-v1",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 1285.0,
+   "total_bytes": 1347420160
+  },
+  {
+   "repo_id": "SamLowe/roberta-base-go_emotions-onnx",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 601.8,
+   "total_bytes": 631033036
+  },
+  {
+   "repo_id": "csarron/mobilebert-uncased-squad-v2",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 282.6,
+   "total_bytes": 296327577
+  },
+  {
+   "repo_id": "Qdrant/Splade_PP_en_v1",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 508.3,
+   "total_bytes": 532991180
+  },
+  {
+   "repo_id": "optimum-intel-internal-testing/tiny-random-vit",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 0.9,
+   "total_bytes": 943718
+  },
+  {
+   "repo_id": "minishlab/potion-base-32M",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 248.4,
+   "total_bytes": 260466278
+  },
+  {
+   "repo_id": "Qdrant/minicoil-v1",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 607.7,
+   "total_bytes": 637219635
+  },
+  {
+   "repo_id": "Xenova/whisper-tiny.en",
+   "onnx_files": [
+    "onnx/decoder_model.onnx"
+   ],
+   "repo_mb": 1780.1,
+   "total_bytes": 1866570137
+  },
+  {
+   "repo_id": "madhurjindal/autonlp-Gibberish-Detector-492513457",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 768.0,
+   "total_bytes": 805306368
+  },
+  {
+   "repo_id": "Xenova/distilbert-base-uncased-finetuned-sst-2-english",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 882.1,
+   "total_bytes": 924948889
+  },
+  {
+   "repo_id": "Jean-Baptiste/camembert-ner",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 1260.7,
+   "total_bytes": 1321939763
+  },
+  {
+   "repo_id": "MoritzLaurer/deberta-v3-xsmall-zeroshot-v1.1-all-33",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 635.1,
+   "total_bytes": 665950617
+  },
+  {
+   "repo_id": "prithivida/Splade_PP_en_v1",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 927.7,
+   "total_bytes": 972763955
+  },
+  {
+   "repo_id": "michaelfeil/bge-small-en-v1.5",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 414.9,
+   "total_bytes": 435054182
+  },
+  {
+   "repo_id": "rtr46/meiki.txt.recognition.v0",
+   "onnx_files": [
+    "meiki.text.rec.v0.960x32.onnx"
+   ],
+   "repo_mb": 30.0,
+   "total_bytes": 31457280
+  },
+  {
+   "repo_id": "philschmid/distilbert-onnx",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 248.9,
+   "total_bytes": 260990566
+  },
+  {
+   "repo_id": "SmilingWolf/wd-vit-tagger-v3",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 1083.1,
+   "total_bytes": 1135712665
+  },
+  {
+   "repo_id": "LazarusNLP/all-indo-e5-small-v4",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 913.7,
+   "total_bytes": 958083891
+  },
+  {
+   "repo_id": "ibm-granite/granite-embedding-125m-english",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 954.9,
+   "total_bytes": 1001285222
+  },
+  {
+   "repo_id": "KittenML/kitten-tts-mini-0.8",
+   "onnx_files": [
+    "kitten_tts_mini_v0_8.onnx"
+   ],
+   "repo_mb": 77.8,
+   "total_bytes": 81579212
+  },
+  {
+   "repo_id": "MoritzLaurer/DeBERTa-v3-xsmall-mnli-fever-anli-ling-binary",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 905.3,
+   "total_bytes": 949275852
+  },
+  {
+   "repo_id": "mixedbread-ai/mxbai-embed-xsmall-v1",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 735.0,
+   "total_bytes": 770703360
+  },
+  {
+   "repo_id": "optimum/t5-small",
+   "onnx_files": [
+    "decoder_model.onnx"
+   ],
+   "repo_mb": 568.6,
+   "total_bytes": 596220313
+  },
+  {
+   "repo_id": "MoritzLaurer/deberta-v3-base-zeroshot-v1.1-all-33",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1651.6,
+   "total_bytes": 1731828121
+  },
+  {
+   "repo_id": "p1atdev/wd-swinv2-tagger-v3-hf",
+   "onnx_files": [
+    "model_quantized.onnx"
+   ],
+   "repo_mb": 288.4,
+   "total_bytes": 302409318
+  },
+  {
+   "repo_id": "Snowflake/snowflake-arctic-embed-s",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 531.5,
+   "total_bytes": 557318144
+  },
+  {
+   "repo_id": "rtr46/meiki.text.detect.v0",
+   "onnx_files": [
+    "meiki.text.detect.tiny.v0.onnx"
+   ],
+   "repo_mb": 77.1,
+   "total_bytes": 80845209
+  },
+  {
+   "repo_id": "1-800-BAD-CODE/punctuation_fullstop_truecase_english",
+   "onnx_files": [
+    "punct_cap_seg_en.onnx"
+   ],
+   "repo_mb": 200.4,
+   "total_bytes": 210134630
+  },
+  {
+   "repo_id": "Qdrant/bge-base-en-v1.5-onnx-Q",
+   "onnx_files": [
+    "model_optimized.onnx"
+   ],
+   "repo_mb": 208.6,
+   "total_bytes": 218732953
+  },
+  {
+   "repo_id": "chriamue/bird-species-classifier",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 64.8,
+   "total_bytes": 67947724
+  },
+  {
+   "repo_id": "Supabase/gte-small",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 287.6,
+   "total_bytes": 301570457
+  },
+  {
+   "repo_id": "ibm-granite/granite-embedding-107m-multilingual",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 1360.9,
+   "total_bytes": 1427007078
+  },
+  {
+   "repo_id": "ogkalu/comic-text-and-bubble-detector",
+   "onnx_files": [
+    "detector.onnx"
+   ],
+   "repo_mb": 324.3,
+   "total_bytes": 340053196
+  },
+  {
+   "repo_id": "onnx-community/Kokoro-82M-ONNX",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1357.6,
+   "total_bytes": 1423546777
+  },
+  {
+   "repo_id": "Xenova/jina-embeddings-v2-small-en",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 457.6,
+   "total_bytes": 479828377
+  },
+  {
+   "repo_id": "fxmarty/resnet-tiny-beans",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 1.5,
+   "total_bytes": 1572864
+  },
+  {
+   "repo_id": "Xenova/whisper-tiny",
+   "onnx_files": [
+    "onnx/decoder_model.onnx"
+   ],
+   "repo_mb": 1780.8,
+   "total_bytes": 1867304140
+  },
+  {
+   "repo_id": "minishlab/M2V_base_output",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 123.4,
+   "total_bytes": 129394278
+  },
+  {
+   "repo_id": "KittenML/kitten-tts-nano-0.1",
+   "onnx_files": [
+    "kitten_tts_nano_v0_1.onnx"
+   ],
+   "repo_mb": 22.8,
+   "total_bytes": 23907532
+  },
+  {
+   "repo_id": "Qdrant/bge-large-en-v1.5-onnx",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 1275.8,
+   "total_bytes": 1337773260
+  },
+  {
+   "repo_id": "cross-encoder/ms-marco-TinyBERT-L2",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 165.1,
+   "total_bytes": 173119897
+  },
+  {
+   "repo_id": "Xenova/mobilebert-uncased-mnli",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 296.9,
+   "total_bytes": 311322214
+  },
+  {
+   "repo_id": "HuggingFaceTB/SmolLM-135M-Instruct",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1870.3,
+   "total_bytes": 1961151692
+  },
+  {
+   "repo_id": "chopratejas/technique-router-onnx",
+   "onnx_files": [
+    "model_quantized.onnx"
+   ],
+   "repo_mb": 33.3,
+   "total_bytes": 34917580
+  },
+  {
+   "repo_id": "onnx-models/all-mpnet-base-v2-onnx",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 416.7,
+   "total_bytes": 436941619
+  },
+  {
+   "repo_id": "Xenova/ms-marco-MiniLM-L-6-v2",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 330.7,
+   "total_bytes": 346764083
+  },
+  {
+   "repo_id": "morsetechlab/yolov11-license-plate-detection",
+   "onnx_files": [
+    "license-plate-finetune-v1l.onnx"
+   ],
+   "repo_mb": 656.4,
+   "total_bytes": 688285286
+  },
+  {
+   "repo_id": "Xenova/llama2.c-stories15M",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1040.8,
+   "total_bytes": 1091357900
+  },
+  {
+   "repo_id": "docling-project/DocumentFigureClassifier-v2.0",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 31.6,
+   "total_bytes": 33135001
+  },
+  {
+   "repo_id": "optimum-intel-internal-testing/tiny-random-CodeGenForCausalLM",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 2.8,
+   "total_bytes": 2936012
+  },
+  {
+   "repo_id": "jinaai/jina-reranker-v1-turbo-en",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 670.6,
+   "total_bytes": 703175065
+  },
+  {
+   "repo_id": "cmarkea/distilcamembert-base-sentiment",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 1040.1,
+   "total_bytes": 1090623897
+  },
+  {
+   "repo_id": "optimum-intel-internal-testing/tiny-random-Phi3ForCausalLM",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 40.2,
+   "total_bytes": 42152755
+  },
+  {
+   "repo_id": "KittenML/kitten-tts-micro-0.8",
+   "onnx_files": [
+    "kitten_tts_micro_v0_8.onnx"
+   ],
+   "repo_mb": 42.6,
+   "total_bytes": 44669337
+  },
+  {
+   "repo_id": "optimum-intel-internal-testing/tiny-random-GPTNeoXForCausalLM",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 2.5,
+   "total_bytes": 2621440
+  },
+  {
+   "repo_id": "mixedbread-ai/mxbai-edge-colbert-v0-32m",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 285.8,
+   "total_bytes": 299683020
+  },
+  {
+   "repo_id": "MoritzLaurer/deberta-v3-base-zeroshot-v2.0",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1077.4,
+   "total_bytes": 1129735782
+  },
+  {
+   "repo_id": "prithivida/Splade_PP_en_v2",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 927.8,
+   "total_bytes": 972868812
+  },
+  {
+   "repo_id": "optimum-intel-internal-testing/tiny-random-CohereForCausalLM",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 0.5,
+   "total_bytes": 524288
+  },
+  {
+   "repo_id": "GenTelLab/gentelshield-v1",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 1088.0,
+   "total_bytes": 1140850688
+  },
+  {
+   "repo_id": "avsolatorio/GIST-all-MiniLM-L6-v2",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 282.4,
+   "total_bytes": 296117862
+  },
+  {
+   "repo_id": "Xenova/jina-embeddings-v2-base-en",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1592.1,
+   "total_bytes": 1669437849
+  },
+  {
+   "repo_id": "segment-any-text/sat-3l",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 2025.3,
+   "total_bytes": 2123680972
+  },
+  {
+   "repo_id": "optimum-intel-internal-testing/bge-small-en-v1.5",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 382.5,
+   "total_bytes": 401080320
+  },
+  {
+   "repo_id": "Isotonic/distilbert_finetuned_ai4privacy_v2",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 509.0,
+   "total_bytes": 533725184
+  },
+  {
+   "repo_id": "fxmarty/sshleifer-tiny-mbart-onnx",
+   "onnx_files": [
+    "decoder_model.onnx"
+   ],
+   "repo_mb": 11.6,
+   "total_bytes": 12163481
+  },
+  {
+   "repo_id": "line-corporation/clip-japanese-base",
+   "onnx_files": [
+    "onnx/clyp_visual.onnx"
+   ],
+   "repo_mb": 1505.2,
+   "total_bytes": 1578316595
+  },
+  {
+   "repo_id": "optimum-intel-internal-testing/tiny-random-ArceeForCausalLM",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 35.8,
+   "total_bytes": 37539020
+  },
+  {
+   "repo_id": "onnx-community/whisper-tiny",
+   "onnx_files": [
+    "onnx/decoder_model.onnx"
+   ],
+   "repo_mb": 1350.3,
+   "total_bytes": 1415892172
+  },
+  {
+   "repo_id": "SmilingWolf/wd-v1-4-convnext-tagger-v2",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 746.0,
+   "total_bytes": 782237696
+  },
+  {
+   "repo_id": "optimum-intel-internal-testing/tiny-random-DebertaV2Model",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 58.4,
+   "total_bytes": 61236838
+  },
+  {
+   "repo_id": "Xenova/gte-small",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 438.8,
+   "total_bytes": 460115148
+  },
+  {
+   "repo_id": "optimum-intel-internal-testing/tiny-random-MptForCausalLM",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 0.9,
+   "total_bytes": 943718
+  },
+  {
+   "repo_id": "Xenova/all-mpnet-base-v2",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1309.7,
+   "total_bytes": 1373319987
+  },
+  {
+   "repo_id": "optimum-intel-internal-testing/tiny-random-MobileBertModel",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 8.5,
+   "total_bytes": 8912896
+  },
+  {
+   "repo_id": "MongoDB/mdbr-leaf-mt",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 323.2,
+   "total_bytes": 338899763
+  },
+  {
+   "repo_id": "Xenova/wav2vec2-base-960h",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1043.1,
+   "total_bytes": 1093769625
+  },
+  {
+   "repo_id": "minishlab/potion-base-2M",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 15.3,
+   "total_bytes": 16043212
+  },
+  {
+   "repo_id": "Xenova/mms-tts-eng",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 201.0,
+   "total_bytes": 210763776
+  },
+  {
+   "repo_id": "optimum-intel-internal-testing/tiny-random-VisionEncoderDecoderModel-vit-gpt2",
+   "onnx_files": [
+    "onnx/decoder_model.onnx"
+   ],
+   "repo_mb": 7.8,
+   "total_bytes": 8178892
+  },
+  {
+   "repo_id": "Qdrant/bge-small-zh-v1.5",
+   "onnx_files": [
+    "model_optimized.onnx"
+   ],
+   "repo_mb": 90.9,
+   "total_bytes": 95315558
+  },
+  {
+   "repo_id": "docling-project/DocumentFigureClassifier-v2.5",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 32.0,
+   "total_bytes": 33554432
+  },
+  {
+   "repo_id": "optimum-intel-internal-testing/tiny-random-unispeech",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 0.4,
+   "total_bytes": 419430
+  },
+  {
+   "repo_id": "Xenova/slimsam-77-uniform",
+   "onnx_files": [
+    "onnx/vision_encoder.onnx"
+   ],
+   "repo_mb": 70.9,
+   "total_bytes": 74344038
+  },
+  {
+   "repo_id": "gravitee-io/bert-small-pii-detection",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 246.1,
+   "total_bytes": 258054553
+  },
+  {
+   "repo_id": "skt/kobert-base-v1",
+   "onnx_files": [
+    "legacy/kobert.onnx1.8.0.onnx"
+   ],
+   "repo_mb": 1761.3,
+   "total_bytes": 1846856908
+  },
+  {
+   "repo_id": "Snowflake/snowflake-arctic-embed-m-long",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 2010.9,
+   "total_bytes": 2108581478
+  },
+  {
+   "repo_id": "Isotonic/deberta-v3-base_finetuned_ai4privacy_v2",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1425.3,
+   "total_bytes": 1494535372
+  },
+  {
+   "repo_id": "Xenova/clip-vit-base-patch16",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 2008.7,
+   "total_bytes": 2106274611
+  },
+  {
+   "repo_id": "mixedbread-ai/mxbai-edge-colbert-v0-17m",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 149.5,
+   "total_bytes": 156762112
+  },
+  {
+   "repo_id": "Qdrant/bge-small-en",
+   "onnx_files": [
+    "model_optimized.onnx"
+   ],
+   "repo_mb": 127.6,
+   "total_bytes": 133798297
+  },
+  {
+   "repo_id": "trpakov/vit-face-expression",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 982.3,
+   "total_bytes": 1030016204
+  },
+  {
+   "repo_id": "cointegrated/rubert-base-cased-nli-threeway",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 2044.8,
+   "total_bytes": 2144128204
+  },
+  {
+   "repo_id": "optimum/all-MiniLM-L6-v2",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 87.6,
+   "total_bytes": 91855257
+  },
+  {
+   "repo_id": "Xenova/nomic-embed-text-v1",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 916.7,
+   "total_bytes": 961229619
+  },
+  {
+   "repo_id": "KittenML/kitten-tts-nano-0.8-fp32",
+   "onnx_files": [
+    "kitten_tts_nano_v0_8.onnx"
+   ],
+   "repo_mb": 57.3,
+   "total_bytes": 60083404
+  },
+  {
+   "repo_id": "protectai/unbiased-toxic-roberta-onnx",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 598.7,
+   "total_bytes": 627782451
+  },
+  {
+   "repo_id": "gourishankar023/finbert-payment-freetext-ner-v1",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 416.6,
+   "total_bytes": 436836761
+  },
+  {
+   "repo_id": "optimum-intel-internal-testing/tiny-random-BeitForImageClassification",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 0.3,
+   "total_bytes": 314572
+  },
+  {
+   "repo_id": "Xenova/toxic-bert",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1320.7,
+   "total_bytes": 1384854323
+  },
+  {
+   "repo_id": "Falconsai/text_summarization",
+   "onnx_files": [
+    "onnx/decoder_model.onnx"
+   ],
+   "repo_mb": 1551.3,
+   "total_bytes": 1626655948
+  },
+  {
+   "repo_id": "jjzha/jobbert-base-cased",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1326.2,
+   "total_bytes": 1390621491
+  },
+  {
+   "repo_id": "Xenova/dinov2-small",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 211.1,
+   "total_bytes": 221354393
+  },
+  {
+   "repo_id": "philomath-1209/programming-language-identification",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 643.7,
+   "total_bytes": 674968371
+  },
+  {
+   "repo_id": "mispeech/ced-base",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 409.9,
+   "total_bytes": 429811302
+  },
+  {
+   "repo_id": "llmware/protectai-prompt-injection-onnx",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 715.0,
+   "total_bytes": 749731840
+  },
+  {
+   "repo_id": "alephpi/FormulaNet",
+   "onnx_files": [
+    "onnx/decoder_model.onnx"
+   ],
+   "repo_mb": 856.9,
+   "total_bytes": 898524774
+  },
+  {
+   "repo_id": "sentence-transformers/msmarco-MiniLM-L6-cos-v5",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 931.6,
+   "total_bytes": 976853401
+  },
+  {
+   "repo_id": "zeahub/augmented-camus-segmentation",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 128.2,
+   "total_bytes": 134427443
+  },
+  {
+   "repo_id": "Xenova/modnet",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 105.1,
+   "total_bytes": 110205337
+  },
+  {
+   "repo_id": "optimum-intel-internal-testing/tiny-random-Idefics3ForConditionalGeneration",
+   "onnx_files": [
+    "onnx/embed_tokens.onnx"
+   ],
+   "repo_mb": 155.8,
+   "total_bytes": 163368140
+  },
+  {
+   "repo_id": "onnx-community/whisper-tiny.en",
+   "onnx_files": [
+    "onnx/decoder_model.onnx"
+   ],
+   "repo_mb": 1350.1,
+   "total_bytes": 1415682457
+  },
+  {
+   "repo_id": "hotchpotch/japanese-reranker-xsmall-v2",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 923.1,
+   "total_bytes": 967940505
+  },
+  {
+   "repo_id": "TaylorAI/gte-tiny",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 281.8,
+   "total_bytes": 295488716
+  },
+  {
+   "repo_id": "shibing624/macbert4csc-base-chinese",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1233.6,
+   "total_bytes": 1293523353
+  },
+  {
+   "repo_id": "gpahal/bge-m3-onnx-int8",
+   "onnx_files": [
+    "model_quantized.onnx"
+   ],
+   "repo_mb": 564.7,
+   "total_bytes": 592130867
+  },
+  {
+   "repo_id": "deepvk/USER2-base",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1146.8,
+   "total_bytes": 1202506956
+  },
+  {
+   "repo_id": "onnx-community/moonshine-base-ONNX",
+   "onnx_files": [
+    "onnx/decoder_model.onnx"
+   ],
+   "repo_mb": 1932.5,
+   "total_bytes": 2026373120
+  },
+  {
+   "repo_id": "onnx-community/BiRefNet_lite-ONNX",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 322.9,
+   "total_bytes": 338585190
+  },
+  {
+   "repo_id": "optimum-intel-internal-testing/all-MiniLM-L6-v2",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 931.7,
+   "total_bytes": 976958259
+  },
+  {
+   "repo_id": "MoritzLaurer/roberta-large-zeroshot-v2.0-c",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 2040.4,
+   "total_bytes": 2139514470
+  },
+  {
+   "repo_id": "Xenova/bge-small-zh-v1.5",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 332.0,
+   "total_bytes": 348127232
+  },
+  {
+   "repo_id": "fxmarty/tiny-llama-fast-tokenizer",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 10.5,
+   "total_bytes": 11010048
+  },
+  {
+   "repo_id": "breezedeus/cnstd-ppocr-ch_PP-OCRv5_det",
+   "onnx_files": [
+    "ch_PP-OCRv5_det_infer.onnx"
+   ],
+   "repo_mb": 4.6,
+   "total_bytes": 4823449
+  },
+  {
+   "repo_id": "MongoDB/mdbr-leaf-ir",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 322.1,
+   "total_bytes": 337746329
+  },
+  {
+   "repo_id": "YatharthS/LuxTTS",
+   "onnx_files": [
+    "fm_decoder.onnx"
+   ],
+   "repo_mb": 1126.0,
+   "total_bytes": 1180696576
+  },
+  {
+   "repo_id": "cmarkea/distilcamembert-base-ner",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 1167.5,
+   "total_bytes": 1224212480
+  },
+  {
+   "repo_id": "sayed0am/arabic-english-bge-m3",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1734.6,
+   "total_bytes": 1818859929
+  },
+  {
+   "repo_id": "sadickam/sdgBERT",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 836.6,
+   "total_bytes": 877238681
+  },
+  {
+   "repo_id": "jinaai/jina-reranker-v1-tiny-en",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 605.5,
+   "total_bytes": 634912768
+  },
+  {
+   "repo_id": "nickprock/sentence-bert-base-italian-xxl-uncased",
+   "onnx_files": [
+    "onnx/model_qint8_avx512_vnni.onnx"
+   ],
+   "repo_mb": 951.8,
+   "total_bytes": 998034636
+  },
+  {
+   "repo_id": "projecte-aina/alvocat-vocos-22khz",
+   "onnx_files": [
+    "mel_spec_22khz_cat.onnx"
+   ],
+   "repo_mb": 102.9,
+   "total_bytes": 107898470
+  },
+  {
+   "repo_id": "Xenova/nli-deberta-v3-xsmall",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1226.9,
+   "total_bytes": 1286497894
+  },
+  {
+   "repo_id": "Qdrant/clip-ViT-B-32-vision",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 335.4,
+   "total_bytes": 351692390
+  },
+  {
+   "repo_id": "WinKawaks/vit-small-patch16-224",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 293.4,
+   "total_bytes": 307652198
+  },
+  {
+   "repo_id": "MoritzLaurer/multilingual-MiniLMv2-L6-mnli-xnli",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1266.9,
+   "total_bytes": 1328440934
+  },
+  {
+   "repo_id": "nixiesearch/e5-small-v2-onnx",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 159.8,
+   "total_bytes": 167562444
+  },
+  {
+   "repo_id": "cross-encoder/stsb-TinyBERT-L4",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 536.8,
+   "total_bytes": 562875596
+  },
+  {
+   "repo_id": "jinaai/jina-embeddings-v2-base-es",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1383.8,
+   "total_bytes": 1451019468
+  },
+  {
+   "repo_id": "holistic-ai/rejection_detection",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 633.1,
+   "total_bytes": 663853465
+  },
+  {
+   "repo_id": "onnx-internal-testing/tiny-random-ArceeForCausalLM",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 35.8,
+   "total_bytes": 37539020
+  },
+  {
+   "repo_id": "SteveTran/ob_ner_model",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 1017.3,
+   "total_bytes": 1066716364
+  },
+  {
+   "repo_id": "Xenova/distilbert-base-uncased-mnli",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 882.0,
+   "total_bytes": 924844032
+  },
+  {
+   "repo_id": "KittenML/kitten-tts-nano-0.2",
+   "onnx_files": [
+    "kitten_tts_nano_v0_2.onnx"
+   ],
+   "repo_mb": 22.7,
+   "total_bytes": 23802675
+  },
+  {
+   "repo_id": "NTQAI/pedestrian_gender_recognition",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 1010.0,
+   "total_bytes": 1059061760
+  },
+  {
+   "repo_id": "jhu-clsp/ettin-encoder-17m",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 341.5,
+   "total_bytes": 358088704
+  },
+  {
+   "repo_id": "onnx-community/depth-anything-v2-small",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 289.1,
+   "total_bytes": 303143321
+  },
+  {
+   "repo_id": "onnx-models/all-MiniLM-L6-v2-onnx",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 87.2,
+   "total_bytes": 91435827
+  },
+  {
+   "repo_id": "projecte-aina/matxa-tts-cat-multiaccent",
+   "onnx_files": [
+    "matxa_multiaccent_wavenext_e2e.onnx"
+   ],
+   "repo_mb": 535.7,
+   "total_bytes": 561722163
+  },
+  {
+   "repo_id": "Xenova/tiny-random-Phi3ForCausalLM",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 40.2,
+   "total_bytes": 42152755
+  },
+  {
+   "repo_id": "Xenova/detr-resnet-50",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 581.3,
+   "total_bytes": 609537228
+  },
+  {
+   "repo_id": "minishlab/M2V_multilingual_output",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1485.9,
+   "total_bytes": 1558079078
+  },
+  {
+   "repo_id": "protectai/vishnun-codenlbert-sm-onnx",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 110.7,
+   "total_bytes": 116077363
+  },
+  {
+   "repo_id": "TaylorAI/bge-micro",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 149.8,
+   "total_bytes": 157076684
+  },
+  {
+   "repo_id": "Cohee/distilbert-base-uncased-go-emotions-onnx",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 321.0,
+   "total_bytes": 336592896
+  },
+  {
+   "repo_id": "KlingTeam/LivePortrait",
+   "onnx_files": [
+    "liveportrait/landmark.onnx"
+   ],
+   "repo_mb": 2040.9,
+   "total_bytes": 2140038758
+  },
+  {
+   "repo_id": "Xenova/dino-vits16",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 207.6,
+   "total_bytes": 217684377
+  },
+  {
+   "repo_id": "sentence-transformers/all-MiniLM-L6-v1",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 758.2,
+   "total_bytes": 795030323
+  },
+  {
+   "repo_id": "neuphonic/neucodec-onnx-decoder",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 746.3,
+   "total_bytes": 782552268
+  },
+  {
+   "repo_id": "tech4humans/yolov8s-signature-detector",
+   "onnx_files": [
+    "yolov8s.onnx"
+   ],
+   "repo_mb": 1364.6,
+   "total_bytes": 1430886809
+  },
+  {
+   "repo_id": "1-800-BAD-CODE/punct_cap_seg_47_language",
+   "onnx_files": [
+    "punct_cap_seg_47lang.onnx"
+   ],
+   "repo_mb": 223.4,
+   "total_bytes": 234251878
+  },
+  {
+   "repo_id": "Xenova/depth-anything-small-hf",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 265.1,
+   "total_bytes": 277977497
+  },
+  {
+   "repo_id": "mispeech/ced-tiny",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 27.4,
+   "total_bytes": 28730982
+  },
+  {
+   "repo_id": "protectai/MoritzLaurer-roberta-base-zeroshot-v2.0-c-onnx",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 479.0,
+   "total_bytes": 502267904
+  },
+  {
+   "repo_id": "MoralHazard/GIST-small-attn",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 260.7,
+   "total_bytes": 273363763
+  },
+  {
+   "repo_id": "neuphonic/neucodec-onnx-decoder-int8",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 297.8,
+   "total_bytes": 312265932
+  },
+  {
+   "repo_id": "minuva/MiniLMv2-toxic-jigsaw",
+   "onnx_files": [
+    "model_optimized.onnx"
+   ],
+   "repo_mb": 347.7,
+   "total_bytes": 364589875
+  },
+  {
+   "repo_id": "Xenova/face-parsing",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 573.6,
+   "total_bytes": 601463193
+  },
+  {
+   "repo_id": "AdamCodd/tinybert-emotion-balanced",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 111.4,
+   "total_bytes": 116811366
+  },
+  {
+   "repo_id": "skytnt/midi-model-tv2o-medium",
+   "onnx_files": [
+    "onnx/model_base.onnx"
+   ],
+   "repo_mb": 1832.2,
+   "total_bytes": 1921200947
+  },
+  {
+   "repo_id": "unum-cloud/uform3-image-text-multilingual-base",
+   "onnx_files": [
+    "text_encoder.onnx"
+   ],
+   "repo_mb": 1936.6,
+   "total_bytes": 2030672281
+  },
+  {
+   "repo_id": "optimum/distilbert-base-uncased-finetuned-sst-2-english",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 256.4,
+   "total_bytes": 268854886
+  },
+  {
+   "repo_id": "badaoui/tiny-random-NemotronForCausalLM",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 105.5,
+   "total_bytes": 110624768
+  },
+  {
+   "repo_id": "protectai/guishe-nuner-v1_orgs-onnx",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 476.7,
+   "total_bytes": 499856179
+  },
+  {
+   "repo_id": "corto-ai/nomic-embed-text-v1",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1698.4,
+   "total_bytes": 1780901478
+  },
+  {
+   "repo_id": "Xenova/e5-small-v2",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 438.8,
+   "total_bytes": 460115148
+  },
+  {
+   "repo_id": "protectai/codebert-base-Malicious_URLs-onnx",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 479.0,
+   "total_bytes": 502267904
+  },
+  {
+   "repo_id": "onnx-community/Ternary-Bonsai-1.7B-ONNX",
+   "onnx_files": [
+    "onnx/model_q2.onnx"
+   ],
+   "repo_mb": 939.8,
+   "total_bytes": 985451724
+  },
+  {
+   "repo_id": "arman-bd/guppylm-9M",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 77.0,
+   "total_bytes": 80740352
+  },
+  {
+   "repo_id": "nomic-ai/nomic-embed-vision-v1",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1279.9,
+   "total_bytes": 1342072422
+  },
+  {
+   "repo_id": "Falconsai/nsfw_image_detection_26",
+   "onnx_files": [
+    "onnx_model/model.onnx"
+   ],
+   "repo_mb": 1148.7,
+   "total_bytes": 1204499251
+  },
+  {
+   "repo_id": "Xenova/vit-base-patch16-224",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 821.7,
+   "total_bytes": 861614899
+  },
+  {
+   "repo_id": "Supertone/supertonic-2",
+   "onnx_files": [
+    "onnx/vocoder.onnx"
+   ],
+   "repo_mb": 255.7,
+   "total_bytes": 268120883
+  },
+  {
+   "repo_id": "Xenova/ms-marco-TinyBERT-L-2-v2",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 77.9,
+   "total_bytes": 81684070
+  },
+  {
+   "repo_id": "MintplexLabs/multilingual-e5-small",
+   "onnx_files": [
+    "onnx/model_quantized.onnx"
+   ],
+   "repo_mb": 486.4,
+   "total_bytes": 510027366
+  },
+  {
+   "repo_id": "Xenova/twitter-roberta-base-sentiment-latest",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1598.7,
+   "total_bytes": 1676358451
+  },
+  {
+   "repo_id": "onnx-community/BEN2-ONNX",
+   "onnx_files": [
+    "onnx/model_fp16.onnx"
+   ],
+   "repo_mb": 209.0,
+   "total_bytes": 219152384
+  },
+  {
+   "repo_id": "KittenML/kitten-tts-nano-0.8-int8",
+   "onnx_files": [
+    "kitten_tts_nano_v0_8.onnx"
+   ],
+   "repo_mb": 26.4,
+   "total_bytes": 27682406
+  },
+  {
+   "repo_id": "katuni4ka/tiny-random-LlamaForCausalLM-onnx",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 6.3,
+   "total_bytes": 6606028
+  },
+  {
+   "repo_id": "MarsSecurity/tech-entity-biencoder",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 572.4,
+   "total_bytes": 600204902
+  },
+  {
+   "repo_id": "Xenova/yolos-tiny",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 77.3,
+   "total_bytes": 81054924
+  },
+  {
+   "repo_id": "Xenova/msmarco-distilbert-base-v4",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 871.1,
+   "total_bytes": 913414553
+  },
+  {
+   "repo_id": "benjamin/wtp-bert-mini",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 44.6,
+   "total_bytes": 46766489
+  },
+  {
+   "repo_id": "Norod78/hebrew-gpt_neo-small",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 1854.4,
+   "total_bytes": 1944479334
+  },
+  {
+   "repo_id": "Qdrant/clip-ViT-B-32-text",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 245.8,
+   "total_bytes": 257739980
+  },
+  {
+   "repo_id": "onnx-community/ormbg-ONNX",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 798.7,
+   "total_bytes": 837497651
+  },
+  {
+   "repo_id": "Xenova/distilbert-base-cased-distilled-squad",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 850.0,
+   "total_bytes": 891289600
+  },
+  {
+   "repo_id": "Xenova/segformer-b2-finetuned-cityscapes-1024-1024",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 185.4,
+   "total_bytes": 194405990
+  },
+  {
+   "repo_id": "knowledgator/gliner-pii-base-v1.0",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1783.2,
+   "total_bytes": 1869820723
+  },
+  {
+   "repo_id": "sentence-transformers/paraphrase-albert-base-v2",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 720.1,
+   "total_bytes": 755079577
+  },
+  {
+   "repo_id": "latishab/turnsense",
+   "onnx_files": [
+    "model_preprocessed.onnx"
+   ],
+   "repo_mb": 1498.5,
+   "total_bytes": 1571291136
+  },
+  {
+   "repo_id": "segment-any-text/sat-6l-sm",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 1812.4,
+   "total_bytes": 1900439142
+  },
+  {
+   "repo_id": "timm/mobilenetv4_conv_aa_large.e230_r448_in12k_ft_in1k",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 374.2,
+   "total_bytes": 392377139
+  },
+  {
+   "repo_id": "protectai/distilroberta-base-rejection-v1",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 633.1,
+   "total_bytes": 663853465
+  },
+  {
+   "repo_id": "realasd222/punctuate-all",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1340.8,
+   "total_bytes": 1405930700
+  },
+  {
+   "repo_id": "Xenova/bert-base-uncased",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1316.8,
+   "total_bytes": 1380764876
+  },
+  {
+   "repo_id": "postbot/distilgpt2-emailgen-V2",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 1099.4,
+   "total_bytes": 1152804454
+  },
+  {
+   "repo_id": "Deepchecks/parrot_fluency_model_onnx",
+   "onnx_files": [
+    "model_optimized.onnx"
+   ],
+   "repo_mb": 219.9,
+   "total_bytes": 230581862
+  },
+  {
+   "repo_id": "onnx-community/Llama-3.2-1B-Instruct-q4f16",
+   "onnx_files": [
+    "onnx/model_q4f16.onnx"
+   ],
+   "repo_mb": 1189.2,
+   "total_bytes": 1246966579
+  },
+  {
+   "repo_id": "hlyn/prompt-injection-judge-deberta-70m",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 364.2,
+   "total_bytes": 381891379
+  },
+  {
+   "repo_id": "onnx-community/moonshine-tiny-ONNX",
+   "onnx_files": [
+    "onnx/decoder_model.onnx"
+   ],
+   "repo_mb": 974.9,
+   "total_bytes": 1022256742
+  },
+  {
+   "repo_id": "yurijmikhalevich/rclip-models",
+   "onnx_files": [
+    "ViT-B-32-256-datacomp_s34b_b86k/visual.onnx"
+   ],
+   "repo_mb": 914.9,
+   "total_bytes": 959342182
+  },
+  {
+   "repo_id": "Xenova/ms-marco-MiniLM-L-12-v2",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 441.7,
+   "total_bytes": 463156019
+  },
+  {
+   "repo_id": "Cohee/jina-embeddings-v2-base-en",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 726.3,
+   "total_bytes": 761580748
+  },
+  {
+   "repo_id": "Joshfcooper/ai-text-detector-optimized",
+   "onnx_files": [
+    "fixed_optimized_detector.onnx"
+   ],
+   "repo_mb": 843.4,
+   "total_bytes": 884368998
+  },
+  {
+   "repo_id": "Abhishekcr448/Tiny-Hinglish-Chat-21M",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 373.7,
+   "total_bytes": 391852851
+  },
+  {
+   "repo_id": "broadfield-dev/bert-small-ner-pii-tuned-12261022-onnx",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 28.3,
+   "total_bytes": 29674700
+  },
+  {
+   "repo_id": "FredZhang7/danbooru-tag-generator",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 780.7,
+   "total_bytes": 818623283
+  },
+  {
+   "repo_id": "docling-project/docling-layout-heron-onnx",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 163.3,
+   "total_bytes": 171232460
+  },
+  {
+   "repo_id": "Norod78/hebrew-gpt_neo-tiny",
+   "onnx_files": [
+    "onnx/decoder_model_merged_quantized.onnx"
+   ],
+   "repo_mb": 1071.3,
+   "total_bytes": 1123339468
+  },
+  {
+   "repo_id": "synapti/nci-ner-v2",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1079.9,
+   "total_bytes": 1132357222
+  },
+  {
+   "repo_id": "sentence-transformers/msmarco-MiniLM-L12-v3",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1371.2,
+   "total_bytes": 1437807411
+  },
+  {
+   "repo_id": "vogent/Vogent-Turn-80M",
+   "onnx_files": [
+    "onnx-fp32/whisper-smol-lm-smaller.onnx"
+   ],
+   "repo_mb": 1031.1,
+   "total_bytes": 1081186713
+  },
+  {
+   "repo_id": "segment-any-text/sat-1l-sm",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 1540.2,
+   "total_bytes": 1615016755
+  },
+  {
+   "repo_id": "Isotonic/distilbert_finetuned_ai4privacy",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 762.5,
+   "total_bytes": 799539200
+  },
+  {
+   "repo_id": "Xenova/all-MiniLM-L12-v2",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 438.8,
+   "total_bytes": 460115148
+  },
+  {
+   "repo_id": "AlgorithmicResearchGroup/gpt2-xs",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 232.7,
+   "total_bytes": 244003635
+  },
+  {
+   "repo_id": "ayousanz/piper-plus-tsukuyomi-chan",
+   "onnx_files": [
+    "tsukuyomi-chan-6lang-fp16.onnx"
+   ],
+   "repo_mb": 38.0,
+   "total_bytes": 39845888
+  },
+  {
+   "repo_id": "sentence-transformers-testing/stsb-bert-tiny-onnx",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 34.4,
+   "total_bytes": 36071014
+  },
+  {
+   "repo_id": "Felix92/onnxtr-parseq-multilingual-v1",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 92.3,
+   "total_bytes": 96783564
+  },
+  {
+   "repo_id": "lightonai/LateOn-Code-edge",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 149.5,
+   "total_bytes": 156762112
+  },
+  {
+   "repo_id": "newmindai/Mursit-Base-TR-Retrieval",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 1192.7,
+   "total_bytes": 1250636595
+  },
+  {
+   "repo_id": "onnx-community/Kokoro-82M-v1.0-ONNX-timestamped",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1380.3,
+   "total_bytes": 1447349452
+  },
+  {
+   "repo_id": "onnx-community/ModernBERT-base-nli-ONNX",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1847.3,
+   "total_bytes": 1937034444
+  },
+  {
+   "repo_id": "NeuML/ljspeech-jets-onnx",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 126.4,
+   "total_bytes": 132540006
+  },
+  {
+   "repo_id": "onnx-community/clip-vit-base-patch32-ONNX",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1783.3,
+   "total_bytes": 1869925580
+  },
+  {
+   "repo_id": "tarekziade/pardonmyai",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 576.3,
+   "total_bytes": 604294348
+  },
+  {
+   "repo_id": "gety-ai/gety-embed-v0",
+   "onnx_files": [
+    "onnx/model_uint8.onnx"
+   ],
+   "repo_mb": 353.2,
+   "total_bytes": 370357043
+  },
+  {
+   "repo_id": "optimum/sbert-all-MiniLM-L6-with-pooler",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 87.6,
+   "total_bytes": 91855257
+  },
+  {
+   "repo_id": "pszemraj/grammar-synthesis-small",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 884.3,
+   "total_bytes": 927255756
+  },
+  {
+   "repo_id": "breezedeus/pix2text-mfr-1.5",
+   "onnx_files": [
+    "decoder_model.onnx"
+   ],
+   "repo_mb": 114.1,
+   "total_bytes": 119642521
+  },
+  {
+   "repo_id": "imgly/isnet-general-onnx",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 252.1,
+   "total_bytes": 264346009
+  },
+  {
+   "repo_id": "sentence-transformers/all-MiniLM-L12-v1",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1116.5,
+   "total_bytes": 1170735104
+  },
+  {
+   "repo_id": "utrobinmv/tts_ru_free_hf_vits_low_multispeaker",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 106.1,
+   "total_bytes": 111253913
+  },
+  {
+   "repo_id": "protectai/deberta-v3-small-prompt-injection-v2",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1104.2,
+   "total_bytes": 1157837619
+  },
+  {
+   "repo_id": "onnx-community/TinyBERT-finetuned-NER-ONNX",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 224.7,
+   "total_bytes": 235615027
+  },
+  {
+   "repo_id": "p1atdev/dart-v1-sft",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 931.3,
+   "total_bytes": 976538828
+  },
+  {
+   "repo_id": "optimum-internal-testing/tiny-random-T5Model",
+   "onnx_files": [
+    "onnx/encoder_model.onnx"
+   ],
+   "repo_mb": 11.6,
+   "total_bytes": 12163481
+  },
+  {
+   "repo_id": "Xenova/GIST-small-Embedding-v0",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 439.2,
+   "total_bytes": 460534579
+  },
+  {
+   "repo_id": "onnx-community/pyannote-segmentation-3.0",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 26.9,
+   "total_bytes": 28206694
+  },
+  {
+   "repo_id": "istupakov/canary-180m-flash-onnx",
+   "onnx_files": [
+    "decoder-model.onnx"
+   ],
+   "repo_mb": 946.8,
+   "total_bytes": 992791756
+  },
+  {
+   "repo_id": "Xenova/owlvit-base-patch32",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1656.1,
+   "total_bytes": 1736546713
+  },
+  {
+   "repo_id": "istupakov/whisper-base-onnx",
+   "onnx_files": [
+    "whisper-base_beamsearch.onnx"
+   ],
+   "repo_mb": 483.6,
+   "total_bytes": 507091353
+  },
+  {
+   "repo_id": "BricksDisplay/vits-cmn",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 296.9,
+   "total_bytes": 311322214
+  },
+  {
+   "repo_id": "MoritzLaurer/xtremedistil-l6-h256-zeroshot-v1.1-all-33",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 110.9,
+   "total_bytes": 116287078
+  },
+  {
+   "repo_id": "Felix92/onnxtr-crnn-mobilenet-v3-large",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 17.2,
+   "total_bytes": 18035507
+  },
+  {
+   "repo_id": "n24q02m/Qwen3-Embedding-0.6B-ONNX",
+   "onnx_files": [
+    "onnx/model_q4f16.onnx"
+   ],
+   "repo_mb": 1100.0,
+   "total_bytes": 1153433600
+  },
+  {
+   "repo_id": "dennisjooo/Birds-Classifier-EfficientNetB2",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 129.5,
+   "total_bytes": 135790592
+  },
+  {
+   "repo_id": "istupakov/stt_ru_fastconformer_hybrid_large_pc_onnx",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 1147.6,
+   "total_bytes": 1203345817
+  },
+  {
+   "repo_id": "Xenova/dpt-hybrid-midas",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1550.3,
+   "total_bytes": 1625607372
+  },
+  {
+   "repo_id": "onnx-community/all-MiniLM-L6-v2-ONNX",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 210.5,
+   "total_bytes": 220725248
+  },
+  {
+   "repo_id": "onnx-community/bert-tiny-finetuned-sms-spam-detection-ONNX",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 77.9,
+   "total_bytes": 81684070
+  },
+  {
+   "repo_id": "nickprock/multi-sentence-BERTino",
+   "onnx_files": [
+    "onnx/model_qint8_avx512_vnni.onnx"
+   ],
+   "repo_mb": 323.8,
+   "total_bytes": 339528908
+  },
+  {
+   "repo_id": "gravitee-io/Llama-Prompt-Guard-2-22M-onnx",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 618.9,
+   "total_bytes": 648963686
+  },
+  {
+   "repo_id": "minuva/MiniLMv2-toxic-jigsaw-onnx",
+   "onnx_files": [
+    "model_optimized_quantized.onnx"
+   ],
+   "repo_mb": 22.7,
+   "total_bytes": 23802675
+  },
+  {
+   "repo_id": "Isotonic/distilbert-base-german-cased_finetuned_ai4privacy_v2",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 512.4,
+   "total_bytes": 537290342
+  },
+  {
+   "repo_id": "dmko/pythia-14m-ONNX",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 200.8,
+   "total_bytes": 210554060
+  },
+  {
+   "repo_id": "Qdrant/gte-large-onnx",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 1275.8,
+   "total_bytes": 1337773260
+  },
+  {
+   "repo_id": "optimum/distilbert-base-uncased-mnli",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 256.4,
+   "total_bytes": 268854886
+  },
+  {
+   "repo_id": "Kansallisarkisto/multicentury-htr-model-small-onnx",
+   "onnx_files": [
+    "decoder_model.onnx"
+   ],
+   "repo_mb": 242.4,
+   "total_bytes": 254174822
+  },
+  {
+   "repo_id": "bajrangCoder/roberta_spam_onnx",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 1194.1,
+   "total_bytes": 1252104601
+  },
+  {
+   "repo_id": "hotchpotch/japanese-reranker-tiny-v2",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 739.0,
+   "total_bytes": 774897664
+  },
+  {
+   "repo_id": "knowledgator/gliner-pii-edge-v1.0",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 478.8,
+   "total_bytes": 502058188
+  },
+  {
+   "repo_id": "redis/langcache-embed-v2",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1710.2,
+   "total_bytes": 1793274675
+  },
+  {
+   "repo_id": "xtmono/guppylm",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 48.4,
+   "total_bytes": 50751078
+  },
+  {
+   "repo_id": "tamsuiboy/guppylm-9M",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 77.0,
+   "total_bytes": 80740352
+  },
+  {
+   "repo_id": "zeahub/mobilenetv2-regional-quality",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 9.4,
+   "total_bytes": 9856614
+  },
+  {
+   "repo_id": "onnx-community/whisper-tiny.en_timestamped",
+   "onnx_files": [
+    "onnx/decoder_model.onnx"
+   ],
+   "repo_mb": 1394.6,
+   "total_bytes": 1462344089
+  },
+  {
+   "repo_id": "hynt/Zipformer-30M-RNNT-6000h",
+   "onnx_files": [
+    "joiner-epoch-20-avg-10.onnx"
+   ],
+   "repo_mb": 227.3,
+   "total_bytes": 238341324
+  },
+  {
+   "repo_id": "onnx-community/mobilenetv4_conv_small.e2400_r224_in1k",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 61.7,
+   "total_bytes": 64697139
+  },
+  {
+   "repo_id": "onnx-community/dinov3-vits16-pretrain-lvd1689m-ONNX",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 117.6,
+   "total_bytes": 123312537
+  },
+  {
+   "repo_id": "shreyask/pantheon-ui-onnx",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1804.1,
+   "total_bytes": 1891735961
+  },
+  {
+   "repo_id": "Xenova/gte-base",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1309.7,
+   "total_bytes": 1373319987
+  },
+  {
+   "repo_id": "KnightsAnalytics/all-MiniLM-L6-v2",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 86.9,
+   "total_bytes": 91121254
+  },
+  {
+   "repo_id": "videosdk-live/Namo-Turn-Detector-v1-Multilingual",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 1501.2,
+   "total_bytes": 1574122291
+  },
+  {
+   "repo_id": "RaivisDejus/whisper-tiny-lv",
+   "onnx_files": [
+    "onnx/decoder_model.onnx"
+   ],
+   "repo_mb": 1103.0,
+   "total_bytes": 1156579328
+  },
+  {
+   "repo_id": "istupakov/silero-vad-onnx",
+   "onnx_files": [
+    "silero_vad.onnx"
+   ],
+   "repo_mb": 6.2,
+   "total_bytes": 6501171
+  },
+  {
+   "repo_id": "Xenova/distilbert-base-uncased-distilled-squad",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 871.3,
+   "total_bytes": 913624268
+  },
+  {
+   "repo_id": "p1atdev/dart-v2-sft",
+   "onnx_files": [
+    "model_quantized.onnx"
+   ],
+   "repo_mb": 329.4,
+   "total_bytes": 345400934
+  },
+  {
+   "repo_id": "SmilingWolf/wd-convnext-tagger-v3",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 1130.0,
+   "total_bytes": 1184890880
+  },
+  {
+   "repo_id": "minishlab/potion-science-32M",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 246.9,
+   "total_bytes": 258893414
+  },
+  {
+   "repo_id": "onnx-community/Supertonic-TTS-ONNX",
+   "onnx_files": [
+    "onnx/text_encoder.onnx"
+   ],
+   "repo_mb": 251.1,
+   "total_bytes": 263297433
+  },
+  {
+   "repo_id": "klebster/g2p_multilingual_byT5_tiny_onnx",
+   "onnx_files": [
+    "decoder_model.onnx"
+   ],
+   "repo_mb": 101.4,
+   "total_bytes": 106325606
+  },
+  {
+   "repo_id": "visheratin/t5-efficient-mini-grammar-correction",
+   "onnx_files": [
+    "decoder_model.onnx"
+   ],
+   "repo_mb": 518.7,
+   "total_bytes": 543896371
+  },
+  {
+   "repo_id": "knowledgator/gliclass-small-v1.0",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1272.8,
+   "total_bytes": 1334627532
+  },
+  {
+   "repo_id": "Xenova/speecht5_hifigan",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 70.3,
+   "total_bytes": 73714892
+  },
+  {
+   "repo_id": "segment-any-text/sat-9l",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 1961.5,
+   "total_bytes": 2056781824
+  },
+  {
+   "repo_id": "Xenova/resnet-18",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 200.9,
+   "total_bytes": 210658918
+  },
+  {
+   "repo_id": "lightonai/LateOn",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 1325.1,
+   "total_bytes": 1389468057
+  },
+  {
+   "repo_id": "telepix/PIXIE-Splade-v1.0",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1288.0,
+   "total_bytes": 1350565888
+  },
+  {
+   "repo_id": "onnx-community/whisper-tiny_timestamped",
+   "onnx_files": [
+    "onnx/decoder_model.onnx"
+   ],
+   "repo_mb": 1394.8,
+   "total_bytes": 1462553804
+  },
+  {
+   "repo_id": "Xenova/tiny-random-LlavaForConditionalGeneration",
+   "onnx_files": [
+    "onnx/embed_tokens.onnx"
+   ],
+   "repo_mb": 145.9,
+   "total_bytes": 152987238
+  },
+  {
+   "repo_id": "prithivMLmods/Common-Voice-Gender-Detection-ONNX",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1044.6,
+   "total_bytes": 1095342489
+  },
+  {
+   "repo_id": "breezedeus/pix2text-mfd-1.5",
+   "onnx_files": [
+    "pix2text-mfd-1.5.onnx"
+   ],
+   "repo_mb": 76.6,
+   "total_bytes": 80320921
+  },
+  {
+   "repo_id": "Xenova/detr-resnet-50-panoptic",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 289.3,
+   "total_bytes": 303353036
+  },
+  {
+   "repo_id": "celestialcreator/axon-smollm2-360m",
+   "onnx_files": [
+    "onnx/model_q4.onnx"
+   ],
+   "repo_mb": 1771.3,
+   "total_bytes": 1857342668
+  },
+  {
+   "repo_id": "protectai/distilroberta-bias-onnx",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 708.6,
+   "total_bytes": 743020953
+  },
+  {
+   "repo_id": "gravitee-io/distilbert-multilingual-toxicity-classifier",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 1165.9,
+   "total_bytes": 1222534758
+  },
+  {
+   "repo_id": "kemonito233/complete",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 418.0,
+   "total_bytes": 438304768
+  },
+  {
+   "repo_id": "luxdelux7/ForbiddenVision_Models",
+   "onnx_files": [
+    "ForbiddenVision_face_detect_v1.onnx"
+   ],
+   "repo_mb": 91.0,
+   "total_bytes": 95420416
+  },
+  {
+   "repo_id": "harsh-wk/long-seq-paraphrase-MiniLM-L6-v2",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 845.0,
+   "total_bytes": 886046720
+  },
+  {
+   "repo_id": "onnx-internal-testing/tiny-random-LlamaForCausalLM-ONNX_external",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 7.9,
+   "total_bytes": 8283750
+  },
+  {
+   "repo_id": "meshxdata/foundation-minilm-v1",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 44.5,
+   "total_bytes": 46661632
+  },
+  {
+   "repo_id": "Xenova/tiny-random-WhisperForConditionalGeneration",
+   "onnx_files": [
+    "onnx/decoder_model.onnx"
+   ],
+   "repo_mb": 77.4,
+   "total_bytes": 81159782
+  },
+  {
+   "repo_id": "BritishWerewolf/U-2-Net",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 167.8,
+   "total_bytes": 175951052
+  },
+  {
+   "repo_id": "temsa/IrishCore-GlobalPointer-ContextPII-135M-v1-rc29",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1178.7,
+   "total_bytes": 1235956531
+  },
+  {
+   "repo_id": "nickprock/sentence-bert-base-italian-uncased",
+   "onnx_files": [
+    "onnx/model_qint8_avx512_vnni.onnx"
+   ],
+   "repo_mb": 945.2,
+   "total_bytes": 991114035
+  },
+  {
+   "repo_id": "Felix92/onnxtr-db-resnet50",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 96.2,
+   "total_bytes": 100873011
+  },
+  {
+   "repo_id": "protectai/bert-base-NER-onnx",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 412.0,
+   "total_bytes": 432013312
+  },
+  {
+   "repo_id": "rhnfzl/wikineural-multilingual-ner-onnx",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 679.2,
+   "total_bytes": 712192819
+  },
+  {
+   "repo_id": "onnx-community/Supertonic-TTS-2-ONNX",
+   "onnx_files": [
+    "onnx/text_encoder.onnx"
+   ],
+   "repo_mb": 251.2,
+   "total_bytes": 263402291
+  },
+  {
+   "repo_id": "jjzha/jobspanbert-base-cased",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1440.4,
+   "total_bytes": 1510368870
+  },
+  {
+   "repo_id": "jonngan/finbert-onnx",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 418.8,
+   "total_bytes": 439143628
+  },
+  {
+   "repo_id": "nomic-ai/nomic-embed-text-v1-unsupervised",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1176.7,
+   "total_bytes": 1233859379
+  },
+  {
+   "repo_id": "nixiesearch/all-MiniLM-L6-v2-onnx",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 109.0,
+   "total_bytes": 114294784
+  },
+  {
+   "repo_id": "Xenova/tiny-random-GemmaForCausalLM",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 62.7,
+   "total_bytes": 65745715
+  },
+  {
+   "repo_id": "asmud/nomic-embed-indonesian",
+   "onnx_files": [
+    "onnx/model_q8.onnx"
+   ],
+   "repo_mb": 654.1,
+   "total_bytes": 685873561
+  },
+  {
+   "repo_id": "fancyfeast/joytag",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 698.3,
+   "total_bytes": 732220620
+  },
+  {
+   "repo_id": "Xenova/mobileclip_s2",
+   "onnx_files": [
+    "onnx/text_model.onnx"
+   ],
+   "repo_mb": 1322.1,
+   "total_bytes": 1386322329
+  },
+  {
+   "repo_id": "shermansiu/lc0_BT4-1024x15x32h-swa-5000000",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 1026.8,
+   "total_bytes": 1076677836
+  },
+  {
+   "repo_id": "UnfilteredAI/Mia-001",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 932.5,
+   "total_bytes": 977797120
+  },
+  {
+   "repo_id": "sirasagi62/granite-embedding-107m-multilingual-ONNX",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1870.9,
+   "total_bytes": 1961780838
+  },
+  {
+   "repo_id": "DenSec02/glublm-36m",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 175.8,
+   "total_bytes": 184339660
+  },
+  {
+   "repo_id": "Qdrant/resnet50-onnx",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 89.6,
+   "total_bytes": 93952409
+  },
+  {
+   "repo_id": "unsloth/all-MiniLM-L6-v2",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 931.7,
+   "total_bytes": 976958259
+  },
+  {
+   "repo_id": "flobiz-og/mbb-web-intent-classifier",
+   "onnx_files": [
+    "onnx/model_quantized.onnx"
+   ],
+   "repo_mb": 111.4,
+   "total_bytes": 116811366
+  },
+  {
+   "repo_id": "meshxdata/codeberta-small-v1-onnx",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 123.6,
+   "total_bytes": 129603993
+  },
+  {
+   "repo_id": "Xenova/tiny-random-Florence2ForConditionalGeneration",
+   "onnx_files": [
+    "onnx/embed_tokens.onnx"
+   ],
+   "repo_mb": 53.6,
+   "total_bytes": 56203673
+  },
+  {
+   "repo_id": "spiele/nsfw_image_detector-ONNX",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 911.5,
+   "total_bytes": 955777024
+  },
+  {
+   "repo_id": "onnx-community/roberta-base-openai-detector-ONNX",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1600.0,
+   "total_bytes": 1677721600
+  },
+  {
+   "repo_id": "segment-any-text/sat-6l",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 1798.1,
+   "total_bytes": 1885444505
+  },
+  {
+   "repo_id": "logasanjeev/bert-emotion-classifier",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 836.1,
+   "total_bytes": 876714393
+  },
+  {
+   "repo_id": "Xenova/facial_emotions_image_detection",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 808.5,
+   "total_bytes": 847773696
+  },
+  {
+   "repo_id": "KittenML/kitten-tts-mini-0.1",
+   "onnx_files": [
+    "kitten_tts_mini_v0_1.onnx"
+   ],
+   "repo_mb": 158.4,
+   "total_bytes": 166094438
+  },
+  {
+   "repo_id": "Xenova/wavlm-base-plus-sv",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 480.9,
+   "total_bytes": 504260198
+  },
+  {
+   "repo_id": "Qdrant/fast-bge-base-en",
+   "onnx_files": [
+    "model_optimized.onnx"
+   ],
+   "repo_mb": 416.3,
+   "total_bytes": 436522188
+  },
+  {
+   "repo_id": "onnx-community/Deep-Fake-Detector-v2-Model-ONNX",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 891.8,
+   "total_bytes": 935120076
+  },
+  {
+   "repo_id": "yasserrmd/granite-embedding-r2-onnx",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 146.4,
+   "total_bytes": 153511526
+  },
+  {
+   "repo_id": "ldenoue/Title_Generation_T5Small_Model",
+   "onnx_files": [
+    "onnx/decoder_model.onnx"
+   ],
+   "repo_mb": 754.0,
+   "total_bytes": 790626304
+  },
+  {
+   "repo_id": "justinchuby/BirdNET-onnx",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 183.0,
+   "total_bytes": 191889408
+  },
+  {
+   "repo_id": "Kadonox/fugumt-ja-en-onnx",
+   "onnx_files": [
+    "onnx/decoder_model.onnx"
+   ],
+   "repo_mb": 1126.8,
+   "total_bytes": 1181535436
+  },
+  {
+   "repo_id": "onnx-internal-testing/tiny-random-VoxtralRealtimeForConditionalGeneration",
+   "onnx_files": [
+    "onnx/embed_tokens.onnx"
+   ],
+   "repo_mb": 169.6,
+   "total_bytes": 177838489
+  },
+  {
+   "repo_id": "onnx-community/distilbert-NER-ONNX",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 850.3,
+   "total_bytes": 891604172
+  },
+  {
+   "repo_id": "onnx-internal-testing/tiny-random-Gemma3ForConditionalGeneration",
+   "onnx_files": [
+    "onnx/embed_tokens.onnx"
+   ],
+   "repo_mb": 288.7,
+   "total_bytes": 302723891
+  },
+  {
+   "repo_id": "Xenova/gelan-c_all",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 171.1,
+   "total_bytes": 179411353
+  },
+  {
+   "repo_id": "Ceva-IP/DPDFNet",
+   "onnx_files": [
+    "onnx/baseline.onnx"
+   ],
+   "repo_mb": 214.2,
+   "total_bytes": 224604979
+  },
+  {
+   "repo_id": "LPX55/detection-model-3-ONNX",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 930.4,
+   "total_bytes": 975595110
+  },
+  {
+   "repo_id": "mispeech/ced-mini",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 47.5,
+   "total_bytes": 49807360
+  },
+  {
+   "repo_id": "Supertone/supertonic",
+   "onnx_files": [
+    "onnx/vocoder.onnx"
+   ],
+   "repo_mb": 254.9,
+   "total_bytes": 267282022
+  },
+  {
+   "repo_id": "Hexmon/vyra-yolo-ppe-detection",
+   "onnx_files": [
+    "best.onnx"
+   ],
+   "repo_mb": 149.1,
+   "total_bytes": 156342681
+  },
+  {
+   "repo_id": "amd-quark/tiny-llama-fast-tokenizer",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 10.5,
+   "total_bytes": 11010048
+  },
+  {
+   "repo_id": "onnx-internal-testing/tiny-random-Gemma3nForConditionalGeneration",
+   "onnx_files": [
+    "onnx/embed_tokens.onnx"
+   ],
+   "repo_mb": 173.0,
+   "total_bytes": 181403648
+  },
+  {
+   "repo_id": "MoralHazard/GISTsmall",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 193.0,
+   "total_bytes": 202375168
+  },
+  {
+   "repo_id": "LPX55/detection-model-6-ONNX",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 930.4,
+   "total_bytes": 975595110
+  },
+  {
+   "repo_id": "protectai/deberta-v3-base-injection-onnx",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 715.0,
+   "total_bytes": 749731840
+  },
+  {
+   "repo_id": "LPX55/detection-model-2-ONNX",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 891.8,
+   "total_bytes": 935120076
+  },
+  {
+   "repo_id": "Felix92/onnxtr-crnn-vgg16-bn",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 60.3,
+   "total_bytes": 63229132
+  },
+  {
+   "repo_id": "Xenova/segformer_b0_clothes",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 26.2,
+   "total_bytes": 27472691
+  },
+  {
+   "repo_id": "nagham-mlb/supportbot-model",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 631.7,
+   "total_bytes": 662385459
+  },
+  {
+   "repo_id": "LPX55/detection-model-5-ONNX",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 891.8,
+   "total_bytes": 935120076
+  },
+  {
+   "repo_id": "Xenova/resnet-50",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 439.1,
+   "total_bytes": 460429721
+  },
+  {
+   "repo_id": "LPX55/detection-model-7-ONNX",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 891.8,
+   "total_bytes": 935120076
+  },
+  {
+   "repo_id": "onnx-internal-testing/tiny-random-Qwen3ForCausalLM",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 53.6,
+   "total_bytes": 56203673
+  },
+  {
+   "repo_id": "NAKSTStudio/yolov8m-chess-piece-detection",
+   "onnx_files": [
+    "best.onnx"
+   ],
+   "repo_mb": 297.1,
+   "total_bytes": 311531929
+  },
+  {
+   "repo_id": "Xenova/tiny-random-Wav2Vec2ForCTC-ONNX",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 0.2,
+   "total_bytes": 209715
+  },
+  {
+   "repo_id": "Xenova/swin2SR-classical-sr-x2-64",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 179.7,
+   "total_bytes": 188429107
+  },
+  {
+   "repo_id": "castorini/splade-pp-onnx",
+   "onnx_files": [
+    "splade-pp-ed-optimized.onnx"
+   ],
+   "repo_mb": 1014.6,
+   "total_bytes": 1063885209
+  },
+  {
+   "repo_id": "Mozilla/smart-tab-embedding",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 415.1,
+   "total_bytes": 435263897
+  },
+  {
+   "repo_id": "cfsdwe/static-embedding-japanese-ONNX-for-js",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 162.1,
+   "total_bytes": 169974169
+  },
+  {
+   "repo_id": "pszemraj/bart-base-grammar-synthesis",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 1747.3,
+   "total_bytes": 1832176844
+  },
+  {
+   "repo_id": "rrrpromex/RRR-PRO-MEX-AI-CORE",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1878.6,
+   "total_bytes": 1969854873
+  },
+  {
+   "repo_id": "onnx-internal-testing/tiny-random-LlamaForCausalLM-GQA",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 98.1,
+   "total_bytes": 102865305
+  },
+  {
+   "repo_id": "Xenova/sam-vit-base",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1278.9,
+   "total_bytes": 1341023846
+  },
+  {
+   "repo_id": "onnx-community/tiny-random-jais",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 15.2,
+   "total_bytes": 15938355
+  },
+  {
+   "repo_id": "aixk/twiny-stack-L04",
+   "onnx_files": [
+    "shared/onnx/latest/twiny-stack-L04.onnx"
+   ],
+   "repo_mb": 790.4,
+   "total_bytes": 828794470
+  },
+  {
+   "repo_id": "onnx-community/tiny-random-MarianMTModel",
+   "onnx_files": [
+    "onnx/decoder_model.onnx"
+   ],
+   "repo_mb": 119.8,
+   "total_bytes": 125619404
+  },
+  {
+   "repo_id": "Kadonox/fugumt-en-ja-onnx",
+   "onnx_files": [
+    "onnx/decoder_model.onnx"
+   ],
+   "repo_mb": 1126.6,
+   "total_bytes": 1181325721
+  },
+  {
+   "repo_id": "Xenova/distilbert-base-uncased",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 878.2,
+   "total_bytes": 920859443
+  },
+  {
+   "repo_id": "onnx-community/Falcon-H1-Tiny-90M-Instruct-ONNX",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1027.6,
+   "total_bytes": 1077516697
+  },
+  {
+   "repo_id": "onnx-community/chatgpt-detector-roberta-ONNX",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1600.0,
+   "total_bytes": 1677721600
+  },
+  {
+   "repo_id": "onnx-internal-testing/tiny-random-WhisperForConditionalGeneration-ONNX_external",
+   "onnx_files": [
+    "onnx/encoder_model.onnx"
+   ],
+   "repo_mb": 14.1,
+   "total_bytes": 14784921
+  },
+  {
+   "repo_id": "exp-models/dragonkue-KoEn-E5-Tiny",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 845.9,
+   "total_bytes": 886990438
+  },
+  {
+   "repo_id": "trentmkelly/slop-detector-mini-2",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 678.1,
+   "total_bytes": 711039385
+  },
+  {
+   "repo_id": "Xenova/segformer-b2-finetuned-ade-512-512",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 186.1,
+   "total_bytes": 195139993
+  },
+  {
+   "repo_id": "l0wgear/manga-ocr-2025-onnx",
+   "onnx_files": [
+    "decoder_model.onnx"
+   ],
+   "repo_mb": 134.1,
+   "total_bytes": 140614041
+  },
+  {
+   "repo_id": "onnx-community/tiny-random-LlamaForCausalLM-ONNX",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 131.4,
+   "total_bytes": 137782886
+  },
+  {
+   "repo_id": "onnx-community/wav2vec2-base-Speech_Emotion_Recognition-ONNX",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 1044.6,
+   "total_bytes": 1095342489
+  },
+  {
+   "repo_id": "onnx-community/mediapipe_selfie_segmentation",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 2.4,
+   "total_bytes": 2516582
+  },
+  {
+   "repo_id": "Negative-Star-Innovators/MiniLM-L6-finetuned-pii-detection-v2",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 87.3,
+   "total_bytes": 91540684
+  },
+  {
+   "repo_id": "Felix92/onnxtr-db-mobilenet-v3-large",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 15.3,
+   "total_bytes": 16043212
+  },
+  {
+   "repo_id": "temsa/gliner2-large-v1-onnx-cpu-qint8",
+   "onnx_files": [
+    "onnx/encoder.onnx"
+   ],
+   "repo_mb": 622.2,
+   "total_bytes": 652423987
+  },
+  {
+   "repo_id": "Lettria/onnx-tatr-struct-v1.1-all",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 110.5,
+   "total_bytes": 115867648
+  },
+  {
+   "repo_id": "fxmarty/onnx-tiny-random-gpt2-with-merge",
+   "onnx_files": [
+    "decoder_model.onnx"
+   ],
+   "repo_mb": 2.9,
+   "total_bytes": 3040870
+  },
+  {
+   "repo_id": "Lettria/onnx-tatr-det",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 110.3,
+   "total_bytes": 115657932
+  },
+  {
+   "repo_id": "onnx-community/tiny-random-olmo-hf",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 28.4,
+   "total_bytes": 29779558
+  },
+  {
+   "repo_id": "Xenova/paraphrase-MiniLM-L3-v2",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 272.4,
+   "total_bytes": 285632102
+  },
+  {
+   "repo_id": "onnx-community/granite-embedding-small-english-r2-ONNX",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 480.4,
+   "total_bytes": 503735910
+  },
+  {
+   "repo_id": "Xenova/trocr-small-printed",
+   "onnx_files": [
+    "onnx/decoder_model.onnx"
+   ],
+   "repo_mb": 793.3,
+   "total_bytes": 831835340
+  },
+  {
+   "repo_id": "yihong1120/Construction-Hazard-Detection",
+   "onnx_files": [
+    "models/yolo11/onnx/yolo11l.onnx"
+   ],
+   "repo_mb": 1318.1,
+   "total_bytes": 1382128025
+  },
+  {
+   "repo_id": "lc-studio/ruri-v3-130m-onnx",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 512.6,
+   "total_bytes": 537500057
+  },
+  {
+   "repo_id": "RJTPP/tennis-ball-detection",
+   "onnx_files": [
+    "best.onnx"
+   ],
+   "repo_mb": 17.6,
+   "total_bytes": 18454937
+  },
+  {
+   "repo_id": "onnx-internal-testing/tiny-random-BertModel-ONNX",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 0.5,
+   "total_bytes": 524288
+  },
+  {
+   "repo_id": "0xnbk/nbk-ats-semantic-v1-en",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 262.5,
+   "total_bytes": 275251200
+  },
+  {
+   "repo_id": "ayousanz/piper-plus-css10-ja-6lang",
+   "onnx_files": [
+    "css10-ja-6lang-fp16.onnx"
+   ],
+   "repo_mb": 37.6,
+   "total_bytes": 39426457
+  },
+  {
+   "repo_id": "Felix92/onnxtr-crnn-mobilenet-v3-small",
+   "onnx_files": [
+    "model.onnx"
+   ],
+   "repo_mb": 7.9,
+   "total_bytes": 8283750
+  },
+  {
+   "repo_id": "Xenova/quickdraw-mobilevit-small",
+   "onnx_files": [
+    "onnx/model.onnx"
+   ],
+   "repo_mb": 55.7,
+   "total_bytes": 58405683
+  }
+ ]
+}

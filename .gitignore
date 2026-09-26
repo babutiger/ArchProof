@@ -1,0 +1,20 @@
+__pycache__/
+*.pyc
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+*.log
+verify/check_report.json
+utils/__pycache__/
+# large model files are not kept in the GitHub copy (see README: Zenodo has the full bundle)
+models/**/*.onnx
+models/**/*.pth
+models/**/*.pt
+models/**/*.safetensors
+models/**/*.bin
+data/cifar-10-batches-py/
+benchmark/exporter_test/*.onnx
+ccs2026-ae/
+# internal rerun logs / probe scripts / old records: not part of the public copy
+logs/

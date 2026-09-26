@@ -1,0 +1,620 @@
+{
+  "description": "Extended baseline F1 on 11 in-class + 49 natural-clean slice",
+  "n_in_class": 11,
+  "n_natural49": 49,
+  "in_class_models": [
+    "H2_AvgPoolGated",
+    "H3_MulIndicatorGated",
+    "op_int_tar",
+    "op_int_tar_L0001",
+    "op_int_tar_L001",
+    "op_int_tar_L01",
+    "op_int_un",
+    "op_sep_tar",
+    "op_sep_un",
+    "op_sha_tar",
+    "op_sha_un"
+  ],
+  "natural49_models": [
+    "alexnet",
+    "attention_pool",
+    "avgpool_net",
+    "bottleneck_net",
+    "cifar_conv",
+    "cifar_mlp",
+    "conv_batchnorm",
+    "conv_deep",
+    "conv_dropout",
+    "conv_groupnorm",
+    "densenet121",
+    "densenet169",
+    "depthwise_separable",
+    "dilated_conv",
+    "efficientnet_b0",
+    "elu_net",
+    "gated_attention",
+    "gated_residual",
+    "gated_sigmoid_highway",
+    "gated_softmax_attn",
+    "gelu_net",
+    "glu_net",
+    "googlenet",
+    "highway_net",
+    "inception_v3",
+    "leaky_relu_net",
+    "linear_classifier",
+    "maxpool_heavy",
+    "mlp_3layer",
+    "mlp_deep6",
+    "mlp_tiny",
+    "mnasnet",
+    "mobilenet_v2",
+    "mobilenet_v3_small",
+    "multi_head_concat",
+    "pruned_channel",
+    "regnet_y_400mf",
+    "resnet101",
+    "resnet18",
+    "resnet34",
+    "resnet50",
+    "resnext50_32x4d",
+    "shufflenet_v2",
+    "small_resnet",
+    "squeezenet1_0",
+    "strided_conv",
+    "vgg11",
+    "vgg16",
+    "wide_resnet50"
+  ],
+  "per_model_clean": {
+    "alexnet": {
+      "BL1_ModelScan": false,
+      "BL2_BoberHeuristic": false,
+      "BL3_LLM_RuleMimic": false,
+      "BL4_RandomTest": false,
+      "origin": "natural",
+      "truth": "clean"
+    },
+    "attention_pool": {
+      "BL1_ModelScan": false,
+      "BL2_BoberHeuristic": true,
+      "BL3_LLM_RuleMimic": false,
+      "BL4_RandomTest": false,
+      "origin": "natural",
+      "truth": "clean"
+    },
+    "avgpool_net": {
+      "BL1_ModelScan": false,
+      "BL2_BoberHeuristic": false,
+      "BL3_LLM_RuleMimic": false,
+      "BL4_RandomTest": false,
+      "origin": "natural",
+      "truth": "clean"
+    },
+    "bottleneck_net": {
+      "BL1_ModelScan": false,
+      "BL2_BoberHeuristic": false,
+      "BL3_LLM_RuleMimic": false,
+      "BL4_RandomTest": false,
+      "origin": "natural",
+      "truth": "clean"
+    },
+    "cifar_conv": {
+      "BL1_ModelScan": false,
+      "BL2_BoberHeuristic": false,
+      "BL3_LLM_RuleMimic": false,
+      "BL4_RandomTest": false,
+      "origin": "natural",
+      "truth": "clean"
+    },
+    "cifar_mlp": {
+      "BL1_ModelScan": false,
+      "BL2_BoberHeuristic": false,
+      "BL3_LLM_RuleMimic": false,
+      "BL4_RandomTest": false,
+      "origin": "natural",
+      "truth": "clean"
+    },
+    "conv_batchnorm": {
+      "BL1_ModelScan": false,
+      "BL2_BoberHeuristic": false,
+      "BL3_LLM_RuleMimic": false,
+      "BL4_RandomTest": false,
+      "origin": "natural",
+      "truth": "clean"
+    },
+    "conv_deep": {
+      "BL1_ModelScan": false,
+      "BL2_BoberHeuristic": false,
+      "BL3_LLM_RuleMimic": false,
+      "BL4_RandomTest": false,
+      "origin": "natural",
+      "truth": "clean"
+    },
+    "conv_dropout": {
+      "BL1_ModelScan": false,
+      "BL2_BoberHeuristic": false,
+      "BL3_LLM_RuleMimic": false,
+      "BL4_RandomTest": false,
+      "origin": "natural",
+      "truth": "clean"
+    },
+    "conv_groupnorm": {
+      "BL1_ModelScan": false,
+      "BL2_BoberHeuristic": false,
+      "BL3_LLM_RuleMimic": false,
+      "BL4_RandomTest": false,
+      "origin": "natural",
+      "truth": "clean"
+    },
+    "densenet121": {
+      "BL1_ModelScan": false,
+      "BL2_BoberHeuristic": false,
+      "BL3_LLM_RuleMimic": false,
+      "BL4_RandomTest": false,
+      "origin": "natural",
+      "truth": "clean"
+    },
+    "densenet169": {
+      "BL1_ModelScan": false,
+      "BL2_BoberHeuristic": false,
+      "BL3_LLM_RuleMimic": false,
+      "BL4_RandomTest": false,
+      "origin": "natural",
+      "truth": "clean"
+    },
+    "depthwise_separable": {
+      "BL1_ModelScan": false,
+      "BL2_BoberHeuristic": false,
+      "BL3_LLM_RuleMimic": false,
+      "BL4_RandomTest": false,
+      "origin": "natural",
+      "truth": "clean"
+    },
+    "dilated_conv": {
+      "BL1_ModelScan": false,
+      "BL2_BoberHeuristic": false,
+      "BL3_LLM_RuleMimic": false,
+      "BL4_RandomTest": false,
+      "origin": "natural",
+      "truth": "clean"
+    },
+    "efficientnet_b0": {
+      "BL1_ModelScan": false,
+      "BL2_BoberHeuristic": false,
+      "BL3_LLM_RuleMimic": false,
+      "BL4_RandomTest": false,
+      "origin": "natural",
+      "truth": "clean"
+    },
+    "elu_net": {
+      "BL1_ModelScan": false,
+      "BL2_BoberHeuristic": false,
+      "BL3_LLM_RuleMimic": false,
+      "BL4_RandomTest": false,
+      "origin": "natural",
+      "truth": "clean"
+    },
+    "gated_attention": {
+      "BL1_ModelScan": false,
+      "BL2_BoberHeuristic": false,
+      "BL3_LLM_RuleMimic": false,
+      "BL4_RandomTest": false,
+      "origin": "natural",
+      "truth": "clean"
+    },
+    "gated_residual": {
+      "BL1_ModelScan": false,
+      "BL2_BoberHeuristic": true,
+      "BL3_LLM_RuleMimic": false,
+      "BL4_RandomTest": false,
+      "origin": "natural",
+      "truth": "clean"
+    },
+    "gated_sigmoid_highway": {
+      "BL1_ModelScan": false,
+      "BL2_BoberHeuristic": true,
+      "BL3_LLM_RuleMimic": false,
+      "BL4_RandomTest": false,
+      "origin": "natural",
+      "truth": "clean"
+    },
+    "gated_softmax_attn": {
+      "BL1_ModelScan": false,
+      "BL2_BoberHeuristic": true,
+      "BL3_LLM_RuleMimic": false,
+      "BL4_RandomTest": false,
+      "origin": "natural",
+      "truth": "clean"
+    },
+    "gelu_net": {
+      "BL1_ModelScan": false,
+      "BL2_BoberHeuristic": false,
+      "BL3_LLM_RuleMimic": false,
+      "BL4_RandomTest": false,
+      "origin": "natural",
+      "truth": "clean"
+    },
+    "glu_net": {
+      "BL1_ModelScan": false,
+      "BL2_BoberHeuristic": false,
+      "BL3_LLM_RuleMimic": false,
+      "BL4_RandomTest": false,
+      "origin": "natural",
+      "truth": "clean"
+    },
+    "googlenet": {
+      "BL1_ModelScan": false,
+      "BL2_BoberHeuristic": false,
+      "BL3_LLM_RuleMimic": false,
+      "BL4_RandomTest": false,
+      "origin": "natural",
+      "truth": "clean"
+    },
+    "highway_net": {
+      "BL1_ModelScan": false,
+      "BL2_BoberHeuristic": true,
+      "BL3_LLM_RuleMimic": false,
+      "BL4_RandomTest": false,
+      "origin": "natural",
+      "truth": "clean"
+    },
+    "inception_v3": {
+      "BL1_ModelScan": false,
+      "BL2_BoberHeuristic": false,
+      "BL3_LLM_RuleMimic": false,
+      "BL4_RandomTest": false,
+      "origin": "natural",
+      "truth": "clean"
+    },
+    "leaky_relu_net": {
+      "BL1_ModelScan": false,
+      "BL2_BoberHeuristic": false,
+      "BL3_LLM_RuleMimic": false,
+      "BL4_RandomTest": false,
+      "origin": "natural",
+      "truth": "clean"
+    },
+    "linear_classifier": {
+      "BL1_ModelScan": false,
+      "BL2_BoberHeuristic": false,
+      "BL3_LLM_RuleMimic": false,
+      "BL4_RandomTest": false,
+      "origin": "natural",
+      "truth": "clean"
+    },
+    "maxpool_heavy": {
+      "BL1_ModelScan": false,
+      "BL2_BoberHeuristic": false,
+      "BL3_LLM_RuleMimic": false,
+      "BL4_RandomTest": false,
+      "origin": "natural",
+      "truth": "clean"
+    },
+    "mlp_3layer": {
+      "BL1_ModelScan": false,
+      "BL2_BoberHeuristic": false,
+      "BL3_LLM_RuleMimic": false,
+      "BL4_RandomTest": false,
+      "origin": "natural",
+      "truth": "clean"
+    },
+    "mlp_deep6": {
+      "BL1_ModelScan": false,
+      "BL2_BoberHeuristic": false,
+      "BL3_LLM_RuleMimic": false,
+      "BL4_RandomTest": false,
+      "origin": "natural",
+      "truth": "clean"
+    },
+    "mlp_tiny": {
+      "BL1_ModelScan": false,
+      "BL2_BoberHeuristic": false,
+      "BL3_LLM_RuleMimic": false,
+      "BL4_RandomTest": false,
+      "origin": "natural",
+      "truth": "clean"
+    },
+    "mnasnet": {
+      "BL1_ModelScan": false,
+      "BL2_BoberHeuristic": false,
+      "BL3_LLM_RuleMimic": false,
+      "BL4_RandomTest": false,
+      "origin": "natural",
+      "truth": "clean"
+    },
+    "mobilenet_v2": {
+      "BL1_ModelScan": false,
+      "BL2_BoberHeuristic": false,
+      "BL3_LLM_RuleMimic": false,
+      "BL4_RandomTest": false,
+      "origin": "natural",
+      "truth": "clean"
+    },
+    "mobilenet_v3_small": {
+      "BL1_ModelScan": false,
+      "BL2_BoberHeuristic": true,
+      "BL3_LLM_RuleMimic": false,
+      "BL4_RandomTest": false,
+      "origin": "natural",
+      "truth": "clean"
+    },
+    "multi_head_concat": {
+      "BL1_ModelScan": false,
+      "BL2_BoberHeuristic": false,
+      "BL3_LLM_RuleMimic": false,
+      "BL4_RandomTest": false,
+      "origin": "natural",
+      "truth": "clean"
+    },
+    "pruned_channel": {
+      "BL1_ModelScan": false,
+      "BL2_BoberHeuristic": false,
+      "BL3_LLM_RuleMimic": false,
+      "BL4_RandomTest": false,
+      "origin": "natural",
+      "truth": "clean"
+    },
+    "regnet_y_400mf": {
+      "BL1_ModelScan": false,
+      "BL2_BoberHeuristic": true,
+      "BL3_LLM_RuleMimic": false,
+      "BL4_RandomTest": false,
+      "origin": "natural",
+      "truth": "clean"
+    },
+    "resnet101": {
+      "BL1_ModelScan": false,
+      "BL2_BoberHeuristic": false,
+      "BL3_LLM_RuleMimic": false,
+      "BL4_RandomTest": false,
+      "origin": "natural",
+      "truth": "clean"
+    },
+    "resnet18": {
+      "BL1_ModelScan": false,
+      "BL2_BoberHeuristic": false,
+      "BL3_LLM_RuleMimic": false,
+      "BL4_RandomTest": false,
+      "origin": "natural",
+      "truth": "clean"
+    },
+    "resnet34": {
+      "BL1_ModelScan": false,
+      "BL2_BoberHeuristic": false,
+      "BL3_LLM_RuleMimic": false,
+      "BL4_RandomTest": false,
+      "origin": "natural",
+      "truth": "clean"
+    },
+    "resnet50": {
+      "BL1_ModelScan": false,
+      "BL2_BoberHeuristic": false,
+      "BL3_LLM_RuleMimic": false,
+      "BL4_RandomTest": false,
+      "origin": "natural",
+      "truth": "clean"
+    },
+    "resnext50_32x4d": {
+      "BL1_ModelScan": false,
+      "BL2_BoberHeuristic": false,
+      "BL3_LLM_RuleMimic": false,
+      "BL4_RandomTest": false,
+      "origin": "natural",
+      "truth": "clean"
+    },
+    "shufflenet_v2": {
+      "BL1_ModelScan": false,
+      "BL2_BoberHeuristic": false,
+      "BL3_LLM_RuleMimic": false,
+      "BL4_RandomTest": false,
+      "origin": "natural",
+      "truth": "clean"
+    },
+    "small_resnet": {
+      "BL1_ModelScan": false,
+      "BL2_BoberHeuristic": false,
+      "BL3_LLM_RuleMimic": false,
+      "BL4_RandomTest": false,
+      "origin": "natural",
+      "truth": "clean"
+    },
+    "squeezenet1_0": {
+      "BL1_ModelScan": false,
+      "BL2_BoberHeuristic": false,
+      "BL3_LLM_RuleMimic": false,
+      "BL4_RandomTest": false,
+      "origin": "natural",
+      "truth": "clean"
+    },
+    "strided_conv": {
+      "BL1_ModelScan": false,
+      "BL2_BoberHeuristic": false,
+      "BL3_LLM_RuleMimic": false,
+      "BL4_RandomTest": false,
+      "origin": "natural",
+      "truth": "clean"
+    },
+    "vgg11": {
+      "BL1_ModelScan": false,
+      "BL2_BoberHeuristic": false,
+      "BL3_LLM_RuleMimic": false,
+      "BL4_RandomTest": false,
+      "origin": "natural",
+      "truth": "clean"
+    },
+    "vgg16": {
+      "BL1_ModelScan": false,
+      "BL2_BoberHeuristic": false,
+      "BL3_LLM_RuleMimic": false,
+      "BL4_RandomTest": false,
+      "origin": "natural",
+      "truth": "clean"
+    },
+    "wide_resnet50": {
+      "BL1_ModelScan": false,
+      "BL2_BoberHeuristic": false,
+      "BL3_LLM_RuleMimic": false,
+      "BL4_RandomTest": false,
+      "origin": "natural",
+      "truth": "clean"
+    }
+  },
+  "per_model_backdoor": {
+    "op_int_tar": {
+      "BL1_ModelScan": true,
+      "BL2_BoberHeuristic": true,
+      "BL3_LLM_RuleMimic": false,
+      "BL4_RandomTest": false,
+      "origin": "in-class",
+      "truth": "backdoor"
+    },
+    "op_int_tar_L0001": {
+      "BL1_ModelScan": true,
+      "BL2_BoberHeuristic": true,
+      "BL3_LLM_RuleMimic": false,
+      "BL4_RandomTest": false,
+      "origin": "in-class",
+      "truth": "backdoor"
+    },
+    "op_int_tar_L001": {
+      "BL1_ModelScan": true,
+      "BL2_BoberHeuristic": true,
+      "BL3_LLM_RuleMimic": false,
+      "BL4_RandomTest": false,
+      "origin": "in-class",
+      "truth": "backdoor"
+    },
+    "op_int_tar_L01": {
+      "BL1_ModelScan": true,
+      "BL2_BoberHeuristic": true,
+      "BL3_LLM_RuleMimic": false,
+      "BL4_RandomTest": false,
+      "origin": "in-class",
+      "truth": "backdoor"
+    },
+    "op_int_un": {
+      "BL1_ModelScan": true,
+      "BL2_BoberHeuristic": true,
+      "BL3_LLM_RuleMimic": false,
+      "BL4_RandomTest": false,
+      "origin": "in-class",
+      "truth": "backdoor"
+    },
+    "op_sep_tar": {
+      "BL1_ModelScan": true,
+      "BL2_BoberHeuristic": true,
+      "BL3_LLM_RuleMimic": false,
+      "BL4_RandomTest": false,
+      "origin": "in-class",
+      "truth": "backdoor"
+    },
+    "op_sep_un": {
+      "BL1_ModelScan": true,
+      "BL2_BoberHeuristic": true,
+      "BL3_LLM_RuleMimic": false,
+      "BL4_RandomTest": false,
+      "origin": "in-class",
+      "truth": "backdoor"
+    },
+    "op_sha_tar": {
+      "BL1_ModelScan": true,
+      "BL2_BoberHeuristic": true,
+      "BL3_LLM_RuleMimic": false,
+      "BL4_RandomTest": false,
+      "origin": "in-class",
+      "truth": "backdoor"
+    },
+    "op_sha_un": {
+      "BL1_ModelScan": true,
+      "BL2_BoberHeuristic": true,
+      "BL3_LLM_RuleMimic": false,
+      "BL4_RandomTest": false,
+      "origin": "in-class",
+      "truth": "backdoor"
+    },
+    "H2_AvgPoolGated": {
+      "BL1_ModelScan": false,
+      "BL2_BoberHeuristic": true,
+      "BL3_LLM_RuleMimic": false,
+      "BL4_RandomTest": false,
+      "origin": "in-class",
+      "truth": "backdoor"
+    },
+    "H3_MulIndicatorGated": {
+      "BL1_ModelScan": false,
+      "BL2_BoberHeuristic": true,
+      "BL3_LLM_RuleMimic": true,
+      "BL4_RandomTest": false,
+      "origin": "in-class",
+      "truth": "backdoor"
+    }
+  },
+  "summary_11plus49": {
+    "BL1_ModelScan": {
+      "tp": 9,
+      "fp": 0,
+      "fn": 2,
+      "tn": 49,
+      "err_bd": 0,
+      "err_clean": 0,
+      "prec": 1.0,
+      "recall": 0.8182,
+      "f1": 0.9
+    },
+    "BL2_BoberHeuristic": {
+      "tp": 11,
+      "fp": 7,
+      "fn": 0,
+      "tn": 42,
+      "err_bd": 0,
+      "err_clean": 0,
+      "prec": 0.6111,
+      "recall": 1.0,
+      "f1": 0.7586
+    },
+    "BL3_LLM_RuleMimic": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 10,
+      "tn": 49,
+      "err_bd": 0,
+      "err_clean": 0,
+      "prec": 1.0,
+      "recall": 0.0909,
+      "f1": 0.1667
+    },
+    "BL4_RandomTest": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 11,
+      "tn": 49,
+      "err_bd": 0,
+      "err_clean": 0,
+      "prec": 0.0,
+      "recall": 0.0,
+      "f1": 0.0
+    }
+  },
+  "newly_run_count": 18,
+  "newly_run_models": [
+    "alexnet",
+    "densenet121",
+    "densenet169",
+    "efficientnet_b0",
+    "googlenet",
+    "inception_v3",
+    "mlp_deep6",
+    "mnasnet",
+    "mobilenet_v2",
+    "regnet_y_400mf",
+    "resnet101",
+    "resnet18",
+    "resnet34",
+    "resnet50",
+    "resnext50_32x4d",
+    "vgg11",
+    "vgg16",
+    "wide_resnet50"
+  ]
+}

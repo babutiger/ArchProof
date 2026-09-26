@@ -1,0 +1,848 @@
+[
+  {
+    "name": "op_sep_tar",
+    "type": "backdoor",
+    "verdict": "DORMANT",
+    "sound_dormant": true,
+    "tau_bound": 0.0,
+    "tau_split50": 0.0,
+    "output_preservation": "-",
+    "pgd_detected": true,
+    "eps_star": 3.6892926590517163,
+    "delta": 0.02737782523036003
+  },
+  {
+    "name": "op_sep_un",
+    "type": "backdoor",
+    "verdict": "DORMANT",
+    "sound_dormant": true,
+    "tau_bound": 0.0,
+    "tau_split50": 0.0,
+    "output_preservation": "[1.000,1.000]",
+    "pgd_detected": true,
+    "eps_star": 3.788260790053755,
+    "delta": 0.017721597105264664
+  },
+  {
+    "name": "op_sha_tar",
+    "type": "backdoor",
+    "verdict": "DORMANT",
+    "sound_dormant": true,
+    "tau_bound": 0.0,
+    "tau_split50": 0.0,
+    "output_preservation": "[1.000,1.000]",
+    "pgd_detected": true,
+    "eps_star": 0.003823538776487112,
+    "delta": 0.015179581008851528
+  },
+  {
+    "name": "op_sha_un",
+    "type": "backdoor",
+    "verdict": "DORMANT",
+    "sound_dormant": true,
+    "tau_bound": 0.0,
+    "tau_split50": 0.0,
+    "output_preservation": "[1.000,1.000]",
+    "pgd_detected": true,
+    "eps_star": 3.6207005036994815,
+    "delta": 0.023709267377853394
+  },
+  {
+    "name": "op_int_tar",
+    "type": "backdoor",
+    "verdict": "OUTPUT-PRESERVED",
+    "sound_dormant": false,
+    "tau_bound": 0.015625,
+    "tau_split50": null,
+    "output_preservation": "[1.000,1.000]",
+    "pgd_detected": true,
+    "eps_star": 3.5766290896572173,
+    "delta": 0.021567557007074356
+  },
+  {
+    "name": "op_int_un",
+    "type": "backdoor",
+    "verdict": "DORMANT",
+    "sound_dormant": true,
+    "tau_bound": 0.0,
+    "tau_split50": 0.0,
+    "output_preservation": "[1.000,1.000]",
+    "pgd_detected": true,
+    "eps_star": 3.8404960255138576,
+    "delta": 0.01388070359826088
+  },
+  {
+    "name": "con_sep_tar",
+    "type": "backdoor",
+    "verdict": "DORMANT",
+    "sound_dormant": true,
+    "tau_bound": 0.0,
+    "tau_split50": 0.0,
+    "output_preservation": "-",
+    "pgd_detected": true,
+    "eps_star": 0.003862601239234209,
+    "delta": 104.14529418945312
+  },
+  {
+    "name": "con_sep_un",
+    "type": "backdoor",
+    "verdict": "DORMANT",
+    "sound_dormant": true,
+    "tau_bound": 0.0,
+    "tau_split50": 0.0,
+    "output_preservation": "[1.000,1.000]",
+    "pgd_detected": true,
+    "eps_star": 0.003862601239234209,
+    "delta": 3.8282992839813232
+  },
+  {
+    "name": "con_sha_tar",
+    "type": "backdoor",
+    "verdict": "DORMANT",
+    "sound_dormant": true,
+    "tau_bound": 0.0,
+    "tau_split50": 0.0,
+    "output_preservation": "[1.000,1.000]",
+    "pgd_detected": true,
+    "eps_star": 0.003862601239234209,
+    "delta": 3.103635787963867
+  },
+  {
+    "name": "con_sha_un",
+    "type": "backdoor",
+    "verdict": "DORMANT",
+    "sound_dormant": true,
+    "tau_bound": 0.0,
+    "tau_split50": 0.0,
+    "output_preservation": "[1.000,1.000]",
+    "pgd_detected": true,
+    "eps_star": 3.80020353756845,
+    "delta": 1.9459480047225952
+  },
+  {
+    "name": "op_sep_un_L01",
+    "type": "backdoor",
+    "verdict": "OUTPUT-PRESERVED",
+    "sound_dormant": false,
+    "tau_bound": 2.139451384671819,
+    "tau_split50": null,
+    "output_preservation": "[0.941,1.000]",
+    "pgd_detected": true,
+    "eps_star": 0.003823538776487112,
+    "delta": 0.18475842475891113
+  },
+  {
+    "name": "op_sep_un_L001",
+    "type": "backdoor",
+    "verdict": "OUTPUT-PRESERVED",
+    "sound_dormant": false,
+    "tau_bound": 1.9623513164773536,
+    "tau_split50": null,
+    "output_preservation": "[0.997,1.000]",
+    "pgd_detected": true,
+    "eps_star": 0.003862601239234209,
+    "delta": 0.4558360278606415
+  },
+  {
+    "name": "op_sep_un_L0001",
+    "type": "backdoor",
+    "verdict": "OUTPUT-PRESERVED",
+    "sound_dormant": false,
+    "tau_bound": 1.8542822814061717,
+    "tau_split50": null,
+    "output_preservation": "[1.000,1.000]",
+    "pgd_detected": true,
+    "eps_star": 0.003862601239234209,
+    "delta": 3.995706558227539
+  },
+  {
+    "name": "op_sha_tar_L01",
+    "type": "backdoor",
+    "verdict": "DORMANT",
+    "sound_dormant": true,
+    "tau_bound": 0.0,
+    "tau_split50": 0.0,
+    "output_preservation": "[0.941,1.000]",
+    "pgd_detected": true,
+    "eps_star": 0.003862601239234209,
+    "delta": 0.07260198891162872
+  },
+  {
+    "name": "op_sha_tar_L001",
+    "type": "backdoor",
+    "verdict": "DORMANT",
+    "sound_dormant": true,
+    "tau_bound": 0.0,
+    "tau_split50": 0.0,
+    "output_preservation": "[0.997,1.000]",
+    "pgd_detected": true,
+    "eps_star": 0.003823538776487112,
+    "delta": 0.6187803745269775
+  },
+  {
+    "name": "op_sha_tar_L0001",
+    "type": "backdoor",
+    "verdict": "DORMANT",
+    "sound_dormant": true,
+    "tau_bound": 0.0,
+    "tau_split50": 0.0,
+    "output_preservation": "[1.000,1.000]",
+    "pgd_detected": true,
+    "eps_star": 2.6670250073075294,
+    "delta": 2.391791582107544
+  },
+  {
+    "name": "op_int_tar_L01",
+    "type": "backdoor",
+    "verdict": "OUTPUT-PRESERVED",
+    "sound_dormant": false,
+    "tau_bound": 0.015625,
+    "tau_split50": null,
+    "output_preservation": "[0.941,1.000]",
+    "pgd_detected": true,
+    "eps_star": 3.93649585172534,
+    "delta": 0.017665572464466095
+  },
+  {
+    "name": "op_int_tar_L001",
+    "type": "backdoor",
+    "verdict": "OUTPUT-PRESERVED",
+    "sound_dormant": false,
+    "tau_bound": 0.015625,
+    "tau_split50": null,
+    "output_preservation": "[0.997,1.000]",
+    "pgd_detected": true,
+    "eps_star": 0.8908845349214971,
+    "delta": 0.026028968393802643
+  },
+  {
+    "name": "op_int_tar_L0001",
+    "type": "backdoor",
+    "verdict": "OUTPUT-PRESERVED",
+    "sound_dormant": false,
+    "tau_bound": 0.015625,
+    "tau_split50": null,
+    "output_preservation": "[1.000,1.000]",
+    "pgd_detected": true,
+    "eps_star": 3.5955972969532013,
+    "delta": 0.1345798820257187
+  },
+  {
+    "name": "H1_SignGated",
+    "type": "backdoor",
+    "verdict": "DORMANT",
+    "sound_dormant": true,
+    "tau_bound": 0.0,
+    "tau_split50": 0.0,
+    "output_preservation": "-",
+    "pgd_detected": true,
+    "eps_star": 3.440745210275054,
+    "delta": 0.16782182455062866
+  },
+  {
+    "name": "H2_AvgPoolGated",
+    "type": "backdoor",
+    "verdict": "\u03c4-BOUNDED",
+    "sound_dormant": false,
+    "tau_bound": 1.1920928799646902e-08,
+    "tau_split50": null,
+    "output_preservation": "-",
+    "pgd_detected": true,
+    "eps_star": 3.737005703849718,
+    "delta": 0.1799938976764679
+  },
+  {
+    "name": "H3_MulIndicatorGated",
+    "type": "backdoor",
+    "verdict": "DORMANT",
+    "sound_dormant": true,
+    "tau_bound": 0.0,
+    "tau_split50": 0.0,
+    "output_preservation": "-",
+    "pgd_detected": true,
+    "eps_star": 2.1553314914926887,
+    "delta": 19.706607818603516
+  },
+  {
+    "name": "alexnet",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "attention_pool",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "avgpool_net",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "bottleneck_net",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "cifar_conv",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "cifar_mlp",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "clean_G1adv_dormant_add",
+    "type": "clean",
+    "verdict": "BENIGN",
+    "sound_fp": false
+  },
+  {
+    "name": "clean_G1adv_dormant_concat",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "clean_G4adv_ghost_mul",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "clean_bifpn",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "clean_cbam",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "clean_channel_shuffle",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "clean_convmixer",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "clean_cross_attention",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "clean_denseblock",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "clean_eca",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "clean_firemodule",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "clean_gated_delta",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "clean_geglu",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "clean_ghostnet",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "clean_gru_recurrent",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "clean_hardswish",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "clean_hardtanh",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "clean_instancenorm",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "clean_inverted_residual",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "clean_lambda",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "clean_layernorm",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "clean_lrn",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "clean_mhsa",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "clean_mish",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "clean_non_local",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "clean_posffn",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "clean_position_droppath",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "clean_prelu",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "clean_residual_mlp",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "clean_resnest",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "clean_rmsnorm",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "clean_simple_cnn_a",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "clean_simple_cnn_b",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "clean_sknet",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "clean_softmax_router",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "clean_spatial_pyramid",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "clean_swish",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "clean_tiny_convnext",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "clean_unet_tiny",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "conv_batchnorm",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "conv_deep",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "conv_dropout",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "conv_groupnorm",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "densenet121",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "densenet169",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "depthwise_separable",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "dilated_conv",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "efficientnet_b0",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "elu_net",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "film_conditioning",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "gated_attention",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "gated_maxpool_selector",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "gated_residual",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "gated_sigmoid_highway",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "gated_softmax_attn",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "gelu_net",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "glu_net",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "googlenet",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "gru_gate_residual",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "high_threshold_skip",
+    "type": "clean",
+    "verdict": "BENIGN",
+    "sound_fp": false
+  },
+  {
+    "name": "highway_net",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "inception_v3",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "leaky_relu_net",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "linear_classifier",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "maxpool_heavy",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "mlp_3layer",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "mlp_deep6",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "mlp_tiny",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "mnasnet",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "mobilenet_v2",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "mobilenet_v3_small",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "moe_router",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "multi_head_concat",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "pruned_channel",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "regnet_y_400mf",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "resnet101",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "resnet18",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "resnet34",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "resnet50",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "resnext50_32x4d",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "rezero_block",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "se_block",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "shufflenet_v2",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "small_resnet",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "squeezenet1_0",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "strided_conv",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "swiglu_ffn",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "vgg11",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "vgg16",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "wide_resnet50",
+    "type": "clean",
+    "verdict": "GDP-FREE",
+    "sound_fp": false
+  },
+  {
+    "name": "zero_init_residual",
+    "type": "clean",
+    "verdict": "BENIGN",
+    "sound_fp": false
+  }
+]

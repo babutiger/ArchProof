@@ -1,0 +1,6 @@
+llm,config,epsilon_postfix,verdict_postfix,n_syntactic,n_admitted,n_excluded_non_dormant,epsilon_prefix_b,abs_diff,rel_diff,bit_exact,export_sec,verify_sec,status
+gpt-j-6b,T_default,15849745348.019485,add-DGP-CERTIFIED-POSITIVE,1,1,0,15849745348.019485,0.0,0.0,True,149.7,769.4,ok
+yi-6b,T_default,567758278987.4542,add-DGP-CERTIFIED-POSITIVE,33,1,0,567758278987.4542,0.0,0.0,True,145.6,394.1,ok
+deepseek-7b,T_default,47309054609.192245,add-DGP-CERTIFIED-POSITIVE,31,1,0,47309054609.192245,0.0,0.0,True,158.0,460.5,ok
+mistral-7b,T_default,345552677709.9668,add-DGP-CERTIFIED-POSITIVE,33,1,0,345552677709.9668,0.0,0.0,True,164.1,497.5,ok
+qwen2-7b,T_default,3841426260290.1934,add-DGP-CERTIFIED-POSITIVE,29,1,0,3841426260290.1934,0.0,0.0,True,180.0,453.1,ok

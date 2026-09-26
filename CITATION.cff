@@ -1,0 +1,39 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the paper below."
+title: "ArchProof"
+type: software
+repository-code: "https://github.com/babutiger/ArchProof"
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.22722330
+    description: "Archived artifact (Zenodo)"
+license: MIT
+authors:
+  - family-names: Xu
+    given-names: Jin
+    orcid: "https://orcid.org/0009-0000-3791-6336"
+    affiliation: "Tongji University"
+  - family-names: Zhang
+    given-names: Miaomiao
+    orcid: "https://orcid.org/0000-0001-9179-0893"
+    affiliation: "Tongji University"
+  - family-names: Du
+    given-names: Bowen
+    orcid: "https://orcid.org/0000-0002-3755-4870"
+    affiliation: "Tongji University"
+preferred-citation:
+  type: conference-paper
+  title: "ArchProof: A Sound Output-Contribution Certificate for Dormant-Gate Path Backdoors in ONNX Models"
+  authors:
+    - family-names: Xu
+      given-names: Jin
+    - family-names: Zhang
+      given-names: Miaomiao
+    - family-names: Du
+      given-names: Bowen
+  collection-title: "Proceedings of the 2026 ACM SIGSAC Conference on Computer and Communications Security (CCS '26)"
+  publisher:
+    name: "ACM"
+  year: 2026
+  month: 11
+  doi: 10.1145/3830454.3846590

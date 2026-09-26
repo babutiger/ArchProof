@@ -1,0 +1,67 @@
+{
+  "original": {
+    "verdict": "\u03b5-BOUNDED",
+    "n_gdp_syntactic": 3,
+    "n_admitted": 3,
+    "total_epsilon": 1.9965237417111492,
+    "total_output_margin": 41.748692475992605,
+    "error": null
+  },
+  "breaks": [
+    {
+      "label": "constfold",
+      "transform": {
+        "transform": "const-fold-gate",
+        "n_sigmoids_replaced": 3
+      },
+      "verify": {
+        "verdict": "GDP-FREE",
+        "n_gdp_syntactic": 0,
+        "n_admitted": 0,
+        "total_epsilon": 0.0,
+        "total_output_margin": 0.0,
+        "error": null
+      },
+      "bijection_holds": false,
+      "sub_verdict_emitted": "undecided-exporter",
+      "fail_closed": true
+    },
+    {
+      "label": "fused",
+      "transform": {
+        "transform": "fuse-sigmoid-mul",
+        "n_pairs_fused": 3
+      },
+      "verify": {
+        "verdict": "GDP-FREE",
+        "n_gdp_syntactic": 0,
+        "n_admitted": 0,
+        "total_epsilon": 0.0,
+        "total_output_margin": 0.0,
+        "error": null
+      },
+      "bijection_holds": false,
+      "sub_verdict_emitted": "undecided-exporter",
+      "fail_closed": true
+    },
+    {
+      "label": "custom",
+      "transform": {
+        "transform": "custom-gate-op",
+        "n_rewrites": 3
+      },
+      "verify": {
+        "verdict": "GDP-FREE",
+        "n_gdp_syntactic": 0,
+        "n_admitted": 0,
+        "total_epsilon": 0.0,
+        "total_output_margin": 0.0,
+        "error": null
+      },
+      "bijection_holds": false,
+      "sub_verdict_emitted": "undecided-exporter",
+      "fail_closed": true
+    }
+  ],
+  "all_fail_closed": true
+}

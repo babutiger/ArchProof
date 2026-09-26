@@ -1,0 +1,64 @@
+[
+  {
+    "name": "resnet18-imagenet",
+    "source": "torchvision",
+    "size_mb": 44.6,
+    "nodes": 72,
+    "gdp_candidates": 0,
+    "verdict": "GDP-FREE",
+    "tau_ibp": 4.0078,
+    "ibp_time": 21.85
+  },
+  {
+    "name": "resnet50-imagenet",
+    "source": "torchvision",
+    "size_mb": 97.7,
+    "nodes": 179,
+    "gdp_candidates": 0,
+    "verdict": "GDP-FREE",
+    "tau_ibp": 6.3828,
+    "ibp_time": 45.35
+  },
+  {
+    "name": "mobilenet-v2",
+    "source": "torchvision",
+    "size_mb": 13.6,
+    "nodes": 222,
+    "gdp_candidates": 0,
+    "verdict": "GDP-FREE",
+    "tau_ibp": null,
+    "ibp_time": 49.63
+  },
+  {
+    "name": "efficientnet-b0",
+    "source": "torchvision",
+    "size_mb": 20.4,
+    "nodes": 288,
+    "gdp_candidates": 0,
+    "verdict": "GDP-FREE",
+    "tau_ibp": null,
+    "ibp_time": 50.6
+  },
+  {
+    "name": "vgg16-imagenet",
+    "source": "torchvision",
+    "size_mb": 527.8,
+    "nodes": 38,
+    "gdp_candidates": 0,
+    "verdict": "GDP-FREE",
+    "tau_ibp": 5.5973,
+    "ibp_time": 253.89
+  },
+  {
+    "name": "bert-base",
+    "error": "No module named 'transformers'"
+  },
+  {
+    "name": "distilbert",
+    "error": "No module named 'transformers'"
+  },
+  {
+    "name": "gpt2",
+    "error": "No module named 'transformers'"
+  }
+]

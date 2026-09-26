@@ -1,0 +1,176 @@
+{
+  "tau_adm": 0.3,
+  "n_models": 21,
+  "n_with_witness": 20,
+  "n_without_witness": 1,
+  "results": [
+    {
+      "found": true,
+      "witness_linf": 1.1861965656280518,
+      "n_evals": 258,
+      "model": "attention_pool.onnx",
+      "gate_tensor": "/Relu_output_0",
+      "wall_sec": 0.13
+    },
+    {
+      "found": true,
+      "witness_linf": 0.3040144443511963,
+      "n_evals": 5141,
+      "model": "clean_G4adv_ghost_mul.onnx",
+      "gate_tensor": "/Relu_1_output_0",
+      "wall_sec": 0.98
+    },
+    {
+      "found": true,
+      "witness_linf": 1.5551400184631348,
+      "n_evals": 258,
+      "model": "clean_cbam.onnx",
+      "gate_tensor": "/Relu_output_0",
+      "wall_sec": 0.14
+    },
+    {
+      "found": true,
+      "witness_linf": 1.45320463180542,
+      "n_evals": 258,
+      "model": "clean_eca.onnx",
+      "gate_tensor": "/Relu_output_0",
+      "wall_sec": 0.1
+    },
+    {
+      "found": true,
+      "witness_linf": 0.6312177777290344,
+      "n_evals": 258,
+      "model": "clean_gated_delta.onnx",
+      "gate_tensor": "/Sigmoid_output_0",
+      "wall_sec": 0.13
+    },
+    {
+      "found": true,
+      "witness_linf": 0.5953075289726257,
+      "n_evals": 258,
+      "model": "clean_gru_recurrent.onnx",
+      "gate_tensor": "/gru/Sigmoid_output_0",
+      "wall_sec": 0.09
+    },
+    {
+      "found": true,
+      "witness_linf": 0.8958396315574646,
+      "n_evals": 258,
+      "model": "clean_mish.onnx",
+      "gate_tensor": "/Tanh_output_0",
+      "wall_sec": 0.05
+    },
+    {
+      "found": true,
+      "witness_linf": 0.609164297580719,
+      "n_evals": 258,
+      "model": "clean_resnest.onnx",
+      "gate_tensor": "/Relu_1_output_0",
+      "wall_sec": 0.07
+    },
+    {
+      "found": true,
+      "witness_linf": 0.5857412815093994,
+      "n_evals": 258,
+      "model": "clean_sknet.onnx",
+      "gate_tensor": "/Relu_1_output_0",
+      "wall_sec": 0.07
+    },
+    {
+      "found": true,
+      "witness_linf": 0.8030623197555542,
+      "n_evals": 258,
+      "model": "clean_swish.onnx",
+      "gate_tensor": "/Sigmoid_output_0",
+      "wall_sec": 0.07
+    },
+    {
+      "found": true,
+      "witness_linf": 1.488826870918274,
+      "n_evals": 258,
+      "model": "film_conditioning.onnx",
+      "gate_tensor": "/Relu_output_0",
+      "wall_sec": 0.06
+    },
+    {
+      "found": true,
+      "witness_linf": 1.0100984573364258,
+      "n_evals": 258,
+      "model": "gated_residual.onnx",
+      "gate_tensor": "/Relu_output_0",
+      "wall_sec": 0.02
+    },
+    {
+      "found": true,
+      "witness_linf": 1.0151252746582031,
+      "n_evals": 258,
+      "model": "gated_sigmoid_highway.onnx",
+      "gate_tensor": "/Relu_output_0",
+      "wall_sec": 0.02
+    },
+    {
+      "found": true,
+      "witness_linf": 0.9342144131660461,
+      "n_evals": 258,
+      "model": "gated_softmax_attn.onnx",
+      "gate_tensor": "/Relu_output_0",
+      "wall_sec": 0.01
+    },
+    {
+      "found": true,
+      "witness_linf": 0.8198278546333313,
+      "n_evals": 258,
+      "model": "glu_net.onnx",
+      "gate_tensor": "/Sigmoid_output_0",
+      "wall_sec": 0.05
+    },
+    {
+      "found": true,
+      "witness_linf": 0.6541065573692322,
+      "n_evals": 258,
+      "model": "gru_gate_residual.onnx",
+      "gate_tensor": "/Sigmoid_output_0",
+      "wall_sec": 0.1
+    },
+    {
+      "found": "False",
+      "witness_linf": 0.0,
+      "n_evals": 61686,
+      "model": "high_threshold_skip.onnx",
+      "gate_tensor": "/Relu_1_output_0",
+      "wall_sec": 6.75
+    },
+    {
+      "found": true,
+      "witness_linf": 0.5699108242988586,
+      "n_evals": 258,
+      "model": "highway_net.onnx",
+      "gate_tensor": "/Sigmoid_output_0",
+      "wall_sec": 0.18
+    },
+    {
+      "found": true,
+      "witness_linf": 0.5102506875991821,
+      "n_evals": 258,
+      "model": "mobilenet_v3_small.onnx",
+      "gate_tensor": "/features/features.1/block/block.1/scale_activation/HardSigmoid_output_0",
+      "wall_sec": 1.32
+    },
+    {
+      "found": true,
+      "witness_linf": 0.6673291921615601,
+      "n_evals": 258,
+      "model": "se_block.onnx",
+      "gate_tensor": "/Relu_1_output_0",
+      "wall_sec": 0.07
+    },
+    {
+      "found": true,
+      "witness_linf": 0.5848367810249329,
+      "n_evals": 258,
+      "model": "swiglu_ffn.onnx",
+      "gate_tensor": "/Sigmoid_output_0",
+      "wall_sec": 0.03
+    }
+  ]
+}
