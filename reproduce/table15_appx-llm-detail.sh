@@ -14,8 +14,11 @@ echo ">> Table 15 and compare each value by eye."
 echo "================================================================"
 if [ "${RERUN:-0}" = "1" ]; then
   echo ">> [RERUN] re-running the whole-model LLM experiment from scratch (needs the LLM tier):"
-  echo "   PYTHONPATH="$PWD" python scripts/repro_llm_verify_existing.py --only gpt-j-6b,yi-6b,deepseek-7b,mistral-7b,qwen2-7b"
-  PYTHONPATH="$PWD" python scripts/repro_llm_verify_existing.py --only gpt-j-6b,yi-6b,deepseek-7b,mistral-7b,qwen2-7b
+  # The driver verifies the existing clean + backdoored exports read-only and prints,
+  # per LLM, the recomputed certificate next to the paper's value; its per-run CSV
+  # goes to benchmark/llm_verify_rerun.csv (the bundled record stays the checked one).
+  echo "   PYTHONPATH="$PWD" python scripts/repro_llm_verify_existing.py --only gpt-j-6b,yi-6b,deepseek-7b,mistral-7b,qwen2-7b --out benchmark/llm_verify_rerun.csv"
+  PYTHONPATH="$PWD" python scripts/repro_llm_verify_existing.py --only gpt-j-6b,yi-6b,deepseek-7b,mistral-7b,qwen2-7b --out benchmark/llm_verify_rerun.csv
   echo
 fi
 python verify/check_tables.py --only "tab:appx:llm-detail" --verbose
